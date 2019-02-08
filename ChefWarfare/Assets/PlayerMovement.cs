@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerScript : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     //public variables
     public float moveSpeed;
     public float rotSpeed;
+    public GameObject Weapon_PeaShooter;
+    public SpriteRenderer Weapon_PeaShooterSpriteRenderer;
 
     //private variables
     private Rigidbody2D rb;
-    public GameObject weapon;
-    public SpriteRenderer weaponSpriteRenderer;
     private GameObject weaponPivotPoint;
 
     // Start is called before the first frame update
@@ -51,12 +51,12 @@ public class PlayerScript : MonoBehaviour
             //if weapon is pointed above x axis, gun appears behind player
             if (angle <= 90 && angle >= -90)
             {
-                weaponSpriteRenderer.sortingOrder = -1;
+                Weapon_PeaShooterSpriteRenderer.sortingOrder = -1;
             }
             //if weapon is pointed below x axis, gun appears in front of player
             else
             {
-                weaponSpriteRenderer.sortingOrder = 1;
+                Weapon_PeaShooterSpriteRenderer.sortingOrder = 1;
             }
         }
 
