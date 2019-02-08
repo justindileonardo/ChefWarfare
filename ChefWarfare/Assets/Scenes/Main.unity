@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 567615706}
   - component: {fileID: 567615705}
   - component: {fileID: 567615710}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -369,7 +369,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1572428397}
   - component: {fileID: 1572428398}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PeaShooter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -447,7 +447,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1625397759}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Weapon_PivotPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -21,6 +21,6 @@ public class Pea : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.position += transform.up * speed * Time.deltaTime;
     }
 }

@@ -45,7 +45,6 @@ public class WeaponManager : MonoBehaviour
             {
                 peaShooterCooldown = 2f;
                 Instantiate(PeaPrefab, new Vector3(Weapon_PeaShooter.transform.position.x, Weapon_PeaShooter.transform.position.y, Weapon_PeaShooter.transform.position.z), Weapon_PivotPoint.transform.rotation);
-                print("Attack");
             }
         }
 
