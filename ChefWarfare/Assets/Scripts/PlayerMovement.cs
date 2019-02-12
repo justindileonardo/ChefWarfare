@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     public float rotSpeed;
     public GameObject Weapon_PeaShooter;
     public SpriteRenderer Weapon_PeaShooterSpriteRenderer;
+    public SpriteRenderer armsSprite;
+    public SpriteRenderer chefSprite;
 
     //private variables
     private Rigidbody2D rb;
@@ -47,17 +49,34 @@ public class PlayerMovement : MonoBehaviour
         {
             float angle = Mathf.Atan2(yRot, -xRot) * Mathf.Rad2Deg * rotSpeed;
             weaponPivotPoint.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+            print(angle);
 
             //if weapon is pointed above x axis, gun appears behind player
             if (angle <= 90 && angle >= -90)
             {
                 Weapon_PeaShooterSpriteRenderer.sortingOrder = -1;
+                armsSprite.sortingOrder = -1;
             }
             //if weapon is pointed below x axis, gun appears in front of player
             else
             {
                 Weapon_PeaShooterSpriteRenderer.sortingOrder = 1;
+                armsSprite.sortingOrder = 1;
             }
+
+
+            //flipping sprite
+            if(angle <= 0)
+            {
+                chefSprite.flipX = false;
+                armsSprite.flipX = false;
+            }
+            else
+            {
+                chefSprite.flipX = true;
+                armsSprite.flipX = true;
+            }
+
         }
 
     }

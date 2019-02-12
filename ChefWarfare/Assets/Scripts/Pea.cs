@@ -7,7 +7,7 @@ public class Pea : MonoBehaviour
 
     private GameObject Weapon_PeaShooter;
     private GameObject Weapon_PivotPoint;
-    private float speed = 10.0f;
+    private float speed = 20.0f;
     private Rigidbody2D rb;
 
     // Start is called before the first frame update
