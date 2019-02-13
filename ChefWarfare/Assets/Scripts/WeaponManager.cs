@@ -7,7 +7,8 @@ public class WeaponManager : MonoBehaviour
     //public variables
     public GameObject Weapon_PivotPoint;
     //Pea Shooter
-    public GameObject Weapon_PeaShooter; 
+    public GameObject Weapon_PeaShooter;
+    public GameObject Weapon_PeaShooter_BulletSpawnPoint;
     public bool hasWeaponPeaShooter;
     public bool weaponPeaShooterActive;
     //Pea
@@ -24,7 +25,6 @@ public class WeaponManager : MonoBehaviour
     {
         hasWeaponPeaShooter = true;
         weaponPeaShooterActive = true;
-        peaShooterCooldown = 2f;
     }
 
     // Update is called once per frame
@@ -44,7 +44,7 @@ public class WeaponManager : MonoBehaviour
             if(attackMain != 0 && peaShooterCooldown < 0)
             {
                 peaShooterCooldown = 2f;
-                Instantiate(PeaPrefab, new Vector3(Weapon_PeaShooter.transform.position.x, Weapon_PeaShooter.transform.position.y, Weapon_PeaShooter.transform.position.z), Weapon_PivotPoint.transform.rotation);
+                Instantiate(PeaPrefab, new Vector3(Weapon_PeaShooter_BulletSpawnPoint.transform.position.x, Weapon_PeaShooter_BulletSpawnPoint.transform.position.y, Weapon_PeaShooter_BulletSpawnPoint.transform.position.z), Weapon_PivotPoint.transform.rotation);
             }
         }
 

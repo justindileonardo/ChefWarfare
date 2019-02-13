@@ -7,26 +7,31 @@ public class PlayerMovement : MonoBehaviour
     //public variables
     public float moveSpeed;
     public float rotSpeed;
+    public int HP;
+    public GameObject weaponPivotPoint;
     public GameObject Weapon_PeaShooter;
     public SpriteRenderer Weapon_PeaShooterSpriteRenderer;
-    public SpriteRenderer armsSprite;
+    public SpriteRenderer armsSpriteL;
+    public SpriteRenderer armsSpriteR;
     public SpriteRenderer chefSprite;
+
 
     //private variables
     private Rigidbody2D rb;
-    private GameObject weaponPivotPoint;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        HP = 100;
         weaponPivotPoint = GameObject.Find("Weapon_PivotPoint");
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        //print("HP: " + HP);
         
 
     }
@@ -49,19 +54,21 @@ public class PlayerMovement : MonoBehaviour
         {
             float angle = Mathf.Atan2(yRot, -xRot) * Mathf.Rad2Deg * rotSpeed;
             weaponPivotPoint.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-            print(angle);
+            //print(angle);
 
             //if weapon is pointed above x axis, gun appears behind player
             if (angle <= 90 && angle >= -90)
             {
-                Weapon_PeaShooterSpriteRenderer.sortingOrder = -1;
-                armsSprite.sortingOrder = -1;
+                Weapon_PeaShooterSpriteRenderer.sortingOrder = -2;
+                armsSpriteL.sortingOrder = -1;
+                armsSpriteR.sortingOrder = -3;
             }
             //if weapon is pointed below x axis, gun appears in front of player
             else
             {
-                Weapon_PeaShooterSpriteRenderer.sortingOrder = 1;
-                armsSprite.sortingOrder = 1;
+                Weapon_PeaShooterSpriteRenderer.sortingOrder = 2;
+                armsSpriteL.sortingOrder = 1;
+                armsSpriteR.sortingOrder = 3;
             }
 
 
@@ -69,15 +76,21 @@ public class PlayerMovement : MonoBehaviour
             if(angle <= 0)
             {
                 chefSprite.flipX = false;
-                armsSprite.flipX = false;
+                armsSpriteL.flipX = false;
+                armsSpriteR.flipX = false;
             }
             else
             {
                 chefSprite.flipX = true;
-                armsSprite.flipX = true;
+                armsSpriteL.flipX = true;
+                armsSpriteR.flipX = true;
             }
 
         }
 
     }
+
+
+
+
 }
