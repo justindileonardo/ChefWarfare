@@ -43,7 +43,7 @@ public class WeaponManager : MonoBehaviour
             //if pressed, check if shot is ready and shoot.  Reset cooldown timer.
             if(attackMain != 0 && peaShooterCooldown < 0)
             {
-                peaShooterCooldown = 2f;
+                peaShooterCooldown = 1.0f;
                 Instantiate(PeaPrefab, new Vector3(Weapon_PeaShooter_BulletSpawnPoint.transform.position.x, Weapon_PeaShooter_BulletSpawnPoint.transform.position.y, Weapon_PeaShooter_BulletSpawnPoint.transform.position.z), Weapon_PivotPoint.transform.rotation);
             }
         }

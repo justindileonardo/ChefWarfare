@@ -5,7 +5,7 @@ using UnityEngine;
 public class Pea : MonoBehaviour
 {
     //public variables
-    public int damage = 3;
+    public int damage = 2;
 
     //private variables
     private GameObject Weapon_PeaShooter;
@@ -49,7 +49,14 @@ public class Pea : MonoBehaviour
         if(other.gameObject.tag == "Enemy_Bread")
         {
             other.gameObject.GetComponent<Enemy_Bread>().HP -= damage;
-
+        }
+        if(other.gameObject.tag == "Enemy_Tomato")
+        {
+            other.gameObject.GetComponent<Enemy_Tomato>().HP -= damage;
+        }
+        if(other.gameObject.tag == "Enemy_Spaghetti")
+        {
+            other.gameObject.GetComponent<Enemy_Spaghetti>().HP -= damage;
         }
     }
 

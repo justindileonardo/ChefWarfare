@@ -6,11 +6,14 @@ public class PlayerInventory : MonoBehaviour
 {
 
     private int breadCount;
+    private int tomatoCount;
+    private int spaghettiCount;
 
     // Start is called before the first frame update
     void Start()
     {
         breadCount = 0;
+        tomatoCount = 0;
     }
 
     // Update is called once per frame
@@ -27,6 +30,18 @@ public class PlayerInventory : MonoBehaviour
             Destroy(other.gameObject);
             breadCount++;
             print("Bread: " + breadCount);
+        }
+        if (other.gameObject.tag == "Resource_Tomato")
+        {
+            Destroy(other.gameObject);
+            tomatoCount++;
+            print("Tomato: " + tomatoCount);
+        }
+        if (other.gameObject.tag == "Resource_Spaghetti")
+        {
+            Destroy(other.gameObject);
+            spaghettiCount++;
+            print("Spaghetti: " + spaghettiCount);
         }
     }
 

@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Enemy_Bread
   - Resource_Bread
+  - Enemy_Tomato
+  - Resource_Tomato
+  - Enemy_Spaghetti
+  - Resource_Spaghetti
   layers:
   - Default
   - TransparentFX
