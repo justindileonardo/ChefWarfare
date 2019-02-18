@@ -12,6 +12,7 @@ public class Enemy_Cheese_Pellet : MonoBehaviour
     private float speed = 15.0f;
     private Rigidbody2D rb;
     private Vector2 moveDirection;
+    private float slowEffectSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -51,9 +52,14 @@ public class Enemy_Cheese_Pellet : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
+            //apply damage to player
             other.gameObject.GetComponent<PlayerMovement>().HP -= damage;
+            //apply 50% move speed slow to player
+            other.gameObject.GetComponent<PlayerMovement>().moveSpeed = 4.0f; 
+            //destroys the bullet
             Destroy(gameObject);
         }
+        //if it hits else anything it gets destroyed
         else
         {
             Destroy(gameObject);
