@@ -65,9 +65,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 35349549
+  m_SortingLayer: 3
+  m_SortingOrder: -3
   m_Sprite: {fileID: 21300000, guid: 82f8b5a9538d1cb438ad259001471920, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -97,7 +97,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8433435438541428590
 Transform:
   m_ObjectHideFlags: 0
@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5251e18bfaafa2438a99d07c38205ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
+  moveSpeed: 1.5
   breadSpriteRenderer: {fileID: 8433435438030450752}
   HP: 0
   resourceBreadPrefab: {fileID: 7689802209216267401, guid: 804ba635da476f64f8d8e5ee6a65530f,

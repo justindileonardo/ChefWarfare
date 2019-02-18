@@ -29,7 +29,7 @@ public class Enemy_Spaghetti : MonoBehaviour
         attackCooldownTimer = 0;
         isMoving = true;
         isAttacking = false;
-        HP = 25.0f;
+        HP = 30.0f;
         whipWindUp.enabled = true;
         whipAttack.enabled = false;
         whipCollider.enabled = false;

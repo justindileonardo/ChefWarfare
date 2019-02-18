@@ -37,26 +37,36 @@ public class Pea : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        //if hits anything other than player or enemy destroy itself
-        if(other.gameObject.tag != "Player" || other.gameObject.tag != "Enemy_Bread" /*|| other.gameObject.tag != " "......*/)
-        {
-            Destroy(gameObject);
-        }
+        
         if(other.gameObject.tag == "Player")
         {
             other.gameObject.GetComponent<PlayerMovement>().HP -= damage;
+            Destroy(gameObject);
         }
-        if(other.gameObject.tag == "Enemy_Bread")
+        else if(other.gameObject.tag == "Enemy_Bread")
         {
             other.gameObject.GetComponent<Enemy_Bread>().HP -= damage;
+            Destroy(gameObject);
         }
-        if(other.gameObject.tag == "Enemy_Tomato")
+        else if(other.gameObject.tag == "Enemy_Tomato")
         {
             other.gameObject.GetComponent<Enemy_Tomato>().HP -= damage;
+            Destroy(gameObject);
         }
-        if(other.gameObject.tag == "Enemy_Spaghetti")
+        else if(other.gameObject.tag == "Enemy_Spaghetti")
         {
             other.gameObject.GetComponent<Enemy_Spaghetti>().HP -= damage;
+            Destroy(gameObject);
+        }
+        else if(other.gameObject.tag == "Enemy_Cheese")
+        {
+            other.gameObject.GetComponent<Enemy_Cheese>().HP -= damage;
+            Destroy(gameObject);
+        }
+        //if hits anything other than player or enemy destroy itself
+        else
+        {
+            Destroy(gameObject);
         }
     }
 
