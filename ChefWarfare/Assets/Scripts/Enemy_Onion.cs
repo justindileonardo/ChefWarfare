@@ -2,28 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy_Cheese : MonoBehaviour
+public class Enemy_Onion : MonoBehaviour
 {
 
     //FindClosestPlayer(); function: https://www.youtube.com/watch?v=YLE3v8bBnck
 
     //public variables
     public float moveSpeed;
-    public SpriteRenderer cheeseSpriteRenderer;
+    public SpriteRenderer onionSpriteRenderer;
     public float HP;
-    public GameObject cheesePelletPrefab;
-    public GameObject resourceCheesePrefab;
+    public GameObject onionPelletPrefab;
+    public GameObject resourceOnionPrefab;
 
     //private variables
     private bool isMoving;
+    private int damageGas = 1;
+    private bool gasAttackReady;
+    private float gasAttackCooldownTimer;
     private float attackCooldownTimer;
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        attackCooldownTimer = 1.5f;
+        attackCooldownTimer = 2.0f;
         isMoving = true;
         HP = 25.0f;
+        gasAttackReady = true;
     }
 
     // Update is called once per frame
@@ -57,31 +62,60 @@ public class Enemy_Cheese : MonoBehaviour
         attackCooldownTimer -= Time.deltaTime;
 
         //attack (shoot pellet)
-        if(attackCooldownTimer < 0)
+        if (attackCooldownTimer < 0)
         {
-            attackCooldownTimer = 1.5f;
-            Instantiate(cheesePelletPrefab, transform.position, Quaternion.identity);
+            attackCooldownTimer = 2.0f;
+            Instantiate(onionPelletPrefab, transform.position, Quaternion.identity);
         }
 
+        //when gas attack is not ready increase the cooldown
+        if (gasAttackReady == false)
+        {
+            gasAttackCooldownTimer += Time.deltaTime;
+            //if cooldown timer reaches 1/2 a second, gas attack is ready
+            if(gasAttackCooldownTimer > 0.5f)
+            {
+                gasAttackReady = true;
+            }
+        }
+        
 
         //flips sprite depending on where player is
         if (transform.position.x > closestPlayer.transform.position.x)
         {
-            cheeseSpriteRenderer.flipX = false;
+            onionSpriteRenderer.flipX = false;
         }
         else
         {
-            cheeseSpriteRenderer.flipX = true;
+            onionSpriteRenderer.flipX = true;
         }
 
 
-        //kills cheese and drops resource
+
+
+        //kills onion and drops resource
         if (HP <= 0)
         {
-            Instantiate(resourceCheesePrefab, new Vector2(transform.position.x, transform.position.y - .5f), Quaternion.identity);
+            Instantiate(resourceOnionPrefab, new Vector2(transform.position.x, transform.position.y - .5f), Quaternion.identity);
             Destroy(gameObject);
         }
 
+
+    }
+
+
+
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if(other.gameObject.tag == "Player")
+        {
+            if(gasAttackReady == true)
+            {
+                other.gameObject.GetComponent<PlayerMovement>().HP -= damageGas;
+                gasAttackCooldownTimer = 0;
+                gasAttackReady = false;
+            }
+        }
     }
 
 }

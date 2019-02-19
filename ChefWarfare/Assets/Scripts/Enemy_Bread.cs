@@ -8,7 +8,9 @@ public class Enemy_Bread : MonoBehaviour
 
     //public variables
     public float moveSpeed;
-    public SpriteRenderer breadSpriteRenderer;
+    public SpriteRenderer breadSpriteRenderer_Body;
+    public SpriteRenderer breadSpriteRenderer_LegLeft;
+    public SpriteRenderer breadSpriteRenderer_LegRight;
     public float HP;
 
     public GameObject resourceBreadPrefab;
@@ -67,11 +69,15 @@ public class Enemy_Bread : MonoBehaviour
         //flips sprite depending on where player is
         if (this.transform.position.x > closestPlayer.transform.position.x)
         {
-            breadSpriteRenderer.flipX = false;
+            breadSpriteRenderer_Body.flipX = false;
+            breadSpriteRenderer_LegLeft.flipX = false;
+            breadSpriteRenderer_LegRight.flipX = false;
         }
         else
         {
-            breadSpriteRenderer.flipX = true;
+            breadSpriteRenderer_Body.flipX = true;
+            breadSpriteRenderer_LegLeft.flipX = true;
+            breadSpriteRenderer_LegRight.flipX = true;
         }
 
 

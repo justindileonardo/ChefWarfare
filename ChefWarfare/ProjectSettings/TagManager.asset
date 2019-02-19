@@ -12,6 +12,8 @@ TagManager:
   - Resource_Spaghetti
   - Enemy_Cheese
   - Resource_Cheese
+  - Enemy_Onion
+  - Resource_Onion
   layers:
   - Default
   - TransparentFX
@@ -26,7 +28,7 @@ TagManager:
   - Player3
   - Player4
   - Enemy_Cheese
-  - 
+  - Enemy_Onion
   - 
   - 
   - 

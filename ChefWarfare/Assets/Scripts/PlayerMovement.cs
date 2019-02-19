@@ -13,9 +13,12 @@ public class PlayerMovement : MonoBehaviour
     public SpriteRenderer Weapon_PeaShooterSpriteRenderer;
     public SpriteRenderer armsSpriteL;
     public SpriteRenderer armsSpriteR;
-    public SpriteRenderer chefSprite;
+    public SpriteRenderer chefSpriteHead;
+    public SpriteRenderer chefSpriteBody;
+    public SpriteRenderer chefSpriteLegL;
+    public SpriteRenderer chefSpriteLegR;
 
-    
+    public Animator playerAnimator;
 
     //private variables
     private Rigidbody2D rb;
@@ -51,6 +54,16 @@ public class PlayerMovement : MonoBehaviour
         //Moving the player
         rb.velocity = new Vector2(xPos * moveSpeed, yPos * moveSpeed);
 
+        //Animating the player
+        if (xPos != .0 || yPos != .0)
+        {
+            playerAnimator.SetBool("playerIsMoving", true);
+        }
+        else
+        {
+            playerAnimator.SetBool("playerIsMoving", false);
+        }
+
         //Inputs for Right Joystick (Rotating the player)
         float xRot = Input.GetAxis("HorizontalRS");
         float yRot = Input.GetAxis("VerticalRS");
@@ -80,13 +93,19 @@ public class PlayerMovement : MonoBehaviour
             //flipping sprite
             if(angle <= 0)
             {
-                chefSprite.flipX = false;
+                chefSpriteHead.flipX = false;
+                chefSpriteBody.flipX = false;
+                chefSpriteLegL.flipX = false;
+                chefSpriteLegR.flipX = false;
                 armsSpriteL.flipX = false;
                 armsSpriteR.flipX = false;
             }
             else
             {
-                chefSprite.flipX = true;
+                chefSpriteHead.flipX = true;
+                chefSpriteBody.flipX = true;
+                chefSpriteLegL.flipX = true;
+                chefSpriteLegR.flipX = true;
                 armsSpriteL.flipX = true;
                 armsSpriteR.flipX = true;
             }

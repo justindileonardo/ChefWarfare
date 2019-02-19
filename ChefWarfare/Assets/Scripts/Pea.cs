@@ -63,6 +63,11 @@ public class Pea : MonoBehaviour
             other.gameObject.GetComponent<Enemy_Cheese>().HP -= damage;
             Destroy(gameObject);
         }
+        else if(other.gameObject.tag == "Enemy_Onion")
+        {
+            other.gameObject.GetComponent<Enemy_Onion>().HP -= damage;
+            Destroy(gameObject);
+        }
         //if hits anything other than player or enemy destroy itself
         else
         {
