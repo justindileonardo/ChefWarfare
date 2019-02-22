@@ -8,9 +8,17 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed;
     public float rotSpeed;
     public int HP;
+
+    //Weapons
     public GameObject weaponPivotPoint;
     public GameObject Weapon_PeaShooter;
     public SpriteRenderer Weapon_PeaShooterSpriteRenderer;
+    public GameObject Weapon_SemiAutoRifle;
+    public SpriteRenderer Weapon_SemiAutoRifleSpriteRenderer;
+    public GameObject Weapon_BurstRifle;
+    public SpriteRenderer Weapon_BurstRifleSpriteRenderer;
+
+    //Sprites for Character
     public SpriteRenderer armsSpriteL;
     public SpriteRenderer armsSpriteR;
     public SpriteRenderer chefSpriteHead;
@@ -48,8 +56,8 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         //Inputs for Left Joystick (Moving the player)
-        float xPos = Input.GetAxis("HorizontalLS");
-        float yPos = Input.GetAxis("VerticalLS");
+        float xPos = Input.GetAxis("Xbox_HorizontalLS_P1");
+        float yPos = Input.GetAxis("Xbox_VerticalLS_P1");
 
         //Moving the player
         rb.velocity = new Vector2(xPos * moveSpeed, yPos * moveSpeed);
@@ -65,8 +73,8 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //Inputs for Right Joystick (Rotating the player)
-        float xRot = Input.GetAxis("HorizontalRS");
-        float yRot = Input.GetAxis("VerticalRS");
+        float xRot = Input.GetAxis("Xbox_HorizontalRS_P1");
+        float yRot = Input.GetAxis("Xbox_VerticalRS_P1");
 
         //If the joystick is let go, it won't change the joystick angle
         if (xRot != 0 || yRot != 0)
@@ -79,6 +87,8 @@ public class PlayerMovement : MonoBehaviour
             if (angle <= 90 && angle >= -90)
             {
                 Weapon_PeaShooterSpriteRenderer.sortingOrder = -2;
+                Weapon_SemiAutoRifleSpriteRenderer.sortingOrder = -2;
+                Weapon_BurstRifleSpriteRenderer.sortingOrder = -2;
                 armsSpriteL.sortingOrder = -1;
                 armsSpriteR.sortingOrder = -3;
             }
@@ -86,6 +96,8 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 Weapon_PeaShooterSpriteRenderer.sortingOrder = 2;
+                Weapon_SemiAutoRifleSpriteRenderer.sortingOrder = 2;
+                Weapon_BurstRifleSpriteRenderer.sortingOrder = 2;
                 armsSpriteL.sortingOrder = 1;
                 armsSpriteR.sortingOrder = 3;
             }
