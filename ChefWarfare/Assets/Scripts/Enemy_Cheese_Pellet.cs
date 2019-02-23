@@ -53,9 +53,9 @@ public class Enemy_Cheese_Pellet : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             //apply damage to player
-            other.gameObject.GetComponent<PlayerMovement>().HP -= damage;
+            other.gameObject.GetComponent<PlayerStatus>().HP -= damage;
             //apply 50% move speed slow to player
-            other.gameObject.GetComponent<PlayerMovement>().moveSpeed = 4.0f; 
+            other.gameObject.GetComponent<PlayerStatus>().moveSpeed = 4.0f; 
             //destroys the bullet
             Destroy(gameObject);
         }

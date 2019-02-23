@@ -92,7 +92,7 @@ public class Enemy_Tomato : MonoBehaviour
         //if collider range touches player, blow up, damage player
         if (other.gameObject.tag == "Player" && isMoving == true)
         {
-            other.gameObject.GetComponent<PlayerMovement>().HP -= damage;
+            other.gameObject.GetComponent<PlayerStatus>().HP -= damage;
             StartCoroutine(AttackCoroutine());
         }
     }

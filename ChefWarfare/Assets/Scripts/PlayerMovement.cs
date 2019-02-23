@@ -5,9 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     //public variables
-    public float moveSpeed;
+    public PlayerStatus myPlayerStatusScript;
     public float rotSpeed;
-    public int HP;
 
     //Weapons
     public GameObject weaponPivotPoint;
@@ -17,6 +16,15 @@ public class PlayerMovement : MonoBehaviour
     public SpriteRenderer Weapon_SemiAutoRifleSpriteRenderer;
     public GameObject Weapon_BurstRifle;
     public SpriteRenderer Weapon_BurstRifleSpriteRenderer;
+    public GameObject Weapon_Shotgun;
+    public SpriteRenderer Weapon_ShotgunSpriteRenderer;
+    public GameObject Weapon_SpaghettiWhipCheese;
+    public SpriteRenderer Weapon_SpaghttiWhipCheeseWindUpSpriteRenderer;
+    public SpriteRenderer Weapon_SpaghttiWhipCheeseAttackSpriteRenderer;
+    public GameObject Weapon_SpaghettiWhipOnion;
+    public SpriteRenderer Weapon_SpaghttiWhipOnionWindUpSpriteRenderer;
+    public SpriteRenderer Weapon_SpaghttiWhipOnionAttackSpriteRenderer;
+
 
     //Sprites for Character
     public SpriteRenderer armsSpriteL;
@@ -38,11 +46,6 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        HP = 100;
-        weaponPivotPoint = GameObject.Find("Weapon_PivotPoint");
-        moveSpeedDefault = 8.0f;
-        moveSpeed = moveSpeedDefault;
-        cheeseMoveSpeedSlowLength = 1.0f;
     }
 
     // Update is called once per frame
@@ -60,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
         float yPos = Input.GetAxis("Xbox_VerticalLS_P1");
 
         //Moving the player
-        rb.velocity = new Vector2(xPos * moveSpeed, yPos * moveSpeed);
+        rb.velocity = new Vector2(xPos * myPlayerStatusScript.moveSpeed, yPos * myPlayerStatusScript.moveSpeed);
 
         //Animating the player
         if (xPos != .0 || yPos != .0)
@@ -89,6 +92,11 @@ public class PlayerMovement : MonoBehaviour
                 Weapon_PeaShooterSpriteRenderer.sortingOrder = -2;
                 Weapon_SemiAutoRifleSpriteRenderer.sortingOrder = -2;
                 Weapon_BurstRifleSpriteRenderer.sortingOrder = -2;
+                Weapon_ShotgunSpriteRenderer.sortingOrder = -2;
+                Weapon_SpaghttiWhipCheeseWindUpSpriteRenderer.sortingOrder = -2;
+                Weapon_SpaghttiWhipCheeseAttackSpriteRenderer.sortingOrder = -2;
+                Weapon_SpaghttiWhipOnionWindUpSpriteRenderer.sortingOrder = -2;
+                Weapon_SpaghttiWhipOnionAttackSpriteRenderer.sortingOrder = -2;
                 armsSpriteL.sortingOrder = -1;
                 armsSpriteR.sortingOrder = -3;
             }
@@ -98,6 +106,11 @@ public class PlayerMovement : MonoBehaviour
                 Weapon_PeaShooterSpriteRenderer.sortingOrder = 2;
                 Weapon_SemiAutoRifleSpriteRenderer.sortingOrder = 2;
                 Weapon_BurstRifleSpriteRenderer.sortingOrder = 2;
+                Weapon_ShotgunSpriteRenderer.sortingOrder = 2;
+                Weapon_SpaghttiWhipCheeseWindUpSpriteRenderer.sortingOrder = 2;
+                Weapon_SpaghttiWhipCheeseAttackSpriteRenderer.sortingOrder = 2;
+                Weapon_SpaghttiWhipOnionWindUpSpriteRenderer.sortingOrder = 2;
+                Weapon_SpaghttiWhipOnionAttackSpriteRenderer.sortingOrder = 2;
                 armsSpriteL.sortingOrder = 1;
                 armsSpriteR.sortingOrder = 3;
             }
@@ -122,18 +135,6 @@ public class PlayerMovement : MonoBehaviour
                 armsSpriteR.flipX = true;
             }
 
-
-            //adding effects to player
-            //move speed slow, goes back to default after 1 second
-            if(moveSpeed != moveSpeedDefault/*8.0f*/) 
-            {
-                moveSpeedEffectTimer += Time.deltaTime;
-                if(moveSpeedEffectTimer > cheeseMoveSpeedSlowLength/*1.0f*/)
-                {
-                    moveSpeedEffectTimer = 0;
-                    moveSpeed = moveSpeedDefault;
-                }
-            }
 
         }
 

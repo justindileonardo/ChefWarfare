@@ -97,7 +97,7 @@ public class Enemy_Bread : MonoBehaviour
         if(other.gameObject.tag == "Player" && isMoving == true)
         {
             //attack player, reset cooldown, stop movement
-            other.gameObject.GetComponent<PlayerMovement>().HP -= damage;
+            other.gameObject.GetComponent<PlayerStatus>().HP -= damage;
             isMoving = false;
             attackCooldownTimer = 1.0f;
 

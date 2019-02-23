@@ -25,7 +25,7 @@ public class Enemy_Spaghetti_Whip : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<PlayerMovement>().HP -= damage;
+            other.gameObject.GetComponent<PlayerStatus>().HP -= damage;
         }
     }
 

@@ -46,7 +46,7 @@ public class TomatoSauce : MonoBehaviour
 
         if (other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<PlayerMovement>().HP -= damage;
+            other.gameObject.GetComponent<PlayerStatus>().HP -= damage;
             Destroy(gameObject);
         }
         else if (other.gameObject.tag == "Enemy_Bread")

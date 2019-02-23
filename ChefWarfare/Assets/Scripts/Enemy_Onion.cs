@@ -16,9 +16,6 @@ public class Enemy_Onion : MonoBehaviour
 
     //private variables
     private bool isMoving;
-    private int damageGas = 1;
-    private bool gasAttackReady;
-    private float gasAttackCooldownTimer;
     private float attackCooldownTimer;
     
 
@@ -28,7 +25,7 @@ public class Enemy_Onion : MonoBehaviour
         attackCooldownTimer = 2.0f;
         isMoving = true;
         HP = 25.0f;
-        gasAttackReady = true;
+        
     }
 
     // Update is called once per frame
@@ -68,16 +65,7 @@ public class Enemy_Onion : MonoBehaviour
             Instantiate(onionPelletPrefab, transform.position, Quaternion.identity);
         }
 
-        //when gas attack is not ready increase the cooldown
-        if (gasAttackReady == false)
-        {
-            gasAttackCooldownTimer += Time.deltaTime;
-            //if cooldown timer reaches 1/2 a second, gas attack is ready
-            if(gasAttackCooldownTimer > 0.5f)
-            {
-                gasAttackReady = true;
-            }
-        }
+        
         
 
         //flips sprite depending on where player is
@@ -105,17 +93,5 @@ public class Enemy_Onion : MonoBehaviour
 
 
 
-    void OnTriggerStay2D(Collider2D other)
-    {
-        if(other.gameObject.tag == "Player")
-        {
-            if(gasAttackReady == true)
-            {
-                other.gameObject.GetComponent<PlayerMovement>().HP -= damageGas;
-                gasAttackCooldownTimer = 0;
-                gasAttackReady = false;
-            }
-        }
-    }
 
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5413169982682853566}
   - component: {fileID: 6823292395520918735}
   - component: {fileID: 3063259134409002089}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: TomatoSauce
   m_TagString: Untagged
   m_Icon: {fileID: 0}

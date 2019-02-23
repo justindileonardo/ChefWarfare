@@ -53,7 +53,7 @@ public class Enemy_Onion_Pellet : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             //apply damage to player
-            other.gameObject.GetComponent<PlayerMovement>().HP -= damage;
+            other.gameObject.GetComponent<PlayerStatus>().HP -= damage;
             //apply blind to other player for 2 seconds
             other.gameObject.GetComponent<BlindEffect>().blindEffectTimer = 2.0f;
             //destroys the bullet

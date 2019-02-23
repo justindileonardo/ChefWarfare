@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     //public variables
-    public PlayerMovement playerScript;
+    public PlayerStatus playerScript;
 
     //private variables
     private float lerpSpeed = .1f;
