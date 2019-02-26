@@ -14,6 +14,11 @@ TagManager:
   - Resource_Cheese
   - Enemy_Onion
   - Resource_Onion
+  - ZONE_RED
+  - ZONE_BLUE
+  - ZONE_GREEN
+  - ZONE_ORANGE
+  - CapturePoint
   layers:
   - Default
   - TransparentFX

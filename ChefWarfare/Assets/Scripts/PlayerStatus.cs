@@ -25,6 +25,10 @@ public class PlayerStatus : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(HP > 100)
+        {
+            HP = 100;
+        }
         //adding effects to player
         //move speed slow, goes back to default after 1 second
         if (moveSpeed != moveSpeedDefault/*8.0f*/)

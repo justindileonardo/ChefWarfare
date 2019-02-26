@@ -106,38 +106,42 @@ public class WeaponManager : MonoBehaviour
         spaghettiWhipOnion_CooldownLength = 0.75f;
 
         //Pea Shooter
-        hasWeapon_PeaShooter = true;
+        hasWeapon_PeaShooter = true;            /*DEFAULT*/
+        //hasWeapon_PeaShooter = false;           /*TESTING*/
         weapon_PeaShooter_Active = true;
-        Weapon_PeaShooter.SetActive(true);
+        Weapon_PeaShooter.SetActive(true);      /*DEFAULT*/
         Debug.Log("Primary: PeaShooter");
         Debug.Log("Secondary: None");
-
+        
+        
+        
         //Semi-Auto Rifle
-        hasWeapon_SemiAutoRifle = false;        /*DEFAULT*/
-        //hasWeapon_SemiAutoRifle = true;       /*TESTING*/
-        weapon_SemiAutoRifle_Active = false;
+        hasWeapon_SemiAutoRifle = false;        //DEFAULT
+        //hasWeapon_SemiAutoRifle = true;         //TESTING
+        weapon_SemiAutoRifle_Active = false;    //DEFAULT
+        //weapon_SemiAutoRifle_Active = true;     //TESTING
 
         //Burst Rifle
-        hasWeapon_BurstRifle = false;             /*DEFAULT*/
-        //hasWeapon_BurstRifle = true;            /*TESTING*/
+        hasWeapon_BurstRifle = false;             //DEFAULT
+        //hasWeapon_BurstRifle = true;            //TESTING
         weapon_BurstRifle_Active = false;
 
         //Shotgun
-        hasWeapon_Shotgun = false;                /*DEFAULT*/
-        //hasWeapon_Shotgun = true;                   /*TESTING*/
+        hasWeapon_Shotgun = false;                //DEFAULT
+        //hasWeapon_Shotgun = true;                   //TESTING
         weapon_Shotgun_Active = false;
 
         //Spaghetti Whip Cheese
-        hasWeapon_SpaghettiWhipCheese = false;      /*DEFAULT*/
-        //hasWeapon_SpaghettiWhipCheese = true;       /*TESTING*/
+        hasWeapon_SpaghettiWhipCheese = false;      //DEFAULT
+        //hasWeapon_SpaghettiWhipCheese = true;       //TESTING
         weapon_SpaghettiWhipCheese_Active = false;
 
         //Spaghetti Whip Onion
-        //hasWeapon_SpaghettiWhipOnion = false;      /*DEFAULT*/
-        hasWeapon_SpaghettiWhipOnion = true;       /*TESTING*/
+        hasWeapon_SpaghettiWhipOnion = false;      //DEFAULT
+        //hasWeapon_SpaghettiWhipOnion = true;       //TESTING
         weapon_SpaghettiWhipOnion_Active = false;
-
-
+        
+        
     }
 
     // Update is called once per frame
