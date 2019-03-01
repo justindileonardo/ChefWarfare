@@ -35,10 +35,10 @@ TagManager:
   - Enemy_Cheese
   - Enemy_Onion
   - PlayerBullets
-  - 
-  - 
-  - 
-  - 
+  - Enemy_Bread
+  - Enemy_Tomato
+  - Enemy_Spaghetti
+  - Resource
   - 
   - 
   - 

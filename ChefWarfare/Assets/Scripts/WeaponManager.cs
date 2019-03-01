@@ -5,6 +5,16 @@ using UnityEngine;
 public class WeaponManager : MonoBehaviour
 {
     //public variables
+
+    //setting player number
+    public bool player1;
+    public bool player2;
+    public bool player3;
+    public bool player4;
+
+    private string inputY;
+    private string inputRT;
+
     //The PivotPoint
     public GameObject Weapon_PivotPoint;
     public GameObject Weapon_BulletSpawnPoint;
@@ -96,6 +106,29 @@ public class WeaponManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        //setting player number Inputs
+        if(player1)
+        {
+            inputY = "Xbox_Button_Y_P1";
+            inputRT = "Xbox_RT_P1";
+        }
+        else if(player2)
+        {
+            inputY = "Xbox_Button_Y_P2";
+            inputRT = "Xbox_RT_P2";
+        }
+        else if (player3)
+        {
+            inputY = "Xbox_Button_Y_P3";
+            inputRT = "Xbox_RT_P3";
+        }
+        else if (player4)
+        {
+            inputY = "Xbox_Button_Y_P4";
+            inputRT = "Xbox_RT_P4";
+        }
+
         //Setting Cooldown Lengths
         switchWeaponTimerCooldownLength = 1.0f;
         peaShooter_CooldownLength = 1.0f;
@@ -172,7 +205,7 @@ public class WeaponManager : MonoBehaviour
         if (hasWeapon_PeaShooter == true && weapon_PeaShooter_Active == true)
         {
             //Switch to secondary weapon and put this weapon in secondary slot
-            if (Input.GetButtonDown("Xbox_Button_Y_P1") && canSwitchWeapon == true)
+            if (Input.GetButtonDown(inputY) && canSwitchWeapon == true)
             {
                 //sets cooldown to switch weapons again
                 switchWeaponCooldown = switchWeaponTimerCooldownLength;
@@ -251,7 +284,7 @@ public class WeaponManager : MonoBehaviour
             }*/
 
             //value 0-1 of not pressed or pressed "Xbox_RT_P1" (RT)
-            float attackMain = Input.GetAxis("Xbox_RT_P1");
+            float attackMain = Input.GetAxis(inputRT);
 
             //cooldown/reload timer in between shots
             peaShooter_Cooldown -= Time.deltaTime;
@@ -269,7 +302,7 @@ public class WeaponManager : MonoBehaviour
         else if (hasWeapon_SemiAutoRifle == true && weapon_SemiAutoRifle_Active == true)
         {
             //Switch to secondary weapon and put this weapon in secondary slot
-            if (Input.GetButtonDown("Xbox_Button_Y_P1") && canSwitchWeapon == true)
+            if (Input.GetButtonDown(inputY) && canSwitchWeapon == true)
             {
                 //sets cooldown to switch weapons again
                 switchWeaponCooldown = switchWeaponTimerCooldownLength;
@@ -341,7 +374,7 @@ public class WeaponManager : MonoBehaviour
             }
 
             //value 0-1 of not pressed or pressed "Xbox_RT_P1" (RT)
-            float attackMain = Input.GetAxis("Xbox_RT_P1");
+            float attackMain = Input.GetAxis(inputRT);
 
             //cooldown/reload timer in between shots
             semiAutoRifle_Cooldown -= Time.deltaTime;
@@ -360,7 +393,7 @@ public class WeaponManager : MonoBehaviour
         else if (hasWeapon_BurstRifle == true && weapon_BurstRifle_Active == true)
         {
             //Switch to secondary weapon and put this weapon in secondary slot
-            if (Input.GetButtonDown("Xbox_Button_Y_P1") && canSwitchWeapon == true)
+            if (Input.GetButtonDown(inputY) && canSwitchWeapon == true)
             {
                 //sets cooldown to switch weapons again
                 switchWeaponCooldown = switchWeaponTimerCooldownLength;
@@ -433,7 +466,7 @@ public class WeaponManager : MonoBehaviour
 
 
             //value 0-1 of not pressed or pressed "Xbox_RT_P1" (RT)
-            float attackMain = Input.GetAxis("Xbox_RT_P1");
+            float attackMain = Input.GetAxis(inputRT);
 
             //cooldown/reload timer in between shots
             burstRifle_Cooldown -= Time.deltaTime;
@@ -455,7 +488,7 @@ public class WeaponManager : MonoBehaviour
         else if (hasWeapon_Shotgun == true && weapon_Shotgun_Active == true)
         {
             //Switch to secondary weapon and put this weapon in secondary slot
-            if (Input.GetButtonDown("Xbox_Button_Y_P1") && canSwitchWeapon == true)
+            if (Input.GetButtonDown(inputY) && canSwitchWeapon == true)
             {
                 //sets cooldown to switch weapons again
                 switchWeaponCooldown = switchWeaponTimerCooldownLength;
@@ -528,7 +561,7 @@ public class WeaponManager : MonoBehaviour
             }
 
             //value 0-1 of not pressed or pressed "Xbox_RT_P1" (RT)
-            float attackMain = Input.GetAxis("Xbox_RT_P1");
+            float attackMain = Input.GetAxis(inputRT);
 
             //cooldown/reload timer in between shots
             shotgun_Cooldown -= Time.deltaTime;
@@ -553,7 +586,7 @@ public class WeaponManager : MonoBehaviour
         else if (hasWeapon_SpaghettiWhipCheese == true && weapon_SpaghettiWhipCheese_Active == true)
         {
             //Switch to secondary weapon and put this weapon in secondary slot
-            if (Input.GetButtonDown("Xbox_Button_Y_P1") && canSwitchWeapon == true)
+            if (Input.GetButtonDown(inputY) && canSwitchWeapon == true)
             {
                 //sets cooldown to switch weapons again
                 switchWeaponCooldown = switchWeaponTimerCooldownLength;
@@ -636,7 +669,7 @@ public class WeaponManager : MonoBehaviour
             }
 
             //value 0-1 of not pressed or pressed "Xbox_RT_P1" (RT)
-            float attackMain = Input.GetAxis("Xbox_RT_P1");
+            float attackMain = Input.GetAxis(inputRT);
 
             //cooldown/reload timer in between shots
             spaghettiWhipCheese_Cooldown -= Time.deltaTime;
@@ -656,7 +689,7 @@ public class WeaponManager : MonoBehaviour
         else if (hasWeapon_SpaghettiWhipOnion == true && weapon_SpaghettiWhipOnion_Active == true)
         {
             //Switch to secondary weapon and put this weapon in secondary slot
-            if (Input.GetButtonDown("Xbox_Button_Y_P1") && canSwitchWeapon == true)
+            if (Input.GetButtonDown(inputY) && canSwitchWeapon == true)
             {
                 //sets cooldown to switch weapons again
                 switchWeaponCooldown = switchWeaponTimerCooldownLength;
@@ -739,7 +772,7 @@ public class WeaponManager : MonoBehaviour
             }
 
             //value 0-1 of not pressed or pressed "Xbox_RT_P1" (RT)
-            float attackMain = Input.GetAxis("Xbox_RT_P1");
+            float attackMain = Input.GetAxis(inputRT);
 
             //cooldown/reload timer in between shots
             spaghettiWhipOnion_Cooldown -= Time.deltaTime;

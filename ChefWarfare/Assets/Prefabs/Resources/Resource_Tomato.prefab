@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5055227861338582466}
   - component: {fileID: 5055227861338582467}
   - component: {fileID: 5055227861338582464}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Resource_Tomato
   m_TagString: Resource_Tomato
   m_Icon: {fileID: 0}

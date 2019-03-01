@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1885838603234727463}
   - component: {fileID: 4241048329573161130}
   - component: {fileID: 1393397970937975601}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Resource_Spaghetti
   m_TagString: Resource_Spaghetti
   m_Icon: {fileID: 0}

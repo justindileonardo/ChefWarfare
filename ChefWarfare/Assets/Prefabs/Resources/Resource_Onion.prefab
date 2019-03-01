@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2791426477416955352}
   - component: {fileID: 2791426477416955359}
   - component: {fileID: 2791426477416955358}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Resource_Onion
   m_TagString: Resource_Onion
   m_Icon: {fileID: 0}

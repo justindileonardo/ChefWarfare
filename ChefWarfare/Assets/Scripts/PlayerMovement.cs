@@ -5,8 +5,16 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     //public variables
+
+    //setting player number
+    public bool player1;
+    public bool player2;
+    public bool player3;
+    public bool player4;
+
     public PlayerStatus myPlayerStatusScript;
     public float rotSpeed;
+    public Vector3 respawnPosition;
 
     //Weapons
     public GameObject weaponPivotPoint;
@@ -38,28 +46,68 @@ public class PlayerMovement : MonoBehaviour
 
     //private variables
     private Rigidbody2D rb;
+    private float xPos;
+    private float yPos;
+    private float xRot;
+    private float yRot;
     private float moveSpeedDefault;
     private float moveSpeedEffectTimer;
     private float cheeseMoveSpeedSlowLength;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        respawnPosition = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
         
-
+        
     }
 
     void FixedUpdate()
     {
-        //Inputs for Left Joystick (Moving the player)
-        float xPos = Input.GetAxis("Xbox_HorizontalLS_P1");
-        float yPos = Input.GetAxis("Xbox_VerticalLS_P1");
+        
+        if(player1 == true)
+        {
+            //Inputs for Left Joystick (Moving the player)
+            xPos = Input.GetAxis("Xbox_HorizontalLS_P1");
+            yPos = Input.GetAxis("Xbox_VerticalLS_P1");
+            //Inputs for Right Joystick (Rotating the player)
+            xRot = Input.GetAxis("Xbox_HorizontalRS_P1");
+            yRot = Input.GetAxis("Xbox_VerticalRS_P1");
+        }
+        else if (player2 == true)
+        {
+            //Inputs for Left Joystick (Moving the player)
+            xPos = Input.GetAxis("Xbox_HorizontalLS_P2");
+            yPos = Input.GetAxis("Xbox_VerticalLS_P2");
+            //Inputs for Right Joystick (Rotating the player)
+            xRot = Input.GetAxis("Xbox_HorizontalRS_P2");
+            yRot = Input.GetAxis("Xbox_VerticalRS_P2");
+        }
+        else if (player3 == true)
+        {
+            //Inputs for Left Joystick (Moving the player)
+            xPos = Input.GetAxis("Xbox_HorizontalLS_P3");
+            yPos = Input.GetAxis("Xbox_VerticalLS_P3");
+            //Inputs for Right Joystick (Rotating the player)
+            xRot = Input.GetAxis("Xbox_HorizontalRS_P3");
+            yRot = Input.GetAxis("Xbox_VerticalRS_P3");
+        }
+        else if (player4 == true)
+        {
+            //Inputs for Left Joystick (Moving the player)
+            xPos = Input.GetAxis("Xbox_HorizontalLS_P4");
+            yPos = Input.GetAxis("Xbox_VerticalLS_P4");
+            //Inputs for Right Joystick (Rotating the player)
+            xRot = Input.GetAxis("Xbox_HorizontalRS_P4");
+            yRot = Input.GetAxis("Xbox_VerticalRS_P4");
+        }
 
         //Moving the player
         rb.velocity = new Vector2(xPos * myPlayerStatusScript.moveSpeed, yPos * myPlayerStatusScript.moveSpeed);
@@ -74,9 +122,7 @@ public class PlayerMovement : MonoBehaviour
             playerAnimator.SetBool("playerIsMoving", false);
         }
 
-        //Inputs for Right Joystick (Rotating the player)
-        float xRot = Input.GetAxis("Xbox_HorizontalRS_P1");
-        float yRot = Input.GetAxis("Xbox_VerticalRS_P1");
+        
 
         //If the joystick is let go, it won't change the joystick angle
         if (xRot != 0 || yRot != 0)
@@ -136,6 +182,8 @@ public class PlayerMovement : MonoBehaviour
 
 
         }
+
+       
 
     }
 
