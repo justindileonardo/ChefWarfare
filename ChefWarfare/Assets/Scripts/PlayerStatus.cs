@@ -7,10 +7,10 @@ public class PlayerStatus : MonoBehaviour
     //public variables
     public int HP;
     public float moveSpeed;
+    public float moveSpeedDefault;
     public bool canMove;
 
     //private variables
-    private float moveSpeedDefault;
     private float moveSpeedEffectTimer;
     private float cheeseMoveSpeedSlowLength;
 
@@ -51,7 +51,7 @@ public class PlayerStatus : MonoBehaviour
         }
         //adding effects to player
         //move speed slow, goes back to default after 1 second
-        if (moveSpeed != moveSpeedDefault/*8.0f*/ && canMove == true)
+        if (moveSpeed < moveSpeedDefault/*8.0f*/ && canMove == true)
         {
             moveSpeedEffectTimer += Time.deltaTime;
             if (moveSpeedEffectTimer > cheeseMoveSpeedSlowLength/*1.0f*/)

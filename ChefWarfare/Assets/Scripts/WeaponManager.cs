@@ -70,7 +70,8 @@ public class WeaponManager : MonoBehaviour
     public bool hasWeapon_SpaghettiWhipOnion;
     public bool weapon_SpaghettiWhipOnion_Active;
 
-
+    //Damage Boost multiplier
+    public int damageBoostMultiplier;
 
     //private variables
     //Switch Weapon timer
@@ -134,9 +135,9 @@ public class WeaponManager : MonoBehaviour
         peaShooter_CooldownLength = 1.0f;
         semiAutoRifle_CooldownLength = 0.75f;    //600 dpm    
         burstRifle_CooldownLength = 1.25f;      //576 dpm
-        shotgun_CooldownLength = 1.25f;
-        spaghettiWhipCheese_CooldownLength = 0.75f;
-        spaghettiWhipOnion_CooldownLength = 0.75f;
+        shotgun_CooldownLength = 1.375f;
+        spaghettiWhipCheese_CooldownLength = 1.0f;
+        spaghettiWhipOnion_CooldownLength = 1.0f;
 
         //Pea Shooter
         hasWeapon_PeaShooter = true;            /*DEFAULT*/
@@ -173,8 +174,10 @@ public class WeaponManager : MonoBehaviour
         hasWeapon_SpaghettiWhipOnion = false;      //DEFAULT
         //hasWeapon_SpaghettiWhipOnion = true;       //TESTING
         weapon_SpaghettiWhipOnion_Active = false;
-        
-        
+
+        //Damage Boost Multiplier
+        damageBoostMultiplier = 1;
+
     }
 
     // Update is called once per frame
