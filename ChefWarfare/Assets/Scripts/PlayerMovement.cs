@@ -111,6 +111,7 @@ public class PlayerMovement : MonoBehaviour
 
         //Moving the player
         rb.velocity = new Vector2(xPos * myPlayerStatusScript.moveSpeed, yPos * myPlayerStatusScript.moveSpeed);
+        
 
         //Animating the player
         if (xPos != .0 || yPos != .0)
