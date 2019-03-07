@@ -5,20 +5,20 @@ using UnityEngine;
 public class PlayerInventory : MonoBehaviour
 {
 
-    private int breadCount;
-    private int tomatoCount;
-    private int spaghettiCount;
-    private int cheeseCount;
-    private int onionCount;
+    public int breadCount;
+    public int tomatoCount;
+    public int spaghettiCount;
+    public int cheeseCount;
+    public int onionCount;
 
     // Start is called before the first frame update
     void Start()
     {
-        breadCount = 0;
+        /*breadCount = 0;           TESTING
         tomatoCount = 0;
         spaghettiCount = 0;
         cheeseCount = 0;
-        onionCount = 0;
+        onionCount = 0;*/
     }
 
     // Update is called once per frame

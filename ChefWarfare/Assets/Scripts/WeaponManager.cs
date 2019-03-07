@@ -172,7 +172,7 @@ public class WeaponManager : MonoBehaviour
 
         //Spaghetti Whip Onion
         hasWeapon_SpaghettiWhipOnion = false;      //DEFAULT
-        //hasWeapon_SpaghettiWhipOnion = true;       //TESTING
+        hasWeapon_SpaghettiWhipOnion = true;       //TESTING
         weapon_SpaghettiWhipOnion_Active = false;
 
         //Damage Boost Multiplier
@@ -754,7 +754,7 @@ public class WeaponManager : MonoBehaviour
                     Debug.Log("Primary: Shotgun");
                     Debug.Log("Secondary: Spaghetti Whip Onion");
                 }
-                else if (hasWeapon_SpaghettiWhipOnion == true)
+                else if (hasWeapon_SpaghettiWhipCheese == true)
                 {
                     weapon_SpaghettiWhipOnion_Active = false;
                     Weapon_SpaghettiWhipOnion_WindUp.SetActive(false);
@@ -762,12 +762,12 @@ public class WeaponManager : MonoBehaviour
                     Weapon_SpaghettiWhipOnion_Collider.enabled = false;
                     Weapon_SpaghettiWhipOnion_Attack.SetActive(false);
                     //TO DO: enable weapon sprite renderer in box secondary weapon
-                    weapon_SpaghettiWhipOnion_Active = true;
-                    Weapon_SpaghettiWhipOnion_WindUp.SetActive(true);
-                    Weapon_SpaghettiWhipOnion_Attack.SetActive(true);
-                    Weapon_SpaghettiWhipOnion_SpriteRenderer.enabled = false;
-                    Weapon_SpaghettiWhipOnion_Collider.enabled = false;
-                    spaghettiWhipOnion_Cooldown = spaghettiWhipOnion_CooldownLength;
+                    weapon_SpaghettiWhipCheese_Active = true;
+                    Weapon_SpaghettiWhipCheese_WindUp.SetActive(true);
+                    Weapon_SpaghettiWhipCheese_Attack.SetActive(true);
+                    Weapon_SpaghettiWhipCheese_SpriteRenderer.enabled = false;
+                    Weapon_SpaghettiWhipCheese_Collider.enabled = false;
+                    spaghettiWhipCheese_Cooldown = spaghettiWhipCheese_CooldownLength;
                     Debug.Log("Primary: Spaghetti Whip Cheese");
                     Debug.Log("Secondary: Spaghetti Whip Onion");
                 }
