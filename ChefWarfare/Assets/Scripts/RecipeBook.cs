@@ -10,6 +10,9 @@ public class RecipeBook : MonoBehaviour
 
     public GameObject recipeBookImage;
 
+
+    private string inputB;
+    private string inputA;
     [SerializeField] private bool onCookingStation;
 
     // Start is called before the first frame update
@@ -23,7 +26,7 @@ public class RecipeBook : MonoBehaviour
     void Update()
     {
         //disables cooking station
-        if (onCookingStation == true && Input.GetButtonDown("Xbox_Button_B_P1"))
+        if (onCookingStation == true && Input.GetButtonDown(inputB))
         {
             StartCoroutine(ExitCookingStationDelay());
         }
@@ -34,7 +37,6 @@ public class RecipeBook : MonoBehaviour
     IEnumerator EnterCookingStationDelay()
     {
         yield return new WaitForSeconds(0.05f);
-        print("Enter 1");
         onCookingStation = true;
         recipeBookImage.SetActive(true);
         myPlayerStatusScript.canMove = false;
@@ -45,7 +47,6 @@ public class RecipeBook : MonoBehaviour
     IEnumerator ExitCookingStationDelay()
     {
         yield return new WaitForSeconds(0.25f);
-        print("exit 1");
         onCookingStation = false;
         recipeBookImage.SetActive(false);
         myPlayerStatusScript.canMove = true;
@@ -55,19 +56,40 @@ public class RecipeBook : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.name == "Player1")
+        if(other.gameObject.tag == "Player")
         {
             //sets the player when a player hits the cooking station
             myPlayerStatusScript = other.gameObject.GetComponent<PlayerStatus>();
+            //sets the input to correct player input
+            if (other.gameObject.GetComponent<PlayerMovement>().player1 == true)
+            {
+                inputB = "Xbox_Button_B_P1";
+                inputA = "Xbox_Button_A_P1";
+            }
+            else if(other.gameObject.GetComponent<PlayerMovement>().player2 == true)
+            {
+                inputB = "Xbox_Button_B_P2";
+                inputA = "Xbox_Button_A_P2";
+            }
+            else if (other.gameObject.GetComponent<PlayerMovement>().player3 == true)
+            {
+                inputB = "Xbox_Button_B_P3";
+                inputA = "Xbox_Button_A_P3";
+            }
+            else if (other.gameObject.GetComponent<PlayerMovement>().player4 == true)
+            {
+                inputB = "Xbox_Button_B_P4";
+                inputA = "Xbox_Button_A_P4";
+            }
         }
     }
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if(other.gameObject.name == "Player1")
+        if(other.gameObject.tag == "Player")
         {
             //enables cooking station
-            if(onCookingStation == false && Input.GetButtonDown("Xbox_Button_B_P1"))
+            if(onCookingStation == false && Input.GetButtonDown(inputB))
             {
                 StartCoroutine(EnterCookingStationDelay());
             }
