@@ -172,7 +172,7 @@ public class WeaponManager : MonoBehaviour
 
         //Spaghetti Whip Onion
         hasWeapon_SpaghettiWhipOnion = false;      //DEFAULT
-        hasWeapon_SpaghettiWhipOnion = true;       //TESTING
+        //hasWeapon_SpaghettiWhipOnion = true;       //TESTING
         weapon_SpaghettiWhipOnion_Active = false;
 
         //Damage Boost Multiplier
@@ -193,15 +193,6 @@ public class WeaponManager : MonoBehaviour
         {
             canSwitchWeapon = true;
         }
-
-        /*//enabling Pea Shooter
-        if(hasWeapon_PeaShooter == true && weapon_PeaShooter_Active == false)
-        {
-            //enabling gameobjects
-            weapon_PeaShooter_Active = true;
-            Weapon_PeaShooter.SetActive(true);
-            Debug.Log("Enabled 'Weapon_PeaShooter'");
-        }*/
 
 
         //using Pea Shooter

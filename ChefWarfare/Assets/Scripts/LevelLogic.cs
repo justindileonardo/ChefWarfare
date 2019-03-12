@@ -1,14 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelLogic : MonoBehaviour
 {
     //public variables
-    public float gameTimer, gameLength;
+    public float gameTimerPre, gameTimerPost, eachGameLength;
     public bool wallsDropped;
+    int min, sec;
     public GameObject temporaryWalls;
     public int scoreRed, scoreBlue, scoreGreen, scoreOrange;
+    public Text scoreRedText, scoreBlueText, scoreGreenText, scoreOrangeText, TimeText, GameStateText;
 
     //private variables
 
@@ -23,11 +26,25 @@ public class LevelLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        gameTimer -= Time.deltaTime;
+        if(wallsDropped == true)
+        {
+            gameTimerPost -= Time.deltaTime;
+            min = Mathf.FloorToInt(gameTimerPost / 60);
+            sec = Mathf.FloorToInt(gameTimerPost % 60);
+            GameStateText.text = "FIGHT!";
+        }
+        else
+        {
+            gameTimerPre -= Time.deltaTime;
+            min = Mathf.FloorToInt(gameTimerPre / 60);
+            sec = Mathf.FloorToInt(gameTimerPre % 60);
+            GameStateText.text = "WALLS";
+        }
+        
+        
 
         //at 5 minutes passed...
-        if ((int)gameTimer == 300f)          //300f = 5 minutes
+        if ((int)gameTimerPre == 0f)
         {
             //drop walls
             if (wallsDropped == false)
@@ -36,17 +53,38 @@ public class LevelLogic : MonoBehaviour
                 wallsDropped = true;
             }
         }
+
+        if((int)gameTimerPost == 0f)
+        {
+            EndGame();
+        }
+
+
+        TimeText.text = min.ToString("0") + ":" + sec.ToString("00");
+        scoreRedText.text = scoreRed.ToString();
+        scoreBlueText.text = scoreBlue.ToString();
+        scoreGreenText.text = scoreGreen.ToString();
+        scoreOrangeText.text = scoreOrange.ToString();
     }
 
     public void RestartGame()
     {
-        gameLength = 600f;          //600f = 10 minutes
-        gameTimer = gameLength;
+        eachGameLength = 180f;          //300f = 5 minutes      //180 = 3 minutes
+        gameTimerPre = eachGameLength;
+        gameTimerPost = eachGameLength;
         wallsDropped = false;
         temporaryWalls.SetActive(true);
         scoreRed = 0;
         scoreBlue = 0;
         scoreGreen = 0;
         scoreOrange = 0;
+    }
+
+    public void EndGame()
+    {
+        print("GAME OVER");
+        //go to end game scene
+        //show scores in each corner
+        //show winner in middle with prized possession- player sprite?
     }
 }

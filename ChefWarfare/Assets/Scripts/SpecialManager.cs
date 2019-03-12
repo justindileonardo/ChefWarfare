@@ -92,7 +92,7 @@ public class SpecialManager : MonoBehaviour
         snack_SpeedBoost.enabled = false;                                       /*DEFAULT*/
         snack_SpeedBoost_ParticleSystem.SetActive(false);                       /*DEFAULT*/
         hasSnack_SpeedBoost = false;                                            /*DEFAULT*/
-        hasSnack_SpeedBoost = true;                                             /*TESTING*/
+        //hasSnack_SpeedBoost = true;                                             /*TESTING*/
         snackSpeedBoost_CooldownLength = 30.0f;                                 /*DEFAULT*/
         //snackSpeedBoost_CooldownLength = 10.0f;                                 /*TESTING*/
         snackSpeedBoost_Cooldown = 0;              
@@ -118,7 +118,7 @@ public class SpecialManager : MonoBehaviour
         hasSnack_HealthBoost = false;                                            /*DEFAULT*/
         //hasSnack_HealthBoost = true;                                             /*TESTING*/
         snackHealthBoost_CooldownLength = 30.0f;                                 /*DEFAULT*/
-        //snackHealthBoost_CooldownLength = 10.0f;                                 /*TESTING*/
+        snackHealthBoost_CooldownLength = 10.0f;                                 /*TESTING*/
         snackHealthBoost_Cooldown = 0;
         snackHealthBoost_Ready = false;                                          /*DEFAULT*/
         snackHealthBoost_ActiveLength = 5.0f;

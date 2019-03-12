@@ -1,14 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Cooking : MonoBehaviour
 {
+
+    public GameObject[] checkmark1, checkmark2, checkmark3, checkmark4;
 
     private WeaponManager weaponManagerScript_P1;
     private WeaponManager weaponManagerScript_P2;
     private WeaponManager weaponManagerScript_P3;
     private WeaponManager weaponManagerScript_P4;
+
+    private SpecialManager specialManagerScript_P1;
+    private SpecialManager specialManagerScript_P2;
+    private SpecialManager specialManagerScript_P3;
+    private SpecialManager specialManagerScript_P4;
 
     private PlayerInventory playerInventoryScript_P1;
     private PlayerInventory playerInventoryScript_P2;
@@ -41,6 +49,7 @@ public class Cooking : MonoBehaviour
     private int SH_tomato;
     private int SH_cheese;
     private int SH_onion;
+
 
     private bool canCookSemiAutoRifle_P1;
     private bool canCookSemiAutoRifle_P2;
@@ -86,10 +95,23 @@ public class Cooking : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        for(int i = 0; i < 8; i++)
+        {
+            checkmark1[i].SetActive(false);
+            checkmark2[i].SetActive(false);
+            checkmark3[i].SetActive(false);
+            checkmark4[i].SetActive(false);
+        }
+
         weaponManagerScript_P1 = GameObject.Find("Player1").GetComponent<WeaponManager>();
         weaponManagerScript_P2 = GameObject.Find("Player2").GetComponent<WeaponManager>();
         weaponManagerScript_P3 = GameObject.Find("Player3").GetComponent<WeaponManager>();
         weaponManagerScript_P4 = GameObject.Find("Player4").GetComponent<WeaponManager>();
+
+        specialManagerScript_P1 = GameObject.Find("Player1").GetComponent<SpecialManager>();
+        specialManagerScript_P2 = GameObject.Find("Player2").GetComponent<SpecialManager>();
+        specialManagerScript_P3 = GameObject.Find("Player3").GetComponent<SpecialManager>();
+        specialManagerScript_P4 = GameObject.Find("Player4").GetComponent<SpecialManager>();
 
         playerInventoryScript_P1 = GameObject.Find("Player1").GetComponent<PlayerInventory>();
         playerInventoryScript_P2 = GameObject.Find("Player2").GetComponent<PlayerInventory>();
@@ -489,6 +511,7 @@ public class Cooking : MonoBehaviour
                 weaponManagerScript_P1.Weapon_SemiAutoRifle.SetActive(true);
                 playerInventoryScript_P1.breadCount -= SR_bread;
                 playerInventoryScript_P1.tomatoCount -= SR_tomato;
+                checkmark1[0].SetActive(true);
             }
             //check if has pea shooter and semi auto rifle (ALREADY)
             else if (
@@ -522,6 +545,7 @@ public class Cooking : MonoBehaviour
                 weaponManagerScript_P1.Weapon_SemiAutoRifle.SetActive(true);
                 playerInventoryScript_P1.breadCount -= SR_bread;
                 playerInventoryScript_P1.tomatoCount -= SR_tomato;
+                checkmark1[0].SetActive(true);
             }
             //check if has pea shooter and shotgun
             else if (
@@ -544,6 +568,7 @@ public class Cooking : MonoBehaviour
                 weaponManagerScript_P1.Weapon_SemiAutoRifle.SetActive(true);
                 playerInventoryScript_P1.breadCount -= SR_bread;
                 playerInventoryScript_P1.tomatoCount -= SR_tomato;
+                checkmark1[0].SetActive(true);
             }
             //check if has pea shooter and whip cheese
             else if (
@@ -567,6 +592,7 @@ public class Cooking : MonoBehaviour
                 weaponManagerScript_P1.Weapon_SemiAutoRifle.SetActive(true);
                 playerInventoryScript_P1.breadCount -= SR_bread;
                 playerInventoryScript_P1.tomatoCount -= SR_tomato;
+                checkmark1[0].SetActive(true);
             }
             //check if has pea shooter and whip onion
             else if (
@@ -590,6 +616,7 @@ public class Cooking : MonoBehaviour
                 weaponManagerScript_P1.Weapon_SemiAutoRifle.SetActive(true);
                 playerInventoryScript_P1.breadCount -= SR_bread;
                 playerInventoryScript_P1.tomatoCount -= SR_tomato;
+                checkmark1[0].SetActive(true);
             }
         }
         
@@ -618,6 +645,7 @@ public class Cooking : MonoBehaviour
                 weaponManagerScript_P1.Weapon_BurstRifle.SetActive(true);
                 playerInventoryScript_P1.breadCount -= BR_bread;
                 playerInventoryScript_P1.tomatoCount -= BR_tomato;
+                checkmark1[1].SetActive(true);
             }
             //check if has pea shooter and semi auto rifle
             else if (
@@ -639,6 +667,7 @@ public class Cooking : MonoBehaviour
                 weaponManagerScript_P1.Weapon_BurstRifle.SetActive(true);
                 playerInventoryScript_P1.breadCount -= BR_bread;
                 playerInventoryScript_P1.tomatoCount -= BR_tomato;
+                checkmark1[1].SetActive(true);
             }
             //check if has pea shooter and burst rifle (ALREADY)
             else if (
@@ -673,6 +702,7 @@ public class Cooking : MonoBehaviour
                 weaponManagerScript_P1.Weapon_BurstRifle.SetActive(true);
                 playerInventoryScript_P1.breadCount -= BR_bread;
                 playerInventoryScript_P1.tomatoCount -= BR_tomato;
+                checkmark1[1].SetActive(true);
             }
             //check if has pea shooter and whip cheese
             else if (
@@ -696,6 +726,7 @@ public class Cooking : MonoBehaviour
                 weaponManagerScript_P1.Weapon_BurstRifle.SetActive(true);
                 playerInventoryScript_P1.breadCount -= BR_bread;
                 playerInventoryScript_P1.tomatoCount -= BR_tomato;
+                checkmark1[1].SetActive(true);
             }
             //check if has pea shooter and whip onion
             else if (
@@ -719,6 +750,7 @@ public class Cooking : MonoBehaviour
                 weaponManagerScript_P1.Weapon_BurstRifle.SetActive(true);
                 playerInventoryScript_P1.breadCount -= BR_bread;
                 playerInventoryScript_P1.tomatoCount -= BR_tomato;
+                checkmark1[1].SetActive(true);
             }
         }
 
@@ -747,6 +779,7 @@ public class Cooking : MonoBehaviour
                 weaponManagerScript_P1.Weapon_Shotgun.SetActive(true);
                 playerInventoryScript_P1.breadCount -= SG_bread;
                 playerInventoryScript_P1.tomatoCount -= SG_tomato;
+                checkmark1[2].SetActive(true);
             }
             //check if has pea shooter and semi auto rifle
             else if (
@@ -768,6 +801,7 @@ public class Cooking : MonoBehaviour
                 weaponManagerScript_P1.Weapon_Shotgun.SetActive(true);
                 playerInventoryScript_P1.breadCount -= SG_bread;
                 playerInventoryScript_P1.tomatoCount -= SG_tomato;
+                checkmark1[2].SetActive(true);
             }
             //check if has pea shooter and burst rifle 
             else if (
@@ -789,6 +823,7 @@ public class Cooking : MonoBehaviour
                 weaponManagerScript_P1.Weapon_Shotgun.SetActive(true);
                 playerInventoryScript_P1.breadCount -= SG_bread;
                 playerInventoryScript_P1.tomatoCount -= SG_tomato;
+                checkmark1[2].SetActive(true);
             }
             //check if has pea shooter and shotgun (ALREADY)
             else if (
@@ -825,6 +860,7 @@ public class Cooking : MonoBehaviour
                 weaponManagerScript_P1.Weapon_Shotgun.SetActive(true);
                 playerInventoryScript_P1.breadCount -= SG_bread;
                 playerInventoryScript_P1.tomatoCount -= SG_tomato;
+                checkmark1[2].SetActive(true);
             }
             //check if has pea shooter and whip onion
             else if (
@@ -848,6 +884,7 @@ public class Cooking : MonoBehaviour
                 weaponManagerScript_P1.Weapon_Shotgun.SetActive(true);
                 playerInventoryScript_P1.breadCount -= SG_bread;
                 playerInventoryScript_P1.tomatoCount -= SG_tomato;
+                checkmark1[2].SetActive(true);
             }
         }
 
@@ -878,6 +915,7 @@ public class Cooking : MonoBehaviour
                 weaponManagerScript_P1.Weapon_SpaghettiWhipCheese_SpriteRenderer.enabled = false;
                 playerInventoryScript_P1.spaghettiCount -= WC_spaghetti;
                 playerInventoryScript_P1.cheeseCount -= WC_cheese;
+                checkmark1[3].SetActive(true);
             }
             //check if has pea shooter and semi auto rifle
             else if (
@@ -901,6 +939,7 @@ public class Cooking : MonoBehaviour
                 weaponManagerScript_P1.Weapon_SpaghettiWhipCheese_SpriteRenderer.enabled = false;
                 playerInventoryScript_P1.spaghettiCount -= WC_spaghetti;
                 playerInventoryScript_P1.cheeseCount -= WC_cheese;
+                checkmark1[3].SetActive(true);
             }
             //check if has pea shooter and burst rifle 
             else if (
@@ -924,6 +963,7 @@ public class Cooking : MonoBehaviour
                 weaponManagerScript_P1.Weapon_SpaghettiWhipCheese_SpriteRenderer.enabled = false;
                 playerInventoryScript_P1.spaghettiCount -= WC_spaghetti;
                 playerInventoryScript_P1.cheeseCount -= WC_cheese;
+                checkmark1[3].SetActive(true);
             }
             //check if has pea shooter and shotgun (ALREADY)
             else if (
@@ -948,6 +988,7 @@ public class Cooking : MonoBehaviour
                 weaponManagerScript_P1.Weapon_SpaghettiWhipCheese_SpriteRenderer.enabled = false;
                 playerInventoryScript_P1.spaghettiCount -= WC_spaghetti;
                 playerInventoryScript_P1.cheeseCount -= WC_cheese;
+                checkmark1[3].SetActive(true);
             }
             //check if has pea shooter and whip cheese
             else if (
@@ -986,6 +1027,7 @@ public class Cooking : MonoBehaviour
                 weaponManagerScript_P1.Weapon_SpaghettiWhipCheese_SpriteRenderer.enabled = false;
                 playerInventoryScript_P1.spaghettiCount -= WC_spaghetti;
                 playerInventoryScript_P1.cheeseCount -= WC_cheese;
+                checkmark1[3].SetActive(true);
             }
         }
 
@@ -1016,6 +1058,7 @@ public class Cooking : MonoBehaviour
                 weaponManagerScript_P1.Weapon_SpaghettiWhipOnion_SpriteRenderer.enabled = false;
                 playerInventoryScript_P1.spaghettiCount -= WO_spaghetti;
                 playerInventoryScript_P1.onionCount -= WO_onion;
+                checkmark1[4].SetActive(true);
             }
             //check if has pea shooter and semi auto rifle
             else if (
@@ -1039,6 +1082,7 @@ public class Cooking : MonoBehaviour
                 weaponManagerScript_P1.Weapon_SpaghettiWhipOnion_SpriteRenderer.enabled = false;
                 playerInventoryScript_P1.spaghettiCount -= WO_spaghetti;
                 playerInventoryScript_P1.onionCount -= WO_onion;
+                checkmark1[4].SetActive(true);
             }
             //check if has pea shooter and burst rifle 
             else if (
@@ -1062,6 +1106,7 @@ public class Cooking : MonoBehaviour
                 weaponManagerScript_P1.Weapon_SpaghettiWhipOnion_SpriteRenderer.enabled = false;
                 playerInventoryScript_P1.spaghettiCount -= WO_spaghetti;
                 playerInventoryScript_P1.onionCount -= WO_onion;
+                checkmark1[4].SetActive(true);
             }
             //check if has pea shooter and shotgun 
             else if (
@@ -1086,6 +1131,7 @@ public class Cooking : MonoBehaviour
                 weaponManagerScript_P1.Weapon_SpaghettiWhipOnion_SpriteRenderer.enabled = false;
                 playerInventoryScript_P1.spaghettiCount -= WO_spaghetti;
                 playerInventoryScript_P1.onionCount -= WO_onion;
+                checkmark1[4].SetActive(true);
             }
             //check if has pea shooter and whip cheese
             else if (
@@ -1111,6 +1157,7 @@ public class Cooking : MonoBehaviour
                 weaponManagerScript_P1.Weapon_SpaghettiWhipOnion_SpriteRenderer.enabled = false;
                 playerInventoryScript_P1.spaghettiCount -= WO_spaghetti;
                 playerInventoryScript_P1.onionCount -= WO_onion;
+                checkmark1[4].SetActive(true);
             }
             //check if has pea shooter and whip onion (ALREADY)
             else if (
@@ -1125,6 +1172,165 @@ public class Cooking : MonoBehaviour
             {
                 //do nothing - accident click
             }
+        }
+
+
+    }
+
+    //cooking Snack Speed
+    public void Cook_SnackSpeed_P1()
+    {
+        if (canCookSnackSpeed_P1 == true)
+        {
+            //check if has no snack
+            if (
+
+                        specialManagerScript_P1.hasSnack_SpeedBoost == false &&
+                        specialManagerScript_P1.hasSnack_DamageBoost == false &&
+                        specialManagerScript_P1.hasSnack_HealthBoost == false
+               )
+            {
+                specialManagerScript_P1.hasSnack_SpeedBoost = true;
+                playerInventoryScript_P1.tomatoCount -= SS_tomato;
+                playerInventoryScript_P1.onionCount -= SS_onion;
+                playerInventoryScript_P1.cheeseCount -= SS_cheese;
+                checkmark1[5].SetActive(true);
+            }
+            //check if has snack speed (already)
+            else if (
+                        specialManagerScript_P1.hasSnack_SpeedBoost == true &&
+                        specialManagerScript_P1.hasSnack_DamageBoost == false &&
+                        specialManagerScript_P1.hasSnack_HealthBoost == false
+                    )
+            {
+                //do nothing - accident click
+            }
+            //check if has snack damage (already)
+            else if (
+                        specialManagerScript_P1.hasSnack_SpeedBoost == false &&
+                        specialManagerScript_P1.hasSnack_DamageBoost == true &&
+                        specialManagerScript_P1.hasSnack_HealthBoost == false
+                   )
+            {
+                //do nothing
+            }
+            //check if has snack health already
+            else if (
+                        specialManagerScript_P1.hasSnack_SpeedBoost == false &&
+                        specialManagerScript_P1.hasSnack_DamageBoost == false &&
+                        specialManagerScript_P1.hasSnack_HealthBoost == true
+
+                    )
+            {
+                //do nothing
+            }
+           
+        }
+
+
+    }
+
+    //cooking Snack Damage
+    public void Cook_SnackDamage_P1()
+    {
+        if (canCookSnackDamage_P1 == true)
+        {
+            //check if has no snack
+            if (
+
+                        specialManagerScript_P1.hasSnack_SpeedBoost == false &&
+                        specialManagerScript_P1.hasSnack_DamageBoost == false &&
+                        specialManagerScript_P1.hasSnack_HealthBoost == false
+               )
+            {
+                specialManagerScript_P1.hasSnack_DamageBoost = true;
+                playerInventoryScript_P1.tomatoCount -= SD_tomato;
+                playerInventoryScript_P1.onionCount -= SD_onion;
+                playerInventoryScript_P1.cheeseCount -= SD_cheese;
+                checkmark1[6].SetActive(true);
+            }
+            //check if has snack speed (already)
+            else if (
+                        specialManagerScript_P1.hasSnack_SpeedBoost == true &&
+                        specialManagerScript_P1.hasSnack_DamageBoost == false &&
+                        specialManagerScript_P1.hasSnack_HealthBoost == false
+                    )
+            {
+                //do nothing - accident click
+            }
+            //check if has snack damage (already)
+            else if (
+                        specialManagerScript_P1.hasSnack_SpeedBoost == false &&
+                        specialManagerScript_P1.hasSnack_DamageBoost == true &&
+                        specialManagerScript_P1.hasSnack_HealthBoost == false
+                   )
+            {
+                //do nothing
+            }
+            //check if has snack health already
+            else if (
+                        specialManagerScript_P1.hasSnack_SpeedBoost == false &&
+                        specialManagerScript_P1.hasSnack_DamageBoost == false &&
+                        specialManagerScript_P1.hasSnack_HealthBoost == true
+
+                    )
+            {
+                //do nothing
+            }
+
+        }
+
+
+    }
+
+    //cooking Snack Health
+    public void Cook_SnackHealth_P1()
+    {
+        if (canCookSnackHealth_P1 == true)
+        {
+            //check if has no snack
+            if (
+
+                        specialManagerScript_P1.hasSnack_SpeedBoost == false &&
+                        specialManagerScript_P1.hasSnack_DamageBoost == false &&
+                        specialManagerScript_P1.hasSnack_HealthBoost == false
+               )
+            {
+                specialManagerScript_P1.hasSnack_HealthBoost = true;
+                playerInventoryScript_P1.tomatoCount -= SH_tomato;
+                playerInventoryScript_P1.onionCount -= SH_onion;
+                playerInventoryScript_P1.cheeseCount -= SH_cheese;
+                checkmark1[7].SetActive(true);
+            }
+            //check if has snack speed (already)
+            else if (
+                        specialManagerScript_P1.hasSnack_SpeedBoost == true &&
+                        specialManagerScript_P1.hasSnack_DamageBoost == false &&
+                        specialManagerScript_P1.hasSnack_HealthBoost == false
+                    )
+            {
+                //do nothing - accident click
+            }
+            //check if has snack damage (already)
+            else if (
+                        specialManagerScript_P1.hasSnack_SpeedBoost == false &&
+                        specialManagerScript_P1.hasSnack_DamageBoost == true &&
+                        specialManagerScript_P1.hasSnack_HealthBoost == false
+                   )
+            {
+                //do nothing
+            }
+            //check if has snack health already
+            else if (
+                        specialManagerScript_P1.hasSnack_SpeedBoost == false &&
+                        specialManagerScript_P1.hasSnack_DamageBoost == false &&
+                        specialManagerScript_P1.hasSnack_HealthBoost == true
+
+                    )
+            {
+                //do nothing
+            }
+
         }
 
 
