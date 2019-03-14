@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     //public variables
-
+    public float publicAngle;
     //setting player number
     public bool player1;
     public bool player2;
@@ -32,7 +32,6 @@ public class PlayerMovement : MonoBehaviour
     public GameObject Weapon_SpaghettiWhipOnion;
     public SpriteRenderer Weapon_SpaghttiWhipOnionWindUpSpriteRenderer;
     public SpriteRenderer Weapon_SpaghttiWhipOnionAttackSpriteRenderer;
-
 
     //Sprites for Character
     public SpriteRenderer armsSpriteL;
@@ -170,6 +169,7 @@ public class PlayerMovement : MonoBehaviour
                 chefSpriteLegR.flipX = false;
                 armsSpriteL.flipX = false;
                 armsSpriteR.flipX = false;
+                Weapon_PeaShooterSpriteRenderer.flipY = false;
             }
             else
             {
@@ -179,6 +179,7 @@ public class PlayerMovement : MonoBehaviour
                 chefSpriteLegR.flipX = true;
                 armsSpriteL.flipX = true;
                 armsSpriteR.flipX = true;
+                Weapon_PeaShooterSpriteRenderer.flipY = true;
             }
 
 

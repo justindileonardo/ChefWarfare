@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WeaponManager : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class WeaponManager : MonoBehaviour
 
     private string inputY;
     private string inputRT;
+
+    //PlayerMovement Script
+    public PlayerMovement playerMovementScript;
 
     //The PivotPoint
     public GameObject Weapon_PivotPoint;
@@ -73,6 +77,10 @@ public class WeaponManager : MonoBehaviour
     //Damage Boost multiplier
     public int damageBoostMultiplier;
 
+    
+
+
+
     //private variables
     //Switch Weapon timer
     private bool canSwitchWeapon;
@@ -103,32 +111,49 @@ public class WeaponManager : MonoBehaviour
     private float spaghettiWhipOnion_Cooldown;
     private float spaghettiWhipOnion_CooldownLength;
 
+    //UI Inventory
+    private Image w1PeaShooter;
+    private Image w2PeaShooter;
+
 
     // Start is called before the first frame update
     void Start()
     {
 
-        //setting player number Inputs
+        //setting player number Inputs and UI images
         if(player1)
         {
             inputY = "Xbox_Button_Y_P1";
             inputRT = "Xbox_RT_P1";
+
+            w1PeaShooter = GameObject.Find("UI_WeaponSlot1_PeaShooter_P1").GetComponent<Image>();
+            w2PeaShooter = GameObject.Find("UI_WeaponSlot2_PeaShooter_P1").GetComponent<Image>();
         }
         else if(player2)
         {
             inputY = "Xbox_Button_Y_P2";
             inputRT = "Xbox_RT_P2";
+
+            //w1PeaShooter = GameObject.Find("UI_WeaponSlot1_PeaShooter_P2").GetComponent<Image>();
+            //w2PeaShooter = GameObject.Find("UI_WeaponSlot2_PeaShooter_P2").GetComponent<Image>();
         }
         else if (player3)
         {
             inputY = "Xbox_Button_Y_P3";
             inputRT = "Xbox_RT_P3";
+
+            //w1PeaShooter = GameObject.Find("UI_WeaponSlot1_PeaShooter_P3").GetComponent<Image>();
+            //w2PeaShooter = GameObject.Find("UI_WeaponSlot2_PeaShooter_P3").GetComponent<Image>();
         }
         else if (player4)
         {
             inputY = "Xbox_Button_Y_P4";
             inputRT = "Xbox_RT_P4";
+
+            //w1PeaShooter = GameObject.Find("UI_WeaponSlot1_PeaShooter_P4").GetComponent<Image>();
+            //w2PeaShooter = GameObject.Find("UI_WeaponSlot2_PeaShooter_P4").GetComponent<Image>();
         }
+
 
         //Setting Cooldown Lengths
         switchWeaponTimerCooldownLength = 1.0f;
@@ -194,6 +219,33 @@ public class WeaponManager : MonoBehaviour
             canSwitchWeapon = true;
         }
 
+        if (player1 == true)            //TEMPORARY PLAYER 1 ONLY TIL ALL DONE
+        {
+
+
+            //setting UI
+            //Pea Shooter
+            if (hasWeapon_PeaShooter == true && weapon_PeaShooter_Active == true && w1PeaShooter.enabled == false)
+            {
+                w1PeaShooter.enabled = true;
+                w2PeaShooter.enabled = false;
+            }
+            else if (hasWeapon_PeaShooter == true && weapon_PeaShooter_Active == false && w2PeaShooter.enabled == false)
+            {
+                w2PeaShooter.enabled = true;
+                w1PeaShooter.enabled = false;
+            }
+            else if (hasWeapon_PeaShooter == false && w1PeaShooter.enabled == false)
+            {
+                w1PeaShooter.enabled = false;
+                w2PeaShooter.enabled = false;
+            }
+            else if (hasWeapon_PeaShooter == false && w2PeaShooter.enabled == false)
+            {
+                w1PeaShooter.enabled = false;
+                w2PeaShooter.enabled = false;
+            }
+        }
 
         //using Pea Shooter
         if (hasWeapon_PeaShooter == true && weapon_PeaShooter_Active == true)
@@ -287,6 +339,7 @@ public class WeaponManager : MonoBehaviour
             if (attackMain != 0 && peaShooter_Cooldown < 0)
             {
                 peaShooter_Cooldown = peaShooter_CooldownLength;
+                
                 Instantiate(Prefab_Pea, new Vector3(Weapon_BulletSpawnPoint.transform.position.x, Weapon_BulletSpawnPoint.transform.position.y, Weapon_BulletSpawnPoint.transform.position.z), Weapon_PivotPoint.transform.rotation);
             }
         }

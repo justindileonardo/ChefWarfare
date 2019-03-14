@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerStatus : MonoBehaviour
 {
@@ -20,6 +21,17 @@ public class PlayerStatus : MonoBehaviour
     private SpriteRenderer blackDeathScreenP3;
     private SpriteRenderer blackDeathScreenP4;
 
+    private Text HpText1;
+    private Text HpText2;
+    private Text HpText3;
+    private Text HpText4;
+
+    private Image HpFill1;
+    private Image HpFill2;
+    private Image HpFill3;
+    private Image HpFill4;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +46,16 @@ public class PlayerStatus : MonoBehaviour
         blackDeathScreenP2 = GameObject.Find("DeathBlackScreen_P2").GetComponent<SpriteRenderer>();
         blackDeathScreenP3 = GameObject.Find("DeathBlackScreen_P3").GetComponent<SpriteRenderer>();
         blackDeathScreenP4 = GameObject.Find("DeathBlackScreen_P4").GetComponent<SpriteRenderer>();
+
+        HpText1 = GameObject.Find("UI_HP_Text_P1").GetComponent<Text>();
+        HpText2 = GameObject.Find("UI_HP_Text_P2").GetComponent<Text>();
+        HpText3 = GameObject.Find("UI_HP_Text_P3").GetComponent<Text>();
+        HpText4 = GameObject.Find("UI_HP_Text_P4").GetComponent<Text>();
+
+        HpFill1 = GameObject.Find("UI_HP_Fill_P1").GetComponent<Image>();
+        HpFill2 = GameObject.Find("UI_HP_Fill_P2").GetComponent<Image>();
+        HpFill3 = GameObject.Find("UI_HP_Fill_P3").GetComponent<Image>();
+        HpFill4 = GameObject.Find("UI_HP_Fill_P4").GetComponent<Image>();
     }
 
     // Update is called once per frame
@@ -59,6 +81,28 @@ public class PlayerStatus : MonoBehaviour
                 moveSpeedEffectTimer = 0;
                 moveSpeed = moveSpeedDefault;
             }
+        }
+
+        //Showing player HP on screen
+        if (myPlayer.player1 == true)
+        {
+            HpText1.text = HP.ToString();
+            HpFill1.fillAmount = (float)HP/100;
+        }
+        else if(myPlayer.player2 == true)
+        {
+            HpText2.text = HP.ToString();
+            HpFill2.fillAmount = (float)HP/100;
+        }
+        else if (myPlayer.player3 == true)
+        {
+            HpText3.text = HP.ToString();
+            HpFill3.fillAmount = (float)HP/100;
+        }
+        else if (myPlayer.player4 == true)
+        {
+            HpText4.text = HP.ToString();
+            HpFill4.fillAmount = (float)HP/100;
         }
     }
 

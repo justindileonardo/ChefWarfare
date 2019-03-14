@@ -24,7 +24,7 @@ public class CapturePoint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print("Red: " + levelLogicScript.scoreRed);
+        
         
     }
 
