@@ -19,6 +19,8 @@ public class Enemy_Tomato : MonoBehaviour
     private bool isMoving;
     private int damage = 10;
 
+    private Animator theAnimator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +28,8 @@ public class Enemy_Tomato : MonoBehaviour
         tomatoExplosionSpriteRenderer.enabled = false;
         isMoving = true;
         HP = 20.0f;
+        theAnimator = GetComponent<Animator>();
+        theAnimator.SetBool("tomatoIsMoving", true);
     }
 
     // Update is called once per frame
@@ -53,6 +57,10 @@ public class Enemy_Tomato : MonoBehaviour
         if (isMoving == true)
         {
             transform.position = Vector3.MoveTowards(transform.position, closestPlayer.transform.position, moveSpeed * Time.deltaTime);
+        }
+        else
+        {
+            theAnimator.SetBool("tomatoIsMoving", false);
         }
 
         //print("Tomato HP: " + HP);
