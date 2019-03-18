@@ -9019,7 +9019,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6492f6bd0931a64cbe84c15e4f3c9fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blindEffectSprite: {fileID: 96009983}
+  blindEffectSprite: {fileID: 142767292}
   blindEffectTimer: 0
 --- !u!114 &322068990
 MonoBehaviour:
@@ -9272,7 +9272,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
@@ -22225,7 +22225,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
@@ -40392,7 +40392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6492f6bd0931a64cbe84c15e4f3c9fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blindEffectSprite: {fileID: 96009983}
+  blindEffectSprite: {fileID: 794957299}
   blindEffectTimer: 0
 --- !u!114 &893780656
 MonoBehaviour:
@@ -40645,7 +40645,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
@@ -78582,7 +78582,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6492f6bd0931a64cbe84c15e4f3c9fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blindEffectSprite: {fileID: 96009983}
+  blindEffectSprite: {fileID: 1413340434}
   blindEffectTimer: 0
 --- !u!114 &1641631846
 MonoBehaviour:
@@ -78835,7 +78835,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
