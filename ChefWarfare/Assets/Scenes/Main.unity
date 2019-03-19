@@ -3350,7 +3350,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Xbox_VerticalLS_P3
-  m_SubmitButton: Xbox_Button_A_P3
+  m_SubmitButton: Xbox_Button_A_P3_MAC
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
@@ -4008,7 +4008,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Xbox_VerticalLS_P4
-  m_SubmitButton: Xbox_Button_A_P4
+  m_SubmitButton: Xbox_Button_A_P4_MAC
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
@@ -10483,6 +10483,7 @@ MonoBehaviour:
   player2: 1
   player3: 0
   player4: 0
+  isMac: 1
   myPlayerStatusScript: {fileID: 322068992}
   rotSpeed: 1
   respawnPosition: {x: 0, y: 0, z: 0}
@@ -24577,6 +24578,7 @@ MonoBehaviour:
   player2: 0
   player3: 0
   player4: 0
+  isMac: 1
   myPlayerStatusScript: {fileID: 567615716}
   rotSpeed: 1
   respawnPosition: {x: 0, y: 0, z: 0}
@@ -44401,6 +44403,7 @@ MonoBehaviour:
   player2: 0
   player3: 1
   player4: 0
+  isMac: 1
   myPlayerStatusScript: {fileID: 893780658}
   rotSpeed: 1
   respawnPosition: {x: 0, y: 0, z: 0}
@@ -64100,7 +64103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Xbox_VerticalLS_P1
-  m_SubmitButton: Xbox_Button_A_P1
+  m_SubmitButton: Xbox_Button_A_P1_MAC
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
@@ -85052,6 +85055,7 @@ MonoBehaviour:
   player2: 0
   player3: 0
   player4: 1
+  isMac: 1
   myPlayerStatusScript: {fileID: 1641631848}
   rotSpeed: 1
   respawnPosition: {x: 0, y: 0, z: 0}
@@ -92608,7 +92612,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Xbox_VerticalLS_P2
-  m_SubmitButton: Xbox_Button_A_P2
+  m_SubmitButton: Xbox_Button_A_P2_MAC
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5

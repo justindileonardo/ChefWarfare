@@ -21,6 +21,8 @@ public class EnemySpawnerP4 : MonoBehaviour
     public Image enemyOnion;
     public Image enemyCheese;
 
+    public PlayerMovement playerMovementScript;
+
     //private variables
     private float dpadVertical;
     private float dpadHorizontal;
@@ -34,14 +36,18 @@ public class EnemySpawnerP4 : MonoBehaviour
         enemyReadyToSpawn = true;
         //sets default enemy type to bread
         theEnemyType = EnemyType.Enemy_enum_Bread;
+        playerMovementScript = GameObject.Find("Player4").GetComponent<PlayerMovement>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //axis for dpad Up/Down
-        dpadVertical = Input.GetAxisRaw("Xbox_Button_DPAD_Vertical_P4");
-        dpadHorizontal = Input.GetAxisRaw("Xbox_Button_DPAD_Horizontal_P4");
+        if (playerMovementScript.isMac == false)
+        {
+            //axis for dpad Up/Down
+            dpadVertical = Input.GetAxisRaw("Xbox_Button_DPAD_Vertical_P4");
+            dpadHorizontal = Input.GetAxisRaw("Xbox_Button_DPAD_Horizontal_P4");
+        }
 
         //setting box to red or green for off/on
         if (enemySpawnerActive == true)
@@ -98,57 +104,112 @@ public class EnemySpawnerP4 : MonoBehaviour
         //if currently in your respective square
         if (inMyZone == true)
         {
-            //Activating/Deactivating spawner
-            //click dpad-up, activates spawner
-            if (enemySpawnerActive == false && dpadVertical == 1)
+            if (playerMovementScript.isMac == false)
             {
-                enemySpawnerActive = true;
-            }
-            //click dpad-down, deactivates spawner
-            else if(enemySpawnerActive == true && dpadVertical == -1)
-            {
-                enemySpawnerActive = false;
-            }
+                //Activating/Deactivating spawner
+                //click dpad-up, activates spawner
+                if (enemySpawnerActive == false && dpadVertical == 1)
+                {
+                    enemySpawnerActive = true;
+                }
+                //click dpad-down, deactivates spawner
+                else if (enemySpawnerActive == true && dpadVertical == -1)
+                {
+                    enemySpawnerActive = false;
+                }
 
 
-            //Switching Enemy Type To Spawn
-            //timer - how long in between dpad clicks to switch enemy
-            if(switchEnemyTypeTimer >= 0)
-            {
-                switchEnemyTypeTimer -= Time.deltaTime;
+                //Switching Enemy Type To Spawn
+                //timer - how long in between dpad clicks to switch enemy
+                if (switchEnemyTypeTimer >= 0)
+                {
+                    switchEnemyTypeTimer -= Time.deltaTime;
+                }
+                //if hit right dpad
+                if (dpadHorizontal == 1 && switchEnemyTypeTimer < 0)
+                {
+                    switchEnemyTypeTimer = .5f;
+                    theEnemyType += 1;
+                    //loops enum back to Bread(1) if player pushes too much to the right
+                    if (theEnemyType == EnemyType.Enemy_enum_Bread) { }
+                    else if (theEnemyType == EnemyType.Enemy_enum_Tomato) { }
+                    else if (theEnemyType == EnemyType.Enemy_enum_Spaghetti) { }
+                    else if (theEnemyType == EnemyType.Enemy_enum_Onion) { }
+                    else if (theEnemyType == EnemyType.Enemy_enum_Cheese) { }
+                    else { theEnemyType = EnemyType.Enemy_enum_Bread; }
+
+                }
+                //if hit left dpad
+                else if (dpadHorizontal == -1 && switchEnemyTypeTimer < 0)
+                {
+                    switchEnemyTypeTimer = .5f;
+                    theEnemyType -= 1;
+                    //loops enum to Cheese(5) if player pushes too much to the left
+                    if (theEnemyType == EnemyType.Enemy_enum_Bread) { }
+                    else if (theEnemyType == EnemyType.Enemy_enum_Tomato) { }
+                    else if (theEnemyType == EnemyType.Enemy_enum_Spaghetti) { }
+                    else if (theEnemyType == EnemyType.Enemy_enum_Onion) { }
+                    else if (theEnemyType == EnemyType.Enemy_enum_Cheese) { }
+                    else { theEnemyType = EnemyType.Enemy_enum_Cheese; }
+                }
+
             }
-            //if hit right dpad
-            if (dpadHorizontal == 1 && switchEnemyTypeTimer < 0)
+
+            else if (playerMovementScript.isMac == true)
             {
-                switchEnemyTypeTimer = .5f;
-                theEnemyType += 1;
-                //loops enum back to Bread(1) if player pushes too much to the right
-                if(theEnemyType == EnemyType.Enemy_enum_Bread){}
-                else if(theEnemyType == EnemyType.Enemy_enum_Tomato){}
-                else if (theEnemyType == EnemyType.Enemy_enum_Spaghetti){}
-                else if (theEnemyType == EnemyType.Enemy_enum_Onion){}
-                else if (theEnemyType == EnemyType.Enemy_enum_Cheese){}
-                else{theEnemyType = EnemyType.Enemy_enum_Bread;}
-                
-            }
-            //if hit left dpad
-            else if(dpadHorizontal == -1 && switchEnemyTypeTimer < 0)
-            {
-                switchEnemyTypeTimer = .5f;
-                theEnemyType -= 1;
-                //loops enum to Cheese(5) if player pushes too much to the left
-                if (theEnemyType == EnemyType.Enemy_enum_Bread){}
-                else if (theEnemyType == EnemyType.Enemy_enum_Tomato){}
-                else if (theEnemyType == EnemyType.Enemy_enum_Spaghetti){}
-                else if (theEnemyType == EnemyType.Enemy_enum_Onion){}
-                else if (theEnemyType == EnemyType.Enemy_enum_Cheese){}
-                else {theEnemyType = EnemyType.Enemy_enum_Cheese;}
+                //Activating/Deactivating spawner
+                //click dpad-up, activates spawner
+                if (enemySpawnerActive == false && Input.GetButtonDown("Xbox_Button_DPAD_VerticalUp_P4_MAC"))
+                {
+                    enemySpawnerActive = true;
+                }
+                //click dpad-down, deactivates spawner
+                else if (enemySpawnerActive == true && Input.GetButtonDown("Xbox_Button_DPAD_VerticalDown_P4_MAC"))
+                {
+                    enemySpawnerActive = false;
+                }
+
+
+                //Switching Enemy Type To Spawn
+                //timer - how long in between dpad clicks to switch enemy
+                if (switchEnemyTypeTimer >= 0)
+                {
+                    switchEnemyTypeTimer -= Time.deltaTime;
+                }
+                //if hit right dpad
+                if (Input.GetButtonDown("Xbox_Button_DPAD_HorizontalRight_P4_MAC") && switchEnemyTypeTimer < 0)
+                {
+                    switchEnemyTypeTimer = .5f;
+                    theEnemyType += 1;
+                    //loops enum back to Bread(1) if player pushes too much to the right
+                    if (theEnemyType == EnemyType.Enemy_enum_Bread) { }
+                    else if (theEnemyType == EnemyType.Enemy_enum_Tomato) { }
+                    else if (theEnemyType == EnemyType.Enemy_enum_Spaghetti) { }
+                    else if (theEnemyType == EnemyType.Enemy_enum_Onion) { }
+                    else if (theEnemyType == EnemyType.Enemy_enum_Cheese) { }
+                    else { theEnemyType = EnemyType.Enemy_enum_Bread; }
+
+                }
+                //if hit left dpad
+                else if (Input.GetButtonDown("Xbox_Button_DPAD_HorizontalLeft_P4_MAC") && switchEnemyTypeTimer < 0)
+                {
+                    switchEnemyTypeTimer = .5f;
+                    theEnemyType -= 1;
+                    //loops enum to Cheese(5) if player pushes too much to the left
+                    if (theEnemyType == EnemyType.Enemy_enum_Bread) { }
+                    else if (theEnemyType == EnemyType.Enemy_enum_Tomato) { }
+                    else if (theEnemyType == EnemyType.Enemy_enum_Spaghetti) { }
+                    else if (theEnemyType == EnemyType.Enemy_enum_Onion) { }
+                    else if (theEnemyType == EnemyType.Enemy_enum_Cheese) { }
+                    else { theEnemyType = EnemyType.Enemy_enum_Cheese; }
+                }
+
             }
 
 
             //Spawning Enemies
 
-            if(enemySpawnerActive == true && enemyReadyToSpawn == true)
+            if (enemySpawnerActive == true && enemyReadyToSpawn == true)
             {
                 enemyReadyToSpawn = false;
                 if (theEnemyType == EnemyType.Enemy_enum_Bread)

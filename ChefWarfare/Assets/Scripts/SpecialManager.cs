@@ -29,6 +29,7 @@ public class SpecialManager : MonoBehaviour
     public bool hasSnack_HealthBoost;
 
 
+
     //private variables
     private string inputX;
 
@@ -62,27 +63,54 @@ public class SpecialManager : MonoBehaviour
     private float snackHealthBoost_AddHealthTimerLength;
     private int snackHealthBoost_AddHealthAmount;
 
+    private PlayerMovement playerMovementScript;
+
     // Start is called before the first frame update
     void Start()
     {
+        playerMovementScript = GetComponent<PlayerMovement>();
 
-        //setting player number Inputs
-        if (player1)
+        if(playerMovementScript.isMac == false)
         {
-            inputX = "Xbox_Button_X_P1";
+            //setting player number Inputs
+            if (player1)
+            {
+                inputX = "Xbox_Button_X_P1";
+            }
+            else if (player2)
+            {
+                inputX = "Xbox_Button_X_P2";
+            }
+            else if (player3)
+            {
+                inputX = "Xbox_Button_X_P3";
+            }
+            else if (player4)
+            {
+                inputX = "Xbox_Button_X_P4";
+            }
         }
-        else if (player2)
+        else if(playerMovementScript.isMac == true)
         {
-            inputX = "Xbox_Button_X_P2";
+            //setting player number Inputs
+            if (player1)
+            {
+                inputX = "Xbox_Button_X_P1_MAC";
+            }
+            else if (player2)
+            {
+                inputX = "Xbox_Button_X_P2_MAC";
+            }
+            else if (player3)
+            {
+                inputX = "Xbox_Button_X_P3_MAC";
+            }
+            else if (player4)
+            {
+                inputX = "Xbox_Button_X_P4_MAC";
+            }
         }
-        else if (player3)
-        {
-            inputX = "Xbox_Button_X_P3";
-        }
-        else if (player4)
-        {
-            inputX = "Xbox_Button_X_P4";
-        }
+
 
         playerStatusScript = GetComponent<PlayerStatus>();
         weaponManagerScript = GetComponent<WeaponManager>();

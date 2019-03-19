@@ -120,38 +120,82 @@ public class WeaponManager : MonoBehaviour
     void Start()
     {
 
-        //setting player number Inputs and UI images
-        if(player1)
-        {
-            inputY = "Xbox_Button_Y_P1";
-            inputRT = "Xbox_RT_P1";
+        playerMovementScript = GetComponent<PlayerMovement>();
 
-            w1PeaShooter = GameObject.Find("UI_WeaponSlot1_PeaShooter_P1").GetComponent<Image>();
-            w2PeaShooter = GameObject.Find("UI_WeaponSlot2_PeaShooter_P1").GetComponent<Image>();
+        if(playerMovementScript.isMac == false)
+        {
+            //setting player number Inputs and UI images
+            if (player1)
+            {
+                inputY = "Xbox_Button_Y_P1";
+                inputRT = "Xbox_RT_P1";
+
+                w1PeaShooter = GameObject.Find("UI_WeaponSlot1_PeaShooter_P1").GetComponent<Image>();
+                w2PeaShooter = GameObject.Find("UI_WeaponSlot2_PeaShooter_P1").GetComponent<Image>();
+            }
+            else if (player2)
+            {
+                inputY = "Xbox_Button_Y_P2";
+                inputRT = "Xbox_RT_P2";
+
+                //w1PeaShooter = GameObject.Find("UI_WeaponSlot1_PeaShooter_P2").GetComponent<Image>();
+                //w2PeaShooter = GameObject.Find("UI_WeaponSlot2_PeaShooter_P2").GetComponent<Image>();
+            }
+            else if (player3)
+            {
+                inputY = "Xbox_Button_Y_P3";
+                inputRT = "Xbox_RT_P3";
+
+                //w1PeaShooter = GameObject.Find("UI_WeaponSlot1_PeaShooter_P3").GetComponent<Image>();
+                //w2PeaShooter = GameObject.Find("UI_WeaponSlot2_PeaShooter_P3").GetComponent<Image>();
+            }
+            else if (player4)
+            {
+                inputY = "Xbox_Button_Y_P4";
+                inputRT = "Xbox_RT_P4";
+
+                //w1PeaShooter = GameObject.Find("UI_WeaponSlot1_PeaShooter_P4").GetComponent<Image>();
+                //w2PeaShooter = GameObject.Find("UI_WeaponSlot2_PeaShooter_P4").GetComponent<Image>();
+            }
+
         }
-        else if(player2)
-        {
-            inputY = "Xbox_Button_Y_P2";
-            inputRT = "Xbox_RT_P2";
 
-            //w1PeaShooter = GameObject.Find("UI_WeaponSlot1_PeaShooter_P2").GetComponent<Image>();
-            //w2PeaShooter = GameObject.Find("UI_WeaponSlot2_PeaShooter_P2").GetComponent<Image>();
-        }
-        else if (player3)
+        else if (playerMovementScript.isMac == true)
         {
-            inputY = "Xbox_Button_Y_P3";
-            inputRT = "Xbox_RT_P3";
+            //setting player number Inputs and UI images
+            if (player1)
+            {
+                inputY = "Xbox_Button_Y_P1_MAC";
+                inputRT = "Xbox_RT_P1_MAC";
 
-            //w1PeaShooter = GameObject.Find("UI_WeaponSlot1_PeaShooter_P3").GetComponent<Image>();
-            //w2PeaShooter = GameObject.Find("UI_WeaponSlot2_PeaShooter_P3").GetComponent<Image>();
-        }
-        else if (player4)
-        {
-            inputY = "Xbox_Button_Y_P4";
-            inputRT = "Xbox_RT_P4";
+                w1PeaShooter = GameObject.Find("UI_WeaponSlot1_PeaShooter_P1").GetComponent<Image>();
+                w2PeaShooter = GameObject.Find("UI_WeaponSlot2_PeaShooter_P1").GetComponent<Image>();
+            }
+            else if (player2)
+            {
+                inputY = "Xbox_Button_Y_P2_MAC";
+                inputRT = "Xbox_RT_P2_MAC";
 
-            //w1PeaShooter = GameObject.Find("UI_WeaponSlot1_PeaShooter_P4").GetComponent<Image>();
-            //w2PeaShooter = GameObject.Find("UI_WeaponSlot2_PeaShooter_P4").GetComponent<Image>();
+                //w1PeaShooter = GameObject.Find("UI_WeaponSlot1_PeaShooter_P2").GetComponent<Image>();
+                //w2PeaShooter = GameObject.Find("UI_WeaponSlot2_PeaShooter_P2").GetComponent<Image>();
+            }
+            else if (player3)
+            {
+                inputY = "Xbox_Button_Y_P3_MAC";
+                inputRT = "Xbox_RT_P3_MAC";
+
+                //w1PeaShooter = GameObject.Find("UI_WeaponSlot1_PeaShooter_P3").GetComponent<Image>();
+                //w2PeaShooter = GameObject.Find("UI_WeaponSlot2_PeaShooter_P3").GetComponent<Image>();
+            }
+            else if (player4)
+            {
+                inputY = "Xbox_Button_Y_P4_MAC";
+                inputRT = "Xbox_RT_P4_MAC";
+
+                //w1PeaShooter = GameObject.Find("UI_WeaponSlot1_PeaShooter_P4").GetComponent<Image>();
+                //w2PeaShooter = GameObject.Find("UI_WeaponSlot2_PeaShooter_P4").GetComponent<Image>();
+            }
+
         }
 
 
@@ -336,7 +380,7 @@ public class WeaponManager : MonoBehaviour
             peaShooter_Cooldown -= Time.deltaTime;
 
             //if pressed, check if shot is ready and shoot.  Reset cooldown timer.
-            if (attackMain != 0 && peaShooter_Cooldown < 0)
+            if (attackMain > .5f && peaShooter_Cooldown < 0)
             {
                 peaShooter_Cooldown = peaShooter_CooldownLength;
                 
@@ -427,7 +471,7 @@ public class WeaponManager : MonoBehaviour
             semiAutoRifle_Cooldown -= Time.deltaTime;
 
             //if pressed, check if shot is ready and shoot.  Reset cooldown timer.
-            if (attackMain != 0 && semiAutoRifle_Cooldown < 0)
+            if (attackMain > .5f && semiAutoRifle_Cooldown < 0)
             {
                 semiAutoRifle_Cooldown = semiAutoRifle_CooldownLength;
                 Instantiate(Prefab_TomatoChunk, new Vector3(Weapon_BulletSpawnPoint.transform.position.x, Weapon_BulletSpawnPoint.transform.position.y, Weapon_BulletSpawnPoint.transform.position.z), Weapon_PivotPoint.transform.rotation);
@@ -519,7 +563,7 @@ public class WeaponManager : MonoBehaviour
             burstRifle_Cooldown -= Time.deltaTime;
 
             //if pressed, check if shot is ready and shoot.  Reset cooldown timer.
-            if (attackMain != 0 && burstRifle_Cooldown < 0)
+            if (attackMain > .5f && burstRifle_Cooldown < 0)
             {
                 burstRifle_Cooldown = burstRifle_CooldownLength;
                 Instantiate(Prefab_TomatoSauce, new Vector3(Weapon_BulletSpawnPoint.transform.position.x, Weapon_BulletSpawnPoint.transform.position.y, Weapon_BulletSpawnPoint.transform.position.z), Weapon_PivotPoint.transform.rotation);
@@ -614,7 +658,7 @@ public class WeaponManager : MonoBehaviour
             shotgun_Cooldown -= Time.deltaTime;
 
             //if pressed, check if shot is ready and shoot.  Reset cooldown timer.
-            if (attackMain != 0 && shotgun_Cooldown < 0)
+            if (attackMain > .5f && shotgun_Cooldown < 0)
             {
                 shotgun_Cooldown = shotgun_CooldownLength;
                 Instantiate(Prefab_TomatoChunkShotgun, new Vector3(Weapon_BulletSpawnPoint_Shotgun1.transform.position.x, Weapon_BulletSpawnPoint_Shotgun1.transform.position.y, Weapon_BulletSpawnPoint_Shotgun1.transform.position.z), Weapon_BulletSpawnPoint_Shotgun1.transform.rotation);
@@ -722,7 +766,7 @@ public class WeaponManager : MonoBehaviour
             spaghettiWhipCheese_Cooldown -= Time.deltaTime;
 
             //if pressed, check if attack is ready and attack.  Reset cooldown timer.
-            if (attackMain != 0 && spaghettiWhipCheese_Cooldown < 0)
+            if (attackMain > .5f && spaghettiWhipCheese_Cooldown < 0)
             {
                 spaghettiWhipCheese_Cooldown = spaghettiWhipCheese_CooldownLength;
                 StartCoroutine(AttackSpaghettiWhipCheeseCoroutine());
@@ -825,7 +869,7 @@ public class WeaponManager : MonoBehaviour
             spaghettiWhipOnion_Cooldown -= Time.deltaTime;
 
             //if pressed, check if attack is ready and attack.  Reset cooldown timer.
-            if (attackMain != 0 && spaghettiWhipOnion_Cooldown < 0)
+            if (attackMain > .5f && spaghettiWhipOnion_Cooldown < 0)
             {
                 spaghettiWhipOnion_Cooldown = spaghettiWhipOnion_CooldownLength;
                 StartCoroutine(AttackSpaghettiWhipOnionCoroutine());
