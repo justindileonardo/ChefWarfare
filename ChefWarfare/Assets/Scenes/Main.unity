@@ -1010,6 +1010,7 @@ MonoBehaviour:
   enemySpaghetti: {fileID: 165311469}
   enemyOnion: {fileID: 1150216839}
   enemyCheese: {fileID: 1855089061}
+  playerMovementScript: {fileID: 0}
 --- !u!61 &59436133
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3336,6 +3337,7 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 510932214}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
+  playerMovementScript: {fileID: 893780659}
 --- !u!114 &165721613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3350,7 +3352,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Xbox_VerticalLS_P3
-  m_SubmitButton: Xbox_Button_A_P3_MAC
+  m_SubmitButton: Xbox_Button_A_P3
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
@@ -4008,7 +4010,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Xbox_VerticalLS_P4
-  m_SubmitButton: Xbox_Button_A_P4_MAC
+  m_SubmitButton: Xbox_Button_A_P4
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
@@ -4028,6 +4030,7 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 1531545354}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
+  playerMovementScript: {fileID: 1641631849}
 --- !u!4 &206376824
 Transform:
   m_ObjectHideFlags: 0
@@ -10483,7 +10486,7 @@ MonoBehaviour:
   player2: 1
   player3: 0
   player4: 0
-  isMac: 1
+  isMac: 0
   myPlayerStatusScript: {fileID: 322068992}
   rotSpeed: 1
   respawnPosition: {x: 0, y: 0, z: 0}
@@ -11525,7 +11528,7 @@ RectTransform:
   m_GameObject: {fileID: 365493980}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1841332944}
   - {fileID: 1335732062}
@@ -18581,6 +18584,7 @@ MonoBehaviour:
   enemySpaghetti: {fileID: 156558157}
   enemyOnion: {fileID: 30270226}
   enemyCheese: {fileID: 1452071171}
+  playerMovementScript: {fileID: 0}
 --- !u!61 &510475344
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -24578,7 +24582,7 @@ MonoBehaviour:
   player2: 0
   player3: 0
   player4: 0
-  isMac: 1
+  isMac: 0
   myPlayerStatusScript: {fileID: 567615716}
   rotSpeed: 1
   respawnPosition: {x: 0, y: 0, z: 0}
@@ -32840,7 +32844,7 @@ RectTransform:
   m_GameObject: {fileID: 739296914}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 892176695}
   - {fileID: 1988397082}
@@ -44403,7 +44407,7 @@ MonoBehaviour:
   player2: 0
   player3: 1
   player4: 0
-  isMac: 1
+  isMac: 0
   myPlayerStatusScript: {fileID: 893780658}
   rotSpeed: 1
   respawnPosition: {x: 0, y: 0, z: 0}
@@ -45278,7 +45282,7 @@ RectTransform:
   m_GameObject: {fileID: 955016636}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 962236545}
   - {fileID: 1351090971}
@@ -64089,6 +64093,7 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 635597986}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
+  playerMovementScript: {fileID: 567615705}
 --- !u!114 &1200287239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64103,7 +64108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Xbox_VerticalLS_P1
-  m_SubmitButton: Xbox_Button_A_P1_MAC
+  m_SubmitButton: Xbox_Button_A_P1
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
@@ -64327,7 +64332,7 @@ RectTransform:
   m_GameObject: {fileID: 1219856151}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 713134735}
   - {fileID: 932498818}
@@ -69744,6 +69749,7 @@ MonoBehaviour:
   enemySpaghetti: {fileID: 1161542684}
   enemyOnion: {fileID: 972423345}
   enemyCheese: {fileID: 1685717626}
+  playerMovementScript: {fileID: 0}
 --- !u!61 &1282299768
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -70554,6 +70560,7 @@ MonoBehaviour:
   enemySpaghetti: {fileID: 1185243955}
   enemyOnion: {fileID: 161368391}
   enemyCheese: {fileID: 738147061}
+  playerMovementScript: {fileID: 0}
 --- !u!61 &1337717659
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -85055,7 +85062,7 @@ MonoBehaviour:
   player2: 0
   player3: 0
   player4: 1
-  isMac: 1
+  isMac: 0
   myPlayerStatusScript: {fileID: 1641631848}
   rotSpeed: 1
   respawnPosition: {x: 0, y: 0, z: 0}
@@ -92612,7 +92619,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Xbox_VerticalLS_P2
-  m_SubmitButton: Xbox_Button_A_P2_MAC
+  m_SubmitButton: Xbox_Button_A_P2
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
@@ -92632,6 +92639,7 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 1658151564}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
+  playerMovementScript: {fileID: 322068993}
 --- !u!4 &1992156813
 Transform:
   m_ObjectHideFlags: 0
