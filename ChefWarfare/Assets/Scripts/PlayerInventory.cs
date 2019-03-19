@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerInventory : MonoBehaviour
 {
@@ -10,6 +11,12 @@ public class PlayerInventory : MonoBehaviour
     public int spaghettiCount;
     public int cheeseCount;
     public int onionCount;
+
+    public Text breadText;
+    public Text tomatoText;
+    public Text spaghettiText;
+    public Text onionText;
+    public Text cheeseText;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +31,11 @@ public class PlayerInventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        breadText.text = breadCount.ToString();
+        tomatoText.text = tomatoCount.ToString();
+        spaghettiText.text = spaghettiCount.ToString();
+        onionText.text = onionCount.ToString();
+        cheeseText.text = cheeseCount.ToString();
     }
 
 

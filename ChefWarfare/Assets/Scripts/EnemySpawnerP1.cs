@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemySpawnerP1 : MonoBehaviour
 {
@@ -13,6 +14,13 @@ public class EnemySpawnerP1 : MonoBehaviour
     public Transform enemySpawnLocation;
     public bool enemyReadyToSpawn;
     public GameObject[] enemyPrefabs;
+
+    public Image spawnerBox;
+    public Image enemyBread;
+    public Image enemyTomato;
+    public Image enemySpaghetti;
+    public Image enemyOnion;
+    public Image enemyCheese;
 
     //private variables
     private float dpadVertical;
@@ -36,8 +44,60 @@ public class EnemySpawnerP1 : MonoBehaviour
         dpadVertical = Input.GetAxisRaw("Xbox_Button_DPAD_Vertical_P1");
         dpadHorizontal = Input.GetAxisRaw("Xbox_Button_DPAD_Horizontal_P1");
 
+        //setting box to red or green for off/on
+        if(enemySpawnerActive == true)
+        {
+            spawnerBox.color = Color.green;
+        }
+        else
+        {
+            spawnerBox.color = Color.red;
+        }
+
+        //setting enemy in box to enemy currently selected
+        if (theEnemyType == EnemyType.Enemy_enum_Bread)
+        {
+            enemyBread.enabled = true;
+            enemyTomato.enabled = false;
+            enemySpaghetti.enabled = false;
+            enemyOnion.enabled = false;
+            enemyCheese.enabled = false;
+        }
+        else if(theEnemyType == EnemyType.Enemy_enum_Tomato)
+        {
+            enemyBread.enabled = false;
+            enemyTomato.enabled = true;
+            enemySpaghetti.enabled = false;
+            enemyOnion.enabled = false;
+            enemyCheese.enabled = false;
+        }
+        else if (theEnemyType == EnemyType.Enemy_enum_Spaghetti)
+        {
+            enemyBread.enabled = false;
+            enemyTomato.enabled = false;
+            enemySpaghetti.enabled = true;
+            enemyOnion.enabled = false;
+            enemyCheese.enabled = false;
+        }
+        else if (theEnemyType == EnemyType.Enemy_enum_Onion)
+        {
+            enemyBread.enabled = false;
+            enemyTomato.enabled = false;
+            enemySpaghetti.enabled = false;
+            enemyOnion.enabled = true;
+            enemyCheese.enabled = false;
+        }
+        else if (theEnemyType == EnemyType.Enemy_enum_Cheese)
+        {
+            enemyBread.enabled = false;
+            enemyTomato.enabled = false;
+            enemySpaghetti.enabled = false;
+            enemyOnion.enabled = false;
+            enemyCheese.enabled = true;
+        }
+
         //if currently in your respective square
-        if(inMyZone == true)
+        if (inMyZone == true)
         {
             //Activating/Deactivating spawner
             //click dpad-up, activates spawner
