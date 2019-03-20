@@ -16,7 +16,7 @@ public class Pea : MonoBehaviour
     void Start()
     {
         existTimer = 0;
-        damage = 2;
+        damage = 4;
         GetComponent<CircleCollider2D>().enabled = false;
 
         //finds closest player

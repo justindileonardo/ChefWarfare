@@ -31,6 +31,10 @@ public class PlayerStatus : MonoBehaviour
     private Image HpFill3;
     private Image HpFill4;
 
+    private EnemySpawnerP1 esP1;
+    private EnemySpawnerP2 esP2;
+    private EnemySpawnerP3 esP3;
+    private EnemySpawnerP4 esP4;
 
     // Start is called before the first frame update
     void Start()
@@ -56,6 +60,11 @@ public class PlayerStatus : MonoBehaviour
         HpFill2 = GameObject.Find("UI_HP_Fill_P2").GetComponent<Image>();
         HpFill3 = GameObject.Find("UI_HP_Fill_P3").GetComponent<Image>();
         HpFill4 = GameObject.Find("UI_HP_Fill_P4").GetComponent<Image>();
+
+        esP1 = GameObject.Find("EnemySpawnerP1").GetComponent<EnemySpawnerP1>();
+        esP2 = GameObject.Find("EnemySpawnerP2").GetComponent<EnemySpawnerP2>();
+        esP3 = GameObject.Find("EnemySpawnerP3").GetComponent<EnemySpawnerP3>();
+        esP4 = GameObject.Find("EnemySpawnerP4").GetComponent<EnemySpawnerP4>();
     }
 
     // Update is called once per frame
@@ -64,7 +73,7 @@ public class PlayerStatus : MonoBehaviour
 
         if(HP <= 0)
         {
-            StartCoroutine(Die());
+            PlayerDie();
         }
 
         if(HP > 100)
@@ -106,6 +115,38 @@ public class PlayerStatus : MonoBehaviour
         }
     }
 
+    public void PlayerDie()
+    {
+        if (myPlayer.player1 == true)
+        {
+            esP1.DestroyAllEnemies();
+            esP1.enemySpawnerActive = false;
+            esP1.enemyReadyToSpawn = false;
+            esP1.enemySpawnTimer = 0;
+        }
+        else if (myPlayer.player2 == true)
+        {
+            esP2.DestroyAllEnemies();
+            esP2.enemySpawnerActive = false;
+            esP2.enemyReadyToSpawn = false;
+            esP2.enemySpawnTimer = 0;
+        }
+        else if (myPlayer.player3 == true)
+        {
+            esP3.DestroyAllEnemies();
+            esP3.enemySpawnerActive = false;
+            esP3.enemyReadyToSpawn = false;
+            esP3.enemySpawnTimer = 0;
+        }
+        else if (myPlayer.player4 == true)
+        {
+            esP4.DestroyAllEnemies();
+            esP4.enemySpawnerActive = false;
+            esP4.enemyReadyToSpawn = false;
+            esP4.enemySpawnTimer = 0;
+        }
+        StartCoroutine(Die());
+    }
 
     IEnumerator Die()
     {
@@ -125,7 +166,7 @@ public class PlayerStatus : MonoBehaviour
         {
             blackDeathScreenP4.enabled = true;
         }
-
+        yield return new WaitForSeconds(.01f);
         canMove = false;
         myPlayer.transform.position = myPlayer.respawnPosition;
         moveSpeed = 0;

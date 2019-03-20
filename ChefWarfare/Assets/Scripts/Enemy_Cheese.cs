@@ -21,9 +21,9 @@ public class Enemy_Cheese : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        attackCooldownTimer = 1.5f;
+        attackCooldownTimer = 2.0f;
         isMoving = true;
-        HP = 25.0f;
+        HP = 20.0f;
     }
 
     // Update is called once per frame

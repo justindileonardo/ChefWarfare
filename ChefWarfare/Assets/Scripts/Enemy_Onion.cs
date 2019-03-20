@@ -24,7 +24,7 @@ public class Enemy_Onion : MonoBehaviour
     {
         attackCooldownTimer = 2.0f;
         isMoving = true;
-        HP = 25.0f;
+        HP = 20.0f;
         
     }
 

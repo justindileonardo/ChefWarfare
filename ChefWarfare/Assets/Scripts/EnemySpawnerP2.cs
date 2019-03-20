@@ -9,9 +9,9 @@ public class EnemySpawnerP2 : MonoBehaviour
     //public variables
     public bool enemySpawnerActive;
     public bool inMyZone;
-    public enum EnemyType {Enemy_enum_Bread = 1, Enemy_enum_Tomato = 2, Enemy_enum_Spaghetti = 3, Enemy_enum_Onion = 4, Enemy_enum_Cheese = 5 };
+    public enum EnemyType { Enemy_enum_Bread = 1, Enemy_enum_Tomato = 2, Enemy_enum_Spaghetti = 3, Enemy_enum_Onion = 4, Enemy_enum_Cheese = 5 };
     public EnemyType theEnemyType;
-    public Transform enemySpawnLocation;
+    public Transform[] enemySpawnLocation;
     public bool enemyReadyToSpawn;
     public GameObject[] enemyPrefabs;
 
@@ -24,20 +24,27 @@ public class EnemySpawnerP2 : MonoBehaviour
 
     public PlayerMovement playerMovementScript;
 
+    public List<GameObject> EnemiesAliveInZone = new List<GameObject>();
+
     //private variables
     private float dpadVertical;
     private float dpadHorizontal;
     private float switchEnemyTypeTimer;
+
+    public float enemySpawnTimer;
+    private float enemySpawnLength;
 
     // Start is called before the first frame update
     void Start()
     {
         enemySpawnerActive = false;
         inMyZone = false;
-        enemyReadyToSpawn = true;
+        enemyReadyToSpawn = false;
         //sets default enemy type to bread
         theEnemyType = EnemyType.Enemy_enum_Bread;
         playerMovementScript = GameObject.Find("Player2").GetComponent<PlayerMovement>();
+        enemySpawnTimer = 0;
+        enemySpawnLength = 3f;
     }
 
     // Update is called once per frame
@@ -49,6 +56,14 @@ public class EnemySpawnerP2 : MonoBehaviour
             dpadVertical = Input.GetAxisRaw("Xbox_Button_DPAD_Vertical_P2");
             dpadHorizontal = Input.GetAxisRaw("Xbox_Button_DPAD_Horizontal_P2");
         }
+        /*else if(playerMovementScript.isMac == true)
+        {
+            //axis for dpad Up/Down
+            dpadVertical = Input.GetAxisRaw("Xbox_Button_DPAD_Vertical_P1_MAC");
+            dpadHorizontal = Input.GetAxisRaw("Xbox_Button_DPAD_Horizontal_P1");
+        }*/
+
+
 
         //setting box to red or green for off/on
         if (enemySpawnerActive == true)
@@ -207,37 +222,57 @@ public class EnemySpawnerP2 : MonoBehaviour
 
             }
 
+            if (enemySpawnTimer > 0 && enemySpawnerActive == true && enemyReadyToSpawn == false)
+            {
+                enemySpawnTimer -= Time.deltaTime;
+            }
+
+            if (enemySpawnTimer <= 0 && enemySpawnerActive == true && enemyReadyToSpawn == false)
+            {
+                enemySpawnTimer = enemySpawnLength;
+                enemyReadyToSpawn = true;
+            }
+
 
             //Spawning Enemies
 
             if (enemySpawnerActive == true && enemyReadyToSpawn == true)
             {
+                int randomSpawnLocationInt = Random.Range(0, enemySpawnLocation.Length);
                 enemyReadyToSpawn = false;
                 if (theEnemyType == EnemyType.Enemy_enum_Bread)
                 {
-                    Instantiate(enemyPrefabs[0], enemySpawnLocation.transform.position, Quaternion.identity);
+                    Instantiate(enemyPrefabs[0], enemySpawnLocation[randomSpawnLocationInt].transform.position, Quaternion.identity);
                 }
-                else if(theEnemyType == EnemyType.Enemy_enum_Tomato)
+                else if (theEnemyType == EnemyType.Enemy_enum_Tomato)
                 {
-                    Instantiate(enemyPrefabs[1], enemySpawnLocation.transform.position, Quaternion.identity);
+                    Instantiate(enemyPrefabs[1], enemySpawnLocation[randomSpawnLocationInt].transform.position, Quaternion.identity);
                 }
                 else if (theEnemyType == EnemyType.Enemy_enum_Spaghetti)
                 {
-                    Instantiate(enemyPrefabs[2], enemySpawnLocation.transform.position, Quaternion.identity);
+                    Instantiate(enemyPrefabs[2], enemySpawnLocation[randomSpawnLocationInt].transform.position, Quaternion.identity);
                 }
                 else if (theEnemyType == EnemyType.Enemy_enum_Onion)
                 {
-                    Instantiate(enemyPrefabs[3], enemySpawnLocation.transform.position, Quaternion.identity);
+                    Instantiate(enemyPrefabs[3], enemySpawnLocation[randomSpawnLocationInt].transform.position, Quaternion.identity);
                 }
                 else if (theEnemyType == EnemyType.Enemy_enum_Cheese)
                 {
-                    Instantiate(enemyPrefabs[4], enemySpawnLocation.transform.position, Quaternion.identity);
+                    Instantiate(enemyPrefabs[4], enemySpawnLocation[randomSpawnLocationInt].transform.position, Quaternion.identity);
                 }
             }
 
 
         }
 
+    }
+
+    public void DestroyAllEnemies()
+    {
+        foreach (GameObject enemy in EnemiesAliveInZone)
+        {
+            Destroy(enemy);
+        }
     }
 
 
@@ -249,38 +284,46 @@ public class EnemySpawnerP2 : MonoBehaviour
         }
 
         //Enemy types, when enemy spawns
-        if(other.gameObject.tag == "Enemy_Bread" && enemyReadyToSpawn == true)
+        if (other.gameObject.tag == "Enemy_Bread" /*&& enemyReadyToSpawn == true*/)
         {
-            enemyReadyToSpawn = false;
+            //enemyReadyToSpawn = false;
+            EnemiesAliveInZone.Add(other.gameObject);
         }
-        if (other.gameObject.tag == "Enemy_Tomato" && enemyReadyToSpawn == true)
+        if (other.gameObject.tag == "Enemy_Tomato" /*&& enemyReadyToSpawn == true*/)
         {
-            enemyReadyToSpawn = false;
+            //enemyReadyToSpawn = false;
+            EnemiesAliveInZone.Add(other.gameObject);
         }
-        if (other.gameObject.tag == "Enemy_Spaghetti" && enemyReadyToSpawn == true)
+        if (other.gameObject.tag == "Enemy_Spaghetti" /*&& enemyReadyToSpawn == true*/)
         {
-            enemyReadyToSpawn = false;
+            //enemyReadyToSpawn = false;
+            EnemiesAliveInZone.Add(other.gameObject);
+
         }
-        if (other.gameObject.tag == "Enemy_Onion" && enemyReadyToSpawn == true)
+        if (other.gameObject.tag == "Enemy_Onion" /*&& enemyReadyToSpawn == true*/)
         {
-            enemyReadyToSpawn = false;
+            //enemyReadyToSpawn = false;
+            EnemiesAliveInZone.Add(other.gameObject);
+
         }
-        if (other.gameObject.tag == "Enemy_Cheese" && enemyReadyToSpawn == true)
+        if (other.gameObject.tag == "Enemy_Cheese" /*&& enemyReadyToSpawn == true*/)
         {
-            enemyReadyToSpawn = false;
+            //enemyReadyToSpawn = false;
+            EnemiesAliveInZone.Add(other.gameObject);
+
         }
 
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if(other.gameObject.name == "Player2" && inMyZone == true)
+        if (other.gameObject.name == "Player2" && inMyZone == true)
         {
             inMyZone = false;
             enemySpawnerActive = false;
         }
 
-        //Enemy types, when enemy dies
+        /*//Enemy types, when enemy dies
         if (other.gameObject.tag == "Enemy_Bread" && enemyReadyToSpawn == false)
         {
             enemyReadyToSpawn = true;
@@ -300,7 +343,7 @@ public class EnemySpawnerP2 : MonoBehaviour
         if (other.gameObject.tag == "Enemy_Cheese" && enemyReadyToSpawn == false)
         {
             enemyReadyToSpawn = true;
-        }
+        }*/
     }
 
 }

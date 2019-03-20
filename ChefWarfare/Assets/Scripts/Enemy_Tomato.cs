@@ -27,7 +27,7 @@ public class Enemy_Tomato : MonoBehaviour
         tomatoSpriteRenderer.enabled = true;
         tomatoExplosionSpriteRenderer.enabled = false;
         isMoving = true;
-        HP = 20.0f;
+        HP = 16.0f;
         theAnimator = GetComponent<Animator>();
         theAnimator.SetBool("tomatoIsMoving", true);
     }
