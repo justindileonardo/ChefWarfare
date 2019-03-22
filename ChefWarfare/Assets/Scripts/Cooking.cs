@@ -489,6 +489,8 @@ public class Cooking : MonoBehaviour
 
     }
 
+
+    //PLAYER 1
     //cooking semi-auto rifle
     public void Cook_SemiAutoRifle_P1()
     {
@@ -1325,6 +1327,2555 @@ public class Cooking : MonoBehaviour
                         specialManagerScript_P1.hasSnack_SpeedBoost == false &&
                         specialManagerScript_P1.hasSnack_DamageBoost == false &&
                         specialManagerScript_P1.hasSnack_HealthBoost == true
+
+                    )
+            {
+                //do nothing
+            }
+
+        }
+
+
+    }
+
+
+    //PLAYER 2
+    //cooking semi-auto rifle
+    public void Cook_SemiAutoRifle_P2()
+    {
+        if (canCookSemiAutoRifle_P2 == true)
+        {
+            //check if only has pea shooter
+            if (
+                        weaponManagerScript_P2.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P2.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P2.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P2.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipOnion == false
+               )
+            {
+                weaponManagerScript_P2.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P2.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P2.hasWeapon_SemiAutoRifle = true;
+                weaponManagerScript_P2.weapon_SemiAutoRifle_Active = true;
+                weaponManagerScript_P2.Weapon_SemiAutoRifle.SetActive(true);
+                playerInventoryScript_P2.breadCount -= SR_bread;
+                playerInventoryScript_P2.tomatoCount -= SR_tomato;
+                checkmark2[0].SetActive(true);
+            }
+            //check if has pea shooter and semi auto rifle (ALREADY)
+            else if (
+                        weaponManagerScript_P2.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P2.hasWeapon_SemiAutoRifle == true &&
+                        weaponManagerScript_P2.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P2.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipOnion == false
+                    )
+            {
+                //do nothing - accident click
+            }
+            //check if has pea shooter and burst rifle
+            else if (
+                        weaponManagerScript_P2.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P2.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P2.hasWeapon_BurstRifle == true &&
+                        weaponManagerScript_P2.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipOnion == false
+                   )
+            {
+                weaponManagerScript_P2.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P2.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P2.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P2.weapon_BurstRifle_Active = false;
+                weaponManagerScript_P2.Weapon_BurstRifle.SetActive(false);
+                weaponManagerScript_P2.hasWeapon_SemiAutoRifle = true;
+                weaponManagerScript_P2.weapon_SemiAutoRifle_Active = true;
+                weaponManagerScript_P2.Weapon_SemiAutoRifle.SetActive(true);
+                playerInventoryScript_P2.breadCount -= SR_bread;
+                playerInventoryScript_P2.tomatoCount -= SR_tomato;
+                checkmark2[0].SetActive(true);
+            }
+            //check if has pea shooter and shotgun
+            else if (
+                        weaponManagerScript_P2.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P2.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P2.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P2.hasWeapon_Shotgun == true &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipOnion == false
+
+                    )
+            {
+                weaponManagerScript_P2.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P2.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P2.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P2.weapon_Shotgun_Active = false;
+                weaponManagerScript_P2.Weapon_Shotgun.SetActive(false);
+                weaponManagerScript_P2.hasWeapon_SemiAutoRifle = true;
+                weaponManagerScript_P2.weapon_SemiAutoRifle_Active = true;
+                weaponManagerScript_P2.Weapon_SemiAutoRifle.SetActive(true);
+                playerInventoryScript_P2.breadCount -= SR_bread;
+                playerInventoryScript_P2.tomatoCount -= SR_tomato;
+                checkmark2[0].SetActive(true);
+            }
+            //check if has pea shooter and whip cheese
+            else if (
+                        weaponManagerScript_P2.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P2.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P2.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P2.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipCheese == true &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipOnion == false
+
+                    )
+            {
+                weaponManagerScript_P2.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P2.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P2.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P2.weapon_SpaghettiWhipCheese_Active = false;
+                weaponManagerScript_P2.Weapon_SpaghettiWhipCheese_WindUp.SetActive(false);
+                weaponManagerScript_P2.Weapon_SpaghettiWhipCheese_Attack.SetActive(false);
+                weaponManagerScript_P2.hasWeapon_SemiAutoRifle = true;
+                weaponManagerScript_P2.weapon_SemiAutoRifle_Active = true;
+                weaponManagerScript_P2.Weapon_SemiAutoRifle.SetActive(true);
+                playerInventoryScript_P2.breadCount -= SR_bread;
+                playerInventoryScript_P2.tomatoCount -= SR_tomato;
+                checkmark2[0].SetActive(true);
+            }
+            //check if has pea shooter and whip onion
+            else if (
+                        weaponManagerScript_P2.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P2.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P2.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P2.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipOnion == true
+
+                    )
+            {
+                weaponManagerScript_P2.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P2.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P2.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P2.weapon_SpaghettiWhipOnion_Active = false;
+                weaponManagerScript_P2.Weapon_SpaghettiWhipOnion_WindUp.SetActive(false);
+                weaponManagerScript_P2.Weapon_SpaghettiWhipOnion_Attack.SetActive(false);
+                weaponManagerScript_P2.hasWeapon_SemiAutoRifle = true;
+                weaponManagerScript_P2.weapon_SemiAutoRifle_Active = true;
+                weaponManagerScript_P2.Weapon_SemiAutoRifle.SetActive(true);
+                playerInventoryScript_P2.breadCount -= SR_bread;
+                playerInventoryScript_P2.tomatoCount -= SR_tomato;
+                checkmark2[0].SetActive(true);
+            }
+        }
+
+
+    }
+
+    //cooking burst rifle
+    public void Cook_BurstRifle_P2()
+    {
+        if (canCookBurstRifle_P2 == true)
+        {
+            //check if only has pea shooter
+            if (
+                        weaponManagerScript_P2.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P2.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P2.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P2.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipOnion == false
+               )
+            {
+                weaponManagerScript_P2.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P2.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P2.hasWeapon_BurstRifle = true;
+                weaponManagerScript_P2.weapon_BurstRifle_Active = true;
+                weaponManagerScript_P2.Weapon_BurstRifle.SetActive(true);
+                playerInventoryScript_P2.breadCount -= BR_bread;
+                playerInventoryScript_P2.tomatoCount -= BR_tomato;
+                checkmark2[1].SetActive(true);
+            }
+            //check if has pea shooter and semi auto rifle
+            else if (
+                        weaponManagerScript_P2.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P2.hasWeapon_SemiAutoRifle == true &&
+                        weaponManagerScript_P2.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P2.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipOnion == false
+                    )
+            {
+                weaponManagerScript_P2.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P2.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P2.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P2.weapon_SemiAutoRifle_Active = false;
+                weaponManagerScript_P2.Weapon_SemiAutoRifle.SetActive(false);
+                weaponManagerScript_P2.hasWeapon_BurstRifle = true;
+                weaponManagerScript_P2.weapon_BurstRifle_Active = true;
+                weaponManagerScript_P2.Weapon_BurstRifle.SetActive(true);
+                playerInventoryScript_P2.breadCount -= BR_bread;
+                playerInventoryScript_P2.tomatoCount -= BR_tomato;
+                checkmark2[1].SetActive(true);
+            }
+            //check if has pea shooter and burst rifle (ALREADY)
+            else if (
+                        weaponManagerScript_P2.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P2.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P2.hasWeapon_BurstRifle == true &&
+                        weaponManagerScript_P2.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipOnion == false
+                   )
+            {
+                //do nothing - accident click
+            }
+            //check if has pea shooter and shotgun
+            else if (
+                        weaponManagerScript_P2.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P2.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P2.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P2.hasWeapon_Shotgun == true &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipOnion == false
+
+                    )
+            {
+                weaponManagerScript_P2.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P2.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P2.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P2.weapon_Shotgun_Active = false;
+                weaponManagerScript_P2.Weapon_Shotgun.SetActive(false);
+                weaponManagerScript_P2.hasWeapon_BurstRifle = true;
+                weaponManagerScript_P2.weapon_BurstRifle_Active = true;
+                weaponManagerScript_P2.Weapon_BurstRifle.SetActive(true);
+                playerInventoryScript_P2.breadCount -= BR_bread;
+                playerInventoryScript_P2.tomatoCount -= BR_tomato;
+                checkmark2[1].SetActive(true);
+            }
+            //check if has pea shooter and whip cheese
+            else if (
+                        weaponManagerScript_P2.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P2.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P2.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P2.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipCheese == true &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipOnion == false
+
+                    )
+            {
+                weaponManagerScript_P2.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P2.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P2.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P2.weapon_SpaghettiWhipCheese_Active = false;
+                weaponManagerScript_P2.Weapon_SpaghettiWhipCheese_WindUp.SetActive(false);
+                weaponManagerScript_P2.Weapon_SpaghettiWhipCheese_Attack.SetActive(false);
+                weaponManagerScript_P2.hasWeapon_BurstRifle = true;
+                weaponManagerScript_P2.weapon_BurstRifle_Active = true;
+                weaponManagerScript_P2.Weapon_BurstRifle.SetActive(true);
+                playerInventoryScript_P2.breadCount -= BR_bread;
+                playerInventoryScript_P2.tomatoCount -= BR_tomato;
+                checkmark2[1].SetActive(true);
+            }
+            //check if has pea shooter and whip onion
+            else if (
+                        weaponManagerScript_P2.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P2.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P2.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P2.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipOnion == true
+
+                    )
+            {
+                weaponManagerScript_P2.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P2.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P2.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P2.weapon_SpaghettiWhipOnion_Active = false;
+                weaponManagerScript_P2.Weapon_SpaghettiWhipOnion_WindUp.SetActive(false);
+                weaponManagerScript_P2.Weapon_SpaghettiWhipOnion_Attack.SetActive(false);
+                weaponManagerScript_P2.hasWeapon_BurstRifle = true;
+                weaponManagerScript_P2.weapon_BurstRifle_Active = true;
+                weaponManagerScript_P2.Weapon_BurstRifle.SetActive(true);
+                playerInventoryScript_P2.breadCount -= BR_bread;
+                playerInventoryScript_P2.tomatoCount -= BR_tomato;
+                checkmark2[1].SetActive(true);
+            }
+        }
+
+
+    }
+
+    //cooking shotgun
+    public void Cook_Shotgun_P2()
+    {
+        if (canCookShotgun_P2 == true)
+        {
+            //check if only has pea shooter
+            if (
+                        weaponManagerScript_P2.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P2.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P2.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P2.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipOnion == false
+               )
+            {
+                weaponManagerScript_P2.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P2.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P2.hasWeapon_Shotgun = true;
+                weaponManagerScript_P2.weapon_Shotgun_Active = true;
+                weaponManagerScript_P2.Weapon_Shotgun.SetActive(true);
+                playerInventoryScript_P2.breadCount -= SG_bread;
+                playerInventoryScript_P2.tomatoCount -= SG_tomato;
+                checkmark2[2].SetActive(true);
+            }
+            //check if has pea shooter and semi auto rifle
+            else if (
+                        weaponManagerScript_P2.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P2.hasWeapon_SemiAutoRifle == true &&
+                        weaponManagerScript_P2.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P2.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipOnion == false
+                    )
+            {
+                weaponManagerScript_P2.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P2.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P2.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P2.weapon_SemiAutoRifle_Active = false;
+                weaponManagerScript_P2.Weapon_SemiAutoRifle.SetActive(false);
+                weaponManagerScript_P2.hasWeapon_Shotgun = true;
+                weaponManagerScript_P2.weapon_Shotgun_Active = true;
+                weaponManagerScript_P2.Weapon_Shotgun.SetActive(true);
+                playerInventoryScript_P2.breadCount -= SG_bread;
+                playerInventoryScript_P2.tomatoCount -= SG_tomato;
+                checkmark2[2].SetActive(true);
+            }
+            //check if has pea shooter and burst rifle 
+            else if (
+                        weaponManagerScript_P2.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P2.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P2.hasWeapon_BurstRifle == true &&
+                        weaponManagerScript_P2.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipOnion == false
+                   )
+            {
+                weaponManagerScript_P2.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P2.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P2.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P2.weapon_BurstRifle_Active = false;
+                weaponManagerScript_P2.Weapon_BurstRifle.SetActive(false);
+                weaponManagerScript_P2.hasWeapon_Shotgun = true;
+                weaponManagerScript_P2.weapon_Shotgun_Active = true;
+                weaponManagerScript_P2.Weapon_Shotgun.SetActive(true);
+                playerInventoryScript_P2.breadCount -= SG_bread;
+                playerInventoryScript_P2.tomatoCount -= SG_tomato;
+                checkmark2[2].SetActive(true);
+            }
+            //check if has pea shooter and shotgun (ALREADY)
+            else if (
+                        weaponManagerScript_P2.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P2.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P2.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P2.hasWeapon_Shotgun == true &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipOnion == false
+
+                    )
+            {
+                //do nothing - accident click
+            }
+            //check if has pea shooter and whip cheese
+            else if (
+                        weaponManagerScript_P2.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P2.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P2.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P2.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipCheese == true &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipOnion == false
+
+                    )
+            {
+                weaponManagerScript_P2.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P2.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P2.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P2.weapon_SpaghettiWhipCheese_Active = false;
+                weaponManagerScript_P2.Weapon_SpaghettiWhipCheese_WindUp.SetActive(false);
+                weaponManagerScript_P2.Weapon_SpaghettiWhipCheese_Attack.SetActive(false);
+                weaponManagerScript_P2.hasWeapon_Shotgun = true;
+                weaponManagerScript_P2.weapon_Shotgun_Active = true;
+                weaponManagerScript_P2.Weapon_Shotgun.SetActive(true);
+                playerInventoryScript_P2.breadCount -= SG_bread;
+                playerInventoryScript_P2.tomatoCount -= SG_tomato;
+                checkmark2[2].SetActive(true);
+            }
+            //check if has pea shooter and whip onion
+            else if (
+                        weaponManagerScript_P2.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P2.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P2.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P2.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipOnion == true
+
+                    )
+            {
+                weaponManagerScript_P2.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P2.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P2.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P2.weapon_SpaghettiWhipOnion_Active = false;
+                weaponManagerScript_P2.Weapon_SpaghettiWhipOnion_WindUp.SetActive(false);
+                weaponManagerScript_P2.Weapon_SpaghettiWhipOnion_Attack.SetActive(false);
+                weaponManagerScript_P2.hasWeapon_Shotgun = true;
+                weaponManagerScript_P2.weapon_Shotgun_Active = true;
+                weaponManagerScript_P2.Weapon_Shotgun.SetActive(true);
+                playerInventoryScript_P2.breadCount -= SG_bread;
+                playerInventoryScript_P2.tomatoCount -= SG_tomato;
+                checkmark2[2].SetActive(true);
+            }
+        }
+
+
+    }
+
+    //cooking Whip Cheese
+    public void Cook_WhipCheese_P2()
+    {
+        if (canCookWhipCheese_P2 == true)
+        {
+            //check if only has pea shooter
+            if (
+                        weaponManagerScript_P2.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P2.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P2.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P2.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipOnion == false
+               )
+            {
+                weaponManagerScript_P2.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P2.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P2.hasWeapon_SpaghettiWhipCheese = true;
+                weaponManagerScript_P2.weapon_SpaghettiWhipCheese_Active = true;
+                weaponManagerScript_P2.Weapon_SpaghettiWhipCheese_Attack.SetActive(true);
+                weaponManagerScript_P2.Weapon_SpaghettiWhipCheese_WindUp.SetActive(true);
+                weaponManagerScript_P2.Weapon_SpaghettiWhipCheese_SpriteRenderer.enabled = false;
+                playerInventoryScript_P2.spaghettiCount -= WC_spaghetti;
+                playerInventoryScript_P2.cheeseCount -= WC_cheese;
+                checkmark2[3].SetActive(true);
+            }
+            //check if has pea shooter and semi auto rifle
+            else if (
+                        weaponManagerScript_P2.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P2.hasWeapon_SemiAutoRifle == true &&
+                        weaponManagerScript_P2.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P2.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipOnion == false
+                    )
+            {
+                weaponManagerScript_P2.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P2.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P2.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P2.weapon_SemiAutoRifle_Active = false;
+                weaponManagerScript_P2.Weapon_SemiAutoRifle.SetActive(false);
+                weaponManagerScript_P2.hasWeapon_SpaghettiWhipCheese = true;
+                weaponManagerScript_P2.weapon_SpaghettiWhipCheese_Active = true;
+                weaponManagerScript_P2.Weapon_SpaghettiWhipCheese_Attack.SetActive(true);
+                weaponManagerScript_P2.Weapon_SpaghettiWhipCheese_WindUp.SetActive(true);
+                weaponManagerScript_P2.Weapon_SpaghettiWhipCheese_SpriteRenderer.enabled = false;
+                playerInventoryScript_P2.spaghettiCount -= WC_spaghetti;
+                playerInventoryScript_P2.cheeseCount -= WC_cheese;
+                checkmark2[3].SetActive(true);
+            }
+            //check if has pea shooter and burst rifle 
+            else if (
+                        weaponManagerScript_P2.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P2.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P2.hasWeapon_BurstRifle == true &&
+                        weaponManagerScript_P2.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipOnion == false
+                   )
+            {
+                weaponManagerScript_P2.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P2.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P2.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P2.weapon_BurstRifle_Active = false;
+                weaponManagerScript_P2.Weapon_BurstRifle.SetActive(false);
+                weaponManagerScript_P2.hasWeapon_SpaghettiWhipCheese = true;
+                weaponManagerScript_P2.weapon_SpaghettiWhipCheese_Active = true;
+                weaponManagerScript_P2.Weapon_SpaghettiWhipCheese_Attack.SetActive(true);
+                weaponManagerScript_P2.Weapon_SpaghettiWhipCheese_WindUp.SetActive(true);
+                weaponManagerScript_P2.Weapon_SpaghettiWhipCheese_SpriteRenderer.enabled = false;
+                playerInventoryScript_P2.spaghettiCount -= WC_spaghetti;
+                playerInventoryScript_P2.cheeseCount -= WC_cheese;
+                checkmark2[3].SetActive(true);
+            }
+            //check if has pea shooter and shotgun (ALREADY)
+            else if (
+                        weaponManagerScript_P2.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P2.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P2.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P2.hasWeapon_Shotgun == true &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipOnion == false
+
+                    )
+            {
+                weaponManagerScript_P2.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P2.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P2.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P2.weapon_Shotgun_Active = false;
+                weaponManagerScript_P2.Weapon_Shotgun.SetActive(false);
+                weaponManagerScript_P2.hasWeapon_SpaghettiWhipCheese = true;
+                weaponManagerScript_P2.weapon_SpaghettiWhipCheese_Active = true;
+                weaponManagerScript_P2.Weapon_SpaghettiWhipCheese_Attack.SetActive(true);
+                weaponManagerScript_P2.Weapon_SpaghettiWhipCheese_WindUp.SetActive(true);
+                weaponManagerScript_P2.Weapon_SpaghettiWhipCheese_SpriteRenderer.enabled = false;
+                playerInventoryScript_P2.spaghettiCount -= WC_spaghetti;
+                playerInventoryScript_P2.cheeseCount -= WC_cheese;
+                checkmark2[3].SetActive(true);
+            }
+            //check if has pea shooter and whip cheese
+            else if (
+                        weaponManagerScript_P2.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P2.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P2.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P2.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipCheese == true &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipOnion == false
+
+                    )
+            {
+                //do nothing - accident click
+            }
+            //check if has pea shooter and whip onion
+            else if (
+                        weaponManagerScript_P2.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P2.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P2.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P2.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipOnion == true
+
+                    )
+            {
+                weaponManagerScript_P2.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P2.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P2.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P2.weapon_SpaghettiWhipOnion_Active = false;
+                weaponManagerScript_P2.Weapon_SpaghettiWhipOnion_WindUp.SetActive(false);
+                weaponManagerScript_P2.Weapon_SpaghettiWhipOnion_Attack.SetActive(false);
+                weaponManagerScript_P2.hasWeapon_SpaghettiWhipCheese = true;
+                weaponManagerScript_P2.weapon_SpaghettiWhipCheese_Active = true;
+                weaponManagerScript_P2.Weapon_SpaghettiWhipCheese_Attack.SetActive(true);
+                weaponManagerScript_P2.Weapon_SpaghettiWhipCheese_WindUp.SetActive(true);
+                weaponManagerScript_P2.Weapon_SpaghettiWhipCheese_SpriteRenderer.enabled = false;
+                playerInventoryScript_P2.spaghettiCount -= WC_spaghetti;
+                playerInventoryScript_P2.cheeseCount -= WC_cheese;
+                checkmark2[3].SetActive(true);
+            }
+        }
+
+
+    }
+
+    //cooking Whip Cheese
+    public void Cook_WhipOnion_P2()
+    {
+        if (canCookWhipOnion_P2 == true)
+        {
+            //check if only has pea shooter
+            if (
+                        weaponManagerScript_P2.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P2.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P2.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P2.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipOnion == false
+               )
+            {
+                weaponManagerScript_P2.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P2.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P2.hasWeapon_SpaghettiWhipOnion = true;
+                weaponManagerScript_P2.weapon_SpaghettiWhipOnion_Active = true;
+                weaponManagerScript_P2.Weapon_SpaghettiWhipOnion_Attack.SetActive(true);
+                weaponManagerScript_P2.Weapon_SpaghettiWhipOnion_WindUp.SetActive(true);
+                weaponManagerScript_P2.Weapon_SpaghettiWhipOnion_SpriteRenderer.enabled = false;
+                playerInventoryScript_P2.spaghettiCount -= WO_spaghetti;
+                playerInventoryScript_P2.onionCount -= WO_onion;
+                checkmark2[4].SetActive(true);
+            }
+            //check if has pea shooter and semi auto rifle
+            else if (
+                        weaponManagerScript_P2.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P2.hasWeapon_SemiAutoRifle == true &&
+                        weaponManagerScript_P2.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P2.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipOnion == false
+                    )
+            {
+                weaponManagerScript_P2.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P2.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P2.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P2.weapon_SemiAutoRifle_Active = false;
+                weaponManagerScript_P2.Weapon_SemiAutoRifle.SetActive(false);
+                weaponManagerScript_P2.hasWeapon_SpaghettiWhipOnion = true;
+                weaponManagerScript_P2.weapon_SpaghettiWhipOnion_Active = true;
+                weaponManagerScript_P2.Weapon_SpaghettiWhipOnion_Attack.SetActive(true);
+                weaponManagerScript_P2.Weapon_SpaghettiWhipOnion_WindUp.SetActive(true);
+                weaponManagerScript_P2.Weapon_SpaghettiWhipOnion_SpriteRenderer.enabled = false;
+                playerInventoryScript_P2.spaghettiCount -= WO_spaghetti;
+                playerInventoryScript_P2.onionCount -= WO_onion;
+                checkmark2[4].SetActive(true);
+            }
+            //check if has pea shooter and burst rifle 
+            else if (
+                        weaponManagerScript_P2.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P2.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P2.hasWeapon_BurstRifle == true &&
+                        weaponManagerScript_P2.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipOnion == false
+                   )
+            {
+                weaponManagerScript_P2.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P2.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P2.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P2.weapon_BurstRifle_Active = false;
+                weaponManagerScript_P2.Weapon_BurstRifle.SetActive(false);
+                weaponManagerScript_P2.hasWeapon_SpaghettiWhipOnion = true;
+                weaponManagerScript_P2.weapon_SpaghettiWhipOnion_Active = true;
+                weaponManagerScript_P2.Weapon_SpaghettiWhipOnion_Attack.SetActive(true);
+                weaponManagerScript_P2.Weapon_SpaghettiWhipOnion_WindUp.SetActive(true);
+                weaponManagerScript_P2.Weapon_SpaghettiWhipOnion_SpriteRenderer.enabled = false;
+                playerInventoryScript_P2.spaghettiCount -= WO_spaghetti;
+                playerInventoryScript_P2.onionCount -= WO_onion;
+                checkmark2[4].SetActive(true);
+            }
+            //check if has pea shooter and shotgun 
+            else if (
+                        weaponManagerScript_P2.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P2.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P2.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P2.hasWeapon_Shotgun == true &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipOnion == false
+
+                    )
+            {
+                weaponManagerScript_P2.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P2.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P2.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P2.weapon_Shotgun_Active = false;
+                weaponManagerScript_P2.Weapon_Shotgun.SetActive(false);
+                weaponManagerScript_P2.hasWeapon_SpaghettiWhipOnion = true;
+                weaponManagerScript_P2.weapon_SpaghettiWhipOnion_Active = true;
+                weaponManagerScript_P2.Weapon_SpaghettiWhipOnion_Attack.SetActive(true);
+                weaponManagerScript_P2.Weapon_SpaghettiWhipOnion_WindUp.SetActive(true);
+                weaponManagerScript_P2.Weapon_SpaghettiWhipOnion_SpriteRenderer.enabled = false;
+                playerInventoryScript_P2.spaghettiCount -= WO_spaghetti;
+                playerInventoryScript_P2.onionCount -= WO_onion;
+                checkmark2[4].SetActive(true);
+            }
+            //check if has pea shooter and whip cheese
+            else if (
+                        weaponManagerScript_P2.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P2.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P2.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P2.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipCheese == true &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipOnion == false
+
+                    )
+            {
+                weaponManagerScript_P2.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P2.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P2.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P2.weapon_SpaghettiWhipCheese_Active = false;
+                weaponManagerScript_P2.Weapon_SpaghettiWhipCheese_WindUp.SetActive(false);
+                weaponManagerScript_P2.Weapon_SpaghettiWhipCheese_Attack.SetActive(false);
+                weaponManagerScript_P2.hasWeapon_SpaghettiWhipOnion = true;
+                weaponManagerScript_P2.weapon_SpaghettiWhipOnion_Active = true;
+                weaponManagerScript_P2.Weapon_SpaghettiWhipOnion_Attack.SetActive(true);
+                weaponManagerScript_P2.Weapon_SpaghettiWhipOnion_WindUp.SetActive(true);
+                weaponManagerScript_P2.Weapon_SpaghettiWhipOnion_SpriteRenderer.enabled = false;
+                playerInventoryScript_P2.spaghettiCount -= WO_spaghetti;
+                playerInventoryScript_P2.onionCount -= WO_onion;
+                checkmark2[4].SetActive(true);
+            }
+            //check if has pea shooter and whip onion (ALREADY)
+            else if (
+                        weaponManagerScript_P2.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P2.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P2.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P2.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P2.hasWeapon_SpaghettiWhipOnion == true
+
+                    )
+            {
+                //do nothing - accident click
+            }
+        }
+
+
+    }
+
+    //cooking Snack Speed
+    public void Cook_SnackSpeed_P2()
+    {
+        if (canCookSnackSpeed_P2 == true)
+        {
+            //check if has no snack
+            if (
+
+                        specialManagerScript_P2.hasSnack_SpeedBoost == false &&
+                        specialManagerScript_P2.hasSnack_DamageBoost == false &&
+                        specialManagerScript_P2.hasSnack_HealthBoost == false
+               )
+            {
+                specialManagerScript_P2.hasSnack_SpeedBoost = true;
+                playerInventoryScript_P2.tomatoCount -= SS_tomato;
+                playerInventoryScript_P2.onionCount -= SS_onion;
+                playerInventoryScript_P2.cheeseCount -= SS_cheese;
+                checkmark2[5].SetActive(true);
+            }
+            //check if has snack speed (already)
+            else if (
+                        specialManagerScript_P2.hasSnack_SpeedBoost == true &&
+                        specialManagerScript_P2.hasSnack_DamageBoost == false &&
+                        specialManagerScript_P2.hasSnack_HealthBoost == false
+                    )
+            {
+                //do nothing - accident click
+            }
+            //check if has snack damage (already)
+            else if (
+                        specialManagerScript_P2.hasSnack_SpeedBoost == false &&
+                        specialManagerScript_P2.hasSnack_DamageBoost == true &&
+                        specialManagerScript_P2.hasSnack_HealthBoost == false
+                   )
+            {
+                //do nothing
+            }
+            //check if has snack health already
+            else if (
+                        specialManagerScript_P2.hasSnack_SpeedBoost == false &&
+                        specialManagerScript_P2.hasSnack_DamageBoost == false &&
+                        specialManagerScript_P2.hasSnack_HealthBoost == true
+
+                    )
+            {
+                //do nothing
+            }
+
+        }
+
+
+    }
+
+    //cooking Snack Damage
+    public void Cook_SnackDamage_P2()
+    {
+        if (canCookSnackDamage_P2 == true)
+        {
+            //check if has no snack
+            if (
+
+                        specialManagerScript_P2.hasSnack_SpeedBoost == false &&
+                        specialManagerScript_P2.hasSnack_DamageBoost == false &&
+                        specialManagerScript_P2.hasSnack_HealthBoost == false
+               )
+            {
+                specialManagerScript_P2.hasSnack_DamageBoost = true;
+                playerInventoryScript_P2.tomatoCount -= SD_tomato;
+                playerInventoryScript_P2.onionCount -= SD_onion;
+                playerInventoryScript_P2.cheeseCount -= SD_cheese;
+                checkmark2[6].SetActive(true);
+            }
+            //check if has snack speed (already)
+            else if (
+                        specialManagerScript_P2.hasSnack_SpeedBoost == true &&
+                        specialManagerScript_P2.hasSnack_DamageBoost == false &&
+                        specialManagerScript_P2.hasSnack_HealthBoost == false
+                    )
+            {
+                //do nothing - accident click
+            }
+            //check if has snack damage (already)
+            else if (
+                        specialManagerScript_P2.hasSnack_SpeedBoost == false &&
+                        specialManagerScript_P2.hasSnack_DamageBoost == true &&
+                        specialManagerScript_P2.hasSnack_HealthBoost == false
+                   )
+            {
+                //do nothing
+            }
+            //check if has snack health already
+            else if (
+                        specialManagerScript_P2.hasSnack_SpeedBoost == false &&
+                        specialManagerScript_P2.hasSnack_DamageBoost == false &&
+                        specialManagerScript_P2.hasSnack_HealthBoost == true
+
+                    )
+            {
+                //do nothing
+            }
+
+        }
+
+
+    }
+
+    //cooking Snack Health
+    public void Cook_SnackHealth_P2()
+    {
+        if (canCookSnackHealth_P2 == true)
+        {
+            //check if has no snack
+            if (
+
+                        specialManagerScript_P2.hasSnack_SpeedBoost == false &&
+                        specialManagerScript_P2.hasSnack_DamageBoost == false &&
+                        specialManagerScript_P2.hasSnack_HealthBoost == false
+               )
+            {
+                specialManagerScript_P2.hasSnack_HealthBoost = true;
+                playerInventoryScript_P2.tomatoCount -= SH_tomato;
+                playerInventoryScript_P2.onionCount -= SH_onion;
+                playerInventoryScript_P2.cheeseCount -= SH_cheese;
+                checkmark2[7].SetActive(true);
+            }
+            //check if has snack speed (already)
+            else if (
+                        specialManagerScript_P2.hasSnack_SpeedBoost == true &&
+                        specialManagerScript_P2.hasSnack_DamageBoost == false &&
+                        specialManagerScript_P2.hasSnack_HealthBoost == false
+                    )
+            {
+                //do nothing - accident click
+            }
+            //check if has snack damage (already)
+            else if (
+                        specialManagerScript_P2.hasSnack_SpeedBoost == false &&
+                        specialManagerScript_P2.hasSnack_DamageBoost == true &&
+                        specialManagerScript_P2.hasSnack_HealthBoost == false
+                   )
+            {
+                //do nothing
+            }
+            //check if has snack health already
+            else if (
+                        specialManagerScript_P2.hasSnack_SpeedBoost == false &&
+                        specialManagerScript_P2.hasSnack_DamageBoost == false &&
+                        specialManagerScript_P2.hasSnack_HealthBoost == true
+
+                    )
+            {
+                //do nothing
+            }
+
+        }
+
+
+    }
+
+
+
+    //PLAYER 3
+    //cooking semi-auto rifle
+    public void Cook_SemiAutoRifle_P3()
+    {
+        if (canCookSemiAutoRifle_P3 == true)
+        {
+            //check if only has pea shooter
+            if (
+                        weaponManagerScript_P3.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P3.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P3.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P3.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipOnion == false
+               )
+            {
+                weaponManagerScript_P3.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P3.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P3.hasWeapon_SemiAutoRifle = true;
+                weaponManagerScript_P3.weapon_SemiAutoRifle_Active = true;
+                weaponManagerScript_P3.Weapon_SemiAutoRifle.SetActive(true);
+                playerInventoryScript_P3.breadCount -= SR_bread;
+                playerInventoryScript_P3.tomatoCount -= SR_tomato;
+                checkmark3[0].SetActive(true);
+            }
+            //check if has pea shooter and semi auto rifle (ALREADY)
+            else if (
+                        weaponManagerScript_P3.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P3.hasWeapon_SemiAutoRifle == true &&
+                        weaponManagerScript_P3.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P3.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipOnion == false
+                    )
+            {
+                //do nothing - accident click
+            }
+            //check if has pea shooter and burst rifle
+            else if (
+                        weaponManagerScript_P3.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P3.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P3.hasWeapon_BurstRifle == true &&
+                        weaponManagerScript_P3.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipOnion == false
+                   )
+            {
+                weaponManagerScript_P3.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P3.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P3.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P3.weapon_BurstRifle_Active = false;
+                weaponManagerScript_P3.Weapon_BurstRifle.SetActive(false);
+                weaponManagerScript_P3.hasWeapon_SemiAutoRifle = true;
+                weaponManagerScript_P3.weapon_SemiAutoRifle_Active = true;
+                weaponManagerScript_P3.Weapon_SemiAutoRifle.SetActive(true);
+                playerInventoryScript_P3.breadCount -= SR_bread;
+                playerInventoryScript_P3.tomatoCount -= SR_tomato;
+                checkmark3[0].SetActive(true);
+            }
+            //check if has pea shooter and shotgun
+            else if (
+                        weaponManagerScript_P3.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P3.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P3.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P3.hasWeapon_Shotgun == true &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipOnion == false
+
+                    )
+            {
+                weaponManagerScript_P3.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P3.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P3.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P3.weapon_Shotgun_Active = false;
+                weaponManagerScript_P3.Weapon_Shotgun.SetActive(false);
+                weaponManagerScript_P3.hasWeapon_SemiAutoRifle = true;
+                weaponManagerScript_P3.weapon_SemiAutoRifle_Active = true;
+                weaponManagerScript_P3.Weapon_SemiAutoRifle.SetActive(true);
+                playerInventoryScript_P3.breadCount -= SR_bread;
+                playerInventoryScript_P3.tomatoCount -= SR_tomato;
+                checkmark3[0].SetActive(true);
+            }
+            //check if has pea shooter and whip cheese
+            else if (
+                        weaponManagerScript_P3.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P3.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P3.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P3.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipCheese == true &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipOnion == false
+
+                    )
+            {
+                weaponManagerScript_P3.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P3.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P3.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P3.weapon_SpaghettiWhipCheese_Active = false;
+                weaponManagerScript_P3.Weapon_SpaghettiWhipCheese_WindUp.SetActive(false);
+                weaponManagerScript_P3.Weapon_SpaghettiWhipCheese_Attack.SetActive(false);
+                weaponManagerScript_P3.hasWeapon_SemiAutoRifle = true;
+                weaponManagerScript_P3.weapon_SemiAutoRifle_Active = true;
+                weaponManagerScript_P3.Weapon_SemiAutoRifle.SetActive(true);
+                playerInventoryScript_P3.breadCount -= SR_bread;
+                playerInventoryScript_P3.tomatoCount -= SR_tomato;
+                checkmark3[0].SetActive(true);
+            }
+            //check if has pea shooter and whip onion
+            else if (
+                        weaponManagerScript_P3.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P3.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P3.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P3.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipOnion == true
+
+                    )
+            {
+                weaponManagerScript_P3.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P3.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P3.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P3.weapon_SpaghettiWhipOnion_Active = false;
+                weaponManagerScript_P3.Weapon_SpaghettiWhipOnion_WindUp.SetActive(false);
+                weaponManagerScript_P3.Weapon_SpaghettiWhipOnion_Attack.SetActive(false);
+                weaponManagerScript_P3.hasWeapon_SemiAutoRifle = true;
+                weaponManagerScript_P3.weapon_SemiAutoRifle_Active = true;
+                weaponManagerScript_P3.Weapon_SemiAutoRifle.SetActive(true);
+                playerInventoryScript_P3.breadCount -= SR_bread;
+                playerInventoryScript_P3.tomatoCount -= SR_tomato;
+                checkmark3[0].SetActive(true);
+            }
+        }
+
+
+    }
+
+    //cooking burst rifle
+    public void Cook_BurstRifle_P3()
+    {
+        if (canCookBurstRifle_P3 == true)
+        {
+            //check if only has pea shooter
+            if (
+                        weaponManagerScript_P3.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P3.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P3.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P3.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipOnion == false
+               )
+            {
+                weaponManagerScript_P3.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P3.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P3.hasWeapon_BurstRifle = true;
+                weaponManagerScript_P3.weapon_BurstRifle_Active = true;
+                weaponManagerScript_P3.Weapon_BurstRifle.SetActive(true);
+                playerInventoryScript_P3.breadCount -= BR_bread;
+                playerInventoryScript_P3.tomatoCount -= BR_tomato;
+                checkmark3[1].SetActive(true);
+            }
+            //check if has pea shooter and semi auto rifle
+            else if (
+                        weaponManagerScript_P3.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P3.hasWeapon_SemiAutoRifle == true &&
+                        weaponManagerScript_P3.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P3.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipOnion == false
+                    )
+            {
+                weaponManagerScript_P3.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P3.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P3.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P3.weapon_SemiAutoRifle_Active = false;
+                weaponManagerScript_P3.Weapon_SemiAutoRifle.SetActive(false);
+                weaponManagerScript_P3.hasWeapon_BurstRifle = true;
+                weaponManagerScript_P3.weapon_BurstRifle_Active = true;
+                weaponManagerScript_P3.Weapon_BurstRifle.SetActive(true);
+                playerInventoryScript_P3.breadCount -= BR_bread;
+                playerInventoryScript_P3.tomatoCount -= BR_tomato;
+                checkmark3[1].SetActive(true);
+            }
+            //check if has pea shooter and burst rifle (ALREADY)
+            else if (
+                        weaponManagerScript_P3.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P3.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P3.hasWeapon_BurstRifle == true &&
+                        weaponManagerScript_P3.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipOnion == false
+                   )
+            {
+                //do nothing - accident click
+            }
+            //check if has pea shooter and shotgun
+            else if (
+                        weaponManagerScript_P3.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P3.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P3.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P3.hasWeapon_Shotgun == true &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipOnion == false
+
+                    )
+            {
+                weaponManagerScript_P3.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P3.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P3.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P3.weapon_Shotgun_Active = false;
+                weaponManagerScript_P3.Weapon_Shotgun.SetActive(false);
+                weaponManagerScript_P3.hasWeapon_BurstRifle = true;
+                weaponManagerScript_P3.weapon_BurstRifle_Active = true;
+                weaponManagerScript_P3.Weapon_BurstRifle.SetActive(true);
+                playerInventoryScript_P3.breadCount -= BR_bread;
+                playerInventoryScript_P3.tomatoCount -= BR_tomato;
+                checkmark3[1].SetActive(true);
+            }
+            //check if has pea shooter and whip cheese
+            else if (
+                        weaponManagerScript_P3.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P3.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P3.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P3.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipCheese == true &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipOnion == false
+
+                    )
+            {
+                weaponManagerScript_P3.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P3.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P3.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P3.weapon_SpaghettiWhipCheese_Active = false;
+                weaponManagerScript_P3.Weapon_SpaghettiWhipCheese_WindUp.SetActive(false);
+                weaponManagerScript_P3.Weapon_SpaghettiWhipCheese_Attack.SetActive(false);
+                weaponManagerScript_P3.hasWeapon_BurstRifle = true;
+                weaponManagerScript_P3.weapon_BurstRifle_Active = true;
+                weaponManagerScript_P3.Weapon_BurstRifle.SetActive(true);
+                playerInventoryScript_P3.breadCount -= BR_bread;
+                playerInventoryScript_P3.tomatoCount -= BR_tomato;
+                checkmark3[1].SetActive(true);
+            }
+            //check if has pea shooter and whip onion
+            else if (
+                        weaponManagerScript_P3.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P3.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P3.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P3.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipOnion == true
+
+                    )
+            {
+                weaponManagerScript_P3.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P3.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P3.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P3.weapon_SpaghettiWhipOnion_Active = false;
+                weaponManagerScript_P3.Weapon_SpaghettiWhipOnion_WindUp.SetActive(false);
+                weaponManagerScript_P3.Weapon_SpaghettiWhipOnion_Attack.SetActive(false);
+                weaponManagerScript_P3.hasWeapon_BurstRifle = true;
+                weaponManagerScript_P3.weapon_BurstRifle_Active = true;
+                weaponManagerScript_P3.Weapon_BurstRifle.SetActive(true);
+                playerInventoryScript_P3.breadCount -= BR_bread;
+                playerInventoryScript_P3.tomatoCount -= BR_tomato;
+                checkmark3[1].SetActive(true);
+            }
+        }
+
+
+    }
+
+    //cooking shotgun
+    public void Cook_Shotgun_P3()
+    {
+        if (canCookShotgun_P3 == true)
+        {
+            //check if only has pea shooter
+            if (
+                        weaponManagerScript_P3.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P3.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P3.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P3.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipOnion == false
+               )
+            {
+                weaponManagerScript_P3.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P3.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P3.hasWeapon_Shotgun = true;
+                weaponManagerScript_P3.weapon_Shotgun_Active = true;
+                weaponManagerScript_P3.Weapon_Shotgun.SetActive(true);
+                playerInventoryScript_P3.breadCount -= SG_bread;
+                playerInventoryScript_P3.tomatoCount -= SG_tomato;
+                checkmark3[2].SetActive(true);
+            }
+            //check if has pea shooter and semi auto rifle
+            else if (
+                        weaponManagerScript_P3.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P3.hasWeapon_SemiAutoRifle == true &&
+                        weaponManagerScript_P3.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P3.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipOnion == false
+                    )
+            {
+                weaponManagerScript_P3.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P3.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P3.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P3.weapon_SemiAutoRifle_Active = false;
+                weaponManagerScript_P3.Weapon_SemiAutoRifle.SetActive(false);
+                weaponManagerScript_P3.hasWeapon_Shotgun = true;
+                weaponManagerScript_P3.weapon_Shotgun_Active = true;
+                weaponManagerScript_P3.Weapon_Shotgun.SetActive(true);
+                playerInventoryScript_P3.breadCount -= SG_bread;
+                playerInventoryScript_P3.tomatoCount -= SG_tomato;
+                checkmark3[2].SetActive(true);
+            }
+            //check if has pea shooter and burst rifle 
+            else if (
+                        weaponManagerScript_P3.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P3.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P3.hasWeapon_BurstRifle == true &&
+                        weaponManagerScript_P3.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipOnion == false
+                   )
+            {
+                weaponManagerScript_P3.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P3.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P3.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P3.weapon_BurstRifle_Active = false;
+                weaponManagerScript_P3.Weapon_BurstRifle.SetActive(false);
+                weaponManagerScript_P3.hasWeapon_Shotgun = true;
+                weaponManagerScript_P3.weapon_Shotgun_Active = true;
+                weaponManagerScript_P3.Weapon_Shotgun.SetActive(true);
+                playerInventoryScript_P3.breadCount -= SG_bread;
+                playerInventoryScript_P3.tomatoCount -= SG_tomato;
+                checkmark3[2].SetActive(true);
+            }
+            //check if has pea shooter and shotgun (ALREADY)
+            else if (
+                        weaponManagerScript_P3.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P3.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P3.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P3.hasWeapon_Shotgun == true &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipOnion == false
+
+                    )
+            {
+                //do nothing - accident click
+            }
+            //check if has pea shooter and whip cheese
+            else if (
+                        weaponManagerScript_P3.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P3.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P3.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P3.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipCheese == true &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipOnion == false
+
+                    )
+            {
+                weaponManagerScript_P3.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P3.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P3.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P3.weapon_SpaghettiWhipCheese_Active = false;
+                weaponManagerScript_P3.Weapon_SpaghettiWhipCheese_WindUp.SetActive(false);
+                weaponManagerScript_P3.Weapon_SpaghettiWhipCheese_Attack.SetActive(false);
+                weaponManagerScript_P3.hasWeapon_Shotgun = true;
+                weaponManagerScript_P3.weapon_Shotgun_Active = true;
+                weaponManagerScript_P3.Weapon_Shotgun.SetActive(true);
+                playerInventoryScript_P3.breadCount -= SG_bread;
+                playerInventoryScript_P3.tomatoCount -= SG_tomato;
+                checkmark3[2].SetActive(true);
+            }
+            //check if has pea shooter and whip onion
+            else if (
+                        weaponManagerScript_P3.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P3.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P3.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P3.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipOnion == true
+
+                    )
+            {
+                weaponManagerScript_P3.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P3.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P3.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P3.weapon_SpaghettiWhipOnion_Active = false;
+                weaponManagerScript_P3.Weapon_SpaghettiWhipOnion_WindUp.SetActive(false);
+                weaponManagerScript_P3.Weapon_SpaghettiWhipOnion_Attack.SetActive(false);
+                weaponManagerScript_P3.hasWeapon_Shotgun = true;
+                weaponManagerScript_P3.weapon_Shotgun_Active = true;
+                weaponManagerScript_P3.Weapon_Shotgun.SetActive(true);
+                playerInventoryScript_P3.breadCount -= SG_bread;
+                playerInventoryScript_P3.tomatoCount -= SG_tomato;
+                checkmark3[2].SetActive(true);
+            }
+        }
+
+
+    }
+
+    //cooking Whip Cheese
+    public void Cook_WhipCheese_P3()
+    {
+        if (canCookWhipCheese_P3 == true)
+        {
+            //check if only has pea shooter
+            if (
+                        weaponManagerScript_P3.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P3.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P3.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P3.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipOnion == false
+               )
+            {
+                weaponManagerScript_P3.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P3.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P3.hasWeapon_SpaghettiWhipCheese = true;
+                weaponManagerScript_P3.weapon_SpaghettiWhipCheese_Active = true;
+                weaponManagerScript_P3.Weapon_SpaghettiWhipCheese_Attack.SetActive(true);
+                weaponManagerScript_P3.Weapon_SpaghettiWhipCheese_WindUp.SetActive(true);
+                weaponManagerScript_P3.Weapon_SpaghettiWhipCheese_SpriteRenderer.enabled = false;
+                playerInventoryScript_P3.spaghettiCount -= WC_spaghetti;
+                playerInventoryScript_P3.cheeseCount -= WC_cheese;
+                checkmark3[3].SetActive(true);
+            }
+            //check if has pea shooter and semi auto rifle
+            else if (
+                        weaponManagerScript_P3.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P3.hasWeapon_SemiAutoRifle == true &&
+                        weaponManagerScript_P3.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P3.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipOnion == false
+                    )
+            {
+                weaponManagerScript_P3.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P3.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P3.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P3.weapon_SemiAutoRifle_Active = false;
+                weaponManagerScript_P3.Weapon_SemiAutoRifle.SetActive(false);
+                weaponManagerScript_P3.hasWeapon_SpaghettiWhipCheese = true;
+                weaponManagerScript_P3.weapon_SpaghettiWhipCheese_Active = true;
+                weaponManagerScript_P3.Weapon_SpaghettiWhipCheese_Attack.SetActive(true);
+                weaponManagerScript_P3.Weapon_SpaghettiWhipCheese_WindUp.SetActive(true);
+                weaponManagerScript_P3.Weapon_SpaghettiWhipCheese_SpriteRenderer.enabled = false;
+                playerInventoryScript_P3.spaghettiCount -= WC_spaghetti;
+                playerInventoryScript_P3.cheeseCount -= WC_cheese;
+                checkmark3[3].SetActive(true);
+            }
+            //check if has pea shooter and burst rifle 
+            else if (
+                        weaponManagerScript_P3.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P3.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P3.hasWeapon_BurstRifle == true &&
+                        weaponManagerScript_P3.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipOnion == false
+                   )
+            {
+                weaponManagerScript_P3.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P3.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P3.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P3.weapon_BurstRifle_Active = false;
+                weaponManagerScript_P3.Weapon_BurstRifle.SetActive(false);
+                weaponManagerScript_P3.hasWeapon_SpaghettiWhipCheese = true;
+                weaponManagerScript_P3.weapon_SpaghettiWhipCheese_Active = true;
+                weaponManagerScript_P3.Weapon_SpaghettiWhipCheese_Attack.SetActive(true);
+                weaponManagerScript_P3.Weapon_SpaghettiWhipCheese_WindUp.SetActive(true);
+                weaponManagerScript_P3.Weapon_SpaghettiWhipCheese_SpriteRenderer.enabled = false;
+                playerInventoryScript_P3.spaghettiCount -= WC_spaghetti;
+                playerInventoryScript_P3.cheeseCount -= WC_cheese;
+                checkmark3[3].SetActive(true);
+            }
+            //check if has pea shooter and shotgun (ALREADY)
+            else if (
+                        weaponManagerScript_P3.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P3.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P3.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P3.hasWeapon_Shotgun == true &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipOnion == false
+
+                    )
+            {
+                weaponManagerScript_P3.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P3.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P3.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P3.weapon_Shotgun_Active = false;
+                weaponManagerScript_P3.Weapon_Shotgun.SetActive(false);
+                weaponManagerScript_P3.hasWeapon_SpaghettiWhipCheese = true;
+                weaponManagerScript_P3.weapon_SpaghettiWhipCheese_Active = true;
+                weaponManagerScript_P3.Weapon_SpaghettiWhipCheese_Attack.SetActive(true);
+                weaponManagerScript_P3.Weapon_SpaghettiWhipCheese_WindUp.SetActive(true);
+                weaponManagerScript_P3.Weapon_SpaghettiWhipCheese_SpriteRenderer.enabled = false;
+                playerInventoryScript_P3.spaghettiCount -= WC_spaghetti;
+                playerInventoryScript_P3.cheeseCount -= WC_cheese;
+                checkmark3[3].SetActive(true);
+            }
+            //check if has pea shooter and whip cheese
+            else if (
+                        weaponManagerScript_P3.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P3.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P3.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P3.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipCheese == true &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipOnion == false
+
+                    )
+            {
+                //do nothing - accident click
+            }
+            //check if has pea shooter and whip onion
+            else if (
+                        weaponManagerScript_P3.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P3.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P3.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P3.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipOnion == true
+
+                    )
+            {
+                weaponManagerScript_P3.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P3.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P3.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P3.weapon_SpaghettiWhipOnion_Active = false;
+                weaponManagerScript_P3.Weapon_SpaghettiWhipOnion_WindUp.SetActive(false);
+                weaponManagerScript_P3.Weapon_SpaghettiWhipOnion_Attack.SetActive(false);
+                weaponManagerScript_P3.hasWeapon_SpaghettiWhipCheese = true;
+                weaponManagerScript_P3.weapon_SpaghettiWhipCheese_Active = true;
+                weaponManagerScript_P3.Weapon_SpaghettiWhipCheese_Attack.SetActive(true);
+                weaponManagerScript_P3.Weapon_SpaghettiWhipCheese_WindUp.SetActive(true);
+                weaponManagerScript_P3.Weapon_SpaghettiWhipCheese_SpriteRenderer.enabled = false;
+                playerInventoryScript_P3.spaghettiCount -= WC_spaghetti;
+                playerInventoryScript_P3.cheeseCount -= WC_cheese;
+                checkmark3[3].SetActive(true);
+            }
+        }
+
+
+    }
+
+    //cooking Whip Cheese
+    public void Cook_WhipOnion_P3()
+    {
+        if (canCookWhipOnion_P3 == true)
+        {
+            //check if only has pea shooter
+            if (
+                        weaponManagerScript_P3.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P3.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P3.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P3.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipOnion == false
+               )
+            {
+                weaponManagerScript_P3.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P3.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P3.hasWeapon_SpaghettiWhipOnion = true;
+                weaponManagerScript_P3.weapon_SpaghettiWhipOnion_Active = true;
+                weaponManagerScript_P3.Weapon_SpaghettiWhipOnion_Attack.SetActive(true);
+                weaponManagerScript_P3.Weapon_SpaghettiWhipOnion_WindUp.SetActive(true);
+                weaponManagerScript_P3.Weapon_SpaghettiWhipOnion_SpriteRenderer.enabled = false;
+                playerInventoryScript_P3.spaghettiCount -= WO_spaghetti;
+                playerInventoryScript_P3.onionCount -= WO_onion;
+                checkmark3[4].SetActive(true);
+            }
+            //check if has pea shooter and semi auto rifle
+            else if (
+                        weaponManagerScript_P3.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P3.hasWeapon_SemiAutoRifle == true &&
+                        weaponManagerScript_P3.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P3.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipOnion == false
+                    )
+            {
+                weaponManagerScript_P3.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P3.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P3.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P3.weapon_SemiAutoRifle_Active = false;
+                weaponManagerScript_P3.Weapon_SemiAutoRifle.SetActive(false);
+                weaponManagerScript_P3.hasWeapon_SpaghettiWhipOnion = true;
+                weaponManagerScript_P3.weapon_SpaghettiWhipOnion_Active = true;
+                weaponManagerScript_P3.Weapon_SpaghettiWhipOnion_Attack.SetActive(true);
+                weaponManagerScript_P3.Weapon_SpaghettiWhipOnion_WindUp.SetActive(true);
+                weaponManagerScript_P3.Weapon_SpaghettiWhipOnion_SpriteRenderer.enabled = false;
+                playerInventoryScript_P3.spaghettiCount -= WO_spaghetti;
+                playerInventoryScript_P3.onionCount -= WO_onion;
+                checkmark3[4].SetActive(true);
+            }
+            //check if has pea shooter and burst rifle 
+            else if (
+                        weaponManagerScript_P3.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P3.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P3.hasWeapon_BurstRifle == true &&
+                        weaponManagerScript_P3.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipOnion == false
+                   )
+            {
+                weaponManagerScript_P3.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P3.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P3.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P3.weapon_BurstRifle_Active = false;
+                weaponManagerScript_P3.Weapon_BurstRifle.SetActive(false);
+                weaponManagerScript_P3.hasWeapon_SpaghettiWhipOnion = true;
+                weaponManagerScript_P3.weapon_SpaghettiWhipOnion_Active = true;
+                weaponManagerScript_P3.Weapon_SpaghettiWhipOnion_Attack.SetActive(true);
+                weaponManagerScript_P3.Weapon_SpaghettiWhipOnion_WindUp.SetActive(true);
+                weaponManagerScript_P3.Weapon_SpaghettiWhipOnion_SpriteRenderer.enabled = false;
+                playerInventoryScript_P3.spaghettiCount -= WO_spaghetti;
+                playerInventoryScript_P3.onionCount -= WO_onion;
+                checkmark3[4].SetActive(true);
+            }
+            //check if has pea shooter and shotgun 
+            else if (
+                        weaponManagerScript_P3.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P3.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P3.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P3.hasWeapon_Shotgun == true &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipOnion == false
+
+                    )
+            {
+                weaponManagerScript_P3.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P3.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P3.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P3.weapon_Shotgun_Active = false;
+                weaponManagerScript_P3.Weapon_Shotgun.SetActive(false);
+                weaponManagerScript_P3.hasWeapon_SpaghettiWhipOnion = true;
+                weaponManagerScript_P3.weapon_SpaghettiWhipOnion_Active = true;
+                weaponManagerScript_P3.Weapon_SpaghettiWhipOnion_Attack.SetActive(true);
+                weaponManagerScript_P3.Weapon_SpaghettiWhipOnion_WindUp.SetActive(true);
+                weaponManagerScript_P3.Weapon_SpaghettiWhipOnion_SpriteRenderer.enabled = false;
+                playerInventoryScript_P3.spaghettiCount -= WO_spaghetti;
+                playerInventoryScript_P3.onionCount -= WO_onion;
+                checkmark3[4].SetActive(true);
+            }
+            //check if has pea shooter and whip cheese
+            else if (
+                        weaponManagerScript_P3.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P3.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P3.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P3.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipCheese == true &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipOnion == false
+
+                    )
+            {
+                weaponManagerScript_P3.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P3.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P3.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P3.weapon_SpaghettiWhipCheese_Active = false;
+                weaponManagerScript_P3.Weapon_SpaghettiWhipCheese_WindUp.SetActive(false);
+                weaponManagerScript_P3.Weapon_SpaghettiWhipCheese_Attack.SetActive(false);
+                weaponManagerScript_P3.hasWeapon_SpaghettiWhipOnion = true;
+                weaponManagerScript_P3.weapon_SpaghettiWhipOnion_Active = true;
+                weaponManagerScript_P3.Weapon_SpaghettiWhipOnion_Attack.SetActive(true);
+                weaponManagerScript_P3.Weapon_SpaghettiWhipOnion_WindUp.SetActive(true);
+                weaponManagerScript_P3.Weapon_SpaghettiWhipOnion_SpriteRenderer.enabled = false;
+                playerInventoryScript_P3.spaghettiCount -= WO_spaghetti;
+                playerInventoryScript_P3.onionCount -= WO_onion;
+                checkmark3[4].SetActive(true);
+            }
+            //check if has pea shooter and whip onion (ALREADY)
+            else if (
+                        weaponManagerScript_P3.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P3.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P3.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P3.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P3.hasWeapon_SpaghettiWhipOnion == true
+
+                    )
+            {
+                //do nothing - accident click
+            }
+        }
+
+
+    }
+
+    //cooking Snack Speed
+    public void Cook_SnackSpeed_P3()
+    {
+        if (canCookSnackSpeed_P3 == true)
+        {
+            //check if has no snack
+            if (
+
+                        specialManagerScript_P3.hasSnack_SpeedBoost == false &&
+                        specialManagerScript_P3.hasSnack_DamageBoost == false &&
+                        specialManagerScript_P3.hasSnack_HealthBoost == false
+               )
+            {
+                specialManagerScript_P3.hasSnack_SpeedBoost = true;
+                playerInventoryScript_P3.tomatoCount -= SS_tomato;
+                playerInventoryScript_P3.onionCount -= SS_onion;
+                playerInventoryScript_P3.cheeseCount -= SS_cheese;
+                checkmark3[5].SetActive(true);
+            }
+            //check if has snack speed (already)
+            else if (
+                        specialManagerScript_P3.hasSnack_SpeedBoost == true &&
+                        specialManagerScript_P3.hasSnack_DamageBoost == false &&
+                        specialManagerScript_P3.hasSnack_HealthBoost == false
+                    )
+            {
+                //do nothing - accident click
+            }
+            //check if has snack damage (already)
+            else if (
+                        specialManagerScript_P3.hasSnack_SpeedBoost == false &&
+                        specialManagerScript_P3.hasSnack_DamageBoost == true &&
+                        specialManagerScript_P3.hasSnack_HealthBoost == false
+                   )
+            {
+                //do nothing
+            }
+            //check if has snack health already
+            else if (
+                        specialManagerScript_P3.hasSnack_SpeedBoost == false &&
+                        specialManagerScript_P3.hasSnack_DamageBoost == false &&
+                        specialManagerScript_P3.hasSnack_HealthBoost == true
+
+                    )
+            {
+                //do nothing
+            }
+
+        }
+
+
+    }
+
+    //cooking Snack Damage
+    public void Cook_SnackDamage_P3()
+    {
+        if (canCookSnackDamage_P3 == true)
+        {
+            //check if has no snack
+            if (
+
+                        specialManagerScript_P3.hasSnack_SpeedBoost == false &&
+                        specialManagerScript_P3.hasSnack_DamageBoost == false &&
+                        specialManagerScript_P3.hasSnack_HealthBoost == false
+               )
+            {
+                specialManagerScript_P3.hasSnack_DamageBoost = true;
+                playerInventoryScript_P3.tomatoCount -= SD_tomato;
+                playerInventoryScript_P3.onionCount -= SD_onion;
+                playerInventoryScript_P3.cheeseCount -= SD_cheese;
+                checkmark3[6].SetActive(true);
+            }
+            //check if has snack speed (already)
+            else if (
+                        specialManagerScript_P3.hasSnack_SpeedBoost == true &&
+                        specialManagerScript_P3.hasSnack_DamageBoost == false &&
+                        specialManagerScript_P3.hasSnack_HealthBoost == false
+                    )
+            {
+                //do nothing - accident click
+            }
+            //check if has snack damage (already)
+            else if (
+                        specialManagerScript_P3.hasSnack_SpeedBoost == false &&
+                        specialManagerScript_P3.hasSnack_DamageBoost == true &&
+                        specialManagerScript_P3.hasSnack_HealthBoost == false
+                   )
+            {
+                //do nothing
+            }
+            //check if has snack health already
+            else if (
+                        specialManagerScript_P3.hasSnack_SpeedBoost == false &&
+                        specialManagerScript_P3.hasSnack_DamageBoost == false &&
+                        specialManagerScript_P3.hasSnack_HealthBoost == true
+
+                    )
+            {
+                //do nothing
+            }
+
+        }
+
+
+    }
+
+    //cooking Snack Health
+    public void Cook_SnackHealth_P3()
+    {
+        if (canCookSnackHealth_P3 == true)
+        {
+            //check if has no snack
+            if (
+
+                        specialManagerScript_P3.hasSnack_SpeedBoost == false &&
+                        specialManagerScript_P3.hasSnack_DamageBoost == false &&
+                        specialManagerScript_P3.hasSnack_HealthBoost == false
+               )
+            {
+                specialManagerScript_P3.hasSnack_HealthBoost = true;
+                playerInventoryScript_P3.tomatoCount -= SH_tomato;
+                playerInventoryScript_P3.onionCount -= SH_onion;
+                playerInventoryScript_P3.cheeseCount -= SH_cheese;
+                checkmark3[7].SetActive(true);
+            }
+            //check if has snack speed (already)
+            else if (
+                        specialManagerScript_P3.hasSnack_SpeedBoost == true &&
+                        specialManagerScript_P3.hasSnack_DamageBoost == false &&
+                        specialManagerScript_P3.hasSnack_HealthBoost == false
+                    )
+            {
+                //do nothing - accident click
+            }
+            //check if has snack damage (already)
+            else if (
+                        specialManagerScript_P3.hasSnack_SpeedBoost == false &&
+                        specialManagerScript_P3.hasSnack_DamageBoost == true &&
+                        specialManagerScript_P3.hasSnack_HealthBoost == false
+                   )
+            {
+                //do nothing
+            }
+            //check if has snack health already
+            else if (
+                        specialManagerScript_P3.hasSnack_SpeedBoost == false &&
+                        specialManagerScript_P3.hasSnack_DamageBoost == false &&
+                        specialManagerScript_P3.hasSnack_HealthBoost == true
+
+                    )
+            {
+                //do nothing
+            }
+
+        }
+
+
+    }
+
+
+
+    //PLAYER 4
+    //cooking semi-auto rifle
+    public void Cook_SemiAutoRifle_P4()
+    {
+        if (canCookSemiAutoRifle_P4 == true)
+        {
+            //check if only has pea shooter
+            if (
+                        weaponManagerScript_P4.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P4.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P4.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P4.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipOnion == false
+               )
+            {
+                weaponManagerScript_P4.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P4.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P4.hasWeapon_SemiAutoRifle = true;
+                weaponManagerScript_P4.weapon_SemiAutoRifle_Active = true;
+                weaponManagerScript_P4.Weapon_SemiAutoRifle.SetActive(true);
+                playerInventoryScript_P4.breadCount -= SR_bread;
+                playerInventoryScript_P4.tomatoCount -= SR_tomato;
+                checkmark4[0].SetActive(true);
+            }
+            //check if has pea shooter and semi auto rifle (ALREADY)
+            else if (
+                        weaponManagerScript_P4.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P4.hasWeapon_SemiAutoRifle == true &&
+                        weaponManagerScript_P4.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P4.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipOnion == false
+                    )
+            {
+                //do nothing - accident click
+            }
+            //check if has pea shooter and burst rifle
+            else if (
+                        weaponManagerScript_P4.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P4.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P4.hasWeapon_BurstRifle == true &&
+                        weaponManagerScript_P4.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipOnion == false
+                   )
+            {
+                weaponManagerScript_P4.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P4.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P4.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P4.weapon_BurstRifle_Active = false;
+                weaponManagerScript_P4.Weapon_BurstRifle.SetActive(false);
+                weaponManagerScript_P4.hasWeapon_SemiAutoRifle = true;
+                weaponManagerScript_P4.weapon_SemiAutoRifle_Active = true;
+                weaponManagerScript_P4.Weapon_SemiAutoRifle.SetActive(true);
+                playerInventoryScript_P4.breadCount -= SR_bread;
+                playerInventoryScript_P4.tomatoCount -= SR_tomato;
+                checkmark4[0].SetActive(true);
+            }
+            //check if has pea shooter and shotgun
+            else if (
+                        weaponManagerScript_P4.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P4.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P4.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P4.hasWeapon_Shotgun == true &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipOnion == false
+
+                    )
+            {
+                weaponManagerScript_P4.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P4.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P4.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P4.weapon_Shotgun_Active = false;
+                weaponManagerScript_P4.Weapon_Shotgun.SetActive(false);
+                weaponManagerScript_P4.hasWeapon_SemiAutoRifle = true;
+                weaponManagerScript_P4.weapon_SemiAutoRifle_Active = true;
+                weaponManagerScript_P4.Weapon_SemiAutoRifle.SetActive(true);
+                playerInventoryScript_P4.breadCount -= SR_bread;
+                playerInventoryScript_P4.tomatoCount -= SR_tomato;
+                checkmark4[0].SetActive(true);
+            }
+            //check if has pea shooter and whip cheese
+            else if (
+                        weaponManagerScript_P4.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P4.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P4.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P4.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipCheese == true &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipOnion == false
+
+                    )
+            {
+                weaponManagerScript_P4.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P4.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P4.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P4.weapon_SpaghettiWhipCheese_Active = false;
+                weaponManagerScript_P4.Weapon_SpaghettiWhipCheese_WindUp.SetActive(false);
+                weaponManagerScript_P4.Weapon_SpaghettiWhipCheese_Attack.SetActive(false);
+                weaponManagerScript_P4.hasWeapon_SemiAutoRifle = true;
+                weaponManagerScript_P4.weapon_SemiAutoRifle_Active = true;
+                weaponManagerScript_P4.Weapon_SemiAutoRifle.SetActive(true);
+                playerInventoryScript_P4.breadCount -= SR_bread;
+                playerInventoryScript_P4.tomatoCount -= SR_tomato;
+                checkmark4[0].SetActive(true);
+            }
+            //check if has pea shooter and whip onion
+            else if (
+                        weaponManagerScript_P4.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P4.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P4.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P4.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipOnion == true
+
+                    )
+            {
+                weaponManagerScript_P4.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P4.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P4.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P4.weapon_SpaghettiWhipOnion_Active = false;
+                weaponManagerScript_P4.Weapon_SpaghettiWhipOnion_WindUp.SetActive(false);
+                weaponManagerScript_P4.Weapon_SpaghettiWhipOnion_Attack.SetActive(false);
+                weaponManagerScript_P4.hasWeapon_SemiAutoRifle = true;
+                weaponManagerScript_P4.weapon_SemiAutoRifle_Active = true;
+                weaponManagerScript_P4.Weapon_SemiAutoRifle.SetActive(true);
+                playerInventoryScript_P4.breadCount -= SR_bread;
+                playerInventoryScript_P4.tomatoCount -= SR_tomato;
+                checkmark4[0].SetActive(true);
+            }
+        }
+
+
+    }
+
+    //cooking burst rifle
+    public void Cook_BurstRifle_P4()
+    {
+        if (canCookBurstRifle_P4 == true)
+        {
+            //check if only has pea shooter
+            if (
+                        weaponManagerScript_P4.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P4.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P4.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P4.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipOnion == false
+               )
+            {
+                weaponManagerScript_P4.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P4.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P4.hasWeapon_BurstRifle = true;
+                weaponManagerScript_P4.weapon_BurstRifle_Active = true;
+                weaponManagerScript_P4.Weapon_BurstRifle.SetActive(true);
+                playerInventoryScript_P4.breadCount -= BR_bread;
+                playerInventoryScript_P4.tomatoCount -= BR_tomato;
+                checkmark4[1].SetActive(true);
+            }
+            //check if has pea shooter and semi auto rifle
+            else if (
+                        weaponManagerScript_P4.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P4.hasWeapon_SemiAutoRifle == true &&
+                        weaponManagerScript_P4.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P4.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipOnion == false
+                    )
+            {
+                weaponManagerScript_P4.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P4.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P4.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P4.weapon_SemiAutoRifle_Active = false;
+                weaponManagerScript_P4.Weapon_SemiAutoRifle.SetActive(false);
+                weaponManagerScript_P4.hasWeapon_BurstRifle = true;
+                weaponManagerScript_P4.weapon_BurstRifle_Active = true;
+                weaponManagerScript_P4.Weapon_BurstRifle.SetActive(true);
+                playerInventoryScript_P4.breadCount -= BR_bread;
+                playerInventoryScript_P4.tomatoCount -= BR_tomato;
+                checkmark4[1].SetActive(true);
+            }
+            //check if has pea shooter and burst rifle (ALREADY)
+            else if (
+                        weaponManagerScript_P4.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P4.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P4.hasWeapon_BurstRifle == true &&
+                        weaponManagerScript_P4.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipOnion == false
+                   )
+            {
+                //do nothing - accident click
+            }
+            //check if has pea shooter and shotgun
+            else if (
+                        weaponManagerScript_P4.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P4.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P4.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P4.hasWeapon_Shotgun == true &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipOnion == false
+
+                    )
+            {
+                weaponManagerScript_P4.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P4.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P4.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P4.weapon_Shotgun_Active = false;
+                weaponManagerScript_P4.Weapon_Shotgun.SetActive(false);
+                weaponManagerScript_P4.hasWeapon_BurstRifle = true;
+                weaponManagerScript_P4.weapon_BurstRifle_Active = true;
+                weaponManagerScript_P4.Weapon_BurstRifle.SetActive(true);
+                playerInventoryScript_P4.breadCount -= BR_bread;
+                playerInventoryScript_P4.tomatoCount -= BR_tomato;
+                checkmark4[1].SetActive(true);
+            }
+            //check if has pea shooter and whip cheese
+            else if (
+                        weaponManagerScript_P4.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P4.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P4.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P4.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipCheese == true &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipOnion == false
+
+                    )
+            {
+                weaponManagerScript_P4.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P4.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P4.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P4.weapon_SpaghettiWhipCheese_Active = false;
+                weaponManagerScript_P4.Weapon_SpaghettiWhipCheese_WindUp.SetActive(false);
+                weaponManagerScript_P4.Weapon_SpaghettiWhipCheese_Attack.SetActive(false);
+                weaponManagerScript_P4.hasWeapon_BurstRifle = true;
+                weaponManagerScript_P4.weapon_BurstRifle_Active = true;
+                weaponManagerScript_P4.Weapon_BurstRifle.SetActive(true);
+                playerInventoryScript_P4.breadCount -= BR_bread;
+                playerInventoryScript_P4.tomatoCount -= BR_tomato;
+                checkmark4[1].SetActive(true);
+            }
+            //check if has pea shooter and whip onion
+            else if (
+                        weaponManagerScript_P4.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P4.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P4.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P4.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipOnion == true
+
+                    )
+            {
+                weaponManagerScript_P4.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P4.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P4.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P4.weapon_SpaghettiWhipOnion_Active = false;
+                weaponManagerScript_P4.Weapon_SpaghettiWhipOnion_WindUp.SetActive(false);
+                weaponManagerScript_P4.Weapon_SpaghettiWhipOnion_Attack.SetActive(false);
+                weaponManagerScript_P4.hasWeapon_BurstRifle = true;
+                weaponManagerScript_P4.weapon_BurstRifle_Active = true;
+                weaponManagerScript_P4.Weapon_BurstRifle.SetActive(true);
+                playerInventoryScript_P4.breadCount -= BR_bread;
+                playerInventoryScript_P4.tomatoCount -= BR_tomato;
+                checkmark4[1].SetActive(true);
+            }
+        }
+
+
+    }
+
+    //cooking shotgun
+    public void Cook_Shotgun_P4()
+    {
+        if (canCookShotgun_P4 == true)
+        {
+            //check if only has pea shooter
+            if (
+                        weaponManagerScript_P4.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P4.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P4.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P4.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipOnion == false
+               )
+            {
+                weaponManagerScript_P4.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P4.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P4.hasWeapon_Shotgun = true;
+                weaponManagerScript_P4.weapon_Shotgun_Active = true;
+                weaponManagerScript_P4.Weapon_Shotgun.SetActive(true);
+                playerInventoryScript_P4.breadCount -= SG_bread;
+                playerInventoryScript_P4.tomatoCount -= SG_tomato;
+                checkmark4[2].SetActive(true);
+            }
+            //check if has pea shooter and semi auto rifle
+            else if (
+                        weaponManagerScript_P4.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P4.hasWeapon_SemiAutoRifle == true &&
+                        weaponManagerScript_P4.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P4.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipOnion == false
+                    )
+            {
+                weaponManagerScript_P4.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P4.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P4.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P4.weapon_SemiAutoRifle_Active = false;
+                weaponManagerScript_P4.Weapon_SemiAutoRifle.SetActive(false);
+                weaponManagerScript_P4.hasWeapon_Shotgun = true;
+                weaponManagerScript_P4.weapon_Shotgun_Active = true;
+                weaponManagerScript_P4.Weapon_Shotgun.SetActive(true);
+                playerInventoryScript_P4.breadCount -= SG_bread;
+                playerInventoryScript_P4.tomatoCount -= SG_tomato;
+                checkmark4[2].SetActive(true);
+            }
+            //check if has pea shooter and burst rifle 
+            else if (
+                        weaponManagerScript_P4.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P4.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P4.hasWeapon_BurstRifle == true &&
+                        weaponManagerScript_P4.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipOnion == false
+                   )
+            {
+                weaponManagerScript_P4.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P4.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P4.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P4.weapon_BurstRifle_Active = false;
+                weaponManagerScript_P4.Weapon_BurstRifle.SetActive(false);
+                weaponManagerScript_P4.hasWeapon_Shotgun = true;
+                weaponManagerScript_P4.weapon_Shotgun_Active = true;
+                weaponManagerScript_P4.Weapon_Shotgun.SetActive(true);
+                playerInventoryScript_P4.breadCount -= SG_bread;
+                playerInventoryScript_P4.tomatoCount -= SG_tomato;
+                checkmark4[2].SetActive(true);
+            }
+            //check if has pea shooter and shotgun (ALREADY)
+            else if (
+                        weaponManagerScript_P4.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P4.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P4.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P4.hasWeapon_Shotgun == true &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipOnion == false
+
+                    )
+            {
+                //do nothing - accident click
+            }
+            //check if has pea shooter and whip cheese
+            else if (
+                        weaponManagerScript_P4.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P4.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P4.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P4.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipCheese == true &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipOnion == false
+
+                    )
+            {
+                weaponManagerScript_P4.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P4.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P4.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P4.weapon_SpaghettiWhipCheese_Active = false;
+                weaponManagerScript_P4.Weapon_SpaghettiWhipCheese_WindUp.SetActive(false);
+                weaponManagerScript_P4.Weapon_SpaghettiWhipCheese_Attack.SetActive(false);
+                weaponManagerScript_P4.hasWeapon_Shotgun = true;
+                weaponManagerScript_P4.weapon_Shotgun_Active = true;
+                weaponManagerScript_P4.Weapon_Shotgun.SetActive(true);
+                playerInventoryScript_P4.breadCount -= SG_bread;
+                playerInventoryScript_P4.tomatoCount -= SG_tomato;
+                checkmark4[2].SetActive(true);
+            }
+            //check if has pea shooter and whip onion
+            else if (
+                        weaponManagerScript_P4.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P4.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P4.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P4.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipOnion == true
+
+                    )
+            {
+                weaponManagerScript_P4.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P4.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P4.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P4.weapon_SpaghettiWhipOnion_Active = false;
+                weaponManagerScript_P4.Weapon_SpaghettiWhipOnion_WindUp.SetActive(false);
+                weaponManagerScript_P4.Weapon_SpaghettiWhipOnion_Attack.SetActive(false);
+                weaponManagerScript_P4.hasWeapon_Shotgun = true;
+                weaponManagerScript_P4.weapon_Shotgun_Active = true;
+                weaponManagerScript_P4.Weapon_Shotgun.SetActive(true);
+                playerInventoryScript_P4.breadCount -= SG_bread;
+                playerInventoryScript_P4.tomatoCount -= SG_tomato;
+                checkmark4[2].SetActive(true);
+            }
+        }
+
+
+    }
+
+    //cooking Whip Cheese
+    public void Cook_WhipCheese_P4()
+    {
+        if (canCookWhipCheese_P4 == true)
+        {
+            //check if only has pea shooter
+            if (
+                        weaponManagerScript_P4.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P4.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P4.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P4.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipOnion == false
+               )
+            {
+                weaponManagerScript_P4.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P4.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P4.hasWeapon_SpaghettiWhipCheese = true;
+                weaponManagerScript_P4.weapon_SpaghettiWhipCheese_Active = true;
+                weaponManagerScript_P4.Weapon_SpaghettiWhipCheese_Attack.SetActive(true);
+                weaponManagerScript_P4.Weapon_SpaghettiWhipCheese_WindUp.SetActive(true);
+                weaponManagerScript_P4.Weapon_SpaghettiWhipCheese_SpriteRenderer.enabled = false;
+                playerInventoryScript_P4.spaghettiCount -= WC_spaghetti;
+                playerInventoryScript_P4.cheeseCount -= WC_cheese;
+                checkmark4[3].SetActive(true);
+            }
+            //check if has pea shooter and semi auto rifle
+            else if (
+                        weaponManagerScript_P4.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P4.hasWeapon_SemiAutoRifle == true &&
+                        weaponManagerScript_P4.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P4.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipOnion == false
+                    )
+            {
+                weaponManagerScript_P4.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P4.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P4.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P4.weapon_SemiAutoRifle_Active = false;
+                weaponManagerScript_P4.Weapon_SemiAutoRifle.SetActive(false);
+                weaponManagerScript_P4.hasWeapon_SpaghettiWhipCheese = true;
+                weaponManagerScript_P4.weapon_SpaghettiWhipCheese_Active = true;
+                weaponManagerScript_P4.Weapon_SpaghettiWhipCheese_Attack.SetActive(true);
+                weaponManagerScript_P4.Weapon_SpaghettiWhipCheese_WindUp.SetActive(true);
+                weaponManagerScript_P4.Weapon_SpaghettiWhipCheese_SpriteRenderer.enabled = false;
+                playerInventoryScript_P4.spaghettiCount -= WC_spaghetti;
+                playerInventoryScript_P4.cheeseCount -= WC_cheese;
+                checkmark4[3].SetActive(true);
+            }
+            //check if has pea shooter and burst rifle 
+            else if (
+                        weaponManagerScript_P4.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P4.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P4.hasWeapon_BurstRifle == true &&
+                        weaponManagerScript_P4.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipOnion == false
+                   )
+            {
+                weaponManagerScript_P4.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P4.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P4.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P4.weapon_BurstRifle_Active = false;
+                weaponManagerScript_P4.Weapon_BurstRifle.SetActive(false);
+                weaponManagerScript_P4.hasWeapon_SpaghettiWhipCheese = true;
+                weaponManagerScript_P4.weapon_SpaghettiWhipCheese_Active = true;
+                weaponManagerScript_P4.Weapon_SpaghettiWhipCheese_Attack.SetActive(true);
+                weaponManagerScript_P4.Weapon_SpaghettiWhipCheese_WindUp.SetActive(true);
+                weaponManagerScript_P4.Weapon_SpaghettiWhipCheese_SpriteRenderer.enabled = false;
+                playerInventoryScript_P4.spaghettiCount -= WC_spaghetti;
+                playerInventoryScript_P4.cheeseCount -= WC_cheese;
+                checkmark4[3].SetActive(true);
+            }
+            //check if has pea shooter and shotgun (ALREADY)
+            else if (
+                        weaponManagerScript_P4.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P4.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P4.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P4.hasWeapon_Shotgun == true &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipOnion == false
+
+                    )
+            {
+                weaponManagerScript_P4.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P4.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P4.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P4.weapon_Shotgun_Active = false;
+                weaponManagerScript_P4.Weapon_Shotgun.SetActive(false);
+                weaponManagerScript_P4.hasWeapon_SpaghettiWhipCheese = true;
+                weaponManagerScript_P4.weapon_SpaghettiWhipCheese_Active = true;
+                weaponManagerScript_P4.Weapon_SpaghettiWhipCheese_Attack.SetActive(true);
+                weaponManagerScript_P4.Weapon_SpaghettiWhipCheese_WindUp.SetActive(true);
+                weaponManagerScript_P4.Weapon_SpaghettiWhipCheese_SpriteRenderer.enabled = false;
+                playerInventoryScript_P4.spaghettiCount -= WC_spaghetti;
+                playerInventoryScript_P4.cheeseCount -= WC_cheese;
+                checkmark4[3].SetActive(true);
+            }
+            //check if has pea shooter and whip cheese
+            else if (
+                        weaponManagerScript_P4.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P4.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P4.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P4.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipCheese == true &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipOnion == false
+
+                    )
+            {
+                //do nothing - accident click
+            }
+            //check if has pea shooter and whip onion
+            else if (
+                        weaponManagerScript_P4.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P4.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P4.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P4.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipOnion == true
+
+                    )
+            {
+                weaponManagerScript_P4.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P4.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P4.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P4.weapon_SpaghettiWhipOnion_Active = false;
+                weaponManagerScript_P4.Weapon_SpaghettiWhipOnion_WindUp.SetActive(false);
+                weaponManagerScript_P4.Weapon_SpaghettiWhipOnion_Attack.SetActive(false);
+                weaponManagerScript_P4.hasWeapon_SpaghettiWhipCheese = true;
+                weaponManagerScript_P4.weapon_SpaghettiWhipCheese_Active = true;
+                weaponManagerScript_P4.Weapon_SpaghettiWhipCheese_Attack.SetActive(true);
+                weaponManagerScript_P4.Weapon_SpaghettiWhipCheese_WindUp.SetActive(true);
+                weaponManagerScript_P4.Weapon_SpaghettiWhipCheese_SpriteRenderer.enabled = false;
+                playerInventoryScript_P4.spaghettiCount -= WC_spaghetti;
+                playerInventoryScript_P4.cheeseCount -= WC_cheese;
+                checkmark4[3].SetActive(true);
+            }
+        }
+
+
+    }
+
+    //cooking Whip Cheese
+    public void Cook_WhipOnion_P4()
+    {
+        if (canCookWhipOnion_P4 == true)
+        {
+            //check if only has pea shooter
+            if (
+                        weaponManagerScript_P4.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P4.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P4.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P4.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipOnion == false
+               )
+            {
+                weaponManagerScript_P4.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P4.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P4.hasWeapon_SpaghettiWhipOnion = true;
+                weaponManagerScript_P4.weapon_SpaghettiWhipOnion_Active = true;
+                weaponManagerScript_P4.Weapon_SpaghettiWhipOnion_Attack.SetActive(true);
+                weaponManagerScript_P4.Weapon_SpaghettiWhipOnion_WindUp.SetActive(true);
+                weaponManagerScript_P4.Weapon_SpaghettiWhipOnion_SpriteRenderer.enabled = false;
+                playerInventoryScript_P4.spaghettiCount -= WO_spaghetti;
+                playerInventoryScript_P4.onionCount -= WO_onion;
+                checkmark4[4].SetActive(true);
+            }
+            //check if has pea shooter and semi auto rifle
+            else if (
+                        weaponManagerScript_P4.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P4.hasWeapon_SemiAutoRifle == true &&
+                        weaponManagerScript_P4.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P4.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipOnion == false
+                    )
+            {
+                weaponManagerScript_P4.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P4.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P4.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P4.weapon_SemiAutoRifle_Active = false;
+                weaponManagerScript_P4.Weapon_SemiAutoRifle.SetActive(false);
+                weaponManagerScript_P4.hasWeapon_SpaghettiWhipOnion = true;
+                weaponManagerScript_P4.weapon_SpaghettiWhipOnion_Active = true;
+                weaponManagerScript_P4.Weapon_SpaghettiWhipOnion_Attack.SetActive(true);
+                weaponManagerScript_P4.Weapon_SpaghettiWhipOnion_WindUp.SetActive(true);
+                weaponManagerScript_P4.Weapon_SpaghettiWhipOnion_SpriteRenderer.enabled = false;
+                playerInventoryScript_P4.spaghettiCount -= WO_spaghetti;
+                playerInventoryScript_P4.onionCount -= WO_onion;
+                checkmark4[4].SetActive(true);
+            }
+            //check if has pea shooter and burst rifle 
+            else if (
+                        weaponManagerScript_P4.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P4.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P4.hasWeapon_BurstRifle == true &&
+                        weaponManagerScript_P4.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipOnion == false
+                   )
+            {
+                weaponManagerScript_P4.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P4.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P4.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P4.weapon_BurstRifle_Active = false;
+                weaponManagerScript_P4.Weapon_BurstRifle.SetActive(false);
+                weaponManagerScript_P4.hasWeapon_SpaghettiWhipOnion = true;
+                weaponManagerScript_P4.weapon_SpaghettiWhipOnion_Active = true;
+                weaponManagerScript_P4.Weapon_SpaghettiWhipOnion_Attack.SetActive(true);
+                weaponManagerScript_P4.Weapon_SpaghettiWhipOnion_WindUp.SetActive(true);
+                weaponManagerScript_P4.Weapon_SpaghettiWhipOnion_SpriteRenderer.enabled = false;
+                playerInventoryScript_P4.spaghettiCount -= WO_spaghetti;
+                playerInventoryScript_P4.onionCount -= WO_onion;
+                checkmark4[4].SetActive(true);
+            }
+            //check if has pea shooter and shotgun 
+            else if (
+                        weaponManagerScript_P4.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P4.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P4.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P4.hasWeapon_Shotgun == true &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipOnion == false
+
+                    )
+            {
+                weaponManagerScript_P4.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P4.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P4.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P4.weapon_Shotgun_Active = false;
+                weaponManagerScript_P4.Weapon_Shotgun.SetActive(false);
+                weaponManagerScript_P4.hasWeapon_SpaghettiWhipOnion = true;
+                weaponManagerScript_P4.weapon_SpaghettiWhipOnion_Active = true;
+                weaponManagerScript_P4.Weapon_SpaghettiWhipOnion_Attack.SetActive(true);
+                weaponManagerScript_P4.Weapon_SpaghettiWhipOnion_WindUp.SetActive(true);
+                weaponManagerScript_P4.Weapon_SpaghettiWhipOnion_SpriteRenderer.enabled = false;
+                playerInventoryScript_P4.spaghettiCount -= WO_spaghetti;
+                playerInventoryScript_P4.onionCount -= WO_onion;
+                checkmark4[4].SetActive(true);
+            }
+            //check if has pea shooter and whip cheese
+            else if (
+                        weaponManagerScript_P4.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P4.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P4.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P4.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipCheese == true &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipOnion == false
+
+                    )
+            {
+                weaponManagerScript_P4.weapon_PeaShooter_Active = false;
+                weaponManagerScript_P4.Weapon_PeaShooter.SetActive(false);
+                weaponManagerScript_P4.hasWeapon_PeaShooter = false;
+                weaponManagerScript_P4.weapon_SpaghettiWhipCheese_Active = false;
+                weaponManagerScript_P4.Weapon_SpaghettiWhipCheese_WindUp.SetActive(false);
+                weaponManagerScript_P4.Weapon_SpaghettiWhipCheese_Attack.SetActive(false);
+                weaponManagerScript_P4.hasWeapon_SpaghettiWhipOnion = true;
+                weaponManagerScript_P4.weapon_SpaghettiWhipOnion_Active = true;
+                weaponManagerScript_P4.Weapon_SpaghettiWhipOnion_Attack.SetActive(true);
+                weaponManagerScript_P4.Weapon_SpaghettiWhipOnion_WindUp.SetActive(true);
+                weaponManagerScript_P4.Weapon_SpaghettiWhipOnion_SpriteRenderer.enabled = false;
+                playerInventoryScript_P4.spaghettiCount -= WO_spaghetti;
+                playerInventoryScript_P4.onionCount -= WO_onion;
+                checkmark4[4].SetActive(true);
+            }
+            //check if has pea shooter and whip onion (ALREADY)
+            else if (
+                        weaponManagerScript_P4.hasWeapon_PeaShooter == true &&
+                        weaponManagerScript_P4.hasWeapon_SemiAutoRifle == false &&
+                        weaponManagerScript_P4.hasWeapon_BurstRifle == false &&
+                        weaponManagerScript_P4.hasWeapon_Shotgun == false &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipCheese == false &&
+                        weaponManagerScript_P4.hasWeapon_SpaghettiWhipOnion == true
+
+                    )
+            {
+                //do nothing - accident click
+            }
+        }
+
+
+    }
+
+    //cooking Snack Speed
+    public void Cook_SnackSpeed_P4()
+    {
+        if (canCookSnackSpeed_P4 == true)
+        {
+            //check if has no snack
+            if (
+
+                        specialManagerScript_P4.hasSnack_SpeedBoost == false &&
+                        specialManagerScript_P4.hasSnack_DamageBoost == false &&
+                        specialManagerScript_P4.hasSnack_HealthBoost == false
+               )
+            {
+                specialManagerScript_P4.hasSnack_SpeedBoost = true;
+                playerInventoryScript_P4.tomatoCount -= SS_tomato;
+                playerInventoryScript_P4.onionCount -= SS_onion;
+                playerInventoryScript_P4.cheeseCount -= SS_cheese;
+                checkmark4[5].SetActive(true);
+            }
+            //check if has snack speed (already)
+            else if (
+                        specialManagerScript_P4.hasSnack_SpeedBoost == true &&
+                        specialManagerScript_P4.hasSnack_DamageBoost == false &&
+                        specialManagerScript_P4.hasSnack_HealthBoost == false
+                    )
+            {
+                //do nothing - accident click
+            }
+            //check if has snack damage (already)
+            else if (
+                        specialManagerScript_P4.hasSnack_SpeedBoost == false &&
+                        specialManagerScript_P4.hasSnack_DamageBoost == true &&
+                        specialManagerScript_P4.hasSnack_HealthBoost == false
+                   )
+            {
+                //do nothing
+            }
+            //check if has snack health already
+            else if (
+                        specialManagerScript_P4.hasSnack_SpeedBoost == false &&
+                        specialManagerScript_P4.hasSnack_DamageBoost == false &&
+                        specialManagerScript_P4.hasSnack_HealthBoost == true
+
+                    )
+            {
+                //do nothing
+            }
+
+        }
+
+
+    }
+
+    //cooking Snack Damage
+    public void Cook_SnackDamage_P4()
+    {
+        if (canCookSnackDamage_P4 == true)
+        {
+            //check if has no snack
+            if (
+
+                        specialManagerScript_P4.hasSnack_SpeedBoost == false &&
+                        specialManagerScript_P4.hasSnack_DamageBoost == false &&
+                        specialManagerScript_P4.hasSnack_HealthBoost == false
+               )
+            {
+                specialManagerScript_P4.hasSnack_DamageBoost = true;
+                playerInventoryScript_P4.tomatoCount -= SD_tomato;
+                playerInventoryScript_P4.onionCount -= SD_onion;
+                playerInventoryScript_P4.cheeseCount -= SD_cheese;
+                checkmark4[6].SetActive(true);
+            }
+            //check if has snack speed (already)
+            else if (
+                        specialManagerScript_P4.hasSnack_SpeedBoost == true &&
+                        specialManagerScript_P4.hasSnack_DamageBoost == false &&
+                        specialManagerScript_P4.hasSnack_HealthBoost == false
+                    )
+            {
+                //do nothing - accident click
+            }
+            //check if has snack damage (already)
+            else if (
+                        specialManagerScript_P4.hasSnack_SpeedBoost == false &&
+                        specialManagerScript_P4.hasSnack_DamageBoost == true &&
+                        specialManagerScript_P4.hasSnack_HealthBoost == false
+                   )
+            {
+                //do nothing
+            }
+            //check if has snack health already
+            else if (
+                        specialManagerScript_P4.hasSnack_SpeedBoost == false &&
+                        specialManagerScript_P4.hasSnack_DamageBoost == false &&
+                        specialManagerScript_P4.hasSnack_HealthBoost == true
+
+                    )
+            {
+                //do nothing
+            }
+
+        }
+
+
+    }
+
+    //cooking Snack Health
+    public void Cook_SnackHealth_P4()
+    {
+        if (canCookSnackHealth_P4 == true)
+        {
+            //check if has no snack
+            if (
+
+                        specialManagerScript_P4.hasSnack_SpeedBoost == false &&
+                        specialManagerScript_P4.hasSnack_DamageBoost == false &&
+                        specialManagerScript_P4.hasSnack_HealthBoost == false
+               )
+            {
+                specialManagerScript_P4.hasSnack_HealthBoost = true;
+                playerInventoryScript_P4.tomatoCount -= SH_tomato;
+                playerInventoryScript_P4.onionCount -= SH_onion;
+                playerInventoryScript_P4.cheeseCount -= SH_cheese;
+                checkmark4[7].SetActive(true);
+            }
+            //check if has snack speed (already)
+            else if (
+                        specialManagerScript_P4.hasSnack_SpeedBoost == true &&
+                        specialManagerScript_P4.hasSnack_DamageBoost == false &&
+                        specialManagerScript_P4.hasSnack_HealthBoost == false
+                    )
+            {
+                //do nothing - accident click
+            }
+            //check if has snack damage (already)
+            else if (
+                        specialManagerScript_P4.hasSnack_SpeedBoost == false &&
+                        specialManagerScript_P4.hasSnack_DamageBoost == true &&
+                        specialManagerScript_P4.hasSnack_HealthBoost == false
+                   )
+            {
+                //do nothing
+            }
+            //check if has snack health already
+            else if (
+                        specialManagerScript_P4.hasSnack_SpeedBoost == false &&
+                        specialManagerScript_P4.hasSnack_DamageBoost == false &&
+                        specialManagerScript_P4.hasSnack_HealthBoost == true
 
                     )
             {

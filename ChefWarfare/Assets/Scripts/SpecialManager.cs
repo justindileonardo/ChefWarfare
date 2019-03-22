@@ -98,7 +98,7 @@ public class SpecialManager : MonoBehaviour
             else if (player2)
             {
                 inputX = "Xbox_Button_X_P2";
-                /*
+                
                 sSpeed = GameObject.Find("UI_SnackSlot_Speed_P2").GetComponent<Image>();
                 sDamage = GameObject.Find("UI_SnackSlot_Damage_P2").GetComponent<Image>();
                 sHealth = GameObject.Find("UI_SnackSlot_Health_P2").GetComponent<Image>();
@@ -106,12 +106,12 @@ public class SpecialManager : MonoBehaviour
                 sMainBox = GameObject.Find("UI_SnackSlot_TimerBox_P2").GetComponent<Image>();
                 sReadyBox = GameObject.Find("UI_SnackSlot_TimerReadyBox_P2").GetComponent<Image>();
                 sFrontBox = GameObject.Find("UI_SnackSlot_TimerFrontBox_P2").GetComponent<Image>();
-                */
+                
             }
             else if (player3)
             {
                 inputX = "Xbox_Button_X_P3";
-                /*
+                
                 sSpeed = GameObject.Find("UI_SnackSlot_Speed_P3").GetComponent<Image>();
                 sDamage = GameObject.Find("UI_SnackSlot_Damage_P3").GetComponent<Image>();
                 sHealth = GameObject.Find("UI_SnackSlot_Health_P3").GetComponent<Image>();
@@ -119,12 +119,12 @@ public class SpecialManager : MonoBehaviour
                 sMainBox = GameObject.Find("UI_SnackSlot_TimerBox_P3").GetComponent<Image>();
                 sReadyBox = GameObject.Find("UI_SnackSlot_TimerReadyBox_P3").GetComponent<Image>();
                 sFrontBox = GameObject.Find("UI_SnackSlot_TimerFrontBox_P3").GetComponent<Image>();
-                */
+                
             }
             else if (player4)
             {
                 inputX = "Xbox_Button_X_P4";
-                /*
+                
                 sSpeed = GameObject.Find("UI_SnackSlot_Speed_P4").GetComponent<Image>();
                 sDamage = GameObject.Find("UI_SnackSlot_Damage_P4").GetComponent<Image>();
                 sHealth = GameObject.Find("UI_SnackSlot_Health_P4").GetComponent<Image>();
@@ -132,7 +132,7 @@ public class SpecialManager : MonoBehaviour
                 sMainBox = GameObject.Find("UI_SnackSlot_TimerBox_P4").GetComponent<Image>();
                 sReadyBox = GameObject.Find("UI_SnackSlot_TimerReadyBox_P4").GetComponent<Image>();
                 sFrontBox = GameObject.Find("UI_SnackSlot_TimerFrontBox_P4").GetComponent<Image>();
-                */
+                
             }
         }
         else if(playerMovementScript.isMac == true)
@@ -154,7 +154,7 @@ public class SpecialManager : MonoBehaviour
             {
                 inputX = "Xbox_Button_X_P2_MAC";
 
-                /*
+                
                 sSpeed = GameObject.Find("UI_SnackSlot_Speed_P2").GetComponent<Image>();
                 sDamage = GameObject.Find("UI_SnackSlot_Damage_P2").GetComponent<Image>();
                 sHealth = GameObject.Find("UI_SnackSlot_Health_P2").GetComponent<Image>();
@@ -162,13 +162,13 @@ public class SpecialManager : MonoBehaviour
                 sMainBox = GameObject.Find("UI_SnackSlot_TimerBox_P2").GetComponent<Image>();
                 sReadyBox = GameObject.Find("UI_SnackSlot_TimerReadyBox_P2").GetComponent<Image>();
                 sFrontBox = GameObject.Find("UI_SnackSlot_TimerFrontBox_P2").GetComponent<Image>();
-                */
+                
             }
             else if (player3)
             {
                 inputX = "Xbox_Button_X_P3_MAC";
 
-                /*
+                
                 sSpeed = GameObject.Find("UI_SnackSlot_Speed_P3").GetComponent<Image>();
                 sDamage = GameObject.Find("UI_SnackSlot_Damage_P3").GetComponent<Image>();
                 sHealth = GameObject.Find("UI_SnackSlot_Health_P3").GetComponent<Image>();
@@ -176,13 +176,13 @@ public class SpecialManager : MonoBehaviour
                 sMainBox = GameObject.Find("UI_SnackSlot_TimerBox_P3").GetComponent<Image>();
                 sReadyBox = GameObject.Find("UI_SnackSlot_TimerReadyBox_P3").GetComponent<Image>();
                 sFrontBox = GameObject.Find("UI_SnackSlot_TimerFrontBox_P3").GetComponent<Image>();
-                */
+                
             }
             else if (player4)
             {
                 inputX = "Xbox_Button_X_P4_MAC";
 
-                /*
+               
                sSpeed = GameObject.Find("UI_SnackSlot_Speed_P4").GetComponent<Image>();
                sDamage = GameObject.Find("UI_SnackSlot_Damage_P4").GetComponent<Image>();
                sHealth = GameObject.Find("UI_SnackSlot_Health_P4").GetComponent<Image>();
@@ -190,7 +190,8 @@ public class SpecialManager : MonoBehaviour
                sMainBox = GameObject.Find("UI_SnackSlot_TimerBox_P4").GetComponent<Image>();
                sReadyBox = GameObject.Find("UI_SnackSlot_TimerReadyBox_P4").GetComponent<Image>();
                sFrontBox = GameObject.Find("UI_SnackSlot_TimerFrontBox_P4").GetComponent<Image>();
-               */
+               sFrontBox = GameObject.Find("UI_SnackSlot_TimerFrontBox_P4").GetComponent<Image>();
+               
             }
         }
 
@@ -257,96 +258,95 @@ public class SpecialManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(player1)         /* TEMPORARY */
+
+        //if the player has the speed snack
+        if (hasSnack_SpeedBoost == true)
         {
-            //if the player has the speed snack
-            if (hasSnack_SpeedBoost == true)
+            //if the cooldown finishes, set green for ready
+            if (snackSpeedBoost_Cooldown <= 0 && sReadyBox.enabled == false)
             {
-                //if the cooldown finishes, set green for ready
-                if (snackSpeedBoost_Cooldown <= 0 && sReadyBox.enabled == false)
-                {
-                    sMainBox.fillAmount = 0;
-                    sReadyBox.enabled = true;
-                }
-                //disable green ready circle
-                if (snackSpeedBoost_Cooldown > 0 && sReadyBox.enabled == true)
-                {
-                    sReadyBox.enabled = false;
-                }
-
-                //setting the value of the circle fill
-                sMainBox.fillAmount = snackSpeedBoost_Cooldown / 30;
-
-                //enabling the images when acquiring
-                if (hasSnack_SpeedBoost == true && sSpeed.enabled == false)
-                {
-                    sSpeed.enabled = true;
-                    sBackBox.enabled = true;
-                    sMainBox.enabled = true;
-                    sFrontBox.enabled = true;
-                }
+                sMainBox.fillAmount = 0;
+                sReadyBox.enabled = true;
+            }
+            //disable green ready circle
+            if (snackSpeedBoost_Cooldown > 0 && sReadyBox.enabled == true)
+            {
+                sReadyBox.enabled = false;
             }
 
-            //if the player has the Damage snack
-            else if (hasSnack_DamageBoost == true)
+            //setting the value of the circle fill
+            sMainBox.fillAmount = snackSpeedBoost_Cooldown / 30;
+
+            //enabling the images when acquiring
+            if (hasSnack_SpeedBoost == true && sSpeed.enabled == false)
             {
-                //if the cooldown finishes, set green for ready
-                if (snackDamageBoost_Cooldown <= 0 && sReadyBox.enabled == false)
-                {
-                    sMainBox.fillAmount = 0;
-                    sReadyBox.enabled = true;
-                }
-                //disable green ready circle
-                if (snackDamageBoost_Cooldown > 0 && sReadyBox.enabled == true)
-                {
-                    sReadyBox.enabled = false;
-                }
-
-                //setting the value of the circle fill
-                sMainBox.fillAmount = snackDamageBoost_Cooldown / 30;
-
-                //enabling the images when acquiring
-                if (hasSnack_DamageBoost == true && sDamage.enabled == false)
-                {
-                    sDamage.enabled = true;
-                    sBackBox.enabled = true;
-                    sMainBox.enabled = true;
-                    sFrontBox.enabled = true;
-                }
-            }
-
-            //if the player has the Health snack
-            else if (hasSnack_HealthBoost == true)
-            {
-                //if the cooldown finishes, set green for ready
-                if (snackHealthBoost_Cooldown <= 0 && sReadyBox.enabled == false)
-                {
-                    sMainBox.fillAmount = 0;
-                    sReadyBox.enabled = true;
-                }
-                //disable green ready circle
-                if (snackHealthBoost_Cooldown > 0 && sReadyBox.enabled == true)
-                {
-                    sReadyBox.enabled = false;
-                }
-
-                //setting the value of the circle fill
-                sMainBox.fillAmount = snackHealthBoost_Cooldown / 30;
-
-                //enabling the images when acquiring
-                if (hasSnack_HealthBoost == true && sHealth.enabled == false)
-                {
-                    sHealth.enabled = true;
-                    sBackBox.enabled = true;
-                    sMainBox.enabled = true;
-                    sFrontBox.enabled = true;
-                }
+                sSpeed.enabled = true;
+                sBackBox.enabled = true;
+                sMainBox.enabled = true;
+                sFrontBox.enabled = true;
             }
         }
-       
+
+        //if the player has the Damage snack
+        else if (hasSnack_DamageBoost == true)
+        {
+            //if the cooldown finishes, set green for ready
+            if (snackDamageBoost_Cooldown <= 0 && sReadyBox.enabled == false)
+            {
+                sMainBox.fillAmount = 0;
+                sReadyBox.enabled = true;
+            }
+            //disable green ready circle
+            if (snackDamageBoost_Cooldown > 0 && sReadyBox.enabled == true)
+            {
+                sReadyBox.enabled = false;
+            }
+
+            //setting the value of the circle fill
+            sMainBox.fillAmount = snackDamageBoost_Cooldown / 30;
+
+            //enabling the images when acquiring
+            if (hasSnack_DamageBoost == true && sDamage.enabled == false)
+            {
+                sDamage.enabled = true;
+                sBackBox.enabled = true;
+                sMainBox.enabled = true;
+                sFrontBox.enabled = true;
+            }
+        }
+
+        //if the player has the Health snack
+        else if (hasSnack_HealthBoost == true)
+        {
+            //if the cooldown finishes, set green for ready
+            if (snackHealthBoost_Cooldown <= 0 && sReadyBox.enabled == false)
+            {
+                sMainBox.fillAmount = 0;
+                sReadyBox.enabled = true;
+            }
+            //disable green ready circle
+            if (snackHealthBoost_Cooldown > 0 && sReadyBox.enabled == true)
+            {
+                sReadyBox.enabled = false;
+            }
+
+            //setting the value of the circle fill
+            sMainBox.fillAmount = snackHealthBoost_Cooldown / 30;
+
+            //enabling the images when acquiring
+            if (hasSnack_HealthBoost == true && sHealth.enabled == false)
+            {
+                sHealth.enabled = true;
+                sBackBox.enabled = true;
+                sMainBox.enabled = true;
+                sFrontBox.enabled = true;
+            }
+        }
+
+
 
         //When the player has the Snack - Speed Boost
-        if(hasSnack_SpeedBoost == true)
+        if (hasSnack_SpeedBoost == true)
         {
             //decrease the cooldown timer when it is bigger than 0
             if(snackSpeedBoost_Cooldown > 0)
