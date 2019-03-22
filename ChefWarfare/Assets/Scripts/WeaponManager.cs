@@ -114,6 +114,16 @@ public class WeaponManager : MonoBehaviour
     //UI Inventory
     private Image w1PeaShooter;
     private Image w2PeaShooter;
+    private Image w1SemiAutoRifle;
+    private Image w2SemiAutoRifle;
+    private Image w1BurstRifle;
+    private Image w2BurstRifle;
+    private Image w1Shotgun;
+    private Image w2Shotgun;
+    private Image w1WhipCheese;
+    private Image w2WhipCheese;
+    private Image w1WhipOnion;
+    private Image w2WhipOnion;
 
 
     // Start is called before the first frame update
@@ -132,30 +142,74 @@ public class WeaponManager : MonoBehaviour
 
                 w1PeaShooter = GameObject.Find("UI_WeaponSlot1_PeaShooter_P1").GetComponent<Image>();
                 w2PeaShooter = GameObject.Find("UI_WeaponSlot2_PeaShooter_P1").GetComponent<Image>();
+                w1SemiAutoRifle = GameObject.Find("UI_WeaponSlot1_SemiAutoRifle_P1").GetComponent<Image>();
+                w2SemiAutoRifle = GameObject.Find("UI_WeaponSlot2_SemiAutoRifle_P1").GetComponent<Image>();
+                w1BurstRifle = GameObject.Find("UI_WeaponSlot1_BurstRifle_P1").GetComponent<Image>();
+                w2BurstRifle = GameObject.Find("UI_WeaponSlot2_BurstRifle_P1").GetComponent<Image>();
+                w1Shotgun = GameObject.Find("UI_WeaponSlot1_Shotgun_P1").GetComponent<Image>();
+                w2Shotgun = GameObject.Find("UI_WeaponSlot2_Shotgun_P1").GetComponent<Image>();
+                w1WhipCheese = GameObject.Find("UI_WeaponSlot1_WhipCheese_P1").GetComponent<Image>();
+                w2WhipCheese = GameObject.Find("UI_WeaponSlot2_WhipCheese_P1").GetComponent<Image>();
+                w1WhipOnion = GameObject.Find("UI_WeaponSlot1_WhipOnion_P1").GetComponent<Image>();
+                w2WhipOnion = GameObject.Find("UI_WeaponSlot2_WhipOnion_P1").GetComponent<Image>();
+
             }
             else if (player2)
             {
                 inputY = "Xbox_Button_Y_P2";
                 inputRT = "Xbox_RT_P2";
 
-                //w1PeaShooter = GameObject.Find("UI_WeaponSlot1_PeaShooter_P2").GetComponent<Image>();
-                //w2PeaShooter = GameObject.Find("UI_WeaponSlot2_PeaShooter_P2").GetComponent<Image>();
+               /* w1PeaShooter = GameObject.Find("UI_WeaponSlot1_PeaShooter_P2").GetComponent<Image>();
+                w2PeaShooter = GameObject.Find("UI_WeaponSlot2_PeaShooter_P2").GetComponent<Image>();
+                w1SemiAutoRifle = GameObject.Find("UI_WeaponSlot1_SemiAutoRifle_P2").GetComponent<Image>();
+                w2SemiAutoRifle = GameObject.Find("UI_WeaponSlot2_SemiAutoRifle_P2").GetComponent<Image>();
+                w1BurstRifle = GameObject.Find("UI_WeaponSlot1_BurstRifle_P2").GetComponent<Image>();
+                w2BurstRifle = GameObject.Find("UI_WeaponSlot2_BurstRifle_P2").GetComponent<Image>();
+                w1Shotgun = GameObject.Find("UI_WeaponSlot1_Shotgun_P2").GetComponent<Image>();
+                w1Shotgun = GameObject.Find("UI_WeaponSlot2_Shotgun_P2").GetComponent<Image>();
+                w1WhipCheese = GameObject.Find("UI_WeaponSlot1_WhipCheese_P2").GetComponent<Image>();
+                w2WhipCheese = GameObject.Find("UI_WeaponSlot2_WhipCheese_P2").GetComponent<Image>();
+                w1WhipOnion = GameObject.Find("UI_WeaponSlot1_WhipOnion_P2").GetComponent<Image>();
+                w2WhipOnion = GameObject.Find("UI_WeaponSlot2_WhipOnion_P2").GetComponent<Image>();
+                */
             }
             else if (player3)
             {
                 inputY = "Xbox_Button_Y_P3";
                 inputRT = "Xbox_RT_P3";
-
-                //w1PeaShooter = GameObject.Find("UI_WeaponSlot1_PeaShooter_P3").GetComponent<Image>();
-                //w2PeaShooter = GameObject.Find("UI_WeaponSlot2_PeaShooter_P3").GetComponent<Image>();
+                /*
+                w1PeaShooter = GameObject.Find("UI_WeaponSlot1_PeaShooter_P3").GetComponent<Image>();
+                w2PeaShooter = GameObject.Find("UI_WeaponSlot2_PeaShooter_P3").GetComponent<Image>();
+                w1SemiAutoRifle = GameObject.Find("UI_WeaponSlot1_SemiAutoRifle_P3").GetComponent<Image>();
+                w2SemiAutoRifle = GameObject.Find("UI_WeaponSlot2_SemiAutoRifle_P3").GetComponent<Image>();
+                w1BurstRifle = GameObject.Find("UI_WeaponSlot1_BurstRifle_P3").GetComponent<Image>();
+                w2BurstRifle = GameObject.Find("UI_WeaponSlot2_BurstRifle_P3").GetComponent<Image>();
+                w1Shotgun = GameObject.Find("UI_WeaponSlot1_Shotgun_P3").GetComponent<Image>();
+                w1Shotgun = GameObject.Find("UI_WeaponSlot2_Shotgun_P3").GetComponent<Image>();
+                w1WhipCheese = GameObject.Find("UI_WeaponSlot1_WhipCheese_P3").GetComponent<Image>();
+                w2WhipCheese = GameObject.Find("UI_WeaponSlot2_WhipCheese_P3").GetComponent<Image>();
+                w1WhipOnion = GameObject.Find("UI_WeaponSlot1_WhipOnion_P3").GetComponent<Image>();
+                w2WhipOnion = GameObject.Find("UI_WeaponSlot2_WhipOnion_P3").GetComponent<Image>();
+                */
             }
             else if (player4)
             {
                 inputY = "Xbox_Button_Y_P4";
                 inputRT = "Xbox_RT_P4";
-
-                //w1PeaShooter = GameObject.Find("UI_WeaponSlot1_PeaShooter_P4").GetComponent<Image>();
-                //w2PeaShooter = GameObject.Find("UI_WeaponSlot2_PeaShooter_P4").GetComponent<Image>();
+                /*
+                w1PeaShooter = GameObject.Find("UI_WeaponSlot1_PeaShooter_P4").GetComponent<Image>();
+                w2PeaShooter = GameObject.Find("UI_WeaponSlot2_PeaShooter_P4").GetComponent<Image>();
+                w1SemiAutoRifle = GameObject.Find("UI_WeaponSlot1_SemiAutoRifle_P4").GetComponent<Image>();
+                w2SemiAutoRifle = GameObject.Find("UI_WeaponSlot2_SemiAutoRifle_P4").GetComponent<Image>();
+                w1BurstRifle = GameObject.Find("UI_WeaponSlot1_BurstRifle_P4").GetComponent<Image>();
+                w2BurstRifle = GameObject.Find("UI_WeaponSlot2_BurstRifle_P4").GetComponent<Image>();
+                w1Shotgun = GameObject.Find("UI_WeaponSlot1_Shotgun_P4").GetComponent<Image>();
+                w1Shotgun = GameObject.Find("UI_WeaponSlot2_Shotgun_P4").GetComponent<Image>();
+                w1WhipCheese = GameObject.Find("UI_WeaponSlot1_WhipCheese_P4").GetComponent<Image>();
+                w2WhipCheese = GameObject.Find("UI_WeaponSlot2_WhipCheese_P4").GetComponent<Image>();
+                w1WhipOnion = GameObject.Find("UI_WeaponSlot1_WhipOnion_P4").GetComponent<Image>();
+                w2WhipOnion = GameObject.Find("UI_WeaponSlot2_WhipOnion_P4").GetComponent<Image>();
+                */
             }
 
         }
@@ -170,30 +224,73 @@ public class WeaponManager : MonoBehaviour
 
                 w1PeaShooter = GameObject.Find("UI_WeaponSlot1_PeaShooter_P1").GetComponent<Image>();
                 w2PeaShooter = GameObject.Find("UI_WeaponSlot2_PeaShooter_P1").GetComponent<Image>();
+                w1SemiAutoRifle = GameObject.Find("UI_WeaponSlot1_SemiAutoRifle_P1").GetComponent<Image>();
+                w2SemiAutoRifle = GameObject.Find("UI_WeaponSlot2_SemiAutoRifle_P1").GetComponent<Image>();
+                w1BurstRifle = GameObject.Find("UI_WeaponSlot1_BurstRifle_P1").GetComponent<Image>();
+                w2BurstRifle = GameObject.Find("UI_WeaponSlot2_BurstRifle_P1").GetComponent<Image>();
+                w1Shotgun = GameObject.Find("UI_WeaponSlot1_Shotgun_P1").GetComponent<Image>();
+                w1Shotgun = GameObject.Find("UI_WeaponSlot2_Shotgun_P1").GetComponent<Image>();
+                w1WhipCheese = GameObject.Find("UI_WeaponSlot1_WhipCheese_P1").GetComponent<Image>();
+                w2WhipCheese = GameObject.Find("UI_WeaponSlot2_WhipCheese_P1").GetComponent<Image>();
+                w1WhipOnion = GameObject.Find("UI_WeaponSlot1_WhipOnion_P1").GetComponent<Image>();
+                w2WhipOnion = GameObject.Find("UI_WeaponSlot2_WhipOnion_P1").GetComponent<Image>();
             }
             else if (player2)
             {
                 inputY = "Xbox_Button_Y_P2_MAC";
                 inputRT = "Xbox_RT_P2_MAC";
-
-                //w1PeaShooter = GameObject.Find("UI_WeaponSlot1_PeaShooter_P2").GetComponent<Image>();
-                //w2PeaShooter = GameObject.Find("UI_WeaponSlot2_PeaShooter_P2").GetComponent<Image>();
+                /*
+                w1PeaShooter = GameObject.Find("UI_WeaponSlot1_PeaShooter_P2").GetComponent<Image>();
+                w2PeaShooter = GameObject.Find("UI_WeaponSlot2_PeaShooter_P2").GetComponent<Image>();
+                w1SemiAutoRifle = GameObject.Find("UI_WeaponSlot1_SemiAutoRifle_P2").GetComponent<Image>();
+                w2SemiAutoRifle = GameObject.Find("UI_WeaponSlot2_SemiAutoRifle_P2").GetComponent<Image>();
+                w1BurstRifle = GameObject.Find("UI_WeaponSlot1_BurstRifle_P2").GetComponent<Image>();
+                w2BurstRifle = GameObject.Find("UI_WeaponSlot2_BurstRifle_P2").GetComponent<Image>();
+                w1Shotgun = GameObject.Find("UI_WeaponSlot1_Shotgun_P2").GetComponent<Image>();
+                w1Shotgun = GameObject.Find("UI_WeaponSlot2_Shotgun_P2").GetComponent<Image>();
+                w1WhipCheese = GameObject.Find("UI_WeaponSlot1_WhipCheese_P2").GetComponent<Image>();
+                w2WhipCheese = GameObject.Find("UI_WeaponSlot2_WhipCheese_P2").GetComponent<Image>();
+                w1WhipOnion = GameObject.Find("UI_WeaponSlot1_WhipOnion_P2").GetComponent<Image>();
+                w2WhipOnion = GameObject.Find("UI_WeaponSlot2_WhipOnion_P2").GetComponent<Image>();
+                */
             }
             else if (player3)
             {
                 inputY = "Xbox_Button_Y_P3_MAC";
                 inputRT = "Xbox_RT_P3_MAC";
-
-                //w1PeaShooter = GameObject.Find("UI_WeaponSlot1_PeaShooter_P3").GetComponent<Image>();
-                //w2PeaShooter = GameObject.Find("UI_WeaponSlot2_PeaShooter_P3").GetComponent<Image>();
+                /*
+                w1PeaShooter = GameObject.Find("UI_WeaponSlot1_PeaShooter_P3").GetComponent<Image>();
+                w2PeaShooter = GameObject.Find("UI_WeaponSlot2_PeaShooter_P3").GetComponent<Image>();
+                w1SemiAutoRifle = GameObject.Find("UI_WeaponSlot1_SemiAutoRifle_P3").GetComponent<Image>();
+                w2SemiAutoRifle = GameObject.Find("UI_WeaponSlot2_SemiAutoRifle_P3").GetComponent<Image>();
+                w1BurstRifle = GameObject.Find("UI_WeaponSlot1_BurstRifle_P3").GetComponent<Image>();
+                w2BurstRifle = GameObject.Find("UI_WeaponSlot2_BurstRifle_P3").GetComponent<Image>();
+                w1Shotgun = GameObject.Find("UI_WeaponSlot1_Shotgun_P3").GetComponent<Image>();
+                w1Shotgun = GameObject.Find("UI_WeaponSlot2_Shotgun_P3").GetComponent<Image>();
+                w1WhipCheese = GameObject.Find("UI_WeaponSlot1_WhipCheese_P3").GetComponent<Image>();
+                w2WhipCheese = GameObject.Find("UI_WeaponSlot2_WhipCheese_P3").GetComponent<Image>();
+                w1WhipOnion = GameObject.Find("UI_WeaponSlot1_WhipOnion_P3").GetComponent<Image>();
+                w2WhipOnion = GameObject.Find("UI_WeaponSlot2_WhipOnion_P3").GetComponent<Image>();
+                */
             }
             else if (player4)
             {
                 inputY = "Xbox_Button_Y_P4_MAC";
                 inputRT = "Xbox_RT_P4_MAC";
-
-                //w1PeaShooter = GameObject.Find("UI_WeaponSlot1_PeaShooter_P4").GetComponent<Image>();
-                //w2PeaShooter = GameObject.Find("UI_WeaponSlot2_PeaShooter_P4").GetComponent<Image>();
+                /*
+                w1PeaShooter = GameObject.Find("UI_WeaponSlot1_PeaShooter_P4").GetComponent<Image>();
+                w2PeaShooter = GameObject.Find("UI_WeaponSlot2_PeaShooter_P4").GetComponent<Image>();
+                w1SemiAutoRifle = GameObject.Find("UI_WeaponSlot1_SemiAutoRifle_P4").GetComponent<Image>();
+                w2SemiAutoRifle = GameObject.Find("UI_WeaponSlot2_SemiAutoRifle_P4").GetComponent<Image>();
+                w1BurstRifle = GameObject.Find("UI_WeaponSlot1_BurstRifle_P4").GetComponent<Image>();
+                w2BurstRifle = GameObject.Find("UI_WeaponSlot2_BurstRifle_P4").GetComponent<Image>();
+                w1Shotgun = GameObject.Find("UI_WeaponSlot1_Shotgun_P4").GetComponent<Image>();
+                w1Shotgun = GameObject.Find("UI_WeaponSlot2_Shotgun_P4").GetComponent<Image>();
+                w1WhipCheese = GameObject.Find("UI_WeaponSlot1_WhipCheese_P4").GetComponent<Image>();
+                w2WhipCheese = GameObject.Find("UI_WeaponSlot2_WhipCheese_P4").GetComponent<Image>();
+                w1WhipOnion = GameObject.Find("UI_WeaponSlot1_WhipOnion_P4").GetComponent<Image>();
+                w2WhipOnion = GameObject.Find("UI_WeaponSlot2_WhipOnion_P4").GetComponent<Image>();
+                */
             }
 
         }
@@ -201,10 +298,10 @@ public class WeaponManager : MonoBehaviour
 
         //Setting Cooldown Lengths
         switchWeaponTimerCooldownLength = 1.0f;
-        peaShooter_CooldownLength = 1.0f;
-        semiAutoRifle_CooldownLength = 0.75f;    //600 dpm    
-        burstRifle_CooldownLength = 1.25f;      //576 dpm
-        shotgun_CooldownLength = 1.375f;
+        peaShooter_CooldownLength = 0.75f;
+        semiAutoRifle_CooldownLength = 0.75f;       
+        burstRifle_CooldownLength = 1.0f;      
+        shotgun_CooldownLength = 1.5f;
         spaghettiWhipCheese_CooldownLength = 1.0f;
         spaghettiWhipOnion_CooldownLength = 1.0f;
 
@@ -289,6 +386,117 @@ public class WeaponManager : MonoBehaviour
                 w1PeaShooter.enabled = false;
                 w2PeaShooter.enabled = false;
             }
+
+            //Semi Auto Rifle
+            if (hasWeapon_SemiAutoRifle == true && weapon_SemiAutoRifle_Active == true && w1SemiAutoRifle.enabled == false)
+            {
+                w1SemiAutoRifle.enabled = true;
+                w2SemiAutoRifle.enabled = false;
+            }
+            else if (hasWeapon_SemiAutoRifle == true && weapon_SemiAutoRifle_Active == false && w2SemiAutoRifle.enabled == false)
+            {
+                w2SemiAutoRifle.enabled = true;
+                w1SemiAutoRifle.enabled = false;
+            }
+            else if (hasWeapon_SemiAutoRifle == false && w1SemiAutoRifle.enabled == false)
+            {
+                w1SemiAutoRifle.enabled = false;
+                w2SemiAutoRifle.enabled = false;
+            }
+            else if (hasWeapon_SemiAutoRifle == false && w2SemiAutoRifle.enabled == false)
+            {
+                w1SemiAutoRifle.enabled = false;
+                w2SemiAutoRifle.enabled = false;
+            }
+
+            //Burst Rifle
+            if (hasWeapon_BurstRifle == true && weapon_BurstRifle_Active == true && w1BurstRifle.enabled == false)
+            {
+                w1BurstRifle.enabled = true;
+                w2BurstRifle.enabled = false;
+            }
+            else if (hasWeapon_BurstRifle == true && weapon_BurstRifle_Active == false && w2BurstRifle.enabled == false)
+            {
+                w2BurstRifle.enabled = true;
+                w1BurstRifle.enabled = false;
+            }
+            else if (hasWeapon_BurstRifle == false && w1BurstRifle.enabled == false)
+            {
+                w1BurstRifle.enabled = false;
+                w2BurstRifle.enabled = false;
+            }
+            else if (hasWeapon_BurstRifle == false && w2BurstRifle.enabled == false)
+            {
+                w1BurstRifle.enabled = false;
+                w2BurstRifle.enabled = false;
+            }
+
+            //Shotgun
+            if (hasWeapon_Shotgun == true && weapon_Shotgun_Active == true && w1Shotgun.enabled == false)
+            {
+                w1Shotgun.enabled = true;
+                w2Shotgun.enabled = false;
+            }
+            else if (hasWeapon_Shotgun == true && weapon_Shotgun_Active == false && w2Shotgun.enabled == false)
+            {
+                w2Shotgun.enabled = true;
+                w1Shotgun.enabled = false;
+            }
+            else if (hasWeapon_Shotgun == false && w1Shotgun.enabled == false)
+            {
+                w1Shotgun.enabled = false;
+                w2Shotgun.enabled = false;
+            }
+            else if (hasWeapon_Shotgun == false && w2Shotgun.enabled == false)
+            {
+                w1Shotgun.enabled = false;
+                w2Shotgun.enabled = false;
+            }
+
+            //Whip Cheese
+            if (hasWeapon_SpaghettiWhipCheese == true && weapon_SpaghettiWhipCheese_Active == true && w1WhipCheese.enabled == false)
+            {
+                w1WhipCheese.enabled = true;
+                w2WhipCheese.enabled = false;
+            }
+            else if (hasWeapon_SpaghettiWhipCheese == true && weapon_SpaghettiWhipCheese_Active == false && w2WhipCheese.enabled == false)
+            {
+                w2WhipCheese.enabled = true;
+                w1WhipCheese.enabled = false;
+            }
+            else if (hasWeapon_SpaghettiWhipCheese == false && w1WhipCheese.enabled == false)
+            {
+                w1WhipCheese.enabled = false;
+                w2WhipCheese.enabled = false;
+            }
+            else if (hasWeapon_SpaghettiWhipCheese == false && w2WhipCheese.enabled == false)
+            {
+                w1WhipCheese.enabled = false;
+                w2WhipCheese.enabled = false;
+            }
+
+            //Whip Onion
+            if (hasWeapon_SpaghettiWhipOnion == true && weapon_SpaghettiWhipOnion_Active == true && w1WhipOnion.enabled == false)
+            {
+                w1WhipOnion.enabled = true;
+                w2WhipOnion.enabled = false;
+            }
+            else if (hasWeapon_SpaghettiWhipOnion == true && weapon_SpaghettiWhipOnion_Active == false && w2WhipOnion.enabled == false)
+            {
+                w2WhipOnion.enabled = true;
+                w1WhipOnion.enabled = false;
+            }
+            else if (hasWeapon_SpaghettiWhipOnion == false && w1WhipOnion.enabled == false)
+            {
+                w1WhipOnion.enabled = false;
+                w2WhipOnion.enabled = false;
+            }
+            else if (hasWeapon_SpaghettiWhipOnion == false && w2WhipOnion.enabled == false)
+            {
+                w1WhipOnion.enabled = false;
+                w2WhipOnion.enabled = false;
+            }
+
         }
 
         //using Pea Shooter

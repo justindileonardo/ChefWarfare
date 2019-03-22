@@ -15,11 +15,15 @@ public class Enemy_Tomato : MonoBehaviour
 
     public GameObject resourceTomatoPrefab;
 
+    public CircleCollider2D[] tomatoColliders;
+
     //private variables
     private bool isMoving;
     private int damage = 10;
 
     private Animator theAnimator;
+
+    
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +34,7 @@ public class Enemy_Tomato : MonoBehaviour
         HP = 16.0f;
         theAnimator = GetComponent<Animator>();
         theAnimator.SetBool("tomatoIsMoving", true);
+        
     }
 
     // Update is called once per frame
@@ -90,6 +95,10 @@ public class Enemy_Tomato : MonoBehaviour
         tomatoSpriteRenderer.enabled = false;
         tomatoExplosionSpriteRenderer.enabled = true;
         isMoving = false;
+        foreach (CircleCollider2D tomatoCollider in tomatoColliders)
+        {
+            tomatoCollider.enabled = false;
+        }
         yield return new WaitForSeconds(1.0f);
         tomatoExplosionSpriteRenderer.enabled = false;
         Destroy(gameObject);

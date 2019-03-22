@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpecialManager : MonoBehaviour
 {
@@ -65,10 +66,19 @@ public class SpecialManager : MonoBehaviour
 
     private PlayerMovement playerMovementScript;
 
+    private Image sSpeed;
+    private Image sDamage;
+    private Image sHealth;
+    private Image sBackBox;
+    private Image sMainBox;
+    private Image sFrontBox;
+    private Image sReadyBox;
+
     // Start is called before the first frame update
     void Start()
     {
         playerMovementScript = GetComponent<PlayerMovement>();
+
 
         if(playerMovementScript.isMac == false)
         {
@@ -76,18 +86,53 @@ public class SpecialManager : MonoBehaviour
             if (player1)
             {
                 inputX = "Xbox_Button_X_P1";
+                
+                sSpeed = GameObject.Find("UI_SnackSlot_Speed_P1").GetComponent<Image>();
+                sDamage = GameObject.Find("UI_SnackSlot_Damage_P1").GetComponent<Image>();
+                sHealth = GameObject.Find("UI_SnackSlot_Health_P1").GetComponent<Image>();
+                sBackBox = GameObject.Find("UI_SnackSlot_TimerBackBox_P1").GetComponent<Image>();
+                sMainBox = GameObject.Find("UI_SnackSlot_TimerBox_P1").GetComponent<Image>();
+                sReadyBox = GameObject.Find("UI_SnackSlot_TimerReadyBox_P1").GetComponent<Image>();
+                sFrontBox = GameObject.Find("UI_SnackSlot_TimerFrontBox_P1").GetComponent<Image>();
             }
             else if (player2)
             {
                 inputX = "Xbox_Button_X_P2";
+                /*
+                sSpeed = GameObject.Find("UI_SnackSlot_Speed_P2").GetComponent<Image>();
+                sDamage = GameObject.Find("UI_SnackSlot_Damage_P2").GetComponent<Image>();
+                sHealth = GameObject.Find("UI_SnackSlot_Health_P2").GetComponent<Image>();
+                sBackBox = GameObject.Find("UI_SnackSlot_TimerBackBox_P2").GetComponent<Image>();
+                sMainBox = GameObject.Find("UI_SnackSlot_TimerBox_P2").GetComponent<Image>();
+                sReadyBox = GameObject.Find("UI_SnackSlot_TimerReadyBox_P2").GetComponent<Image>();
+                sFrontBox = GameObject.Find("UI_SnackSlot_TimerFrontBox_P2").GetComponent<Image>();
+                */
             }
             else if (player3)
             {
                 inputX = "Xbox_Button_X_P3";
+                /*
+                sSpeed = GameObject.Find("UI_SnackSlot_Speed_P3").GetComponent<Image>();
+                sDamage = GameObject.Find("UI_SnackSlot_Damage_P3").GetComponent<Image>();
+                sHealth = GameObject.Find("UI_SnackSlot_Health_P3").GetComponent<Image>();
+                sBackBox = GameObject.Find("UI_SnackSlot_TimerBackBox_P3").GetComponent<Image>();
+                sMainBox = GameObject.Find("UI_SnackSlot_TimerBox_P3").GetComponent<Image>();
+                sReadyBox = GameObject.Find("UI_SnackSlot_TimerReadyBox_P3").GetComponent<Image>();
+                sFrontBox = GameObject.Find("UI_SnackSlot_TimerFrontBox_P3").GetComponent<Image>();
+                */
             }
             else if (player4)
             {
                 inputX = "Xbox_Button_X_P4";
+                /*
+                sSpeed = GameObject.Find("UI_SnackSlot_Speed_P4").GetComponent<Image>();
+                sDamage = GameObject.Find("UI_SnackSlot_Damage_P4").GetComponent<Image>();
+                sHealth = GameObject.Find("UI_SnackSlot_Health_P4").GetComponent<Image>();
+                sBackBox = GameObject.Find("UI_SnackSlot_TimerBackBox_P4").GetComponent<Image>();
+                sMainBox = GameObject.Find("UI_SnackSlot_TimerBox_P4").GetComponent<Image>();
+                sReadyBox = GameObject.Find("UI_SnackSlot_TimerReadyBox_P4").GetComponent<Image>();
+                sFrontBox = GameObject.Find("UI_SnackSlot_TimerFrontBox_P4").GetComponent<Image>();
+                */
             }
         }
         else if(playerMovementScript.isMac == true)
@@ -96,18 +141,56 @@ public class SpecialManager : MonoBehaviour
             if (player1)
             {
                 inputX = "Xbox_Button_X_P1_MAC";
+
+                sSpeed = GameObject.Find("UI_SnackSlot_Speed_P1").GetComponent<Image>();
+                sDamage = GameObject.Find("UI_SnackSlot_Damage_P1").GetComponent<Image>();
+                sHealth = GameObject.Find("UI_SnackSlot_Health_P1").GetComponent<Image>();
+                sBackBox = GameObject.Find("UI_SnackSlot_TimerBackBox_P1").GetComponent<Image>();
+                sMainBox = GameObject.Find("UI_SnackSlot_TimerBox_P1").GetComponent<Image>();
+                sReadyBox = GameObject.Find("UI_SnackSlot_TimerReadyBox_P1").GetComponent<Image>();
+                sFrontBox = GameObject.Find("UI_SnackSlot_TimerFrontBox_P1").GetComponent<Image>();
             }
             else if (player2)
             {
                 inputX = "Xbox_Button_X_P2_MAC";
+
+                /*
+                sSpeed = GameObject.Find("UI_SnackSlot_Speed_P2").GetComponent<Image>();
+                sDamage = GameObject.Find("UI_SnackSlot_Damage_P2").GetComponent<Image>();
+                sHealth = GameObject.Find("UI_SnackSlot_Health_P2").GetComponent<Image>();
+                sBackBox = GameObject.Find("UI_SnackSlot_TimerBackBox_P2").GetComponent<Image>();
+                sMainBox = GameObject.Find("UI_SnackSlot_TimerBox_P2").GetComponent<Image>();
+                sReadyBox = GameObject.Find("UI_SnackSlot_TimerReadyBox_P2").GetComponent<Image>();
+                sFrontBox = GameObject.Find("UI_SnackSlot_TimerFrontBox_P2").GetComponent<Image>();
+                */
             }
             else if (player3)
             {
                 inputX = "Xbox_Button_X_P3_MAC";
+
+                /*
+                sSpeed = GameObject.Find("UI_SnackSlot_Speed_P3").GetComponent<Image>();
+                sDamage = GameObject.Find("UI_SnackSlot_Damage_P3").GetComponent<Image>();
+                sHealth = GameObject.Find("UI_SnackSlot_Health_P3").GetComponent<Image>();
+                sBackBox = GameObject.Find("UI_SnackSlot_TimerBackBox_P3").GetComponent<Image>();
+                sMainBox = GameObject.Find("UI_SnackSlot_TimerBox_P3").GetComponent<Image>();
+                sReadyBox = GameObject.Find("UI_SnackSlot_TimerReadyBox_P3").GetComponent<Image>();
+                sFrontBox = GameObject.Find("UI_SnackSlot_TimerFrontBox_P3").GetComponent<Image>();
+                */
             }
             else if (player4)
             {
                 inputX = "Xbox_Button_X_P4_MAC";
+
+                /*
+               sSpeed = GameObject.Find("UI_SnackSlot_Speed_P4").GetComponent<Image>();
+               sDamage = GameObject.Find("UI_SnackSlot_Damage_P4").GetComponent<Image>();
+               sHealth = GameObject.Find("UI_SnackSlot_Health_P4").GetComponent<Image>();
+               sBackBox = GameObject.Find("UI_SnackSlot_TimerBackBox_P4").GetComponent<Image>();
+               sMainBox = GameObject.Find("UI_SnackSlot_TimerBox_P4").GetComponent<Image>();
+               sReadyBox = GameObject.Find("UI_SnackSlot_TimerReadyBox_P4").GetComponent<Image>();
+               sFrontBox = GameObject.Find("UI_SnackSlot_TimerFrontBox_P4").GetComponent<Image>();
+               */
             }
         }
 
@@ -155,12 +238,113 @@ public class SpecialManager : MonoBehaviour
         snackHealthBoost_AddHealthTimer = snackHealthBoost_AddHealthTimerLength;
         snackHealthBoost_AddHealthAmount = 5;
 
+        if(player1)             /*TEMPORARY*/
+        {
+            sSpeed.enabled = false;
+            sDamage.enabled = false;
+            sHealth.enabled = false;
+            sBackBox.enabled = false;
+            sMainBox.enabled = false;
+            sReadyBox.enabled = false;
+            sFrontBox.enabled = false;
+        }
+        
+
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(player1)         /* TEMPORARY */
+        {
+            //if the player has the speed snack
+            if (hasSnack_SpeedBoost == true)
+            {
+                //if the cooldown finishes, set green for ready
+                if (snackSpeedBoost_Cooldown <= 0 && sReadyBox.enabled == false)
+                {
+                    sMainBox.fillAmount = 0;
+                    sReadyBox.enabled = true;
+                }
+                //disable green ready circle
+                if (snackSpeedBoost_Cooldown > 0 && sReadyBox.enabled == true)
+                {
+                    sReadyBox.enabled = false;
+                }
+
+                //setting the value of the circle fill
+                sMainBox.fillAmount = snackSpeedBoost_Cooldown / 30;
+
+                //enabling the images when acquiring
+                if (hasSnack_SpeedBoost == true && sSpeed.enabled == false)
+                {
+                    sSpeed.enabled = true;
+                    sBackBox.enabled = true;
+                    sMainBox.enabled = true;
+                    sFrontBox.enabled = true;
+                }
+            }
+
+            //if the player has the Damage snack
+            else if (hasSnack_DamageBoost == true)
+            {
+                //if the cooldown finishes, set green for ready
+                if (snackDamageBoost_Cooldown <= 0 && sReadyBox.enabled == false)
+                {
+                    sMainBox.fillAmount = 0;
+                    sReadyBox.enabled = true;
+                }
+                //disable green ready circle
+                if (snackDamageBoost_Cooldown > 0 && sReadyBox.enabled == true)
+                {
+                    sReadyBox.enabled = false;
+                }
+
+                //setting the value of the circle fill
+                sMainBox.fillAmount = snackDamageBoost_Cooldown / 30;
+
+                //enabling the images when acquiring
+                if (hasSnack_DamageBoost == true && sDamage.enabled == false)
+                {
+                    sDamage.enabled = true;
+                    sBackBox.enabled = true;
+                    sMainBox.enabled = true;
+                    sFrontBox.enabled = true;
+                }
+            }
+
+            //if the player has the Health snack
+            else if (hasSnack_HealthBoost == true)
+            {
+                //if the cooldown finishes, set green for ready
+                if (snackHealthBoost_Cooldown <= 0 && sReadyBox.enabled == false)
+                {
+                    sMainBox.fillAmount = 0;
+                    sReadyBox.enabled = true;
+                }
+                //disable green ready circle
+                if (snackHealthBoost_Cooldown > 0 && sReadyBox.enabled == true)
+                {
+                    sReadyBox.enabled = false;
+                }
+
+                //setting the value of the circle fill
+                sMainBox.fillAmount = snackHealthBoost_Cooldown / 30;
+
+                //enabling the images when acquiring
+                if (hasSnack_HealthBoost == true && sHealth.enabled == false)
+                {
+                    sHealth.enabled = true;
+                    sBackBox.enabled = true;
+                    sMainBox.enabled = true;
+                    sFrontBox.enabled = true;
+                }
+            }
+        }
+       
+
         //When the player has the Snack - Speed Boost
         if(hasSnack_SpeedBoost == true)
         {

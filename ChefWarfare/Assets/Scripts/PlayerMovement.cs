@@ -215,6 +215,13 @@ public class PlayerMovement : MonoBehaviour
                 armsSpriteL.flipX = false;
                 armsSpriteR.flipX = false;
                 Weapon_PeaShooterSpriteRenderer.flipY = false;
+                Weapon_SemiAutoRifleSpriteRenderer.flipY = false;
+                Weapon_BurstRifleSpriteRenderer.flipY = false;
+                Weapon_ShotgunSpriteRenderer.flipY = false;
+                Weapon_SpaghttiWhipCheeseWindUpSpriteRenderer.flipY = false;
+                Weapon_SpaghttiWhipCheeseAttackSpriteRenderer.flipY = false;
+                Weapon_SpaghttiWhipOnionWindUpSpriteRenderer.flipY = false;
+                Weapon_SpaghttiWhipOnionAttackSpriteRenderer.flipY = false;
             }
             else
             {
@@ -225,6 +232,13 @@ public class PlayerMovement : MonoBehaviour
                 armsSpriteL.flipX = true;
                 armsSpriteR.flipX = true;
                 Weapon_PeaShooterSpriteRenderer.flipY = true;
+                Weapon_SemiAutoRifleSpriteRenderer.flipY = true;
+                Weapon_BurstRifleSpriteRenderer.flipY = true;
+                Weapon_ShotgunSpriteRenderer.flipY = true;
+                Weapon_SpaghttiWhipCheeseWindUpSpriteRenderer.flipY = true;
+                Weapon_SpaghttiWhipCheeseAttackSpriteRenderer.flipY = true;
+                Weapon_SpaghttiWhipOnionWindUpSpriteRenderer.flipY = true;
+                Weapon_SpaghttiWhipOnionAttackSpriteRenderer.flipY = true;
             }
 
 
