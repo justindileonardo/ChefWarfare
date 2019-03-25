@@ -48,7 +48,7 @@ public class TomatoSauce : MonoBehaviour
         }
         if(GetComponent<BoxCollider2D>().enabled == false)
         {
-            if (existTimer > .025f)
+            if (existTimer > .035f)
             {
                 GetComponent<BoxCollider2D>().enabled = true;
             }

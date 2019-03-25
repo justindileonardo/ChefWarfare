@@ -36,6 +36,19 @@ public class PlayerStatus : MonoBehaviour
     private EnemySpawnerP3 esP3;
     private EnemySpawnerP4 esP4;
 
+    [SerializeField] private int hpStored;
+    [SerializeField] private float hpStoredTimer;
+
+    private Image RedHitEffect_P1;
+    private Image RedHitEffect_P2;
+    private Image RedHitEffect_P3;
+    private Image RedHitEffect_P4;
+    private Image GreenHitEffect_P1;
+    private Image GreenHitEffect_P2;
+    private Image GreenHitEffect_P3;
+    private Image GreenHitEffect_P4;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +58,8 @@ public class PlayerStatus : MonoBehaviour
         cheeseMoveSpeedSlowLength = 1.0f;
         myPlayer = GetComponent<PlayerMovement>();
         canMove = true;
+        
+
 
         blackDeathScreenP1 = GameObject.Find("DeathBlackScreen_P1").GetComponent<SpriteRenderer>();
         blackDeathScreenP2 = GameObject.Find("DeathBlackScreen_P2").GetComponent<SpriteRenderer>();
@@ -65,12 +80,32 @@ public class PlayerStatus : MonoBehaviour
         esP2 = GameObject.Find("EnemySpawnerP2").GetComponent<EnemySpawnerP2>();
         esP3 = GameObject.Find("EnemySpawnerP3").GetComponent<EnemySpawnerP3>();
         esP4 = GameObject.Find("EnemySpawnerP4").GetComponent<EnemySpawnerP4>();
+
+        RedHitEffect_P1 = GameObject.Find("RedHitEffect_P1").GetComponent<Image>();
+        RedHitEffect_P2 = GameObject.Find("RedHitEffect_P2").GetComponent<Image>();
+        RedHitEffect_P3 = GameObject.Find("RedHitEffect_P3").GetComponent<Image>();
+        RedHitEffect_P4 = GameObject.Find("RedHitEffect_P4").GetComponent<Image>();
+
+        GreenHitEffect_P1 = GameObject.Find("GreenHitEffect_P1").GetComponent<Image>();
+        GreenHitEffect_P2 = GameObject.Find("GreenHitEffect_P2").GetComponent<Image>();
+        GreenHitEffect_P3 = GameObject.Find("GreenHitEffect_P3").GetComponent<Image>();
+        GreenHitEffect_P4 = GameObject.Find("GreenHitEffect_P4").GetComponent<Image>();
+
+        RedHitEffect_P1.enabled = false;
+        RedHitEffect_P2.enabled = false;
+        RedHitEffect_P3.enabled = false;
+        RedHitEffect_P4.enabled = false;
+
+        GreenHitEffect_P1.enabled = false;
+        GreenHitEffect_P2.enabled = false;
+        GreenHitEffect_P3.enabled = false;
+        GreenHitEffect_P4.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
         if(HP <= 0)
         {
             PlayerDie();
@@ -92,29 +127,172 @@ public class PlayerStatus : MonoBehaviour
             }
         }
 
-        //Showing player HP on screen
+        
         if (myPlayer.player1 == true)
         {
+            //Showing player HP on screen
             HpText1.text = HP.ToString();
             HpFill1.fillAmount = (float)HP/100;
+
+            //Red Hit Effect shows up on player's screen when take damage
+            hpStoredTimer -= Time.deltaTime;
+            if (hpStoredTimer <= 0)
+            {
+                hpStoredTimer = .5f;
+                hpStored = HP;
+            }
+            if (hpStored > HP)
+            {
+                StartCoroutine(PlayRedHitScreen1());
+            }
+            if(hpStored < HP)
+            {
+                StartCoroutine(PlayGreenHitScreen1());
+            }
+            if (blackDeathScreenP1.enabled == true)
+            {
+                RedHitEffect_P1.enabled = false;
+                GreenHitEffect_P1.enabled = false;
+            }
         }
         else if(myPlayer.player2 == true)
         {
+            //Showing player HP on screen
             HpText2.text = HP.ToString();
             HpFill2.fillAmount = (float)HP/100;
+
+            //Red Hit Effect shows up on player's screen when take damage
+            hpStoredTimer -= Time.deltaTime;
+            if (hpStoredTimer <= 0)
+            {
+                hpStoredTimer = .5f;
+                hpStored = HP;
+            }
+            if (hpStored > HP)
+            {
+                StartCoroutine(PlayRedHitScreen2());
+            }
+            if (hpStored < HP)
+            {
+                StartCoroutine(PlayGreenHitScreen2());
+            }
+            if (blackDeathScreenP2.enabled == true)
+            {
+                RedHitEffect_P2.enabled = false;
+                GreenHitEffect_P2.enabled = false;
+            }
         }
         else if (myPlayer.player3 == true)
         {
+            //Showing player HP on screen
             HpText3.text = HP.ToString();
             HpFill3.fillAmount = (float)HP/100;
+
+            //Red Hit Effect shows up on player's screen when take damage
+            hpStoredTimer -= Time.deltaTime;
+            if (hpStoredTimer <= 0)
+            {
+                hpStoredTimer = .5f;
+                hpStored = HP;
+            }
+            if (hpStored > HP)
+            {
+                StartCoroutine(PlayRedHitScreen3());
+            }
+            if (hpStored < HP)
+            {
+                StartCoroutine(PlayGreenHitScreen3());
+            }
+            if (blackDeathScreenP3.enabled == true)
+            {
+                RedHitEffect_P3.enabled = false;
+                GreenHitEffect_P3.enabled = false;
+            }
         }
         else if (myPlayer.player4 == true)
         {
+            //Showing player HP on screen
             HpText4.text = HP.ToString();
             HpFill4.fillAmount = (float)HP/100;
+
+            //Red Hit Effect shows up on player's screen when take damage
+            hpStoredTimer -= Time.deltaTime;
+            if (hpStoredTimer <= 0)
+            {
+                hpStoredTimer = .5f;
+                hpStored = HP;
+            }
+            if (hpStored > HP)
+            {
+                StartCoroutine(PlayRedHitScreen4());
+            }
+            if (hpStored < HP)
+            {
+                StartCoroutine(PlayGreenHitScreen4());
+            }
+            if (blackDeathScreenP4.enabled == true)
+            {
+                RedHitEffect_P4.enabled = false;
+                GreenHitEffect_P4.enabled = false;
+            }
         }
     }
 
+    IEnumerator PlayRedHitScreen1()
+    {
+        RedHitEffect_P1.enabled = true;
+        yield return new WaitForSeconds(0.25f);
+        RedHitEffect_P1.enabled = false;
+    }
+
+    IEnumerator PlayRedHitScreen2()
+    {
+        RedHitEffect_P2.enabled = true;
+        yield return new WaitForSeconds(0.25f);
+        RedHitEffect_P2.enabled = false;
+    }
+
+    IEnumerator PlayRedHitScreen3()
+    {
+        RedHitEffect_P3.enabled = true;
+        yield return new WaitForSeconds(0.25f);
+        RedHitEffect_P3.enabled = false;
+    }
+
+    IEnumerator PlayRedHitScreen4()
+    {
+        RedHitEffect_P4.enabled = true;
+        yield return new WaitForSeconds(0.25f);
+        RedHitEffect_P4.enabled = false;
+    }
+
+    IEnumerator PlayGreenHitScreen1()
+    {
+        GreenHitEffect_P1.enabled = true;
+        yield return new WaitForSeconds(0.25f);
+        GreenHitEffect_P1.enabled = false;
+    }
+
+    IEnumerator PlayGreenHitScreen2()
+    {
+        GreenHitEffect_P2.enabled = true;
+        yield return new WaitForSeconds(0.25f);
+        GreenHitEffect_P2.enabled = false;
+    }
+
+    IEnumerator PlayGreenHitScreen3()
+    {
+        GreenHitEffect_P3.enabled = true;
+        yield return new WaitForSeconds(0.25f);
+        GreenHitEffect_P3.enabled = false;
+    }
+
+    IEnumerator PlayGreenHitScreen4()
+    {
+        GreenHitEffect_P4.enabled = true;
+        yield return new WaitForSeconds(0.25f);
+        GreenHitEffect_P4.enabled = false;
+    }
     public void PlayerDie()
     {
         if (myPlayer.player1 == true)

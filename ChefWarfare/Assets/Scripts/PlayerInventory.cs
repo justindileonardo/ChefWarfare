@@ -45,31 +45,26 @@ public class PlayerInventory : MonoBehaviour
         {
             Destroy(other.gameObject);
             breadCount++;
-            print("Bread: " + breadCount);
         }
         if (other.gameObject.tag == "Resource_Tomato")
         {
             Destroy(other.gameObject);
             tomatoCount++;
-            print("Tomato: " + tomatoCount);
         }
         if (other.gameObject.tag == "Resource_Spaghetti")
         {
             Destroy(other.gameObject);
             spaghettiCount++;
-            print("Spaghetti: " + spaghettiCount);
         }
         if(other.gameObject.tag == "Resource_Cheese")
         {
             Destroy(other.gameObject);
             cheeseCount++;
-            print("Cheese: " + cheeseCount);
         }
         if(other.gameObject.tag == "Resource_Onion")
         {
             Destroy(other.gameObject);
             onionCount++;
-            print("Onion: " + onionCount);
         }
     }
 

@@ -41,7 +41,7 @@ public class TomatoChunk : MonoBehaviour
         transform.position += transform.up * speed * Time.deltaTime;
 
         existTimer += Time.deltaTime;
-        if (existTimer > 0.75f)
+        if (existTimer > 0.85f)
         {
             Destroy(gameObject);
         }
