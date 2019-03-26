@@ -112,6 +112,11 @@ public class Enemy_Tomato : MonoBehaviour
             other.gameObject.GetComponent<PlayerStatus>().HP -= damage;
             StartCoroutine(AttackCoroutine());
         }
+
+        if(other.gameObject.tag == "EnemyDeath")
+        {
+            Destroy(gameObject);
+        }
     }
 
 

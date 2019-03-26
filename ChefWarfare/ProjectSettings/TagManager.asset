@@ -19,6 +19,7 @@ TagManager:
   - ZONE_GREEN
   - ZONE_ORANGE
   - CapturePoint
+  - EnemyDeath
   layers:
   - Default
   - TransparentFX
