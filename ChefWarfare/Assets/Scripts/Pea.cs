@@ -47,7 +47,7 @@ public class Pea : MonoBehaviour
             Destroy(gameObject);
         }
        
-        if (existTimer > .025f)
+        if (existTimer > .035f)
         {
             GetComponent<CircleCollider2D>().enabled = true;
         }
