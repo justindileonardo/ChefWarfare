@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class PlayerStatus : MonoBehaviour
 {
@@ -37,6 +36,8 @@ public class PlayerStatus : MonoBehaviour
     private EnemySpawnerP3 esP3;
     private EnemySpawnerP4 esP4;
 
+    private LevelLogic levelLogicScript;
+
     [SerializeField] private int hpStored;
     [SerializeField] private float hpStoredTimer;
 
@@ -59,23 +60,31 @@ public class PlayerStatus : MonoBehaviour
         cheeseMoveSpeedSlowLength = 1.0f;
         myPlayer = GetComponent<PlayerMovement>();
         canMove = true;
-        
 
+        levelLogicScript = GameObject.Find("LevelLogic").GetComponent<LevelLogic>();
 
         blackDeathScreenP1 = GameObject.Find("DeathBlackScreen_P1").GetComponent<SpriteRenderer>();
         blackDeathScreenP2 = GameObject.Find("DeathBlackScreen_P2").GetComponent<SpriteRenderer>();
         blackDeathScreenP3 = GameObject.Find("DeathBlackScreen_P3").GetComponent<SpriteRenderer>();
         blackDeathScreenP4 = GameObject.Find("DeathBlackScreen_P4").GetComponent<SpriteRenderer>();
 
+        /*
         HpText1 = GameObject.Find("UI_HP_Text_P1").GetComponent<Text>();
         HpText2 = GameObject.Find("UI_HP_Text_P2").GetComponent<Text>();
         HpText3 = GameObject.Find("UI_HP_Text_P3").GetComponent<Text>();
         HpText4 = GameObject.Find("UI_HP_Text_P4").GetComponent<Text>();
-
+        */
+        /*
         HpFill1 = GameObject.Find("UI_HP_Fill_P1").GetComponent<Image>();
         HpFill2 = GameObject.Find("UI_HP_Fill_P2").GetComponent<Image>();
         HpFill3 = GameObject.Find("UI_HP_Fill_P3").GetComponent<Image>();
         HpFill4 = GameObject.Find("UI_HP_Fill_P4").GetComponent<Image>();
+        */
+
+        HpFill1 = GameObject.Find("UI_HPBar_P1").GetComponent<Image>();
+        HpFill2 = GameObject.Find("UI_HPBar_P2").GetComponent<Image>();
+        HpFill3 = GameObject.Find("UI_HPBar_P3").GetComponent<Image>();
+        HpFill4 = GameObject.Find("UI_HPBar_P4").GetComponent<Image>();
 
         esP1 = GameObject.Find("EnemySpawnerP1").GetComponent<EnemySpawnerP1>();
         esP2 = GameObject.Find("EnemySpawnerP2").GetComponent<EnemySpawnerP2>();
@@ -132,9 +141,9 @@ public class PlayerStatus : MonoBehaviour
         if (myPlayer.player1 == true)
         {
             //Showing player HP on screen
-            HpText1.text = HP.ToString();
+            //HpText1.text = HP.ToString();
             HpFill1.fillAmount = (float)HP/100;
-
+            
             //Red Hit Effect shows up on player's screen when take damage
             hpStoredTimer -= Time.deltaTime;
             if (hpStoredTimer <= 0)
@@ -159,7 +168,7 @@ public class PlayerStatus : MonoBehaviour
         else if(myPlayer.player2 == true)
         {
             //Showing player HP on screen
-            HpText2.text = HP.ToString();
+            //HpText2.text = HP.ToString();
             HpFill2.fillAmount = (float)HP/100;
 
             //Red Hit Effect shows up on player's screen when take damage
@@ -186,7 +195,7 @@ public class PlayerStatus : MonoBehaviour
         else if (myPlayer.player3 == true)
         {
             //Showing player HP on screen
-            HpText3.text = HP.ToString();
+            //HpText3.text = HP.ToString();
             HpFill3.fillAmount = (float)HP/100;
 
             //Red Hit Effect shows up on player's screen when take damage
@@ -213,7 +222,7 @@ public class PlayerStatus : MonoBehaviour
         else if (myPlayer.player4 == true)
         {
             //Showing player HP on screen
-            HpText4.text = HP.ToString();
+            //HpText4.text = HP.ToString();
             HpFill4.fillAmount = (float)HP/100;
 
             //Red Hit Effect shows up on player's screen when take damage
@@ -332,20 +341,25 @@ public class PlayerStatus : MonoBehaviour
         if(myPlayer.player1 == true)
         {
             blackDeathScreenP1.enabled = true;
+            levelLogicScript.scoreRed -= 5;
         }
         else if(myPlayer.player2 == true)
         {
             blackDeathScreenP2.enabled = true;
+            levelLogicScript.scoreBlue -= 5;
         }
         else if (myPlayer.player3 == true)
         {
             blackDeathScreenP3.enabled = true;
+            levelLogicScript.scoreGreen -= 5;
         }
         else if (myPlayer.player4 == true)
         {
             blackDeathScreenP4.enabled = true;
+            levelLogicScript.scoreOrange -= 5;
         }
-        yield return new WaitForSeconds(.01f);
+        yield return new WaitForEndOfFrame();
+        //yield return new WaitForSeconds(.01f);
         canMove = false;
         myPlayer.transform.position = myPlayer.respawnPosition;
         moveSpeed = 0;

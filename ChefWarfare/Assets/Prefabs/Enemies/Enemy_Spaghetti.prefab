@@ -204,7 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8210e217102343d4c920deada8ad0e7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed: 2
   spaghettiSpriteRenderer: {fileID: 6356556429234510422}
   HP: 0
   resourceSpaghettiPrefab: {fileID: 8355048858385058742, guid: fbb18d2b400fbad49853619043618ef7,

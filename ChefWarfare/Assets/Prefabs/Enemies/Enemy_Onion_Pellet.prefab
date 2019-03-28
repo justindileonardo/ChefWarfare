@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6390029525905925125}
   - component: {fileID: 6390029525905925122}
   - component: {fileID: 3858858388898782539}
-  m_Layer: 13
+  m_Layer: 19
   m_Name: Enemy_Onion_Pellet
   m_TagString: Untagged
   m_Icon: {fileID: 0}

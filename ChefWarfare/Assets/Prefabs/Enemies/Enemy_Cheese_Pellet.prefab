@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 973278825153437435}
   - component: {fileID: 973278825153437428}
   - component: {fileID: 973278825153437429}
-  m_Layer: 12
+  m_Layer: 19
   m_Name: Enemy_Cheese_Pellet
   m_TagString: Untagged
   m_Icon: {fileID: 0}

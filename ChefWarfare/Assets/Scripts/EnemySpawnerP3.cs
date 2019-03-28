@@ -9,7 +9,7 @@ public class EnemySpawnerP3 : MonoBehaviour
     //public variables
     public bool enemySpawnerActive;
     public bool inMyZone;
-    public enum EnemyType { Enemy_enum_Bread = 1, Enemy_enum_Tomato = 2, Enemy_enum_Spaghetti = 3, Enemy_enum_Onion = 4, Enemy_enum_Cheese = 5 };
+    public enum EnemyType { Enemy_enum_Bread = 1, Enemy_enum_Spaghetti = 2, Enemy_enum_Tomato = 3, Enemy_enum_Onion = 4, Enemy_enum_Cheese = 5 };
     public EnemyType theEnemyType;
     public Transform[] enemySpawnLocation;
     public bool enemyReadyToSpawn;
@@ -84,19 +84,19 @@ public class EnemySpawnerP3 : MonoBehaviour
             enemyOnion.enabled = false;
             enemyCheese.enabled = false;
         }
-        else if (theEnemyType == EnemyType.Enemy_enum_Tomato)
-        {
-            enemyBread.enabled = false;
-            enemyTomato.enabled = true;
-            enemySpaghetti.enabled = false;
-            enemyOnion.enabled = false;
-            enemyCheese.enabled = false;
-        }
         else if (theEnemyType == EnemyType.Enemy_enum_Spaghetti)
         {
             enemyBread.enabled = false;
             enemyTomato.enabled = false;
             enemySpaghetti.enabled = true;
+            enemyOnion.enabled = false;
+            enemyCheese.enabled = false;
+        }
+        else if (theEnemyType == EnemyType.Enemy_enum_Tomato)
+        {
+            enemyBread.enabled = false;
+            enemyTomato.enabled = true;
+            enemySpaghetti.enabled = false;
             enemyOnion.enabled = false;
             enemyCheese.enabled = false;
         }

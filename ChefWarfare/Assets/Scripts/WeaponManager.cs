@@ -299,8 +299,8 @@ public class WeaponManager : MonoBehaviour
         //Setting Cooldown Lengths
         switchWeaponTimerCooldownLength = 1.0f;
         peaShooter_CooldownLength = 0.75f;
-        semiAutoRifle_CooldownLength = 0.75f;       
-        burstRifle_CooldownLength = 1.0f;      
+        semiAutoRifle_CooldownLength = 0.6f;       
+        burstRifle_CooldownLength = 0.8f;      
         shotgun_CooldownLength = 1.5f;
         spaghettiWhipCheese_CooldownLength = 1.0f;
         spaghettiWhipOnion_CooldownLength = 1.0f;

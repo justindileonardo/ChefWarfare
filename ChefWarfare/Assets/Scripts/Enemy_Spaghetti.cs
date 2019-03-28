@@ -29,7 +29,7 @@ public class Enemy_Spaghetti : MonoBehaviour
         attackCooldownTimer = 0;
         isMoving = true;
         isAttacking = false;
-        HP = 20.0f;
+        HP = 10.0f;
         whipWindUp.enabled = true;
         whipAttack.enabled = false;
         whipCollider.enabled = false;
@@ -106,7 +106,7 @@ public class Enemy_Spaghetti : MonoBehaviour
         isAttacking = true;
         isMoving = false;
         whipCollider.enabled = true;
-        attackCooldownTimer = 1.5f;
+        attackCooldownTimer = 2.0f;
         whipWindUp.enabled = false;
         whipAttack.enabled = true;
         yield return new WaitForSeconds(0.05f);

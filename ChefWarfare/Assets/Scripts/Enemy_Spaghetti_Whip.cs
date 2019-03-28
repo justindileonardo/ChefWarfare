@@ -7,7 +7,7 @@ public class Enemy_Spaghetti_Whip : MonoBehaviour
     //public variables
 
     //private variables
-    private int damage = 8;
+    private int damage = 5;
 
     // Start is called before the first frame update
     void Start()

@@ -16,7 +16,7 @@ public class TomatoChunk : MonoBehaviour
     void Start()
     {
         existTimer = 0;
-        damage = 8;
+        damage = 9;
         GetComponent<BoxCollider2D>().enabled = false;
         //finds closest player
         float distanceToClosestPlayer = Mathf.Infinity;

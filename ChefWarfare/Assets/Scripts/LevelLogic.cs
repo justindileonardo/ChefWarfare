@@ -41,7 +41,23 @@ public class LevelLogic : MonoBehaviour
             GameStateText.text = "WALLS";
         }
         
-        
+        //if score goes below 0 put it to 0
+        if(scoreRed < 0)
+        {
+            scoreRed = 0;
+        }
+        if(scoreBlue < 0)
+        {
+            scoreBlue = 0;
+        }
+        if(scoreGreen < 0)
+        {
+            scoreGreen = 0;
+        }
+        if(scoreOrange < 0)
+        {
+            scoreOrange = 0;
+        }
 
         //at 5 minutes passed...
         if ((int)gameTimerPre == 0f)

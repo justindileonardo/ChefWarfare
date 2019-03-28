@@ -2,21 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerInventory : MonoBehaviour
 {
 
     public int breadCount;
-    public int tomatoCount;
     public int spaghettiCount;
+    public int tomatoCount;
     public int cheeseCount;
     public int onionCount;
 
-    public Text breadText;
-    public Text tomatoText;
-    public Text spaghettiText;
-    public Text onionText;
-    public Text cheeseText;
+    public TextMeshProUGUI breadText;
+    public TextMeshProUGUI spaghettiText;
+    public TextMeshProUGUI tomatoText;
+    public TextMeshProUGUI onionText;
+    public TextMeshProUGUI cheeseText;
+
 
     // Start is called before the first frame update
     void Start()

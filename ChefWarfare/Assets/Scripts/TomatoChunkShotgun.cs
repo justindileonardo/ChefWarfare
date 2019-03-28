@@ -16,7 +16,7 @@ public class TomatoChunkShotgun : MonoBehaviour
     void Start()
     {
         existTimer = 0;
-        damage = 6;
+        damage = 5;
         GetComponent<BoxCollider2D>().enabled = false;
         //finds closest player
         float distanceToClosestPlayer = Mathf.Infinity;
@@ -47,7 +47,7 @@ public class TomatoChunkShotgun : MonoBehaviour
         }
         if (GetComponent<BoxCollider2D>().enabled == false)
         {
-            if (existTimer > .025f)
+            if (existTimer > .03f)
             {
                 GetComponent<BoxCollider2D>().enabled = true;
             }
