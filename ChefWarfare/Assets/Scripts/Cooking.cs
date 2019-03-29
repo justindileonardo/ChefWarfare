@@ -120,24 +120,24 @@ public class Cooking : MonoBehaviour
 
         //amounts needed for recipes
         //Semi-Auto Rifle
-        SR_bread = 12;
-        SR_tomato = 8;
+        SR_bread = 9;
+        SR_tomato = 6;
 
         //Burst Rifle
-        BR_bread = 10;
-        BR_tomato = 10;
+        BR_bread = 8;
+        BR_tomato = 7;
 
         //Shotgun
-        SG_bread = 8;
-        SG_tomato = 12;
+        SG_bread = 6;
+        SG_tomato = 9;
 
         //Whip Cheese
-        WC_spaghetti = 12;
-        WC_cheese = 8;
+        WC_spaghetti = 9;
+        WC_cheese = 6;
 
         //Whip Onion
-        WO_spaghetti = 12;
-        WO_onion = 8;
+        WO_spaghetti = 9;
+        WO_onion = 6;
 
         //Snack Speed
         SS_tomato = 4;

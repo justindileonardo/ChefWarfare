@@ -17,7 +17,7 @@ public class Pea : MonoBehaviour
     {
         existTimer = 0;
         damage = 4;
-        GetComponent<CircleCollider2D>().enabled = false;
+        //GetComponent<CircleCollider2D>().enabled = false;
 
         //finds closest player
         float distanceToClosestPlayer = Mathf.Infinity;
@@ -46,12 +46,12 @@ public class Pea : MonoBehaviour
         {
             Destroy(gameObject);
         }
-       
+        /*
         if (existTimer > .035f)
         {
             GetComponent<CircleCollider2D>().enabled = true;
         }
-        
+        */
         
 
     }

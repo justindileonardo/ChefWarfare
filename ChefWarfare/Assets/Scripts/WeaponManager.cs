@@ -589,9 +589,29 @@ public class WeaponManager : MonoBehaviour
             //if pressed, check if shot is ready and shoot.  Reset cooldown timer.
             if (attackMain > .5f && peaShooter_Cooldown < 0)
             {
+
                 peaShooter_Cooldown = peaShooter_CooldownLength;
+                GameObject bullet;
+                bullet = Instantiate(Prefab_Pea, new Vector3(Weapon_BulletSpawnPoint.transform.position.x, Weapon_BulletSpawnPoint.transform.position.y, Weapon_BulletSpawnPoint.transform.position.z), Weapon_PivotPoint.transform.rotation);
+
+                if (player1)
+                {
+                    bullet.layer = 20/*Player1Bullets*/;
+                }
+                else if(player2)
+                {
+                    bullet.layer = 21/*Player2Bullets*/;
+                }
+                else if (player3)
+                {
+                    bullet.layer = 22/*Player3Bullets*/;
+                }
+                else if (player4)
+                {
+                    bullet.layer = 23/*Player4Bullets*/;
+                }
+
                 
-                Instantiate(Prefab_Pea, new Vector3(Weapon_BulletSpawnPoint.transform.position.x, Weapon_BulletSpawnPoint.transform.position.y, Weapon_BulletSpawnPoint.transform.position.z), Weapon_PivotPoint.transform.rotation);
             }
         }
 
@@ -681,7 +701,26 @@ public class WeaponManager : MonoBehaviour
             if (attackMain > .5f && semiAutoRifle_Cooldown < 0)
             {
                 semiAutoRifle_Cooldown = semiAutoRifle_CooldownLength;
-                Instantiate(Prefab_TomatoChunk, new Vector3(Weapon_BulletSpawnPoint.transform.position.x, Weapon_BulletSpawnPoint.transform.position.y, Weapon_BulletSpawnPoint.transform.position.z), Weapon_PivotPoint.transform.rotation);
+                GameObject bullet;
+                bullet = Instantiate(Prefab_TomatoChunk, new Vector3(Weapon_BulletSpawnPoint.transform.position.x, Weapon_BulletSpawnPoint.transform.position.y, Weapon_BulletSpawnPoint.transform.position.z), Weapon_PivotPoint.transform.rotation);
+
+                if (player1)
+                {
+                    bullet.layer = 20/*Player1Bullets*/;
+                }
+                else if (player2)
+                {
+                    bullet.layer = 21/*Player2Bullets*/;
+                }
+                else if (player3)
+                {
+                    bullet.layer = 22/*Player3Bullets*/;
+                }
+                else if (player4)
+                {
+                    bullet.layer = 23/*Player4Bullets*/;
+                }
+
             }
 
         }
@@ -773,9 +812,38 @@ public class WeaponManager : MonoBehaviour
             if (attackMain > .5f && burstRifle_Cooldown < 0)
             {
                 burstRifle_Cooldown = burstRifle_CooldownLength;
-                Instantiate(Prefab_TomatoSauce, new Vector3(Weapon_BulletSpawnPoint.transform.position.x, Weapon_BulletSpawnPoint.transform.position.y, Weapon_BulletSpawnPoint.transform.position.z), Weapon_PivotPoint.transform.rotation);
-                Instantiate(Prefab_TomatoSauce, new Vector3(Weapon_BulletSpawnPoint0.transform.position.x, Weapon_BulletSpawnPoint0.transform.position.y, Weapon_BulletSpawnPoint0.transform.position.z), Weapon_PivotPoint.transform.rotation);
-                Instantiate(Prefab_TomatoSauce, new Vector3(Weapon_BulletSpawnPoint2.transform.position.x, Weapon_BulletSpawnPoint2.transform.position.y, Weapon_BulletSpawnPoint2.transform.position.z), Weapon_PivotPoint.transform.rotation);
+                GameObject bullet1;
+                GameObject bullet2;
+                GameObject bullet3;
+                bullet1 = Instantiate(Prefab_TomatoSauce, new Vector3(Weapon_BulletSpawnPoint.transform.position.x, Weapon_BulletSpawnPoint.transform.position.y, Weapon_BulletSpawnPoint.transform.position.z), Weapon_PivotPoint.transform.rotation);
+                bullet2 = Instantiate(Prefab_TomatoSauce, new Vector3(Weapon_BulletSpawnPoint0.transform.position.x, Weapon_BulletSpawnPoint0.transform.position.y, Weapon_BulletSpawnPoint0.transform.position.z), Weapon_PivotPoint.transform.rotation);
+                bullet3 = Instantiate(Prefab_TomatoSauce, new Vector3(Weapon_BulletSpawnPoint2.transform.position.x, Weapon_BulletSpawnPoint2.transform.position.y, Weapon_BulletSpawnPoint2.transform.position.z), Weapon_PivotPoint.transform.rotation);
+
+                if (player1)
+                {
+                    bullet1.layer = 20/*Player1Bullets*/;
+                    bullet2.layer = 20/*Player1Bullets*/;
+                    bullet3.layer = 20/*Player1Bullets*/;
+                }
+                else if (player2)
+                {
+                    bullet1.layer = 21/*Player2Bullets*/;
+                    bullet2.layer = 21/*Player2Bullets*/;
+                    bullet3.layer = 21/*Player2Bullets*/;
+                }
+                else if (player3)
+                {
+                    bullet1.layer = 22/*Player3Bullets*/;
+                    bullet2.layer = 22/*Player3Bullets*/;
+                    bullet3.layer = 22/*Player3Bullets*/;
+                }
+                else if (player4)
+                {
+                    bullet1.layer = 23/*Player4Bullets*/;
+                    bullet2.layer = 23/*Player4Bullets*/;
+                    bullet3.layer = 23/*Player4Bullets*/;
+                }
+
             }
         
         }
@@ -868,11 +936,49 @@ public class WeaponManager : MonoBehaviour
             if (attackMain > .5f && shotgun_Cooldown < 0)
             {
                 shotgun_Cooldown = shotgun_CooldownLength;
-                Instantiate(Prefab_TomatoChunkShotgun, new Vector3(Weapon_BulletSpawnPoint_Shotgun1.transform.position.x, Weapon_BulletSpawnPoint_Shotgun1.transform.position.y, Weapon_BulletSpawnPoint_Shotgun1.transform.position.z), Weapon_BulletSpawnPoint_Shotgun1.transform.rotation);
-                Instantiate(Prefab_TomatoChunkShotgun, new Vector3(Weapon_BulletSpawnPoint_Shotgun2.transform.position.x, Weapon_BulletSpawnPoint_Shotgun2.transform.position.y, Weapon_BulletSpawnPoint_Shotgun2.transform.position.z), Weapon_BulletSpawnPoint_Shotgun2.transform.rotation);
-                Instantiate(Prefab_TomatoChunkShotgun, new Vector3(Weapon_BulletSpawnPoint_Shotgun3.transform.position.x, Weapon_BulletSpawnPoint_Shotgun3.transform.position.y, Weapon_BulletSpawnPoint_Shotgun3.transform.position.z), Weapon_BulletSpawnPoint_Shotgun3.transform.rotation);
-                Instantiate(Prefab_TomatoChunkShotgun, new Vector3(Weapon_BulletSpawnPoint_Shotgun4.transform.position.x, Weapon_BulletSpawnPoint_Shotgun4.transform.position.y, Weapon_BulletSpawnPoint_Shotgun4.transform.position.z), Weapon_BulletSpawnPoint_Shotgun4.transform.rotation);
-                Instantiate(Prefab_TomatoChunkShotgun, new Vector3(Weapon_BulletSpawnPoint_Shotgun5.transform.position.x, Weapon_BulletSpawnPoint_Shotgun5.transform.position.y, Weapon_BulletSpawnPoint_Shotgun5.transform.position.z), Weapon_BulletSpawnPoint_Shotgun5.transform.rotation);
+                GameObject bullet1;
+                GameObject bullet2;
+                GameObject bullet3;
+                GameObject bullet4;
+                GameObject bullet5;
+                bullet1 = Instantiate(Prefab_TomatoChunkShotgun, new Vector3(Weapon_BulletSpawnPoint_Shotgun1.transform.position.x, Weapon_BulletSpawnPoint_Shotgun1.transform.position.y, Weapon_BulletSpawnPoint_Shotgun1.transform.position.z), Weapon_BulletSpawnPoint_Shotgun1.transform.rotation);
+                bullet2 = Instantiate(Prefab_TomatoChunkShotgun, new Vector3(Weapon_BulletSpawnPoint_Shotgun2.transform.position.x, Weapon_BulletSpawnPoint_Shotgun2.transform.position.y, Weapon_BulletSpawnPoint_Shotgun2.transform.position.z), Weapon_BulletSpawnPoint_Shotgun2.transform.rotation);
+                bullet3 = Instantiate(Prefab_TomatoChunkShotgun, new Vector3(Weapon_BulletSpawnPoint_Shotgun3.transform.position.x, Weapon_BulletSpawnPoint_Shotgun3.transform.position.y, Weapon_BulletSpawnPoint_Shotgun3.transform.position.z), Weapon_BulletSpawnPoint_Shotgun3.transform.rotation);
+                bullet4 = Instantiate(Prefab_TomatoChunkShotgun, new Vector3(Weapon_BulletSpawnPoint_Shotgun4.transform.position.x, Weapon_BulletSpawnPoint_Shotgun4.transform.position.y, Weapon_BulletSpawnPoint_Shotgun4.transform.position.z), Weapon_BulletSpawnPoint_Shotgun4.transform.rotation);
+                bullet5 = Instantiate(Prefab_TomatoChunkShotgun, new Vector3(Weapon_BulletSpawnPoint_Shotgun5.transform.position.x, Weapon_BulletSpawnPoint_Shotgun5.transform.position.y, Weapon_BulletSpawnPoint_Shotgun5.transform.position.z), Weapon_BulletSpawnPoint_Shotgun5.transform.rotation);
+
+                if (player1)
+                {
+                    bullet1.layer = 20/*Player1Bullets*/;
+                    bullet2.layer = 20/*Player1Bullets*/;
+                    bullet3.layer = 20/*Player1Bullets*/;
+                    bullet4.layer = 20/*Player1Bullets*/;
+                    bullet5.layer = 20/*Player1Bullets*/;
+                }
+                else if (player2)
+                {
+                    bullet1.layer = 21/*Player2Bullets*/;
+                    bullet2.layer = 21/*Player2Bullets*/;
+                    bullet3.layer = 21/*Player2Bullets*/;
+                    bullet4.layer = 21/*Player2Bullets*/;
+                    bullet5.layer = 21/*Player2Bullets*/;
+                }
+                else if (player3)
+                {
+                    bullet1.layer = 22/*Player3Bullets*/;
+                    bullet2.layer = 22/*Player3Bullets*/;
+                    bullet3.layer = 22/*Player3Bullets*/;
+                    bullet4.layer = 22/*Player3Bullets*/;
+                    bullet5.layer = 22/*Player3Bullets*/;
+                }
+                else if (player4)
+                {
+                    bullet1.layer = 23/*Player4Bullets*/;
+                    bullet2.layer = 23/*Player4Bullets*/;
+                    bullet3.layer = 23/*Player4Bullets*/;
+                    bullet4.layer = 23/*Player4Bullets*/;
+                    bullet5.layer = 23/*Player4Bullets*/;
+                }
 
             }
 

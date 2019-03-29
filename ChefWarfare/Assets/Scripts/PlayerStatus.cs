@@ -31,6 +31,21 @@ public class PlayerStatus : MonoBehaviour
     private Image HpFill3;
     private Image HpFill4;
 
+    private Canvas canvasP1;
+    private Canvas canvasP2;
+    private Canvas canvasP3;
+    private Canvas canvasP4;
+
+    private Image HpPlayerFill1;
+    private Image HpPlayerFill2;
+    private Image HpPlayerFill3;
+    private Image HpPlayerFill4;
+
+    private float playerHPBarAppear_Timer_P1;
+    private float playerHPBarAppear_Timer_P2;
+    private float playerHPBarAppear_Timer_P3;
+    private float playerHPBarAppear_Timer_P4;
+
     private EnemySpawnerP1 esP1;
     private EnemySpawnerP2 esP2;
     private EnemySpawnerP3 esP3;
@@ -86,6 +101,16 @@ public class PlayerStatus : MonoBehaviour
         HpFill3 = GameObject.Find("UI_HPBar_P3").GetComponent<Image>();
         HpFill4 = GameObject.Find("UI_HPBar_P4").GetComponent<Image>();
 
+        canvasP1 = GameObject.Find("Canvas_P1").GetComponent<Canvas>();
+        canvasP2 = GameObject.Find("Canvas_P2").GetComponent<Canvas>();
+        canvasP3 = GameObject.Find("Canvas_P3").GetComponent<Canvas>();
+        canvasP4 = GameObject.Find("Canvas_P4").GetComponent<Canvas>();
+
+        HpPlayerFill1 = GameObject.Find("UI_Player_HPBar_P1").GetComponent<Image>();
+        HpPlayerFill2 = GameObject.Find("UI_Player_HPBar_P2").GetComponent<Image>();
+        HpPlayerFill3 = GameObject.Find("UI_Player_HPBar_P3").GetComponent<Image>();
+        HpPlayerFill4 = GameObject.Find("UI_Player_HPBar_P4").GetComponent<Image>();
+
         esP1 = GameObject.Find("EnemySpawnerP1").GetComponent<EnemySpawnerP1>();
         esP2 = GameObject.Find("EnemySpawnerP2").GetComponent<EnemySpawnerP2>();
         esP3 = GameObject.Find("EnemySpawnerP3").GetComponent<EnemySpawnerP3>();
@@ -110,6 +135,16 @@ public class PlayerStatus : MonoBehaviour
         GreenHitEffect_P2.enabled = false;
         GreenHitEffect_P3.enabled = false;
         GreenHitEffect_P4.enabled = false;
+
+        canvasP1.enabled = false;
+        canvasP2.enabled = false;
+        canvasP3.enabled = false;
+        canvasP4.enabled = false;
+
+        playerHPBarAppear_Timer_P1 = 0;
+        playerHPBarAppear_Timer_P2 = 0;
+        playerHPBarAppear_Timer_P3 = 0;
+        playerHPBarAppear_Timer_P4 = 0;
     }
 
     // Update is called once per frame
@@ -142,8 +177,9 @@ public class PlayerStatus : MonoBehaviour
         {
             //Showing player HP on screen
             //HpText1.text = HP.ToString();
-            HpFill1.fillAmount = (float)HP/100;
-            
+            HpFill1.fillAmount = (float)HP / 100;
+            HpPlayerFill1.fillAmount = (float)HP / 100;
+
             //Red Hit Effect shows up on player's screen when take damage
             hpStoredTimer -= Time.deltaTime;
             if (hpStoredTimer <= 0)
@@ -154,6 +190,9 @@ public class PlayerStatus : MonoBehaviour
             if (hpStored > HP)
             {
                 StartCoroutine(PlayRedHitScreen1());
+                //Player HP Bar Enabling
+                playerHPBarAppear_Timer_P1 = 3.0f;
+                canvasP1.enabled = true;
             }
             if(hpStored < HP)
             {
@@ -164,12 +203,24 @@ public class PlayerStatus : MonoBehaviour
                 RedHitEffect_P1.enabled = false;
                 GreenHitEffect_P1.enabled = false;
             }
+
+            //Player HP Bar
+            if(playerHPBarAppear_Timer_P1 >= 0)
+            {
+                playerHPBarAppear_Timer_P1 -= Time.deltaTime;
+            }
+            else
+            {
+                canvasP1.enabled = false;
+            }
+
         }
         else if(myPlayer.player2 == true)
         {
             //Showing player HP on screen
             //HpText2.text = HP.ToString();
-            HpFill2.fillAmount = (float)HP/100;
+            HpFill2.fillAmount = (float)HP / 100;
+            HpPlayerFill2.fillAmount = (float)HP / 100;
 
             //Red Hit Effect shows up on player's screen when take damage
             hpStoredTimer -= Time.deltaTime;
@@ -181,6 +232,9 @@ public class PlayerStatus : MonoBehaviour
             if (hpStored > HP)
             {
                 StartCoroutine(PlayRedHitScreen2());
+                //Player HP Bar Enabling
+                playerHPBarAppear_Timer_P2 = 3.0f;
+                canvasP2.enabled = true;
             }
             if (hpStored < HP)
             {
@@ -191,12 +245,23 @@ public class PlayerStatus : MonoBehaviour
                 RedHitEffect_P2.enabled = false;
                 GreenHitEffect_P2.enabled = false;
             }
+
+            //Player HP Bar
+            if (playerHPBarAppear_Timer_P2 >= 0)
+            {
+                playerHPBarAppear_Timer_P2 -= Time.deltaTime;
+            }
+            else
+            {
+                canvasP2.enabled = false;
+            }
         }
         else if (myPlayer.player3 == true)
         {
             //Showing player HP on screen
             //HpText3.text = HP.ToString();
-            HpFill3.fillAmount = (float)HP/100;
+            HpFill3.fillAmount = (float)HP / 100;
+            HpPlayerFill3.fillAmount = (float)HP / 100;
 
             //Red Hit Effect shows up on player's screen when take damage
             hpStoredTimer -= Time.deltaTime;
@@ -208,6 +273,9 @@ public class PlayerStatus : MonoBehaviour
             if (hpStored > HP)
             {
                 StartCoroutine(PlayRedHitScreen3());
+                //Player HP Bar Enabling
+                playerHPBarAppear_Timer_P3 = 3.0f;
+                canvasP3.enabled = true;
             }
             if (hpStored < HP)
             {
@@ -218,12 +286,23 @@ public class PlayerStatus : MonoBehaviour
                 RedHitEffect_P3.enabled = false;
                 GreenHitEffect_P3.enabled = false;
             }
+
+            //Player HP Bar
+            if (playerHPBarAppear_Timer_P3 >= 0)
+            {
+                playerHPBarAppear_Timer_P3 -= Time.deltaTime;
+            }
+            else
+            {
+                canvasP3.enabled = false;
+            }
         }
         else if (myPlayer.player4 == true)
         {
             //Showing player HP on screen
             //HpText4.text = HP.ToString();
-            HpFill4.fillAmount = (float)HP/100;
+            HpFill4.fillAmount = (float)HP / 100;
+            HpPlayerFill4.fillAmount = (float)HP / 100;
 
             //Red Hit Effect shows up on player's screen when take damage
             hpStoredTimer -= Time.deltaTime;
@@ -235,6 +314,9 @@ public class PlayerStatus : MonoBehaviour
             if (hpStored > HP)
             {
                 StartCoroutine(PlayRedHitScreen4());
+                //Player HP Bar Enabling
+                playerHPBarAppear_Timer_P4 = 3.0f;
+                canvasP4.enabled = true;
             }
             if (hpStored < HP)
             {
@@ -244,6 +326,16 @@ public class PlayerStatus : MonoBehaviour
             {
                 RedHitEffect_P4.enabled = false;
                 GreenHitEffect_P4.enabled = false;
+            }
+
+            //Player HP Bar
+            if (playerHPBarAppear_Timer_P4 >= 0)
+            {
+                playerHPBarAppear_Timer_P4 -= Time.deltaTime;
+            }
+            else
+            {
+                canvasP4.enabled = false;
             }
         }
     }
@@ -303,6 +395,8 @@ public class PlayerStatus : MonoBehaviour
         yield return new WaitForSeconds(0.25f);
         GreenHitEffect_P4.enabled = false;
     }
+
+
     public void PlayerDie()
     {
         if (myPlayer.player1 == true)

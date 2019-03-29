@@ -41,10 +41,10 @@ TagManager:
   - Enemy_Spaghetti
   - Resource
   - EnemyBullets
-  - 
-  - 
-  - 
-  - 
+  - Player1Bullets
+  - Player2Bullets
+  - Player3Bullets
+  - Player4Bullets
   - 
   - 
   - 
