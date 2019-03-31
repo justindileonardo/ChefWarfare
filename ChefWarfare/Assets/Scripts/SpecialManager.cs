@@ -209,7 +209,7 @@ public class SpecialManager : MonoBehaviour
         //snackSpeedBoost_CooldownLength = 10.0f;                                 /*TESTING*/
         snackSpeedBoost_Cooldown = 0;              
         snackSpeedBoost_Ready = false;                                          /*DEFAULT*/
-        snackSpeedBoost_ActiveLength = 10.0f;
+        snackSpeedBoost_ActiveLength = 7.5f;
         snackSpeedBoost_ActiveTimer = snackSpeedBoost_ActiveLength;
 
         //Snack - Damage Boost
@@ -221,7 +221,7 @@ public class SpecialManager : MonoBehaviour
         //snackDamageBoost_CooldownLength = 10.0f;                                 /*TESTING*/
         snackDamageBoost_Cooldown = 0;
         snackDamageBoost_Ready = false;                                          /*DEFAULT*/
-        snackDamageBoost_ActiveLength = 10.0f;
+        snackDamageBoost_ActiveLength = 7.5f;
         snackDamageBoost_ActiveTimer = snackDamageBoost_ActiveLength;
 
         //Snack - Health Boost
@@ -233,7 +233,7 @@ public class SpecialManager : MonoBehaviour
         //snackHealthBoost_CooldownLength = 10.0f;                                 /*TESTING*/
         snackHealthBoost_Cooldown = 0;
         snackHealthBoost_Ready = false;                                          /*DEFAULT*/
-        snackHealthBoost_ActiveLength = 10.0f;
+        snackHealthBoost_ActiveLength = 7.5f;
         snackHealthBoost_ActiveTimer = snackHealthBoost_ActiveLength;
         snackHealthBoost_AddHealthTimerLength = .315f;
         snackHealthBoost_AddHealthTimer = snackHealthBoost_AddHealthTimerLength;

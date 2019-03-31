@@ -18,7 +18,7 @@ public class TomatoSauce : MonoBehaviour
         existTimer = 0;
         damage = 4;
 
-        GetComponent<BoxCollider2D>().enabled = false;
+        //GetComponent<BoxCollider2D>().enabled = false;
         //finds closest player
         float distanceToClosestPlayer = Mathf.Infinity;
         PlayerMovement closestPlayer = null;
@@ -46,6 +46,7 @@ public class TomatoSauce : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        /*
         if(GetComponent<BoxCollider2D>().enabled == false)
         {
             if (existTimer > .035f)
@@ -53,7 +54,7 @@ public class TomatoSauce : MonoBehaviour
                 GetComponent<BoxCollider2D>().enabled = true;
             }
         }
-        
+        */
 
     }
 
