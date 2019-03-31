@@ -19,6 +19,9 @@ public class OtherZoneDamagePlayer_S4 : MonoBehaviour
         damageStationCollider = GetComponent<BoxCollider2D>();
         damageSpeed = 1.0f;
         damageAmount = 10;
+        damageTimer = 0;
+        inDamageStation = false;
+        damageStationColliderActive = true;
     }
 
     // Update is called once per frame

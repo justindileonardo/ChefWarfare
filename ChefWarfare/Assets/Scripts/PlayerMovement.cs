@@ -61,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         respawnPosition = transform.position;
+        moveSpeedEffectTimer = 0;
     }
 
     // Update is called once per frame

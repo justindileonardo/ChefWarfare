@@ -72,6 +72,7 @@ public class PlayerStatus : MonoBehaviour
         HP = 100;
         moveSpeedDefault = 8.0f;
         moveSpeed = moveSpeedDefault;
+        moveSpeedEffectTimer = 0;
         cheeseMoveSpeedSlowLength = 1.0f;
         myPlayer = GetComponent<PlayerMovement>();
         canMove = true;
@@ -197,6 +198,9 @@ public class PlayerStatus : MonoBehaviour
             if(hpStored < HP)
             {
                 StartCoroutine(PlayGreenHitScreen1());
+                //Player HP Bar Enabling
+                playerHPBarAppear_Timer_P1 = 3.0f;
+                canvasP1.enabled = true;
             }
             if (blackDeathScreenP1.enabled == true)
             {

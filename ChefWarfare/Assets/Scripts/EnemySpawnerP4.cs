@@ -45,6 +45,7 @@ public class EnemySpawnerP4 : MonoBehaviour
         playerMovementScript = GameObject.Find("Player4").GetComponent<PlayerMovement>();
         enemySpawnTimer = 0;
         enemySpawnLength = 3f;
+        DestroyAllEnemies();
     }
 
     // Update is called once per frame

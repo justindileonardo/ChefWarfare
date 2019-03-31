@@ -18,6 +18,10 @@ public class HealStation : MonoBehaviour
         healStationCollider = GetComponent<BoxCollider2D>();
         healSpeed = 1.0f;
         healAmount = 12;
+        onHealStation = false;
+        healTimer = 0;
+        healStationCollider.enabled = true;
+        healStationColliderActive = true;
     }
 
     // Update is called once per frame

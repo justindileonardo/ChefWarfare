@@ -295,6 +295,19 @@ public class WeaponManager : MonoBehaviour
 
         }
 
+        //UI on/off
+        w1PeaShooter.enabled = true;
+        w2PeaShooter.enabled = false;
+        w1SemiAutoRifle.enabled = false;
+        w2SemiAutoRifle.enabled = false;
+        w1BurstRifle.enabled = false;
+        w2BurstRifle.enabled = false;
+        w1Shotgun.enabled = false;
+        w2Shotgun.enabled = false;
+        w1WhipCheese.enabled = false;
+        w2WhipCheese.enabled = false;
+        w1WhipOnion.enabled = false;
+        w2WhipOnion.enabled = false;
 
         //Setting Cooldown Lengths
         switchWeaponTimerCooldownLength = 1.0f;
@@ -310,8 +323,8 @@ public class WeaponManager : MonoBehaviour
         //hasWeapon_PeaShooter = false;           /*TESTING*/
         weapon_PeaShooter_Active = true;
         Weapon_PeaShooter.SetActive(true);      /*DEFAULT*/
-        Debug.Log("Primary: PeaShooter");
-        Debug.Log("Secondary: None");
+        //Debug.Log("Primary: PeaShooter");
+        //Debug.Log("Secondary: None");
         
         
         

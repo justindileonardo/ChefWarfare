@@ -195,6 +195,10 @@ public class SpecialManager : MonoBehaviour
             }
         }
 
+        //UI on/off
+        sSpeed.enabled = false;
+        sDamage.enabled = false;
+        sHealth.enabled = false;
 
         playerStatusScript = GetComponent<PlayerStatus>();
         weaponManagerScript = GetComponent<WeaponManager>();
