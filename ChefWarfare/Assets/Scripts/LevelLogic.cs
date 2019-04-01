@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LevelLogic : MonoBehaviour
 {
@@ -99,6 +100,7 @@ public class LevelLogic : MonoBehaviour
     public void EndGame()
     {
         print("GAME OVER");
+        SceneManager.LoadScene("MainMenu");
         //go to end game scene
         //show scores in each corner
         //show winner in middle with prized possession- player sprite?
