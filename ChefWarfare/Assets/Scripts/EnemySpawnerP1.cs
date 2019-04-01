@@ -22,6 +22,16 @@ public class EnemySpawnerP1 : MonoBehaviour
     public Image enemyOnion;
     public Image enemyCheese;
 
+    public Image spawnerBoxR;
+    public Image enemyBreadR;
+    public Image enemyTomatoR;
+    public Image enemySpaghettiR;
+    public Image enemyOnionR;
+    public Image enemyCheeseR;
+
+    public GameObject enemySpawnerALL;
+    public GameObject enemySpawnerRALL;
+
     public PlayerMovement playerMovementScript;
 
     public List<GameObject> EnemiesAliveInZone = new List<GameObject>();
@@ -46,6 +56,7 @@ public class EnemySpawnerP1 : MonoBehaviour
         enemySpawnTimer = 0;
         enemySpawnLength = 3f;
         DestroyAllEnemies();
+        NotInRecipeBook();
     }
 
     // Update is called once per frame
@@ -70,10 +81,12 @@ public class EnemySpawnerP1 : MonoBehaviour
         if(enemySpawnerActive == true)
         {
             spawnerBox.color = Color.green;
+            spawnerBoxR.color = Color.green;
         }
         else
         {
             spawnerBox.color = Color.red;
+            spawnerBoxR.color = Color.red;
         }
 
         //setting enemy in box to enemy currently selected
@@ -84,6 +97,11 @@ public class EnemySpawnerP1 : MonoBehaviour
             enemySpaghetti.enabled = false;
             enemyOnion.enabled = false;
             enemyCheese.enabled = false;
+            enemyBreadR.enabled = true;
+            enemyTomatoR.enabled = false;
+            enemySpaghettiR.enabled = false;
+            enemyOnionR.enabled = false;
+            enemyCheeseR.enabled = false;
         }
         else if (theEnemyType == EnemyType.Enemy_enum_Spaghetti)
         {
@@ -92,6 +110,11 @@ public class EnemySpawnerP1 : MonoBehaviour
             enemySpaghetti.enabled = true;
             enemyOnion.enabled = false;
             enemyCheese.enabled = false;
+            enemyBreadR.enabled = false;
+            enemyTomatoR.enabled = false;
+            enemySpaghettiR.enabled = true;
+            enemyOnionR.enabled = false;
+            enemyCheeseR.enabled = false;
         }
         else if (theEnemyType == EnemyType.Enemy_enum_Tomato)
         {
@@ -100,6 +123,11 @@ public class EnemySpawnerP1 : MonoBehaviour
             enemySpaghetti.enabled = false;
             enemyOnion.enabled = false;
             enemyCheese.enabled = false;
+            enemyBreadR.enabled = false;
+            enemyTomatoR.enabled = true;
+            enemySpaghettiR.enabled = false;
+            enemyOnionR.enabled = false;
+            enemyCheeseR.enabled = false;
         }
         else if (theEnemyType == EnemyType.Enemy_enum_Onion)
         {
@@ -108,6 +136,11 @@ public class EnemySpawnerP1 : MonoBehaviour
             enemySpaghetti.enabled = false;
             enemyOnion.enabled = true;
             enemyCheese.enabled = false;
+            enemyBreadR.enabled = false;
+            enemyTomatoR.enabled = false;
+            enemySpaghettiR.enabled = false;
+            enemyOnionR.enabled = true;
+            enemyCheeseR.enabled = false;
         }
         else if (theEnemyType == EnemyType.Enemy_enum_Cheese)
         {
@@ -116,6 +149,11 @@ public class EnemySpawnerP1 : MonoBehaviour
             enemySpaghetti.enabled = false;
             enemyOnion.enabled = false;
             enemyCheese.enabled = true;
+            enemyBreadR.enabled = false;
+            enemyTomatoR.enabled = false;
+            enemySpaghettiR.enabled = false;
+            enemyOnionR.enabled = false;
+            enemyCheeseR.enabled = true;
         }
 
         //if currently in your respective square
@@ -276,6 +314,18 @@ public class EnemySpawnerP1 : MonoBehaviour
         }
     }
 
+
+    public void InRecipeBook()
+    {
+        enemySpawnerALL.SetActive(false);
+        enemySpawnerRALL.SetActive(true);
+    }
+
+    public void NotInRecipeBook()
+    {
+        enemySpawnerALL.SetActive(true);
+        enemySpawnerRALL.SetActive(false);
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {

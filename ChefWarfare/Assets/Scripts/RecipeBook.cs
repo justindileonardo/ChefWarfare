@@ -6,7 +6,14 @@ using UnityEngine.UI;
 public class RecipeBook : MonoBehaviour
 {
 
-    public PlayerStatus myPlayerStatusScript;
+    private PlayerStatus myPlayerStatusScript;
+    private PlayerMovement myPlayerMovementScript;
+    private PlayerInventory myPlayerInventoryScript;
+
+    private EnemySpawnerP1 ESP1;
+    private EnemySpawnerP2 ESP2;
+    private EnemySpawnerP3 ESP3;
+    private EnemySpawnerP4 ESP4;
 
     public GameObject recipeBookImage;
 
@@ -20,6 +27,10 @@ public class RecipeBook : MonoBehaviour
     {
         onCookingStation = false;
         recipeBookImage.SetActive(false);
+        ESP1 = GameObject.Find("EnemySpawnerP1").GetComponent<EnemySpawnerP1>();
+        ESP2 = GameObject.Find("EnemySpawnerP2").GetComponent<EnemySpawnerP2>();
+        ESP3 = GameObject.Find("EnemySpawnerP3").GetComponent<EnemySpawnerP3>();
+        ESP4 = GameObject.Find("EnemySpawnerP4").GetComponent<EnemySpawnerP4>();
     }
 
     // Update is called once per frame
@@ -41,6 +52,28 @@ public class RecipeBook : MonoBehaviour
         recipeBookImage.SetActive(true);
         myPlayerStatusScript.canMove = false;
         myPlayerStatusScript.moveSpeed = 0;
+
+        if (myPlayerMovementScript.player1)
+        {
+            ESP1.InRecipeBook();
+            myPlayerInventoryScript.InRecipeBook();
+        }
+        else if (myPlayerMovementScript.player2)
+        {
+            ESP2.InRecipeBook();
+            myPlayerInventoryScript.InRecipeBook();
+        }
+        else if (myPlayerMovementScript.player3)
+        {
+            ESP3.InRecipeBook();
+            myPlayerInventoryScript.InRecipeBook();
+        }
+        else if (myPlayerMovementScript.player4)
+        {
+            ESP4.InRecipeBook();
+            myPlayerInventoryScript.InRecipeBook();
+        }
+
         yield return new WaitForSeconds(0.5f);
     }
 
@@ -51,6 +84,28 @@ public class RecipeBook : MonoBehaviour
         recipeBookImage.SetActive(false);
         myPlayerStatusScript.canMove = true;
         myPlayerStatusScript.moveSpeed = myPlayerStatusScript.moveSpeedDefault;
+
+        if (myPlayerMovementScript.player1)
+        {
+            ESP1.NotInRecipeBook();
+            myPlayerInventoryScript.NotInRecipeBook();
+        }
+        else if (myPlayerMovementScript.player2)
+        {
+            ESP2.NotInRecipeBook();
+            myPlayerInventoryScript.NotInRecipeBook();
+        }
+        else if (myPlayerMovementScript.player3)
+        {
+            ESP3.NotInRecipeBook();
+            myPlayerInventoryScript.NotInRecipeBook();
+        }
+        else if (myPlayerMovementScript.player4)
+        {
+            ESP4.NotInRecipeBook();
+            myPlayerInventoryScript.NotInRecipeBook();
+        }
+
         yield return new WaitForSeconds(0.5f);
     }
 
@@ -60,6 +115,9 @@ public class RecipeBook : MonoBehaviour
         {
             //sets the player when a player hits the cooking station
             myPlayerStatusScript = other.gameObject.GetComponent<PlayerStatus>();
+            myPlayerMovementScript = other.gameObject.GetComponent<PlayerMovement>();
+            myPlayerInventoryScript = other.gameObject.GetComponent<PlayerInventory>();
+
             //sets the input to correct player input
             if(other.gameObject.GetComponent<PlayerMovement>().isMac == false)
             {
