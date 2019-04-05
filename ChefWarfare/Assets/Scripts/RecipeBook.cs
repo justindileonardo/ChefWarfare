@@ -10,6 +10,8 @@ public class RecipeBook : MonoBehaviour
     private PlayerMovement myPlayerMovementScript;
     private PlayerInventory myPlayerInventoryScript;
 
+    private Vector3 playerStartPosWhenEnteringCookingStation;
+
     private EnemySpawnerP1 ESP1;
     private EnemySpawnerP2 ESP2;
     private EnemySpawnerP3 ESP3;
@@ -21,6 +23,7 @@ public class RecipeBook : MonoBehaviour
     private string inputB;
     private string inputA;
     [SerializeField] private bool onCookingStation;
+    private LevelLogic levelLogicScript;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +34,7 @@ public class RecipeBook : MonoBehaviour
         ESP2 = GameObject.Find("EnemySpawnerP2").GetComponent<EnemySpawnerP2>();
         ESP3 = GameObject.Find("EnemySpawnerP3").GetComponent<EnemySpawnerP3>();
         ESP4 = GameObject.Find("EnemySpawnerP4").GetComponent<EnemySpawnerP4>();
+        levelLogicScript = GameObject.Find("LevelLogic").GetComponent<LevelLogic>();
     }
 
     // Update is called once per frame
@@ -40,6 +44,12 @@ public class RecipeBook : MonoBehaviour
         if (onCookingStation == true && Input.GetButtonDown(inputB))
         {
             StartCoroutine(ExitCookingStationDelay());
+        }
+
+        if(onCookingStation == true)
+        {
+            myPlayerStatusScript.moveSpeed = 0;
+            myPlayerMovementScript.transform.position = playerStartPosWhenEnteringCookingStation;
         }
 
     }
@@ -52,26 +62,39 @@ public class RecipeBook : MonoBehaviour
         recipeBookImage.SetActive(true);
         myPlayerStatusScript.canMove = false;
         myPlayerStatusScript.moveSpeed = 0;
+        playerStartPosWhenEnteringCookingStation = myPlayerMovementScript.transform.position;
 
         if (myPlayerMovementScript.player1)
         {
             ESP1.InRecipeBook();
             myPlayerInventoryScript.InRecipeBook();
+            //makes first box highlighted
+            levelLogicScript.es1.SetSelectedGameObject(null);
+            levelLogicScript.es1.SetSelectedGameObject(levelLogicScript.es1_firstSelected);
         }
         else if (myPlayerMovementScript.player2)
         {
             ESP2.InRecipeBook();
             myPlayerInventoryScript.InRecipeBook();
+            //makes first box highlighted
+            levelLogicScript.es2.SetSelectedGameObject(null);
+            levelLogicScript.es2.SetSelectedGameObject(levelLogicScript.es2_firstSelected);
         }
         else if (myPlayerMovementScript.player3)
         {
             ESP3.InRecipeBook();
             myPlayerInventoryScript.InRecipeBook();
+            //makes first box highlighted
+            levelLogicScript.es3.SetSelectedGameObject(null);
+            levelLogicScript.es3.SetSelectedGameObject(levelLogicScript.es3_firstSelected);
         }
         else if (myPlayerMovementScript.player4)
         {
             ESP4.InRecipeBook();
             myPlayerInventoryScript.InRecipeBook();
+            //makes first box highlighted
+            levelLogicScript.es4.SetSelectedGameObject(null);
+            levelLogicScript.es4.SetSelectedGameObject(levelLogicScript.es4_firstSelected);
         }
 
         yield return new WaitForSeconds(0.5f);
@@ -107,6 +130,11 @@ public class RecipeBook : MonoBehaviour
         }
 
         yield return new WaitForSeconds(0.5f);
+    }
+
+    public void ExitCookingStationDelayFunction()
+    {
+        StartCoroutine(ExitCookingStationDelay());
     }
 
     void OnTriggerEnter2D(Collider2D other)

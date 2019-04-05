@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class LevelLogic : MonoBehaviour
 {
@@ -14,14 +15,24 @@ public class LevelLogic : MonoBehaviour
     public int scoreRed, scoreBlue, scoreGreen, scoreOrange;
     public Text scoreRedText, scoreBlueText, scoreGreenText, scoreOrangeText, TimeText, GameStateText;
 
-    //private variables
-
-
+    //Event System first button not highlighting initially
+    [HideInInspector] public EventSystem es1;
+    [HideInInspector] public EventSystem es2;
+    [HideInInspector] public EventSystem es3;
+    [HideInInspector] public EventSystem es4;
+    public GameObject es1_firstSelected;
+    public GameObject es2_firstSelected;
+    public GameObject es3_firstSelected;
+    public GameObject es4_firstSelected;
 
     // Start is called before the first frame update
     void Start()
     {
         RestartGame();
+        es1 = GameObject.Find("EventSystem1").GetComponent<EventSystem>();
+        es2 = GameObject.Find("EventSystem2").GetComponent<EventSystem>();
+        es3 = GameObject.Find("EventSystem3").GetComponent<EventSystem>();
+        es4 = GameObject.Find("EventSystem4").GetComponent<EventSystem>();
     }
 
     // Update is called once per frame

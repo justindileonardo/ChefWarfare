@@ -65,6 +65,10 @@ public class PlayerStatus : MonoBehaviour
     private Image GreenHitEffect_P3;
     private Image GreenHitEffect_P4;
 
+    private RecipeBook recipeBookScript_P1;
+    private RecipeBook recipeBookScript_P2;
+    private RecipeBook recipeBookScript_P3;
+    private RecipeBook recipeBookScript_P4;
 
     // Start is called before the first frame update
     void Start()
@@ -146,13 +150,47 @@ public class PlayerStatus : MonoBehaviour
         playerHPBarAppear_Timer_P2 = 0;
         playerHPBarAppear_Timer_P3 = 0;
         playerHPBarAppear_Timer_P4 = 0;
+
+        recipeBookScript_P1 = GameObject.Find("CraftingOven_S1").GetComponent<RecipeBook>();
+        recipeBookScript_P2 = GameObject.Find("CraftingOven_S2").GetComponent<RecipeBook>();
+        recipeBookScript_P3 = GameObject.Find("CraftingOven_S3").GetComponent<RecipeBook>();
+        recipeBookScript_P4 = GameObject.Find("CraftingOven_S4").GetComponent<RecipeBook>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        if(HP <= 0)
+        //makes it so when dead cant move
+        if(myPlayer.player1)
+        {
+            if (blackDeathScreenP1.enabled)
+            {
+                canMove = false;
+            }
+        }
+        if (myPlayer.player2)
+        {
+            if (blackDeathScreenP2.enabled)
+            {
+                canMove = false;
+            }
+        }
+        if (myPlayer.player3)
+        {
+            if (blackDeathScreenP3.enabled)
+            {
+                canMove = false;
+            }
+        }
+        if (myPlayer.player4)
+        {
+            if (blackDeathScreenP4.enabled)
+            {
+                canMove = false;
+            }
+        }
+
+        if (HP <= 0)
         {
             PlayerDie();
         }
@@ -243,6 +281,9 @@ public class PlayerStatus : MonoBehaviour
             if (hpStored < HP)
             {
                 StartCoroutine(PlayGreenHitScreen2());
+                //Player HP Bar Enabling
+                playerHPBarAppear_Timer_P2 = 3.0f;
+                canvasP2.enabled = true;
             }
             if (blackDeathScreenP2.enabled == true)
             {
@@ -284,6 +325,9 @@ public class PlayerStatus : MonoBehaviour
             if (hpStored < HP)
             {
                 StartCoroutine(PlayGreenHitScreen3());
+                //Player HP Bar Enabling
+                playerHPBarAppear_Timer_P3 = 3.0f;
+                canvasP3.enabled = true;
             }
             if (blackDeathScreenP3.enabled == true)
             {
@@ -325,6 +369,9 @@ public class PlayerStatus : MonoBehaviour
             if (hpStored < HP)
             {
                 StartCoroutine(PlayGreenHitScreen4());
+                //Player HP Bar Enabling
+                playerHPBarAppear_Timer_P4 = 3.0f;
+                canvasP4.enabled = true;
             }
             if (blackDeathScreenP4.enabled == true)
             {
@@ -405,6 +452,7 @@ public class PlayerStatus : MonoBehaviour
     {
         if (myPlayer.player1 == true)
         {
+            recipeBookScript_P1.ExitCookingStationDelayFunction();
             esP1.DestroyAllEnemies();
             esP1.enemySpawnerActive = false;
             esP1.enemyReadyToSpawn = false;
@@ -412,6 +460,7 @@ public class PlayerStatus : MonoBehaviour
         }
         else if (myPlayer.player2 == true)
         {
+            recipeBookScript_P2.ExitCookingStationDelayFunction();
             esP2.DestroyAllEnemies();
             esP2.enemySpawnerActive = false;
             esP2.enemyReadyToSpawn = false;
@@ -419,6 +468,7 @@ public class PlayerStatus : MonoBehaviour
         }
         else if (myPlayer.player3 == true)
         {
+            recipeBookScript_P3.ExitCookingStationDelayFunction();
             esP3.DestroyAllEnemies();
             esP3.enemySpawnerActive = false;
             esP3.enemyReadyToSpawn = false;
@@ -426,6 +476,7 @@ public class PlayerStatus : MonoBehaviour
         }
         else if (myPlayer.player4 == true)
         {
+            recipeBookScript_P4.ExitCookingStationDelayFunction();
             esP4.DestroyAllEnemies();
             esP4.enemySpawnerActive = false;
             esP4.enemyReadyToSpawn = false;
@@ -462,7 +513,19 @@ public class PlayerStatus : MonoBehaviour
         myPlayer.transform.position = myPlayer.respawnPosition;
         moveSpeed = 0;
         HP = 100;
-        yield return new WaitForSeconds(5.0f);
+        yield return new WaitForSeconds(0.25f);
+        moveSpeed = 0;
+        myPlayer.transform.position = myPlayer.respawnPosition;
+        yield return new WaitForSeconds(0.25f);
+        moveSpeed = 0;
+        myPlayer.transform.position = myPlayer.respawnPosition;
+        yield return new WaitForSeconds(0.25f);
+        moveSpeed = 0;
+        myPlayer.transform.position = myPlayer.respawnPosition;
+        yield return new WaitForSeconds(0.25f);
+        moveSpeed = 0;
+        myPlayer.transform.position = myPlayer.respawnPosition;
+        yield return new WaitForSeconds(4.0f);
         canMove = true;
         moveSpeed = moveSpeedDefault;
         HP = 100;
@@ -483,6 +546,7 @@ public class PlayerStatus : MonoBehaviour
         {
             blackDeathScreenP4.enabled = false;
         }
+        
     }
 
 }

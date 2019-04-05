@@ -18,10 +18,11 @@ public class OtherZoneDamagePlayer_S2 : MonoBehaviour
     {
         damageStationCollider = GetComponent<BoxCollider2D>();
         damageSpeed = 1.0f;
-        damageAmount = 10;
+        damageAmount = 16;
         damageTimer = 0;
         inDamageStation = false;
         damageStationColliderActive = true;
+        damageStationCollider.enabled = true;
     }
 
     // Update is called once per frame
