@@ -102,7 +102,7 @@ public class RecipeBook : MonoBehaviour
 
     IEnumerator ExitCookingStationDelay()
     {
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.2f);
         onCookingStation = false;
         recipeBookImage.SetActive(false);
         myPlayerStatusScript.canMove = true;

@@ -70,6 +70,12 @@ public class PlayerStatus : MonoBehaviour
     private RecipeBook recipeBookScript_P3;
     private RecipeBook recipeBookScript_P4;
 
+    private BlindEffect blindEffectScript;
+
+    public SpriteRenderer redChefHitEffect_Head;
+    public SpriteRenderer redChefHitEffect_Body;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -155,6 +161,12 @@ public class PlayerStatus : MonoBehaviour
         recipeBookScript_P2 = GameObject.Find("CraftingOven_S2").GetComponent<RecipeBook>();
         recipeBookScript_P3 = GameObject.Find("CraftingOven_S3").GetComponent<RecipeBook>();
         recipeBookScript_P4 = GameObject.Find("CraftingOven_S4").GetComponent<RecipeBook>();
+
+        blindEffectScript = GetComponent<BlindEffect>();
+
+        redChefHitEffect_Head.enabled = false;
+        redChefHitEffect_Body.enabled = false;
+
     }
 
     // Update is called once per frame
@@ -394,29 +406,45 @@ public class PlayerStatus : MonoBehaviour
     IEnumerator PlayRedHitScreen1()
     {
         RedHitEffect_P1.enabled = true;
+        redChefHitEffect_Head.enabled = true;
+        redChefHitEffect_Body.enabled = true;
         yield return new WaitForSeconds(0.25f);
         RedHitEffect_P1.enabled = false;
+        redChefHitEffect_Head.enabled = false;
+        redChefHitEffect_Body.enabled = false;
     }
 
     IEnumerator PlayRedHitScreen2()
     {
         RedHitEffect_P2.enabled = true;
+        redChefHitEffect_Head.enabled = true;
+        redChefHitEffect_Body.enabled = true;
         yield return new WaitForSeconds(0.25f);
         RedHitEffect_P2.enabled = false;
+        redChefHitEffect_Head.enabled = false;
+        redChefHitEffect_Body.enabled = false;
     }
 
     IEnumerator PlayRedHitScreen3()
     {
         RedHitEffect_P3.enabled = true;
+        redChefHitEffect_Head.enabled = true;
+        redChefHitEffect_Body.enabled = true;
         yield return new WaitForSeconds(0.25f);
         RedHitEffect_P3.enabled = false;
+        redChefHitEffect_Head.enabled = false;
+        redChefHitEffect_Body.enabled = false;
     }
 
     IEnumerator PlayRedHitScreen4()
     {
         RedHitEffect_P4.enabled = true;
+        redChefHitEffect_Head.enabled = true;
+        redChefHitEffect_Body.enabled = true;
         yield return new WaitForSeconds(0.25f);
         RedHitEffect_P4.enabled = false;
+        redChefHitEffect_Head.enabled = false;
+        redChefHitEffect_Body.enabled = false;
     }
 
     IEnumerator PlayGreenHitScreen1()
@@ -513,6 +541,8 @@ public class PlayerStatus : MonoBehaviour
         myPlayer.transform.position = myPlayer.respawnPosition;
         moveSpeed = 0;
         HP = 100;
+        blindEffectScript.blindEffectTimer = 0;
+        blindEffectScript.blindEffectSprite.SetActive(false);
         yield return new WaitForSeconds(0.25f);
         moveSpeed = 0;
         myPlayer.transform.position = myPlayer.respawnPosition;

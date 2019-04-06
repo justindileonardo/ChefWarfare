@@ -23,32 +23,32 @@ public class Cooking : MonoBehaviour
     private PlayerInventory playerInventoryScript_P3;
     private PlayerInventory playerInventoryScript_P4;
 
-    private int SR_bread;
-    private int SR_tomato;
+    [HideInInspector] public int SR_bread;
+    [HideInInspector] public int SR_tomato;
 
-    private int BR_bread;
-    private int BR_tomato;
+    [HideInInspector] public int BR_bread;
+    [HideInInspector] public int BR_tomato;
 
-    private int SG_bread;
-    private int SG_tomato;
+    [HideInInspector] public int SG_bread;
+    [HideInInspector] public int SG_tomato;
 
-    private int WC_spaghetti;
-    private int WC_cheese;
+    [HideInInspector] public int WC_spaghetti;
+    [HideInInspector] public int WC_cheese;
 
-    private int WO_spaghetti;
-    private int WO_onion;
+    [HideInInspector] public int WO_spaghetti;
+    [HideInInspector] public int WO_onion;
 
-    private int SS_tomato;
-    private int SS_cheese;
-    private int SS_onion;
+    [HideInInspector] public int SS_tomato;
+    [HideInInspector] public int SS_cheese;
+    [HideInInspector] public int SS_onion;
 
-    private int SD_tomato;
-    private int SD_cheese;
-    private int SD_onion;
+    [HideInInspector] public int SD_tomato;
+    [HideInInspector] public int SD_cheese;
+    [HideInInspector] public int SD_onion;
 
-    private int SH_tomato;
-    private int SH_cheese;
-    private int SH_onion;
+    [HideInInspector] public int SH_tomato;
+    [HideInInspector] public int SH_cheese;
+    [HideInInspector] public int SH_onion;
 
 
     private bool canCookSemiAutoRifle_P1;

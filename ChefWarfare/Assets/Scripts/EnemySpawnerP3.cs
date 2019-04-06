@@ -32,6 +32,9 @@ public class EnemySpawnerP3 : MonoBehaviour
     public GameObject enemySpawnerALL;
     public GameObject enemySpawnerRALL;
 
+    public GameObject enemySpawner_UI;
+    public GameObject resources_UI;
+
     public PlayerMovement playerMovementScript;
 
     public List<GameObject> EnemiesAliveInZone = new List<GameObject>();
@@ -57,6 +60,8 @@ public class EnemySpawnerP3 : MonoBehaviour
         enemySpawnLength = 3f;
         DestroyAllEnemies();
         NotInRecipeBook();
+        enemySpawner_UI.SetActive(true);
+        resources_UI.SetActive(true);
     }
 
     // Update is called once per frame
@@ -332,6 +337,8 @@ public class EnemySpawnerP3 : MonoBehaviour
         if (other.gameObject.name == "Player3" && inMyZone == false)
         {
             inMyZone = true;
+            enemySpawner_UI.SetActive(true);
+            resources_UI.SetActive(true);
         }
 
         //Enemy types, when enemy spawns
@@ -372,6 +379,8 @@ public class EnemySpawnerP3 : MonoBehaviour
         {
             inMyZone = false;
             enemySpawnerActive = false;
+            enemySpawner_UI.SetActive(false);
+            resources_UI.SetActive(false);
         }
 
         /*//Enemy types, when enemy dies

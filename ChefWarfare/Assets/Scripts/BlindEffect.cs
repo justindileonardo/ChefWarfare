@@ -5,13 +5,13 @@ using UnityEngine;
 public class BlindEffect : MonoBehaviour
 {
 
-    public SpriteRenderer blindEffectSprite;
+    public GameObject blindEffectSprite;
     public float blindEffectTimer;
 
     // Start is called before the first frame update
     void Start()
     {
-        blindEffectSprite.enabled = false;
+        blindEffectSprite.SetActive(false);
         blindEffectTimer = 0;
     }
 
@@ -22,11 +22,11 @@ public class BlindEffect : MonoBehaviour
         if(blindEffectTimer >= 0)
         {
             blindEffectTimer -= Time.deltaTime;
-            blindEffectSprite.enabled = true;
+            blindEffectSprite.SetActive(true);
         }
         else if(blindEffectTimer < 0)
         {
-            blindEffectSprite.enabled = false;
+            blindEffectSprite.SetActive(false);
         }
 
     }
