@@ -7,7 +7,7 @@ public class SpaghettiWhip_Cheese : MonoBehaviour
     //public variables
 
     //private variables
-    private int damage = 24;
+    private int damage = 20;
     private WeaponManager weaponManagerScript;
 
     // Start is called before the first frame update

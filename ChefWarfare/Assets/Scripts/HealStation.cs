@@ -9,15 +9,15 @@ public class HealStation : MonoBehaviour
     private float healSpeed;
     private int healAmount;
     private bool onHealStation;
-    private BoxCollider2D healStationCollider;
+    private CircleCollider2D healStationCollider;
     private bool healStationColliderActive;
 
     // Start is called before the first frame update
     void Start()
     {
-        healStationCollider = GetComponent<BoxCollider2D>();
+        healStationCollider = GetComponent<CircleCollider2D>();
         healSpeed = 1.0f;
-        healAmount = 12;
+        healAmount = 15;
         onHealStation = false;
         healTimer = 0;
         healStationCollider.enabled = true;

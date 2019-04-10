@@ -518,22 +518,22 @@ public class PlayerStatus : MonoBehaviour
         if(myPlayer.player1 == true)
         {
             blackDeathScreenP1.enabled = true;
-            levelLogicScript.scoreRed -= 5;
+            levelLogicScript.scoreRed -= 10;
         }
         else if(myPlayer.player2 == true)
         {
             blackDeathScreenP2.enabled = true;
-            levelLogicScript.scoreBlue -= 5;
+            levelLogicScript.scoreBlue -= 10;
         }
         else if (myPlayer.player3 == true)
         {
             blackDeathScreenP3.enabled = true;
-            levelLogicScript.scoreGreen -= 5;
+            levelLogicScript.scoreGreen -= 10;
         }
         else if (myPlayer.player4 == true)
         {
             blackDeathScreenP4.enabled = true;
-            levelLogicScript.scoreOrange -= 5;
+            levelLogicScript.scoreOrange -= 10;
         }
         yield return new WaitForEndOfFrame();
         //yield return new WaitForSeconds(.01f);

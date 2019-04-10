@@ -9,6 +9,8 @@ public class PlayerInventory : MonoBehaviour
 
     private PlayerMovement myPlayerMovementScript;
     private Cooking cookingScript;
+    private WeaponManager weaponManagerScript;
+    private SpecialManager specialManagerScript;
 
     public int breadCount;
     public int spaghettiCount;
@@ -71,11 +73,45 @@ public class PlayerInventory : MonoBehaviour
     public Image or8_2;
     public Image or8_3;
 
+
+    public GameObject RecipeStatus_SR;
+    public GameObject RecipeStatus_BR;
+    public GameObject RecipeStatus_SG;
+    public GameObject RecipeStatus_WC;
+    public GameObject RecipeStatus_WO;
+    public GameObject RecipeStatus_SS;
+    public GameObject RecipeStatus_SD;
+    public GameObject RecipeStatus_SH;
+
+    public Transform firstPos;
+    public Transform secondPos;
+    public Transform thirdPos;
+    public Transform fourthPos;
+    public Transform fifthPos;
+
+    private bool firstSpotTaken;
+    private bool secondSpotTaken;
+    private bool thirdSpotTaken;
+    private bool fourthSpotTaken;
+    private bool fifthSpotTaken;
+
+    private bool playerAlreadyShown_SR;
+    private bool playerAlreadyShown_BR;
+    private bool playerAlreadyShown_SG;
+    private bool playerAlreadyShown_WC;
+    private bool playerAlreadyShown_WO;
+    private bool playerAlreadyShown_SS;
+    private bool playerAlreadyShown_SD;
+    private bool playerAlreadyShown_SH;
+
+
     // Start is called before the first frame update
     void Start()
     {
         myPlayerMovementScript = GetComponent<PlayerMovement>();
         cookingScript = GameObject.Find("CookingScript").GetComponent<Cooking>();
+        weaponManagerScript = GetComponent<WeaponManager>();
+        specialManagerScript = GetComponent<SpecialManager>();
 
         /*breadCount = 0;           TESTING
         tomatoCount = 0;
@@ -124,6 +160,25 @@ public class PlayerInventory : MonoBehaviour
         or8_1.enabled = true;
         or8_2.enabled = true;
         or8_3.enabled = true;
+
+        RecipeStatus_SR.SetActive(false);
+        RecipeStatus_BR.SetActive(false);
+        RecipeStatus_SG.SetActive(false);
+        RecipeStatus_WC.SetActive(false);
+        RecipeStatus_WO.SetActive(false);
+        RecipeStatus_SS.SetActive(false);
+        RecipeStatus_SD.SetActive(false);
+        RecipeStatus_SH.SetActive(false);
+
+        playerAlreadyShown_SR = false;
+        playerAlreadyShown_BR = false;
+        playerAlreadyShown_SG = false;
+        playerAlreadyShown_WC = false;
+        playerAlreadyShown_WO = false;
+        playerAlreadyShown_SS = false;
+        playerAlreadyShown_SD = false;
+        playerAlreadyShown_SH = false;
+
     }
 
     // Update is called once per frame
@@ -142,6 +197,9 @@ public class PlayerInventory : MonoBehaviour
 
 
         UpdateRecipeBookBoxOutlineColors();
+
+        UpdateAlreadyShowns();
+
 
     }
 
@@ -389,32 +447,996 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
+    public void UpdateAlreadyShowns()
+    {
+        //this is to allow the recipe status again if the player crafts something but it is not the item that is ready again
+        //Semi Auto Rifle
+        if (weaponManagerScript.hasWeapon_SemiAutoRifle == false)
+        {
+            if (breadCount < cookingScript.SR_bread || tomatoCount < cookingScript.SR_tomato)
+            {
+                playerAlreadyShown_SR = false;
+            }
+        }
+        //Burst Rifle
+        if (weaponManagerScript.hasWeapon_BurstRifle == false)
+        {
+            if (breadCount < cookingScript.BR_bread || tomatoCount < cookingScript.BR_tomato)
+            {
+                playerAlreadyShown_BR = false;
+            }
+        }
+        //Shotgun
+        if (weaponManagerScript.hasWeapon_Shotgun == false)
+        {
+            if (breadCount < cookingScript.SG_bread || tomatoCount < cookingScript.SG_tomato)
+            {
+                playerAlreadyShown_SG = false;
+            }
+        }
+        //Whip Cheese
+        if (weaponManagerScript.hasWeapon_SpaghettiWhipCheese == false)
+        {
+            if (spaghettiCount < cookingScript.WC_spaghetti || cheeseCount < cookingScript.WC_cheese)
+            {
+                playerAlreadyShown_WC = false;
+            }
+        }
+        //Whip Onion
+        if (weaponManagerScript.hasWeapon_SpaghettiWhipOnion == false)
+        {
+            if (spaghettiCount < cookingScript.WO_spaghetti || onionCount < cookingScript.WO_onion)
+            {
+                playerAlreadyShown_WO = false;
+            }
+        }
+        //Shake Speed
+        if (specialManagerScript.hasSnack_SpeedBoost == false)
+        {
+            if (tomatoCount < cookingScript.SS_tomato || onionCount < cookingScript.SS_onion || cheeseCount < cookingScript.SS_cheese)
+            {
+                playerAlreadyShown_SS = false;
+            }
+        }
+        //Shake Damage
+        if (specialManagerScript.hasSnack_DamageBoost == false)
+        {
+            if (tomatoCount < cookingScript.SD_tomato || onionCount < cookingScript.SD_onion || cheeseCount < cookingScript.SD_cheese)
+            {
+                playerAlreadyShown_SD = false;
+            }
+        }
+        //Shake Health
+        if (specialManagerScript.hasSnack_HealthBoost == false)
+        {
+            if (tomatoCount < cookingScript.SH_tomato || onionCount < cookingScript.SH_onion || cheeseCount < cookingScript.SH_cheese)
+            {
+                playerAlreadyShown_SH = false;
+            }
+        }
+    }
+
+    IEnumerator UpdateRecipeStatus_SemiAutoRifle()
+    {
+        int spotTaken;
+        //this checks if the position is taken and if not, puts it there on player screen
+        if(firstSpotTaken == false)
+        {
+            RecipeStatus_SR.transform.position = firstPos.transform.position;
+            firstSpotTaken = true;
+            spotTaken = 1;
+        }
+        else 
+        {
+            if(secondSpotTaken == false)
+            {
+                RecipeStatus_SR.transform.position = secondPos.transform.position;
+                secondSpotTaken = true;
+                spotTaken = 2;
+            }
+            else
+            {
+                if(thirdSpotTaken == false)
+                {
+                    RecipeStatus_SR.transform.position = thirdPos.transform.position;
+                    thirdSpotTaken = true;
+                    spotTaken = 3;
+                }
+                else
+                {
+                    if(fourthSpotTaken == false)
+                    {
+                        RecipeStatus_SR.transform.position = fourthPos.transform.position;
+                        fourthSpotTaken = true;
+                        spotTaken = 4;
+                    }
+                    else
+                    {
+                        if(fifthSpotTaken == false)
+                        {
+                            RecipeStatus_SR.transform.position = fifthPos.transform.position;
+                            fifthSpotTaken = true;
+                            spotTaken = 5;
+                        }
+                        else
+                        {
+                            RecipeStatus_SR.transform.position = firstPos.transform.position;
+                            firstSpotTaken = true;
+                            spotTaken = 1;
+                        }
+                    }
+                }
+            }
+        }
+        //Every Half second it blinks on, then quarter second off, then stays on for four and a half seconds, then turns off
+        RecipeStatus_SR.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        RecipeStatus_SR.SetActive(false);
+        yield return new WaitForSeconds(0.25f);
+        RecipeStatus_SR.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        RecipeStatus_SR.SetActive(false);
+        yield return new WaitForSeconds(0.25f);
+        RecipeStatus_SR.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        RecipeStatus_SR.SetActive(false);
+        yield return new WaitForSeconds(0.25f);
+        RecipeStatus_SR.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        RecipeStatus_SR.SetActive(false);
+        yield return new WaitForSeconds(0.25f);
+        RecipeStatus_SR.SetActive(true);
+        yield return new WaitForSeconds(4.5f);
+        RecipeStatus_SR.SetActive(false);
+
+        //this makes the bool false so another resource can go in that spot when it goes away
+        if (spotTaken == 1)
+        {
+            firstSpotTaken = false;
+        }
+        else if (spotTaken == 2)
+        {
+            secondSpotTaken = false;
+        }
+        else if(spotTaken == 3)
+        {
+            thirdSpotTaken = false;
+        }
+        else if (spotTaken == 4)
+        {
+            fourthSpotTaken = false;
+        }
+        else if (spotTaken == 5)
+        {
+            fifthSpotTaken = false;
+        }
+
+    }
+
+    IEnumerator UpdateRecipeStatus_BurstRifle()
+    {
+        int spotTaken;
+        //this checks if the position is taken and if not, puts it there on player screen
+        if (firstSpotTaken == false)
+        {
+            RecipeStatus_BR.transform.position = firstPos.transform.position;
+            firstSpotTaken = true;
+            spotTaken = 1;
+        }
+        else
+        {
+            if (secondSpotTaken == false)
+            {
+                RecipeStatus_BR.transform.position = secondPos.transform.position;
+                secondSpotTaken = true;
+                spotTaken = 2;
+            }
+            else
+            {
+                if (thirdSpotTaken == false)
+                {
+                    RecipeStatus_BR.transform.position = thirdPos.transform.position;
+                    thirdSpotTaken = true;
+                    spotTaken = 3;
+                }
+                else
+                {
+                    if (fourthSpotTaken == false)
+                    {
+                        RecipeStatus_BR.transform.position = fourthPos.transform.position;
+                        fourthSpotTaken = true;
+                        spotTaken = 4;
+                    }
+                    else
+                    {
+                        if (fifthSpotTaken == false)
+                        {
+                            RecipeStatus_BR.transform.position = fifthPos.transform.position;
+                            fifthSpotTaken = true;
+                            spotTaken = 5;
+                        }
+                        else
+                        {
+                            RecipeStatus_BR.transform.position = firstPos.transform.position;
+                            firstSpotTaken = true;
+                            spotTaken = 1;
+                        }
+                    }
+                }
+            }
+        }
+        //Every Half second it blinks on, then quarter second off, then stays on for four and a half seconds, then turns off
+        RecipeStatus_BR.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        RecipeStatus_BR.SetActive(false);
+        yield return new WaitForSeconds(0.25f);
+        RecipeStatus_BR.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        RecipeStatus_BR.SetActive(false);
+        yield return new WaitForSeconds(0.25f);
+        RecipeStatus_BR.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        RecipeStatus_BR.SetActive(false);
+        yield return new WaitForSeconds(0.25f);
+        RecipeStatus_BR.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        RecipeStatus_BR.SetActive(false);
+        yield return new WaitForSeconds(0.25f);
+        RecipeStatus_BR.SetActive(true);
+        yield return new WaitForSeconds(4.5f);
+        RecipeStatus_BR.SetActive(false);
+
+        //this makes the bool false so another resource can go in that spot when it goes away
+        if (spotTaken == 1)
+        {
+            firstSpotTaken = false;
+        }
+        else if (spotTaken == 2)
+        {
+            secondSpotTaken = false;
+        }
+        else if (spotTaken == 3)
+        {
+            thirdSpotTaken = false;
+        }
+        else if (spotTaken == 4)
+        {
+            fourthSpotTaken = false;
+        }
+        else if (spotTaken == 5)
+        {
+            fifthSpotTaken = false;
+        }
+
+    }
+
+    IEnumerator UpdateRecipeStatusShotgun()
+    {
+        int spotTaken;
+        //this checks if the position is taken and if not, puts it there on player screen
+        if (firstSpotTaken == false)
+        {
+            RecipeStatus_SG.transform.position = firstPos.transform.position;
+            firstSpotTaken = true;
+            spotTaken = 1;
+        }
+        else
+        {
+            if (secondSpotTaken == false)
+            {
+                RecipeStatus_SG.transform.position = secondPos.transform.position;
+                secondSpotTaken = true;
+                spotTaken = 2;
+            }
+            else
+            {
+                if (thirdSpotTaken == false)
+                {
+                    RecipeStatus_SG.transform.position = thirdPos.transform.position;
+                    thirdSpotTaken = true;
+                    spotTaken = 3;
+                }
+                else
+                {
+                    if (fourthSpotTaken == false)
+                    {
+                        RecipeStatus_SG.transform.position = fourthPos.transform.position;
+                        fourthSpotTaken = true;
+                        spotTaken = 4;
+                    }
+                    else
+                    {
+                        if (fifthSpotTaken == false)
+                        {
+                            RecipeStatus_SG.transform.position = fifthPos.transform.position;
+                            fifthSpotTaken = true;
+                            spotTaken = 5;
+                        }
+                        else
+                        {
+                            RecipeStatus_SG.transform.position = firstPos.transform.position;
+                            firstSpotTaken = true;
+                            spotTaken = 1;
+                        }
+                    }
+                }
+            }
+        }
+        //Every Half second it blinks on, then quarter second off, then stays on for four and a half seconds, then turns off
+        RecipeStatus_SG.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        RecipeStatus_SG.SetActive(false);
+        yield return new WaitForSeconds(0.25f);
+        RecipeStatus_SG.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        RecipeStatus_SG.SetActive(false);
+        yield return new WaitForSeconds(0.25f);
+        RecipeStatus_SG.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        RecipeStatus_SG.SetActive(false);
+        yield return new WaitForSeconds(0.25f);
+        RecipeStatus_SG.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        RecipeStatus_SG.SetActive(false);
+        yield return new WaitForSeconds(0.25f);
+        RecipeStatus_SG.SetActive(true);
+        yield return new WaitForSeconds(4.5f);
+        RecipeStatus_SG.SetActive(false);
+
+        //this makes the bool false so another resource can go in that spot when it goes away
+        if (spotTaken == 1)
+        {
+            firstSpotTaken = false;
+        }
+        else if (spotTaken == 2)
+        {
+            secondSpotTaken = false;
+        }
+        else if (spotTaken == 3)
+        {
+            thirdSpotTaken = false;
+        }
+        else if (spotTaken == 4)
+        {
+            fourthSpotTaken = false;
+        }
+        else if (spotTaken == 5)
+        {
+            fifthSpotTaken = false;
+        }
+
+    }
+
+    IEnumerator UpdateRecipeStatus_WhipCheese()
+    {
+        int spotTaken;
+        //this checks if the position is taken and if not, puts it there on player screen
+        if (firstSpotTaken == false)
+        {
+            RecipeStatus_WC.transform.position = firstPos.transform.position;
+            firstSpotTaken = true;
+            spotTaken = 1;
+        }
+        else
+        {
+            if (secondSpotTaken == false)
+            {
+                RecipeStatus_WC.transform.position = secondPos.transform.position;
+                secondSpotTaken = true;
+                spotTaken = 2;
+            }
+            else
+            {
+                if (thirdSpotTaken == false)
+                {
+                    RecipeStatus_WC.transform.position = thirdPos.transform.position;
+                    thirdSpotTaken = true;
+                    spotTaken = 3;
+                }
+                else
+                {
+                    if (fourthSpotTaken == false)
+                    {
+                        RecipeStatus_WC.transform.position = fourthPos.transform.position;
+                        fourthSpotTaken = true;
+                        spotTaken = 4;
+                    }
+                    else
+                    {
+                        if (fifthSpotTaken == false)
+                        {
+                            RecipeStatus_WC.transform.position = fifthPos.transform.position;
+                            fifthSpotTaken = true;
+                            spotTaken = 5;
+                        }
+                        else
+                        {
+                            RecipeStatus_WC.transform.position = firstPos.transform.position;
+                            firstSpotTaken = true;
+                            spotTaken = 1;
+                        }
+                    }
+                }
+            }
+        }
+        //Every Half second it blinks on, then quarter second off, then stays on for four and a half seconds, then turns off
+        RecipeStatus_WC.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        RecipeStatus_WC.SetActive(false);
+        yield return new WaitForSeconds(0.25f);
+        RecipeStatus_WC.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        RecipeStatus_WC.SetActive(false);
+        yield return new WaitForSeconds(0.25f);
+        RecipeStatus_WC.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        RecipeStatus_WC.SetActive(false);
+        yield return new WaitForSeconds(0.25f);
+        RecipeStatus_WC.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        RecipeStatus_WC.SetActive(false);
+        yield return new WaitForSeconds(0.25f);
+        RecipeStatus_WC.SetActive(true);
+        yield return new WaitForSeconds(4.5f);
+        RecipeStatus_WC.SetActive(false);
+
+        //this makes the bool false so another resource can go in that spot when it goes away
+        if (spotTaken == 1)
+        {
+            firstSpotTaken = false;
+        }
+        else if (spotTaken == 2)
+        {
+            secondSpotTaken = false;
+        }
+        else if (spotTaken == 3)
+        {
+            thirdSpotTaken = false;
+        }
+        else if (spotTaken == 4)
+        {
+            fourthSpotTaken = false;
+        }
+        else if (spotTaken == 5)
+        {
+            fifthSpotTaken = false;
+        }
+
+    }
+
+    IEnumerator UpdateRecipeStatus_WhipOnion()
+    {
+        int spotTaken;
+        //this checks if the position is taken and if not, puts it there on player screen
+        if (firstSpotTaken == false)
+        {
+            RecipeStatus_WO.transform.position = firstPos.transform.position;
+            firstSpotTaken = true;
+            spotTaken = 1;
+        }
+        else
+        {
+            if (secondSpotTaken == false)
+            {
+                RecipeStatus_WO.transform.position = secondPos.transform.position;
+                secondSpotTaken = true;
+                spotTaken = 2;
+            }
+            else
+            {
+                if (thirdSpotTaken == false)
+                {
+                    RecipeStatus_WO.transform.position = thirdPos.transform.position;
+                    thirdSpotTaken = true;
+                    spotTaken = 3;
+                }
+                else
+                {
+                    if (fourthSpotTaken == false)
+                    {
+                        RecipeStatus_WO.transform.position = fourthPos.transform.position;
+                        fourthSpotTaken = true;
+                        spotTaken = 4;
+                    }
+                    else
+                    {
+                        if (fifthSpotTaken == false)
+                        {
+                            RecipeStatus_WO.transform.position = fifthPos.transform.position;
+                            fifthSpotTaken = true;
+                            spotTaken = 5;
+                        }
+                        else
+                        {
+                            RecipeStatus_WO.transform.position = firstPos.transform.position;
+                            firstSpotTaken = true;
+                            spotTaken = 1;
+                        }
+                    }
+                }
+            }
+        }
+        //Every Half second it blinks on, then quarter second off, then stays on for four and a half seconds, then turns off
+        RecipeStatus_WO.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        RecipeStatus_WO.SetActive(false);
+        yield return new WaitForSeconds(0.25f);
+        RecipeStatus_WO.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        RecipeStatus_WO.SetActive(false);
+        yield return new WaitForSeconds(0.25f);
+        RecipeStatus_WO.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        RecipeStatus_WO.SetActive(false);
+        yield return new WaitForSeconds(0.25f);
+        RecipeStatus_WO.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        RecipeStatus_WO.SetActive(false);
+        yield return new WaitForSeconds(0.25f);
+        RecipeStatus_WO.SetActive(true);
+        yield return new WaitForSeconds(4.5f);
+        RecipeStatus_WO.SetActive(false);
+
+        //this makes the bool false so another resource can go in that spot when it goes away
+        if (spotTaken == 1)
+        {
+            firstSpotTaken = false;
+        }
+        else if (spotTaken == 2)
+        {
+            secondSpotTaken = false;
+        }
+        else if (spotTaken == 3)
+        {
+            thirdSpotTaken = false;
+        }
+        else if (spotTaken == 4)
+        {
+            fourthSpotTaken = false;
+        }
+        else if (spotTaken == 5)
+        {
+            fifthSpotTaken = false;
+        }
+
+    }
+
+    IEnumerator UpdateRecipeStatus_ShakeSpeed()
+    {
+        int spotTaken;
+        //this checks if the position is taken and if not, puts it there on player screen
+        if (firstSpotTaken == false)
+        {
+            RecipeStatus_SS.transform.position = firstPos.transform.position;
+            firstSpotTaken = true;
+            spotTaken = 1;
+        }
+        else
+        {
+            if (secondSpotTaken == false)
+            {
+                RecipeStatus_SS.transform.position = secondPos.transform.position;
+                secondSpotTaken = true;
+                spotTaken = 2;
+            }
+            else
+            {
+                if (thirdSpotTaken == false)
+                {
+                    RecipeStatus_SS.transform.position = thirdPos.transform.position;
+                    thirdSpotTaken = true;
+                    spotTaken = 3;
+                }
+                else
+                {
+                    if (fourthSpotTaken == false)
+                    {
+                        RecipeStatus_SS.transform.position = fourthPos.transform.position;
+                        fourthSpotTaken = true;
+                        spotTaken = 4;
+                    }
+                    else
+                    {
+                        if (fifthSpotTaken == false)
+                        {
+                            RecipeStatus_SS.transform.position = fifthPos.transform.position;
+                            fifthSpotTaken = true;
+                            spotTaken = 5;
+                        }
+                        else
+                        {
+                            RecipeStatus_SS.transform.position = firstPos.transform.position;
+                            firstSpotTaken = true;
+                            spotTaken = 1;
+                        }
+                    }
+                }
+            }
+        }
+        //Every Half second it blinks on, then quarter second off, then stays on for four and a half seconds, then turns off
+        RecipeStatus_SS.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        RecipeStatus_SS.SetActive(false);
+        yield return new WaitForSeconds(0.25f);
+        RecipeStatus_SS.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        RecipeStatus_SS.SetActive(false);
+        yield return new WaitForSeconds(0.25f);
+        RecipeStatus_SS.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        RecipeStatus_SS.SetActive(false);
+        yield return new WaitForSeconds(0.25f);
+        RecipeStatus_SS.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        RecipeStatus_SS.SetActive(false);
+        yield return new WaitForSeconds(0.25f);
+        RecipeStatus_SS.SetActive(true);
+        yield return new WaitForSeconds(4.5f);
+        RecipeStatus_SS.SetActive(false);
+
+        //this makes the bool false so another resource can go in that spot when it goes away
+        if (spotTaken == 1)
+        {
+            firstSpotTaken = false;
+        }
+        else if (spotTaken == 2)
+        {
+            secondSpotTaken = false;
+        }
+        else if (spotTaken == 3)
+        {
+            thirdSpotTaken = false;
+        }
+        else if (spotTaken == 4)
+        {
+            fourthSpotTaken = false;
+        }
+        else if (spotTaken == 5)
+        {
+            fifthSpotTaken = false;
+        }
+
+    }
+
+    IEnumerator UpdateRecipeStatus_ShakeDamage()
+    {
+        int spotTaken;
+        //this checks if the position is taken and if not, puts it there on player screen
+        if (firstSpotTaken == false)
+        {
+            RecipeStatus_SD.transform.position = firstPos.transform.position;
+            firstSpotTaken = true;
+            spotTaken = 1;
+        }
+        else
+        {
+            if (secondSpotTaken == false)
+            {
+                RecipeStatus_SD.transform.position = secondPos.transform.position;
+                secondSpotTaken = true;
+                spotTaken = 2;
+            }
+            else
+            {
+                if (thirdSpotTaken == false)
+                {
+                    RecipeStatus_SD.transform.position = thirdPos.transform.position;
+                    thirdSpotTaken = true;
+                    spotTaken = 3;
+                }
+                else
+                {
+                    if (fourthSpotTaken == false)
+                    {
+                        RecipeStatus_SD.transform.position = fourthPos.transform.position;
+                        fourthSpotTaken = true;
+                        spotTaken = 4;
+                    }
+                    else
+                    {
+                        if (fifthSpotTaken == false)
+                        {
+                            RecipeStatus_SD.transform.position = fifthPos.transform.position;
+                            fifthSpotTaken = true;
+                            spotTaken = 5;
+                        }
+                        else
+                        {
+                            RecipeStatus_SD.transform.position = firstPos.transform.position;
+                            firstSpotTaken = true;
+                            spotTaken = 1;
+                        }
+                    }
+                }
+            }
+        }
+        //Every Half second it blinks on, then quarter second off, then stays on for four and a half seconds, then turns off
+        RecipeStatus_SD.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        RecipeStatus_SD.SetActive(false);
+        yield return new WaitForSeconds(0.25f);
+        RecipeStatus_SD.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        RecipeStatus_SD.SetActive(false);
+        yield return new WaitForSeconds(0.25f);
+        RecipeStatus_SD.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        RecipeStatus_SD.SetActive(false);
+        yield return new WaitForSeconds(0.25f);
+        RecipeStatus_SD.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        RecipeStatus_SD.SetActive(false);
+        yield return new WaitForSeconds(0.25f);
+        RecipeStatus_SD.SetActive(true);
+        yield return new WaitForSeconds(4.5f);
+        RecipeStatus_SD.SetActive(false);
+
+        //this makes the bool false so another resource can go in that spot when it goes away
+        if (spotTaken == 1)
+        {
+            firstSpotTaken = false;
+        }
+        else if (spotTaken == 2)
+        {
+            secondSpotTaken = false;
+        }
+        else if (spotTaken == 3)
+        {
+            thirdSpotTaken = false;
+        }
+        else if (spotTaken == 4)
+        {
+            fourthSpotTaken = false;
+        }
+        else if (spotTaken == 5)
+        {
+            fifthSpotTaken = false;
+        }
+
+    }
+
+    IEnumerator UpdateRecipeStatus_ShakeHealth()
+    {
+        int spotTaken;
+        //this checks if the position is taken and if not, puts it there on player screen
+        if (firstSpotTaken == false)
+        {
+            RecipeStatus_SH.transform.position = firstPos.transform.position;
+            firstSpotTaken = true;
+            spotTaken = 1;
+        }
+        else
+        {
+            if (secondSpotTaken == false)
+            {
+                RecipeStatus_SH.transform.position = secondPos.transform.position;
+                secondSpotTaken = true;
+                spotTaken = 2;
+            }
+            else
+            {
+                if (thirdSpotTaken == false)
+                {
+                    RecipeStatus_SH.transform.position = thirdPos.transform.position;
+                    thirdSpotTaken = true;
+                    spotTaken = 3;
+                }
+                else
+                {
+                    if (fourthSpotTaken == false)
+                    {
+                        RecipeStatus_SH.transform.position = fourthPos.transform.position;
+                        fourthSpotTaken = true;
+                        spotTaken = 4;
+                    }
+                    else
+                    {
+                        if (fifthSpotTaken == false)
+                        {
+                            RecipeStatus_SH.transform.position = fifthPos.transform.position;
+                            fifthSpotTaken = true;
+                            spotTaken = 5;
+                        }
+                        else
+                        {
+                            RecipeStatus_SH.transform.position = firstPos.transform.position;
+                            firstSpotTaken = true;
+                            spotTaken = 1;
+                        }
+                    }
+                }
+            }
+        }
+        //Every Half second it blinks on, then quarter second off, then stays on for four and a half seconds, then turns off
+        RecipeStatus_SH.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        RecipeStatus_SH.SetActive(false);
+        yield return new WaitForSeconds(0.25f);
+        RecipeStatus_SH.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        RecipeStatus_SH.SetActive(false);
+        yield return new WaitForSeconds(0.25f);
+        RecipeStatus_SH.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        RecipeStatus_SH.SetActive(false);
+        yield return new WaitForSeconds(0.25f);
+        RecipeStatus_SH.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        RecipeStatus_SH.SetActive(false);
+        yield return new WaitForSeconds(0.25f);
+        RecipeStatus_SH.SetActive(true);
+        yield return new WaitForSeconds(4.5f);
+        RecipeStatus_SH.SetActive(false);
+
+        //this makes the bool false so another resource can go in that spot when it goes away
+        if (spotTaken == 1)
+        {
+            firstSpotTaken = false;
+        }
+        else if (spotTaken == 2)
+        {
+            secondSpotTaken = false;
+        }
+        else if (spotTaken == 3)
+        {
+            thirdSpotTaken = false;
+        }
+        else if (spotTaken == 4)
+        {
+            fourthSpotTaken = false;
+        }
+        else if (spotTaken == 5)
+        {
+            fifthSpotTaken = false;
+        }
+
+    }
+
     void OnCollisionEnter2D(Collision2D other)
     {
         if(other.gameObject.tag == "Resource_Bread")
         {
             Destroy(other.gameObject);
             breadCount++;
+
+            //Semi Auto Rifle
+            if(weaponManagerScript.hasWeapon_SemiAutoRifle == false && playerAlreadyShown_SR == false && breadCount >= cookingScript.SR_bread && tomatoCount >= cookingScript.SR_tomato)
+            {
+                StartCoroutine(UpdateRecipeStatus_SemiAutoRifle());
+                playerAlreadyShown_SR = true;
+            }
+            //Burst Rifle
+            if(weaponManagerScript.hasWeapon_BurstRifle == false && playerAlreadyShown_BR == false && breadCount >= cookingScript.BR_bread && tomatoCount >= cookingScript.BR_tomato)
+            {
+                StartCoroutine(UpdateRecipeStatus_BurstRifle());
+                playerAlreadyShown_BR = true;
+            }
+            //Shotgun
+            if(weaponManagerScript.hasWeapon_Shotgun == false && playerAlreadyShown_SG == false && breadCount >= cookingScript.SG_bread && tomatoCount >= cookingScript.SG_tomato)
+            {
+                StartCoroutine(UpdateRecipeStatusShotgun());
+                playerAlreadyShown_SG = true;
+            }
         }
         if (other.gameObject.tag == "Resource_Tomato")
         {
             Destroy(other.gameObject);
             tomatoCount++;
+
+            //Semi Auto Rifle
+            if (weaponManagerScript.hasWeapon_SemiAutoRifle == false && playerAlreadyShown_SR == false && breadCount >= cookingScript.SR_bread && tomatoCount >= cookingScript.SR_tomato)
+            {
+                StartCoroutine(UpdateRecipeStatus_SemiAutoRifle());
+                playerAlreadyShown_SR = true;
+            }
+            //Burst Rifle
+            if (weaponManagerScript.hasWeapon_BurstRifle == false && playerAlreadyShown_BR == false && breadCount >= cookingScript.BR_bread && tomatoCount >= cookingScript.BR_tomato)
+            {
+                StartCoroutine(UpdateRecipeStatus_BurstRifle());
+                playerAlreadyShown_BR = true;
+            }
+            //Shotgun
+            if (weaponManagerScript.hasWeapon_Shotgun == false && playerAlreadyShown_SG == false && breadCount >= cookingScript.SG_bread && tomatoCount >= cookingScript.SG_tomato)
+            {
+                StartCoroutine(UpdateRecipeStatusShotgun());
+                playerAlreadyShown_SG = true;
+            }
+            //Shake Speed
+            if(specialManagerScript.hasSnack_SpeedBoost == false && playerAlreadyShown_SS == false && tomatoCount >= cookingScript.SS_tomato && cheeseCount >= cookingScript.SS_cheese && onionCount >= cookingScript.SS_onion)
+            {
+                StartCoroutine(UpdateRecipeStatus_ShakeSpeed());
+                playerAlreadyShown_SS = true;
+            }
+            //Shake Damage
+            if (specialManagerScript.hasSnack_DamageBoost == false && playerAlreadyShown_SD == false && tomatoCount >= cookingScript.SD_tomato && cheeseCount >= cookingScript.SD_cheese && onionCount >= cookingScript.SD_onion)
+            {
+                StartCoroutine(UpdateRecipeStatus_ShakeDamage());
+                playerAlreadyShown_SD = true;
+            }
+            //Shake Health
+            if (specialManagerScript.hasSnack_HealthBoost == false && playerAlreadyShown_SH == false && tomatoCount >= cookingScript.SH_tomato && cheeseCount >= cookingScript.SH_cheese && onionCount >= cookingScript.SH_onion)
+            {
+                StartCoroutine(UpdateRecipeStatus_ShakeHealth());
+                playerAlreadyShown_SH = true;
+            }
         }
         if (other.gameObject.tag == "Resource_Spaghetti")
         {
             Destroy(other.gameObject);
             spaghettiCount++;
+
+            //Whip Cheese
+            if(weaponManagerScript.hasWeapon_SpaghettiWhipCheese == false && playerAlreadyShown_WC == false && spaghettiCount >= cookingScript.WC_spaghetti && cheeseCount >= cookingScript.WC_cheese)
+            {
+                StartCoroutine(UpdateRecipeStatus_WhipCheese());
+                playerAlreadyShown_WC = true;
+            }
+            //Whip Onion
+            if (weaponManagerScript.hasWeapon_SpaghettiWhipOnion == false && playerAlreadyShown_WO == false && spaghettiCount >= cookingScript.WO_spaghetti && onionCount >= cookingScript.WO_onion)
+            {
+                StartCoroutine(UpdateRecipeStatus_WhipOnion());
+                playerAlreadyShown_WO = true;
+            }
         }
         if(other.gameObject.tag == "Resource_Cheese")
         {
             Destroy(other.gameObject);
             cheeseCount++;
+
+            //Whip Cheese
+            if (weaponManagerScript.hasWeapon_SpaghettiWhipCheese == false && playerAlreadyShown_WC == false && spaghettiCount >= cookingScript.WC_spaghetti && cheeseCount >= cookingScript.WC_cheese)
+            {
+                StartCoroutine(UpdateRecipeStatus_WhipCheese());
+                playerAlreadyShown_WC = true;
+            }
+            //Shake Speed
+            if (specialManagerScript.hasSnack_SpeedBoost == false && playerAlreadyShown_SS == false && tomatoCount >= cookingScript.SS_tomato && cheeseCount >= cookingScript.SS_cheese && onionCount >= cookingScript.SS_onion)
+            {
+                StartCoroutine(UpdateRecipeStatus_ShakeSpeed());
+                playerAlreadyShown_SS = true;
+            }
+            //Shake Damage
+            if (specialManagerScript.hasSnack_DamageBoost == false && playerAlreadyShown_SD == false && tomatoCount >= cookingScript.SD_tomato && cheeseCount >= cookingScript.SD_cheese && onionCount >= cookingScript.SD_onion)
+            {
+                StartCoroutine(UpdateRecipeStatus_ShakeDamage());
+                playerAlreadyShown_SD = true;
+            }
+            //Shake Health
+            if (specialManagerScript.hasSnack_HealthBoost == false && playerAlreadyShown_SH == false && tomatoCount >= cookingScript.SH_tomato && cheeseCount >= cookingScript.SH_cheese && onionCount >= cookingScript.SH_onion)
+            {
+                StartCoroutine(UpdateRecipeStatus_ShakeHealth());
+                playerAlreadyShown_SH = true;
+            }
         }
         if(other.gameObject.tag == "Resource_Onion")
         {
             Destroy(other.gameObject);
             onionCount++;
+
+            //Whip Onion
+            if (weaponManagerScript.hasWeapon_SpaghettiWhipOnion == false && playerAlreadyShown_WO == false && spaghettiCount >= cookingScript.WO_spaghetti && onionCount >= cookingScript.WO_onion)
+            {
+                StartCoroutine(UpdateRecipeStatus_WhipOnion());
+                playerAlreadyShown_WO = true;
+            }
+            //Shake Speed
+            if (specialManagerScript.hasSnack_SpeedBoost == false && playerAlreadyShown_SS == false && tomatoCount >= cookingScript.SS_tomato && cheeseCount >= cookingScript.SS_cheese && onionCount >= cookingScript.SS_onion)
+            {
+                StartCoroutine(UpdateRecipeStatus_ShakeSpeed());
+                playerAlreadyShown_SS = true;
+            }
+            //Shake Damage
+            if (specialManagerScript.hasSnack_DamageBoost == false && playerAlreadyShown_SD == false && tomatoCount >= cookingScript.SD_tomato && cheeseCount >= cookingScript.SD_cheese && onionCount >= cookingScript.SD_onion)
+            {
+                StartCoroutine(UpdateRecipeStatus_ShakeDamage());
+                playerAlreadyShown_SD = true;
+            }
+            //Shake Health
+            if (specialManagerScript.hasSnack_HealthBoost == false && playerAlreadyShown_SH == false && tomatoCount >= cookingScript.SH_tomato && cheeseCount >= cookingScript.SH_cheese && onionCount >= cookingScript.SH_onion)
+            {
+                StartCoroutine(UpdateRecipeStatus_ShakeHealth());
+                playerAlreadyShown_SH = true;
+            }
         }
     }
 
