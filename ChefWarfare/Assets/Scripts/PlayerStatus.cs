@@ -11,6 +11,9 @@ public class PlayerStatus : MonoBehaviour
     public float moveSpeedDefault;
     public bool canMove;
 
+    //Audio
+    public AudioSource SFX_PlayerDie;
+
     //private variables
     private float moveSpeedEffectTimer;
     private float cheeseMoveSpeedSlowLength;
@@ -510,6 +513,7 @@ public class PlayerStatus : MonoBehaviour
             esP4.enemyReadyToSpawn = false;
             esP4.enemySpawnTimer = 0;
         }
+        SFX_PlayerDie.Play();
         StartCoroutine(Die());
     }
 

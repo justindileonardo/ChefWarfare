@@ -25,6 +25,13 @@ public class LevelLogic : MonoBehaviour
     public GameObject es3_firstSelected;
     public GameObject es4_firstSelected;
 
+    //Audio
+    public AudioSource SFX_10SecsAndWallsDrop;
+    public AudioSource SFX_10Secs;
+
+    private bool sfx_10sawd_played;
+    private bool sfx_10s_played;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -71,6 +78,16 @@ public class LevelLogic : MonoBehaviour
             scoreOrange = 0;
         }
 
+        //at 10 seconds before walls...
+        if((int)gameTimerPre == 10f)
+        {
+            if(wallsDropped == false && sfx_10sawd_played == false)
+            {
+                sfx_10sawd_played = true;
+                SFX_10SecsAndWallsDrop.Play();
+            }
+        }
+
         //at 5 minutes passed...
         if ((int)gameTimerPre == 0f)
         {
@@ -79,6 +96,16 @@ public class LevelLogic : MonoBehaviour
             {
                 temporaryWalls.SetActive(false);
                 wallsDropped = true;
+            }
+        }
+
+        //at 10 seconds left in game...
+        if((int)gameTimerPost == 10f)
+        {
+            if(sfx_10s_played == false)
+            {
+                sfx_10s_played = true;
+                SFX_10Secs.Play();
             }
         }
 
@@ -106,6 +133,8 @@ public class LevelLogic : MonoBehaviour
         scoreBlue = 0;
         scoreGreen = 0;
         scoreOrange = 0;
+        sfx_10sawd_played = false;
+        sfx_10s_played = false;
     }
 
     public void EndGame()

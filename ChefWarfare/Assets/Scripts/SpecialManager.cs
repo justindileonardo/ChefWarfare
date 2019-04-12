@@ -29,6 +29,8 @@ public class SpecialManager : MonoBehaviour
     public GameObject snack_HealthBoost_ParticleSystem;
     public bool hasSnack_HealthBoost;
 
+    //Audio
+    public AudioSource SFX_drinkShake;
 
 
     //private variables
@@ -370,6 +372,7 @@ public class SpecialManager : MonoBehaviour
                 snack_SpeedBoost.enabled = true;
                 snack_SpeedBoost_ParticleSystem.SetActive(true);
                 playerStatusScript.moveSpeed = 16.0f;
+                SFX_drinkShake.Play();
             }
 
             //if the speed boost is active and the timer is bigger than 0, decreasse the timer
@@ -413,6 +416,7 @@ public class SpecialManager : MonoBehaviour
                 snack_DamageBoost.enabled = true;
                 snack_DamageBoost_ParticleSystem.SetActive(true);
                 weaponManagerScript.damageBoostMultiplier = 2;
+                SFX_drinkShake.Play();
             }
 
             //if the Damage boost is active and the timer is bigger than 0, decreasse the timer
@@ -455,6 +459,7 @@ public class SpecialManager : MonoBehaviour
                 snack_HealthBoost.enabled = true;
                 snack_HealthBoost_ParticleSystem.SetActive(true);
                 weaponManagerScript.damageBoostMultiplier = 2;
+                SFX_drinkShake.Play();
             }
 
             //if the Health boost is active and the timer is bigger than 0, decreasse the timer

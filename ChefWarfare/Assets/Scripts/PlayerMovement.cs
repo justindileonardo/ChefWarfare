@@ -42,6 +42,8 @@ public class PlayerMovement : MonoBehaviour
     public SpriteRenderer chefSpriteBody;
     public SpriteRenderer chefSpriteLegL;
     public SpriteRenderer chefSpriteLegR;
+    public SpriteRenderer redHead;
+    public SpriteRenderer redBody;
 
     public Animator playerAnimator;
 
@@ -215,6 +217,8 @@ public class PlayerMovement : MonoBehaviour
                 chefSpriteLegR.flipX = false;
                 armsSpriteL.flipX = false;
                 armsSpriteR.flipX = false;
+                redHead.flipX = false;
+                redBody.flipX = false;
                 Weapon_PeaShooterSpriteRenderer.flipY = false;
                 Weapon_SemiAutoRifleSpriteRenderer.flipY = false;
                 Weapon_BurstRifleSpriteRenderer.flipY = false;
@@ -232,6 +236,8 @@ public class PlayerMovement : MonoBehaviour
                 chefSpriteLegR.flipX = true;
                 armsSpriteL.flipX = true;
                 armsSpriteR.flipX = true;
+                redHead.flipX = true;
+                redBody.flipX = true;
                 Weapon_PeaShooterSpriteRenderer.flipY = true;
                 Weapon_SemiAutoRifleSpriteRenderer.flipY = true;
                 Weapon_BurstRifleSpriteRenderer.flipY = true;

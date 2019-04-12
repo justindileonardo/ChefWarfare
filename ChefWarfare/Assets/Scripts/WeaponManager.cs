@@ -77,8 +77,13 @@ public class WeaponManager : MonoBehaviour
     //Damage Boost multiplier
     public int damageBoostMultiplier;
 
-    
 
+    //Audio
+    public AudioSource SFX_shootPeaShooter;
+    public AudioSource SFX_shootSemiAutoRifle;
+    public AudioSource SFX_shootBurstRifle;
+    public AudioSource SFX_shootShotgun;
+    public AudioSource SFX_shootWhip;
 
 
     //private variables
@@ -606,6 +611,7 @@ public class WeaponManager : MonoBehaviour
                 peaShooter_Cooldown = peaShooter_CooldownLength;
                 GameObject bullet;
                 bullet = Instantiate(Prefab_Pea, new Vector3(Weapon_BulletSpawnPoint.transform.position.x, Weapon_BulletSpawnPoint.transform.position.y, Weapon_BulletSpawnPoint.transform.position.z), Weapon_PivotPoint.transform.rotation);
+                SFX_shootPeaShooter.Play();
 
                 if (player1)
                 {
@@ -716,6 +722,8 @@ public class WeaponManager : MonoBehaviour
                 semiAutoRifle_Cooldown = semiAutoRifle_CooldownLength;
                 GameObject bullet;
                 bullet = Instantiate(Prefab_TomatoChunk, new Vector3(Weapon_BulletSpawnPoint.transform.position.x, Weapon_BulletSpawnPoint.transform.position.y, Weapon_BulletSpawnPoint.transform.position.z), Weapon_PivotPoint.transform.rotation);
+                SFX_shootSemiAutoRifle.Play();
+
 
                 if (player1)
                 {
@@ -831,6 +839,7 @@ public class WeaponManager : MonoBehaviour
                 bullet1 = Instantiate(Prefab_TomatoSauce, new Vector3(Weapon_BulletSpawnPoint.transform.position.x, Weapon_BulletSpawnPoint.transform.position.y, Weapon_BulletSpawnPoint.transform.position.z), Weapon_PivotPoint.transform.rotation);
                 bullet2 = Instantiate(Prefab_TomatoSauce, new Vector3(Weapon_BulletSpawnPoint0.transform.position.x, Weapon_BulletSpawnPoint0.transform.position.y, Weapon_BulletSpawnPoint0.transform.position.z), Weapon_PivotPoint.transform.rotation);
                 bullet3 = Instantiate(Prefab_TomatoSauce, new Vector3(Weapon_BulletSpawnPoint2.transform.position.x, Weapon_BulletSpawnPoint2.transform.position.y, Weapon_BulletSpawnPoint2.transform.position.z), Weapon_PivotPoint.transform.rotation);
+                SFX_shootBurstRifle.Play();
 
                 if (player1)
                 {
@@ -959,6 +968,7 @@ public class WeaponManager : MonoBehaviour
                 bullet3 = Instantiate(Prefab_TomatoChunkShotgun, new Vector3(Weapon_BulletSpawnPoint_Shotgun3.transform.position.x, Weapon_BulletSpawnPoint_Shotgun3.transform.position.y, Weapon_BulletSpawnPoint_Shotgun3.transform.position.z), Weapon_BulletSpawnPoint_Shotgun3.transform.rotation);
                 bullet4 = Instantiate(Prefab_TomatoChunkShotgun, new Vector3(Weapon_BulletSpawnPoint_Shotgun4.transform.position.x, Weapon_BulletSpawnPoint_Shotgun4.transform.position.y, Weapon_BulletSpawnPoint_Shotgun4.transform.position.z), Weapon_BulletSpawnPoint_Shotgun4.transform.rotation);
                 bullet5 = Instantiate(Prefab_TomatoChunkShotgun, new Vector3(Weapon_BulletSpawnPoint_Shotgun5.transform.position.x, Weapon_BulletSpawnPoint_Shotgun5.transform.position.y, Weapon_BulletSpawnPoint_Shotgun5.transform.position.z), Weapon_BulletSpawnPoint_Shotgun5.transform.rotation);
+                SFX_shootShotgun.Play();
 
                 if (player1)
                 {
@@ -1096,6 +1106,7 @@ public class WeaponManager : MonoBehaviour
             {
                 spaghettiWhipCheese_Cooldown = spaghettiWhipCheese_CooldownLength;
                 StartCoroutine(AttackSpaghettiWhipCheeseCoroutine());
+                SFX_shootWhip.Play();
             }
 
         }
@@ -1199,6 +1210,7 @@ public class WeaponManager : MonoBehaviour
             {
                 spaghettiWhipOnion_Cooldown = spaghettiWhipOnion_CooldownLength;
                 StartCoroutine(AttackSpaghettiWhipOnionCoroutine());
+                SFX_shootWhip.Play();
             }
 
         }

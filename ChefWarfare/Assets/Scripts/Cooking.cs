@@ -50,6 +50,8 @@ public class Cooking : MonoBehaviour
     [HideInInspector] public int SH_cheese;
     [HideInInspector] public int SH_onion;
 
+    public AudioSource SFX_cookItemSuccess;
+
 
     private bool canCookSemiAutoRifle_P1;
     private bool canCookSemiAutoRifle_P2;
@@ -514,6 +516,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P1.breadCount -= SR_bread;
                 playerInventoryScript_P1.tomatoCount -= SR_tomato;
                 checkmark1[0].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and semi auto rifle (ALREADY)
             else if (
@@ -548,6 +551,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P1.breadCount -= SR_bread;
                 playerInventoryScript_P1.tomatoCount -= SR_tomato;
                 checkmark1[0].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and shotgun
             else if (
@@ -571,6 +575,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P1.breadCount -= SR_bread;
                 playerInventoryScript_P1.tomatoCount -= SR_tomato;
                 checkmark1[0].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and whip cheese
             else if (
@@ -595,6 +600,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P1.breadCount -= SR_bread;
                 playerInventoryScript_P1.tomatoCount -= SR_tomato;
                 checkmark1[0].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and whip onion
             else if (
@@ -619,6 +625,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P1.breadCount -= SR_bread;
                 playerInventoryScript_P1.tomatoCount -= SR_tomato;
                 checkmark1[0].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
         }
         
@@ -648,6 +655,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P1.breadCount -= BR_bread;
                 playerInventoryScript_P1.tomatoCount -= BR_tomato;
                 checkmark1[1].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and semi auto rifle
             else if (
@@ -670,6 +678,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P1.breadCount -= BR_bread;
                 playerInventoryScript_P1.tomatoCount -= BR_tomato;
                 checkmark1[1].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and burst rifle (ALREADY)
             else if (
@@ -705,6 +714,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P1.breadCount -= BR_bread;
                 playerInventoryScript_P1.tomatoCount -= BR_tomato;
                 checkmark1[1].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and whip cheese
             else if (
@@ -729,6 +739,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P1.breadCount -= BR_bread;
                 playerInventoryScript_P1.tomatoCount -= BR_tomato;
                 checkmark1[1].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and whip onion
             else if (
@@ -753,6 +764,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P1.breadCount -= BR_bread;
                 playerInventoryScript_P1.tomatoCount -= BR_tomato;
                 checkmark1[1].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
         }
 
@@ -782,6 +794,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P1.breadCount -= SG_bread;
                 playerInventoryScript_P1.tomatoCount -= SG_tomato;
                 checkmark1[2].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and semi auto rifle
             else if (
@@ -804,6 +817,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P1.breadCount -= SG_bread;
                 playerInventoryScript_P1.tomatoCount -= SG_tomato;
                 checkmark1[2].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and burst rifle 
             else if (
@@ -826,6 +840,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P1.breadCount -= SG_bread;
                 playerInventoryScript_P1.tomatoCount -= SG_tomato;
                 checkmark1[2].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and shotgun (ALREADY)
             else if (
@@ -863,6 +878,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P1.breadCount -= SG_bread;
                 playerInventoryScript_P1.tomatoCount -= SG_tomato;
                 checkmark1[2].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and whip onion
             else if (
@@ -887,6 +903,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P1.breadCount -= SG_bread;
                 playerInventoryScript_P1.tomatoCount -= SG_tomato;
                 checkmark1[2].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
         }
 
@@ -918,6 +935,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P1.spaghettiCount -= WC_spaghetti;
                 playerInventoryScript_P1.cheeseCount -= WC_cheese;
                 checkmark1[3].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and semi auto rifle
             else if (
@@ -942,6 +960,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P1.spaghettiCount -= WC_spaghetti;
                 playerInventoryScript_P1.cheeseCount -= WC_cheese;
                 checkmark1[3].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and burst rifle 
             else if (
@@ -966,6 +985,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P1.spaghettiCount -= WC_spaghetti;
                 playerInventoryScript_P1.cheeseCount -= WC_cheese;
                 checkmark1[3].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and shotgun (ALREADY)
             else if (
@@ -991,6 +1011,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P1.spaghettiCount -= WC_spaghetti;
                 playerInventoryScript_P1.cheeseCount -= WC_cheese;
                 checkmark1[3].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and whip cheese
             else if (
@@ -1030,6 +1051,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P1.spaghettiCount -= WC_spaghetti;
                 playerInventoryScript_P1.cheeseCount -= WC_cheese;
                 checkmark1[3].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
         }
 
@@ -1061,6 +1083,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P1.spaghettiCount -= WO_spaghetti;
                 playerInventoryScript_P1.onionCount -= WO_onion;
                 checkmark1[4].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and semi auto rifle
             else if (
@@ -1085,6 +1108,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P1.spaghettiCount -= WO_spaghetti;
                 playerInventoryScript_P1.onionCount -= WO_onion;
                 checkmark1[4].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and burst rifle 
             else if (
@@ -1109,6 +1133,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P1.spaghettiCount -= WO_spaghetti;
                 playerInventoryScript_P1.onionCount -= WO_onion;
                 checkmark1[4].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and shotgun 
             else if (
@@ -1134,6 +1159,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P1.spaghettiCount -= WO_spaghetti;
                 playerInventoryScript_P1.onionCount -= WO_onion;
                 checkmark1[4].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and whip cheese
             else if (
@@ -1160,6 +1186,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P1.spaghettiCount -= WO_spaghetti;
                 playerInventoryScript_P1.onionCount -= WO_onion;
                 checkmark1[4].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and whip onion (ALREADY)
             else if (
@@ -1197,6 +1224,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P1.onionCount -= SS_onion;
                 playerInventoryScript_P1.cheeseCount -= SS_cheese;
                 checkmark1[5].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has snack speed (already)
             else if (
@@ -1250,6 +1278,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P1.onionCount -= SD_onion;
                 playerInventoryScript_P1.cheeseCount -= SD_cheese;
                 checkmark1[6].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has snack speed (already)
             else if (
@@ -1303,6 +1332,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P1.onionCount -= SH_onion;
                 playerInventoryScript_P1.cheeseCount -= SH_cheese;
                 checkmark1[7].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has snack speed (already)
             else if (
@@ -1363,6 +1393,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P2.breadCount -= SR_bread;
                 playerInventoryScript_P2.tomatoCount -= SR_tomato;
                 checkmark2[0].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and semi auto rifle (ALREADY)
             else if (
@@ -1397,6 +1428,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P2.breadCount -= SR_bread;
                 playerInventoryScript_P2.tomatoCount -= SR_tomato;
                 checkmark2[0].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and shotgun
             else if (
@@ -1420,6 +1452,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P2.breadCount -= SR_bread;
                 playerInventoryScript_P2.tomatoCount -= SR_tomato;
                 checkmark2[0].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and whip cheese
             else if (
@@ -1444,6 +1477,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P2.breadCount -= SR_bread;
                 playerInventoryScript_P2.tomatoCount -= SR_tomato;
                 checkmark2[0].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and whip onion
             else if (
@@ -1468,6 +1502,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P2.breadCount -= SR_bread;
                 playerInventoryScript_P2.tomatoCount -= SR_tomato;
                 checkmark2[0].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
         }
 
@@ -1497,6 +1532,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P2.breadCount -= BR_bread;
                 playerInventoryScript_P2.tomatoCount -= BR_tomato;
                 checkmark2[1].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and semi auto rifle
             else if (
@@ -1519,6 +1555,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P2.breadCount -= BR_bread;
                 playerInventoryScript_P2.tomatoCount -= BR_tomato;
                 checkmark2[1].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and burst rifle (ALREADY)
             else if (
@@ -1554,6 +1591,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P2.breadCount -= BR_bread;
                 playerInventoryScript_P2.tomatoCount -= BR_tomato;
                 checkmark2[1].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and whip cheese
             else if (
@@ -1578,6 +1616,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P2.breadCount -= BR_bread;
                 playerInventoryScript_P2.tomatoCount -= BR_tomato;
                 checkmark2[1].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and whip onion
             else if (
@@ -1602,6 +1641,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P2.breadCount -= BR_bread;
                 playerInventoryScript_P2.tomatoCount -= BR_tomato;
                 checkmark2[1].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
         }
 
@@ -1631,6 +1671,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P2.breadCount -= SG_bread;
                 playerInventoryScript_P2.tomatoCount -= SG_tomato;
                 checkmark2[2].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and semi auto rifle
             else if (
@@ -1653,6 +1694,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P2.breadCount -= SG_bread;
                 playerInventoryScript_P2.tomatoCount -= SG_tomato;
                 checkmark2[2].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and burst rifle 
             else if (
@@ -1675,6 +1717,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P2.breadCount -= SG_bread;
                 playerInventoryScript_P2.tomatoCount -= SG_tomato;
                 checkmark2[2].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and shotgun (ALREADY)
             else if (
@@ -1712,6 +1755,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P2.breadCount -= SG_bread;
                 playerInventoryScript_P2.tomatoCount -= SG_tomato;
                 checkmark2[2].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and whip onion
             else if (
@@ -1736,6 +1780,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P2.breadCount -= SG_bread;
                 playerInventoryScript_P2.tomatoCount -= SG_tomato;
                 checkmark2[2].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
         }
 
@@ -1767,6 +1812,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P2.spaghettiCount -= WC_spaghetti;
                 playerInventoryScript_P2.cheeseCount -= WC_cheese;
                 checkmark2[3].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and semi auto rifle
             else if (
@@ -1791,6 +1837,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P2.spaghettiCount -= WC_spaghetti;
                 playerInventoryScript_P2.cheeseCount -= WC_cheese;
                 checkmark2[3].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and burst rifle 
             else if (
@@ -1815,6 +1862,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P2.spaghettiCount -= WC_spaghetti;
                 playerInventoryScript_P2.cheeseCount -= WC_cheese;
                 checkmark2[3].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and shotgun (ALREADY)
             else if (
@@ -1840,6 +1888,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P2.spaghettiCount -= WC_spaghetti;
                 playerInventoryScript_P2.cheeseCount -= WC_cheese;
                 checkmark2[3].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and whip cheese
             else if (
@@ -1879,6 +1928,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P2.spaghettiCount -= WC_spaghetti;
                 playerInventoryScript_P2.cheeseCount -= WC_cheese;
                 checkmark2[3].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
         }
 
@@ -1910,6 +1960,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P2.spaghettiCount -= WO_spaghetti;
                 playerInventoryScript_P2.onionCount -= WO_onion;
                 checkmark2[4].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and semi auto rifle
             else if (
@@ -1934,6 +1985,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P2.spaghettiCount -= WO_spaghetti;
                 playerInventoryScript_P2.onionCount -= WO_onion;
                 checkmark2[4].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and burst rifle 
             else if (
@@ -1958,6 +2010,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P2.spaghettiCount -= WO_spaghetti;
                 playerInventoryScript_P2.onionCount -= WO_onion;
                 checkmark2[4].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and shotgun 
             else if (
@@ -1983,6 +2036,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P2.spaghettiCount -= WO_spaghetti;
                 playerInventoryScript_P2.onionCount -= WO_onion;
                 checkmark2[4].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and whip cheese
             else if (
@@ -2009,6 +2063,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P2.spaghettiCount -= WO_spaghetti;
                 playerInventoryScript_P2.onionCount -= WO_onion;
                 checkmark2[4].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and whip onion (ALREADY)
             else if (
@@ -2046,6 +2101,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P2.onionCount -= SS_onion;
                 playerInventoryScript_P2.cheeseCount -= SS_cheese;
                 checkmark2[5].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has snack speed (already)
             else if (
@@ -2099,6 +2155,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P2.onionCount -= SD_onion;
                 playerInventoryScript_P2.cheeseCount -= SD_cheese;
                 checkmark2[6].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has snack speed (already)
             else if (
@@ -2152,6 +2209,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P2.onionCount -= SH_onion;
                 playerInventoryScript_P2.cheeseCount -= SH_cheese;
                 checkmark2[7].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has snack speed (already)
             else if (
@@ -2213,6 +2271,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P3.breadCount -= SR_bread;
                 playerInventoryScript_P3.tomatoCount -= SR_tomato;
                 checkmark3[0].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and semi auto rifle (ALREADY)
             else if (
@@ -2247,6 +2306,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P3.breadCount -= SR_bread;
                 playerInventoryScript_P3.tomatoCount -= SR_tomato;
                 checkmark3[0].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and shotgun
             else if (
@@ -2270,6 +2330,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P3.breadCount -= SR_bread;
                 playerInventoryScript_P3.tomatoCount -= SR_tomato;
                 checkmark3[0].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and whip cheese
             else if (
@@ -2294,6 +2355,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P3.breadCount -= SR_bread;
                 playerInventoryScript_P3.tomatoCount -= SR_tomato;
                 checkmark3[0].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and whip onion
             else if (
@@ -2318,6 +2380,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P3.breadCount -= SR_bread;
                 playerInventoryScript_P3.tomatoCount -= SR_tomato;
                 checkmark3[0].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
         }
 
@@ -2347,6 +2410,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P3.breadCount -= BR_bread;
                 playerInventoryScript_P3.tomatoCount -= BR_tomato;
                 checkmark3[1].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and semi auto rifle
             else if (
@@ -2369,6 +2433,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P3.breadCount -= BR_bread;
                 playerInventoryScript_P3.tomatoCount -= BR_tomato;
                 checkmark3[1].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and burst rifle (ALREADY)
             else if (
@@ -2404,6 +2469,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P3.breadCount -= BR_bread;
                 playerInventoryScript_P3.tomatoCount -= BR_tomato;
                 checkmark3[1].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and whip cheese
             else if (
@@ -2428,6 +2494,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P3.breadCount -= BR_bread;
                 playerInventoryScript_P3.tomatoCount -= BR_tomato;
                 checkmark3[1].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and whip onion
             else if (
@@ -2452,6 +2519,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P3.breadCount -= BR_bread;
                 playerInventoryScript_P3.tomatoCount -= BR_tomato;
                 checkmark3[1].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
         }
 
@@ -2481,6 +2549,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P3.breadCount -= SG_bread;
                 playerInventoryScript_P3.tomatoCount -= SG_tomato;
                 checkmark3[2].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and semi auto rifle
             else if (
@@ -2503,6 +2572,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P3.breadCount -= SG_bread;
                 playerInventoryScript_P3.tomatoCount -= SG_tomato;
                 checkmark3[2].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and burst rifle 
             else if (
@@ -2525,6 +2595,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P3.breadCount -= SG_bread;
                 playerInventoryScript_P3.tomatoCount -= SG_tomato;
                 checkmark3[2].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and shotgun (ALREADY)
             else if (
@@ -2562,6 +2633,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P3.breadCount -= SG_bread;
                 playerInventoryScript_P3.tomatoCount -= SG_tomato;
                 checkmark3[2].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and whip onion
             else if (
@@ -2586,6 +2658,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P3.breadCount -= SG_bread;
                 playerInventoryScript_P3.tomatoCount -= SG_tomato;
                 checkmark3[2].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
         }
 
@@ -2617,6 +2690,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P3.spaghettiCount -= WC_spaghetti;
                 playerInventoryScript_P3.cheeseCount -= WC_cheese;
                 checkmark3[3].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and semi auto rifle
             else if (
@@ -2641,6 +2715,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P3.spaghettiCount -= WC_spaghetti;
                 playerInventoryScript_P3.cheeseCount -= WC_cheese;
                 checkmark3[3].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and burst rifle 
             else if (
@@ -2665,6 +2740,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P3.spaghettiCount -= WC_spaghetti;
                 playerInventoryScript_P3.cheeseCount -= WC_cheese;
                 checkmark3[3].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and shotgun (ALREADY)
             else if (
@@ -2690,6 +2766,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P3.spaghettiCount -= WC_spaghetti;
                 playerInventoryScript_P3.cheeseCount -= WC_cheese;
                 checkmark3[3].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and whip cheese
             else if (
@@ -2729,6 +2806,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P3.spaghettiCount -= WC_spaghetti;
                 playerInventoryScript_P3.cheeseCount -= WC_cheese;
                 checkmark3[3].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
         }
 
@@ -2760,6 +2838,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P3.spaghettiCount -= WO_spaghetti;
                 playerInventoryScript_P3.onionCount -= WO_onion;
                 checkmark3[4].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and semi auto rifle
             else if (
@@ -2784,6 +2863,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P3.spaghettiCount -= WO_spaghetti;
                 playerInventoryScript_P3.onionCount -= WO_onion;
                 checkmark3[4].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and burst rifle 
             else if (
@@ -2808,6 +2888,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P3.spaghettiCount -= WO_spaghetti;
                 playerInventoryScript_P3.onionCount -= WO_onion;
                 checkmark3[4].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and shotgun 
             else if (
@@ -2833,6 +2914,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P3.spaghettiCount -= WO_spaghetti;
                 playerInventoryScript_P3.onionCount -= WO_onion;
                 checkmark3[4].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and whip cheese
             else if (
@@ -2859,6 +2941,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P3.spaghettiCount -= WO_spaghetti;
                 playerInventoryScript_P3.onionCount -= WO_onion;
                 checkmark3[4].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and whip onion (ALREADY)
             else if (
@@ -2896,6 +2979,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P3.onionCount -= SS_onion;
                 playerInventoryScript_P3.cheeseCount -= SS_cheese;
                 checkmark3[5].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has snack speed (already)
             else if (
@@ -2949,6 +3033,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P3.onionCount -= SD_onion;
                 playerInventoryScript_P3.cheeseCount -= SD_cheese;
                 checkmark3[6].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has snack speed (already)
             else if (
@@ -3002,6 +3087,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P3.onionCount -= SH_onion;
                 playerInventoryScript_P3.cheeseCount -= SH_cheese;
                 checkmark3[7].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has snack speed (already)
             else if (
@@ -3063,6 +3149,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P4.breadCount -= SR_bread;
                 playerInventoryScript_P4.tomatoCount -= SR_tomato;
                 checkmark4[0].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and semi auto rifle (ALREADY)
             else if (
@@ -3097,6 +3184,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P4.breadCount -= SR_bread;
                 playerInventoryScript_P4.tomatoCount -= SR_tomato;
                 checkmark4[0].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and shotgun
             else if (
@@ -3120,6 +3208,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P4.breadCount -= SR_bread;
                 playerInventoryScript_P4.tomatoCount -= SR_tomato;
                 checkmark4[0].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and whip cheese
             else if (
@@ -3144,6 +3233,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P4.breadCount -= SR_bread;
                 playerInventoryScript_P4.tomatoCount -= SR_tomato;
                 checkmark4[0].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and whip onion
             else if (
@@ -3168,6 +3258,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P4.breadCount -= SR_bread;
                 playerInventoryScript_P4.tomatoCount -= SR_tomato;
                 checkmark4[0].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
         }
 
@@ -3197,6 +3288,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P4.breadCount -= BR_bread;
                 playerInventoryScript_P4.tomatoCount -= BR_tomato;
                 checkmark4[1].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and semi auto rifle
             else if (
@@ -3219,6 +3311,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P4.breadCount -= BR_bread;
                 playerInventoryScript_P4.tomatoCount -= BR_tomato;
                 checkmark4[1].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and burst rifle (ALREADY)
             else if (
@@ -3254,6 +3347,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P4.breadCount -= BR_bread;
                 playerInventoryScript_P4.tomatoCount -= BR_tomato;
                 checkmark4[1].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and whip cheese
             else if (
@@ -3278,6 +3372,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P4.breadCount -= BR_bread;
                 playerInventoryScript_P4.tomatoCount -= BR_tomato;
                 checkmark4[1].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and whip onion
             else if (
@@ -3302,6 +3397,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P4.breadCount -= BR_bread;
                 playerInventoryScript_P4.tomatoCount -= BR_tomato;
                 checkmark4[1].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
         }
 
@@ -3331,6 +3427,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P4.breadCount -= SG_bread;
                 playerInventoryScript_P4.tomatoCount -= SG_tomato;
                 checkmark4[2].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and semi auto rifle
             else if (
@@ -3353,6 +3450,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P4.breadCount -= SG_bread;
                 playerInventoryScript_P4.tomatoCount -= SG_tomato;
                 checkmark4[2].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and burst rifle 
             else if (
@@ -3375,6 +3473,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P4.breadCount -= SG_bread;
                 playerInventoryScript_P4.tomatoCount -= SG_tomato;
                 checkmark4[2].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and shotgun (ALREADY)
             else if (
@@ -3412,6 +3511,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P4.breadCount -= SG_bread;
                 playerInventoryScript_P4.tomatoCount -= SG_tomato;
                 checkmark4[2].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and whip onion
             else if (
@@ -3436,6 +3536,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P4.breadCount -= SG_bread;
                 playerInventoryScript_P4.tomatoCount -= SG_tomato;
                 checkmark4[2].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
         }
 
@@ -3467,6 +3568,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P4.spaghettiCount -= WC_spaghetti;
                 playerInventoryScript_P4.cheeseCount -= WC_cheese;
                 checkmark4[3].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and semi auto rifle
             else if (
@@ -3491,6 +3593,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P4.spaghettiCount -= WC_spaghetti;
                 playerInventoryScript_P4.cheeseCount -= WC_cheese;
                 checkmark4[3].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and burst rifle 
             else if (
@@ -3515,6 +3618,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P4.spaghettiCount -= WC_spaghetti;
                 playerInventoryScript_P4.cheeseCount -= WC_cheese;
                 checkmark4[3].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and shotgun (ALREADY)
             else if (
@@ -3540,6 +3644,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P4.spaghettiCount -= WC_spaghetti;
                 playerInventoryScript_P4.cheeseCount -= WC_cheese;
                 checkmark4[3].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and whip cheese
             else if (
@@ -3579,6 +3684,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P4.spaghettiCount -= WC_spaghetti;
                 playerInventoryScript_P4.cheeseCount -= WC_cheese;
                 checkmark4[3].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
         }
 
@@ -3610,6 +3716,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P4.spaghettiCount -= WO_spaghetti;
                 playerInventoryScript_P4.onionCount -= WO_onion;
                 checkmark4[4].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and semi auto rifle
             else if (
@@ -3634,6 +3741,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P4.spaghettiCount -= WO_spaghetti;
                 playerInventoryScript_P4.onionCount -= WO_onion;
                 checkmark4[4].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and burst rifle 
             else if (
@@ -3658,6 +3766,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P4.spaghettiCount -= WO_spaghetti;
                 playerInventoryScript_P4.onionCount -= WO_onion;
                 checkmark4[4].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and shotgun 
             else if (
@@ -3683,6 +3792,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P4.spaghettiCount -= WO_spaghetti;
                 playerInventoryScript_P4.onionCount -= WO_onion;
                 checkmark4[4].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and whip cheese
             else if (
@@ -3709,6 +3819,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P4.spaghettiCount -= WO_spaghetti;
                 playerInventoryScript_P4.onionCount -= WO_onion;
                 checkmark4[4].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has pea shooter and whip onion (ALREADY)
             else if (
@@ -3746,6 +3857,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P4.onionCount -= SS_onion;
                 playerInventoryScript_P4.cheeseCount -= SS_cheese;
                 checkmark4[5].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has snack speed (already)
             else if (
@@ -3799,6 +3911,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P4.onionCount -= SD_onion;
                 playerInventoryScript_P4.cheeseCount -= SD_cheese;
                 checkmark4[6].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has snack speed (already)
             else if (
@@ -3852,6 +3965,7 @@ public class Cooking : MonoBehaviour
                 playerInventoryScript_P4.onionCount -= SH_onion;
                 playerInventoryScript_P4.cheeseCount -= SH_cheese;
                 checkmark4[7].SetActive(true);
+                SFX_cookItemSuccess.Play();
             }
             //check if has snack speed (already)
             else if (

@@ -104,6 +104,8 @@ public class PlayerInventory : MonoBehaviour
     private bool playerAlreadyShown_SD;
     private bool playerAlreadyShown_SH;
 
+    public AudioSource SFX_recipeReady;
+
 
     // Start is called before the first frame update
     void Start()
@@ -1304,18 +1306,21 @@ public class PlayerInventory : MonoBehaviour
             {
                 StartCoroutine(UpdateRecipeStatus_SemiAutoRifle());
                 playerAlreadyShown_SR = true;
+                SFX_recipeReady.Play();
             }
             //Burst Rifle
             if(weaponManagerScript.hasWeapon_BurstRifle == false && playerAlreadyShown_BR == false && breadCount >= cookingScript.BR_bread && tomatoCount >= cookingScript.BR_tomato)
             {
                 StartCoroutine(UpdateRecipeStatus_BurstRifle());
                 playerAlreadyShown_BR = true;
+                SFX_recipeReady.Play();
             }
             //Shotgun
             if(weaponManagerScript.hasWeapon_Shotgun == false && playerAlreadyShown_SG == false && breadCount >= cookingScript.SG_bread && tomatoCount >= cookingScript.SG_tomato)
             {
                 StartCoroutine(UpdateRecipeStatusShotgun());
                 playerAlreadyShown_SG = true;
+                SFX_recipeReady.Play();
             }
         }
         if (other.gameObject.tag == "Resource_Tomato")
@@ -1328,36 +1333,42 @@ public class PlayerInventory : MonoBehaviour
             {
                 StartCoroutine(UpdateRecipeStatus_SemiAutoRifle());
                 playerAlreadyShown_SR = true;
+                SFX_recipeReady.Play();
             }
             //Burst Rifle
             if (weaponManagerScript.hasWeapon_BurstRifle == false && playerAlreadyShown_BR == false && breadCount >= cookingScript.BR_bread && tomatoCount >= cookingScript.BR_tomato)
             {
                 StartCoroutine(UpdateRecipeStatus_BurstRifle());
                 playerAlreadyShown_BR = true;
+                SFX_recipeReady.Play();
             }
             //Shotgun
             if (weaponManagerScript.hasWeapon_Shotgun == false && playerAlreadyShown_SG == false && breadCount >= cookingScript.SG_bread && tomatoCount >= cookingScript.SG_tomato)
             {
                 StartCoroutine(UpdateRecipeStatusShotgun());
                 playerAlreadyShown_SG = true;
+                SFX_recipeReady.Play();
             }
             //Shake Speed
             if(specialManagerScript.hasSnack_SpeedBoost == false && playerAlreadyShown_SS == false && tomatoCount >= cookingScript.SS_tomato && cheeseCount >= cookingScript.SS_cheese && onionCount >= cookingScript.SS_onion)
             {
                 StartCoroutine(UpdateRecipeStatus_ShakeSpeed());
                 playerAlreadyShown_SS = true;
+                SFX_recipeReady.Play();
             }
             //Shake Damage
             if (specialManagerScript.hasSnack_DamageBoost == false && playerAlreadyShown_SD == false && tomatoCount >= cookingScript.SD_tomato && cheeseCount >= cookingScript.SD_cheese && onionCount >= cookingScript.SD_onion)
             {
                 StartCoroutine(UpdateRecipeStatus_ShakeDamage());
                 playerAlreadyShown_SD = true;
+                SFX_recipeReady.Play();
             }
             //Shake Health
             if (specialManagerScript.hasSnack_HealthBoost == false && playerAlreadyShown_SH == false && tomatoCount >= cookingScript.SH_tomato && cheeseCount >= cookingScript.SH_cheese && onionCount >= cookingScript.SH_onion)
             {
                 StartCoroutine(UpdateRecipeStatus_ShakeHealth());
                 playerAlreadyShown_SH = true;
+                SFX_recipeReady.Play();
             }
         }
         if (other.gameObject.tag == "Resource_Spaghetti")
@@ -1370,12 +1381,14 @@ public class PlayerInventory : MonoBehaviour
             {
                 StartCoroutine(UpdateRecipeStatus_WhipCheese());
                 playerAlreadyShown_WC = true;
+                SFX_recipeReady.Play();
             }
             //Whip Onion
             if (weaponManagerScript.hasWeapon_SpaghettiWhipOnion == false && playerAlreadyShown_WO == false && spaghettiCount >= cookingScript.WO_spaghetti && onionCount >= cookingScript.WO_onion)
             {
                 StartCoroutine(UpdateRecipeStatus_WhipOnion());
                 playerAlreadyShown_WO = true;
+                SFX_recipeReady.Play();
             }
         }
         if(other.gameObject.tag == "Resource_Cheese")
@@ -1388,24 +1401,28 @@ public class PlayerInventory : MonoBehaviour
             {
                 StartCoroutine(UpdateRecipeStatus_WhipCheese());
                 playerAlreadyShown_WC = true;
+                SFX_recipeReady.Play();
             }
             //Shake Speed
             if (specialManagerScript.hasSnack_SpeedBoost == false && playerAlreadyShown_SS == false && tomatoCount >= cookingScript.SS_tomato && cheeseCount >= cookingScript.SS_cheese && onionCount >= cookingScript.SS_onion)
             {
                 StartCoroutine(UpdateRecipeStatus_ShakeSpeed());
                 playerAlreadyShown_SS = true;
+                SFX_recipeReady.Play();
             }
             //Shake Damage
             if (specialManagerScript.hasSnack_DamageBoost == false && playerAlreadyShown_SD == false && tomatoCount >= cookingScript.SD_tomato && cheeseCount >= cookingScript.SD_cheese && onionCount >= cookingScript.SD_onion)
             {
                 StartCoroutine(UpdateRecipeStatus_ShakeDamage());
                 playerAlreadyShown_SD = true;
+                SFX_recipeReady.Play();
             }
             //Shake Health
             if (specialManagerScript.hasSnack_HealthBoost == false && playerAlreadyShown_SH == false && tomatoCount >= cookingScript.SH_tomato && cheeseCount >= cookingScript.SH_cheese && onionCount >= cookingScript.SH_onion)
             {
                 StartCoroutine(UpdateRecipeStatus_ShakeHealth());
                 playerAlreadyShown_SH = true;
+                SFX_recipeReady.Play();
             }
         }
         if(other.gameObject.tag == "Resource_Onion")
@@ -1418,24 +1435,28 @@ public class PlayerInventory : MonoBehaviour
             {
                 StartCoroutine(UpdateRecipeStatus_WhipOnion());
                 playerAlreadyShown_WO = true;
+                SFX_recipeReady.Play();
             }
             //Shake Speed
             if (specialManagerScript.hasSnack_SpeedBoost == false && playerAlreadyShown_SS == false && tomatoCount >= cookingScript.SS_tomato && cheeseCount >= cookingScript.SS_cheese && onionCount >= cookingScript.SS_onion)
             {
                 StartCoroutine(UpdateRecipeStatus_ShakeSpeed());
                 playerAlreadyShown_SS = true;
+                SFX_recipeReady.Play();
             }
             //Shake Damage
             if (specialManagerScript.hasSnack_DamageBoost == false && playerAlreadyShown_SD == false && tomatoCount >= cookingScript.SD_tomato && cheeseCount >= cookingScript.SD_cheese && onionCount >= cookingScript.SD_onion)
             {
                 StartCoroutine(UpdateRecipeStatus_ShakeDamage());
                 playerAlreadyShown_SD = true;
+                SFX_recipeReady.Play();
             }
             //Shake Health
             if (specialManagerScript.hasSnack_HealthBoost == false && playerAlreadyShown_SH == false && tomatoCount >= cookingScript.SH_tomato && cheeseCount >= cookingScript.SH_cheese && onionCount >= cookingScript.SH_onion)
             {
                 StartCoroutine(UpdateRecipeStatus_ShakeHealth());
                 playerAlreadyShown_SH = true;
+                SFX_recipeReady.Play();
             }
         }
     }
