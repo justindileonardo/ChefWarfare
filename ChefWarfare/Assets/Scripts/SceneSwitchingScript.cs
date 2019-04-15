@@ -25,6 +25,7 @@ public class SceneSwitchingScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             GoToMenu();
@@ -33,6 +34,7 @@ public class SceneSwitchingScript : MonoBehaviour
         {
             GoToMenu();
         }
+        */
     }
 
     public void GoToGame()

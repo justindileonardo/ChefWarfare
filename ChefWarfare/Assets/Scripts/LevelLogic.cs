@@ -15,6 +15,8 @@ public class LevelLogic : MonoBehaviour
     public int scoreRed, scoreBlue, scoreGreen, scoreOrange;
     public Text scoreRedText, scoreBlueText, scoreGreenText, scoreOrangeText, TimeText, GameStateText;
 
+    private PlayerMovement thePlayer1;
+
     //Event System first button not highlighting initially
     [HideInInspector] public EventSystem es1;
     [HideInInspector] public EventSystem es2;
@@ -32,7 +34,7 @@ public class LevelLogic : MonoBehaviour
     private bool sfx_10sawd_played;
     private bool sfx_10s_played;
 
-    
+    public bool gameIsPaused;
 
     // Start is called before the first frame update
     void Start()
@@ -42,11 +44,30 @@ public class LevelLogic : MonoBehaviour
         es2 = GameObject.Find("EventSystem2").GetComponent<EventSystem>();
         es3 = GameObject.Find("EventSystem3").GetComponent<EventSystem>();
         es4 = GameObject.Find("EventSystem4").GetComponent<EventSystem>();
+
+        thePlayer1 = GameObject.Find("Player1").GetComponent<PlayerMovement>();
+        gameIsPaused = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(thePlayer1.isMac == false)
+        {
+            if (Input.GetButtonDown("Xbox_Button_Start") && gameIsPaused == false)
+            {
+                //pause game
+                Time.timeScale = 0;
+                gameIsPaused = true;
+            }
+            else if(Input.GetButtonDown("Xbox_Button_Start") && gameIsPaused == true)
+            {
+                Time.timeScale = 1;
+                gameIsPaused = false;
+            }
+        }
+        
+
         if(wallsDropped == true)
         {
             gameTimerPost -= Time.deltaTime;
