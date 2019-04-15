@@ -20,6 +20,8 @@ TagManager:
   - ZONE_ORANGE
   - CapturePoint
   - EnemyDeath
+  - HealStationInSection
+  - HealStationOutOfSection
   layers:
   - Default
   - TransparentFX

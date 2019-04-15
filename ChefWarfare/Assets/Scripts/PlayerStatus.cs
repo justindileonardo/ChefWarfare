@@ -78,6 +78,9 @@ public class PlayerStatus : MonoBehaviour
     public SpriteRenderer redChefHitEffect_Head;
     public SpriteRenderer redChefHitEffect_Body;
 
+    private string inputBack;
+    public Image ControlsImage;
+    public bool controlsOpen;
 
     // Start is called before the first frame update
     void Start()
@@ -170,13 +173,80 @@ public class PlayerStatus : MonoBehaviour
         redChefHitEffect_Head.enabled = false;
         redChefHitEffect_Body.enabled = false;
 
+        //setting inputBackButton
+        //not mac
+        if(!myPlayer.isMac)
+        {
+            if (myPlayer.player1)
+            {
+                inputBack = "Xbox_Button_Back_P1";
+            }
+            else if (myPlayer.player2)
+            {
+                inputBack = "Xbox_Button_Back_P2";
+            }
+            else if (myPlayer.player3)
+            {
+                inputBack = "Xbox_Button_Back_P3";
+            }
+            else if (myPlayer.player4)
+            {
+                inputBack = "Xbox_Button_Back_P4";
+            }
+        }
+        //mac
+        else if(myPlayer.isMac)
+        {
+            if (myPlayer.player1)
+            {
+                inputBack = "Xbox_Button_Back_P1_MAC";
+            }
+            else if (myPlayer.player2)
+            {
+                inputBack = "Xbox_Button_Back_P2_MAC";
+            }
+            else if (myPlayer.player3)
+            {
+                inputBack = "Xbox_Button_Back_P3_MAC";
+            }
+            else if (myPlayer.player4)
+            {
+                inputBack = "Xbox_Button_Back_P4_MAC";
+            }
+        }
+        
+        controlsOpen = false;
+        ControlsImage.enabled = false;
+    }
+
+    IEnumerator OpenControls()
+    {
+        ControlsImage.enabled = true;
+        yield return new WaitForSeconds(0.1f);
+        controlsOpen = true;
+    }
+    IEnumerator CloseControls()
+    {
+        ControlsImage.enabled = false;
+        yield return new WaitForSeconds(0.1f);
+        controlsOpen = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if(Input.GetButtonDown(inputBack) && controlsOpen == false)
+        {
+            StartCoroutine(OpenControls());
+        }
+        else if (Input.GetButtonDown(inputBack) && controlsOpen == true)
+        {
+            StartCoroutine(CloseControls());
+        }
+
         //makes it so when dead cant move
-        if(myPlayer.player1)
+        if (myPlayer.player1)
         {
             if (blackDeathScreenP1.enabled)
             {
@@ -513,8 +583,10 @@ public class PlayerStatus : MonoBehaviour
             esP4.enemyReadyToSpawn = false;
             esP4.enemySpawnTimer = 0;
         }
+        StartCoroutine(CloseControls());
         SFX_PlayerDie.Play();
         StartCoroutine(Die());
+        
     }
 
     IEnumerator Die()

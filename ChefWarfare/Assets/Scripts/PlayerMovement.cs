@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -56,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
     private float moveSpeedDefault;
     private float moveSpeedEffectTimer;
     private float cheeseMoveSpeedSlowLength;
+
     
 
     // Start is called before the first frame update
@@ -64,6 +66,8 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         respawnPosition = transform.position;
         moveSpeedEffectTimer = 0;
+
+       
     }
 
     // Update is called once per frame
@@ -72,6 +76,8 @@ public class PlayerMovement : MonoBehaviour
         
         
     }
+
+    
 
     void FixedUpdate()
     {

@@ -32,6 +32,8 @@ public class LevelLogic : MonoBehaviour
     private bool sfx_10sawd_played;
     private bool sfx_10s_played;
 
+    
+
     // Start is called before the first frame update
     void Start()
     {

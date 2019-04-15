@@ -7,7 +7,8 @@ public class HealStation : MonoBehaviour
 
     private float healTimer;
     private float healSpeed;
-    private int healAmount;
+    private int healAmountIn;
+    private int healAmountOut;
     private bool onHealStation;
     private CircleCollider2D healStationCollider;
     private bool healStationColliderActive;
@@ -17,7 +18,8 @@ public class HealStation : MonoBehaviour
     {
         healStationCollider = GetComponent<CircleCollider2D>();
         healSpeed = 1.0f;
-        healAmount = 15;
+        healAmountIn = 8;
+        healAmountOut = 15;
         onHealStation = false;
         healTimer = 0;
         healStationCollider.enabled = true;
@@ -46,11 +48,21 @@ public class HealStation : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.tag == "Player")
+        if(other.gameObject.tag == "Player" && this.gameObject.tag == "HealStationInSection")
         {
             if (other.gameObject.GetComponent<PlayerStatus>().HP < 100)
             {
-                other.gameObject.GetComponent<PlayerStatus>().HP += healAmount;
+                other.gameObject.GetComponent<PlayerStatus>().HP += healAmountIn;
+                healTimer = healSpeed;
+                healStationColliderActive = false;
+                healStationCollider.enabled = false;
+            }
+        }
+        else if (other.gameObject.tag == "Player" && this.gameObject.tag == "HealStationOutOfSection")
+        {
+            if (other.gameObject.GetComponent<PlayerStatus>().HP < 100)
+            {
+                other.gameObject.GetComponent<PlayerStatus>().HP += healAmountOut;
                 healTimer = healSpeed;
                 healStationColliderActive = false;
                 healStationCollider.enabled = false;
