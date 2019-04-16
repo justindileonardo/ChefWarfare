@@ -11,6 +11,7 @@ public class Enemy_Tomato : MonoBehaviour
     public float moveSpeed;
     public SpriteRenderer tomatoSpriteRenderer;
     public SpriteRenderer tomatoExplosionSpriteRenderer;
+    public SpriteRenderer tomatoSpriteRendererRedHit;
     public float HP;
 
     public GameObject resourceTomatoPrefab;
@@ -22,8 +23,9 @@ public class Enemy_Tomato : MonoBehaviour
     private int damage = 10;
 
     private Animator theAnimator;
+    private float hpStored;
+    private float hpStoredTimer;
 
-    
 
     // Start is called before the first frame update
     void Start()
@@ -34,12 +36,23 @@ public class Enemy_Tomato : MonoBehaviour
         HP = 16.0f;
         theAnimator = GetComponent<Animator>();
         theAnimator.SetBool("tomatoIsMoving", true);
-        
+        tomatoSpriteRendererRedHit.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Red Hit Effect shows up on enemy screen when take damage
+        hpStoredTimer -= Time.deltaTime;
+        if (hpStoredTimer <= 0)
+        {
+            hpStoredTimer = .5f;
+            hpStored = HP;
+        }
+        if (hpStored > HP)
+        {
+            StartCoroutine(PlayRedHit());
+        }
 
         //finds closest player
         float distanceToClosestPlayer = Mathf.Infinity;
@@ -74,10 +87,12 @@ public class Enemy_Tomato : MonoBehaviour
         if (this.transform.position.x > closestPlayer.transform.position.x)
         {
             tomatoSpriteRenderer.flipX = false;
+            tomatoSpriteRendererRedHit.flipX = false;
         }
         else
         {
             tomatoSpriteRenderer.flipX = true;
+            tomatoSpriteRendererRedHit.flipX = true;
         }
 
         //kills tomato and drops resource
@@ -87,6 +102,13 @@ public class Enemy_Tomato : MonoBehaviour
             Destroy(gameObject);
         }
 
+    }
+
+    IEnumerator PlayRedHit()
+    {
+        tomatoSpriteRendererRedHit.enabled = true;
+        yield return new WaitForSeconds(0.25f);
+        tomatoSpriteRendererRedHit.enabled = false;
     }
 
     //Coroutine to explode then keep sprite there then destroy it

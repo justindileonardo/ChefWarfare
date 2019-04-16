@@ -10,6 +10,7 @@ public class Enemy_Cheese : MonoBehaviour
     //public variables
     public float moveSpeed;
     public SpriteRenderer cheeseSpriteRenderer;
+    public SpriteRenderer cheeseSpriteRendererRedHit;
     public float HP;
     public GameObject cheesePelletPrefab;
     public GameObject resourceCheesePrefab;
@@ -17,6 +18,8 @@ public class Enemy_Cheese : MonoBehaviour
     //private variables
     private bool isMoving;
     private float attackCooldownTimer;
+    private float hpStored;
+    private float hpStoredTimer;
 
     // Start is called before the first frame update
     void Start()
@@ -24,11 +27,23 @@ public class Enemy_Cheese : MonoBehaviour
         attackCooldownTimer = 2.0f;
         isMoving = true;
         HP = 20.0f;
+        cheeseSpriteRendererRedHit.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Red Hit Effect shows up on enemy screen when take damage
+        hpStoredTimer -= Time.deltaTime;
+        if (hpStoredTimer <= 0)
+        {
+            hpStoredTimer = .5f;
+            hpStored = HP;
+        }
+        if (hpStored > HP)
+        {
+            StartCoroutine(PlayRedHit());
+        }
 
         //finds closest player
         float distanceToClosestPlayer = Mathf.Infinity;
@@ -68,10 +83,12 @@ public class Enemy_Cheese : MonoBehaviour
         if (transform.position.x > closestPlayer.transform.position.x)
         {
             cheeseSpriteRenderer.flipX = false;
+            cheeseSpriteRendererRedHit.flipX = false;
         }
         else
         {
             cheeseSpriteRenderer.flipX = true;
+            cheeseSpriteRendererRedHit.flipX = true;
         }
 
 
@@ -82,6 +99,14 @@ public class Enemy_Cheese : MonoBehaviour
             Destroy(gameObject);
         }
 
+    }
+
+
+    IEnumerator PlayRedHit()
+    {
+        cheeseSpriteRendererRedHit.enabled = true;
+        yield return new WaitForSeconds(0.25f);
+        cheeseSpriteRendererRedHit.enabled = false;
     }
 
     void OnTriggerEnter2D(Collider2D other)

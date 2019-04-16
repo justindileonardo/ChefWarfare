@@ -10,6 +10,7 @@ public class Enemy_Onion : MonoBehaviour
     //public variables
     public float moveSpeed;
     public SpriteRenderer onionSpriteRenderer;
+    public SpriteRenderer onionSpriteRendererRedHit;
     public float HP;
     public GameObject onionPelletPrefab;
     public GameObject resourceOnionPrefab;
@@ -17,7 +18,8 @@ public class Enemy_Onion : MonoBehaviour
     //private variables
     private bool isMoving;
     private float attackCooldownTimer;
-    
+    private float hpStored;
+    private float hpStoredTimer;
 
     // Start is called before the first frame update
     void Start()
@@ -25,12 +27,23 @@ public class Enemy_Onion : MonoBehaviour
         attackCooldownTimer = 2.0f;
         isMoving = true;
         HP = 20.0f;
-        
+        onionSpriteRendererRedHit.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Red Hit Effect shows up on enemy screen when take damage
+        hpStoredTimer -= Time.deltaTime;
+        if (hpStoredTimer <= 0)
+        {
+            hpStoredTimer = .5f;
+            hpStored = HP;
+        }
+        if (hpStored > HP)
+        {
+            StartCoroutine(PlayRedHit());
+        }
 
         //finds closest player
         float distanceToClosestPlayer = Mathf.Infinity;
@@ -72,10 +85,12 @@ public class Enemy_Onion : MonoBehaviour
         if (transform.position.x > closestPlayer.transform.position.x)
         {
             onionSpriteRenderer.flipX = false;
+            onionSpriteRendererRedHit.flipX = false;
         }
         else
         {
             onionSpriteRenderer.flipX = true;
+            onionSpriteRendererRedHit.flipX = true;
         }
 
 
@@ -91,6 +106,12 @@ public class Enemy_Onion : MonoBehaviour
 
     }
 
+    IEnumerator PlayRedHit()
+    {
+        onionSpriteRendererRedHit.enabled = true;
+        yield return new WaitForSeconds(0.25f);
+        onionSpriteRendererRedHit.enabled = false;
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {

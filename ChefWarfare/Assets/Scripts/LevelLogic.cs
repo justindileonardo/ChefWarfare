@@ -66,9 +66,24 @@ public class LevelLogic : MonoBehaviour
                 gameIsPaused = false;
             }
         }
-        
+        else if (thePlayer1.isMac == true)
+        {
+            if (Input.GetButtonDown("Xbox_Button_Start_MAC") && gameIsPaused == false)
+            {
+                //pause game
+                Time.timeScale = 0;
+                gameIsPaused = true;
+                print("Paused");
+            }
+            else if (Input.GetButtonDown("Xbox_Button_Start_MAC") && gameIsPaused == true)
+            {
+                Time.timeScale = 1;
+                gameIsPaused = false;
+            }
+        }
 
-        if(wallsDropped == true)
+
+        if (wallsDropped == true)
         {
             gameTimerPost -= Time.deltaTime;
             min = Mathf.FloorToInt(gameTimerPost / 60);

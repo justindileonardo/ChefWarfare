@@ -10,6 +10,7 @@ public class Enemy_Spaghetti : MonoBehaviour
     //public variables
     public float moveSpeed;
     public SpriteRenderer spaghettiSpriteRenderer;
+    public SpriteRenderer spaghettiSpriteRendererRedHit;
     public float HP;
 
     public GameObject resourceSpaghettiPrefab;
@@ -22,6 +23,8 @@ public class Enemy_Spaghetti : MonoBehaviour
     private bool isMoving;
     private float attackCooldownTimer;
     private bool isAttacking;
+    private float hpStored;
+    private float hpStoredTimer;
 
     // Start is called before the first frame update
     void Start()
@@ -33,11 +36,23 @@ public class Enemy_Spaghetti : MonoBehaviour
         whipWindUp.enabled = true;
         whipAttack.enabled = false;
         whipCollider.enabled = false;
+        spaghettiSpriteRendererRedHit.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Red Hit Effect shows up on enemy screen when take damage
+        hpStoredTimer -= Time.deltaTime;
+        if (hpStoredTimer <= 0)
+        {
+            hpStoredTimer = .5f;
+            hpStored = HP;
+        }
+        if (hpStored > HP)
+        {
+            StartCoroutine(PlayRedHit());
+        }
 
         //finds closest player
         float distanceToClosestPlayer = Mathf.Infinity;
@@ -70,10 +85,12 @@ public class Enemy_Spaghetti : MonoBehaviour
         if (this.transform.position.x > closestPlayer.transform.position.x)
         {
             spaghettiSpriteRenderer.flipX = false;
+            spaghettiSpriteRendererRedHit.flipX = false;
         }
         else
         {
             spaghettiSpriteRenderer.flipX = true;
+            spaghettiSpriteRendererRedHit.flipX = true;
         }
 
         //when cooldown timer is less than 0 it will move towards player
@@ -97,6 +114,13 @@ public class Enemy_Spaghetti : MonoBehaviour
             Destroy(gameObject);
         }
 
+    }
+
+    IEnumerator PlayRedHit()
+    {
+        spaghettiSpriteRendererRedHit.enabled = true;
+        yield return new WaitForSeconds(0.25f);
+        spaghettiSpriteRendererRedHit.enabled = false;
     }
 
     //coroutine to attack a player

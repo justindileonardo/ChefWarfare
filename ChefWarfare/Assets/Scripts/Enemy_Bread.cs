@@ -11,6 +11,7 @@ public class Enemy_Bread : MonoBehaviour
     public SpriteRenderer breadSpriteRenderer_Body;
     public SpriteRenderer breadSpriteRenderer_LegLeft;
     public SpriteRenderer breadSpriteRenderer_LegRight;
+    public SpriteRenderer breadSpriteRenderer_RedHit;
     public float HP;
 
     public GameObject resourceBreadPrefab;
@@ -19,6 +20,8 @@ public class Enemy_Bread : MonoBehaviour
     private bool isMoving;
     private float attackCooldownTimer;
     private int damage = 3;
+    private float hpStored;
+    private float hpStoredTimer;
 
     // Start is called before the first frame update
     void Start()
@@ -26,11 +29,24 @@ public class Enemy_Bread : MonoBehaviour
         attackCooldownTimer = 0;
         isMoving = true;
         HP = 10.0f;
+        breadSpriteRenderer_RedHit.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        //Red Hit Effect shows up on enemy screen when take damage
+        hpStoredTimer -= Time.deltaTime;
+        if (hpStoredTimer <= 0)
+        {
+            hpStoredTimer = .5f;
+            hpStored = HP;
+        }
+        if (hpStored > HP)
+        {
+            StartCoroutine(PlayRedHit());
+        }
 
         //finds closest player
         float distanceToClosestPlayer = Mathf.Infinity;
@@ -72,12 +88,14 @@ public class Enemy_Bread : MonoBehaviour
             breadSpriteRenderer_Body.flipX = false;
             breadSpriteRenderer_LegLeft.flipX = false;
             breadSpriteRenderer_LegRight.flipX = false;
+            breadSpriteRenderer_RedHit.flipX = false;
         }
         else
         {
             breadSpriteRenderer_Body.flipX = true;
             breadSpriteRenderer_LegLeft.flipX = true;
             breadSpriteRenderer_LegRight.flipX = true;
+            breadSpriteRenderer_RedHit.flipX = true;
         }
 
 
@@ -90,6 +108,13 @@ public class Enemy_Bread : MonoBehaviour
 
     }
 
+
+    IEnumerator PlayRedHit()
+    {
+        breadSpriteRenderer_RedHit.enabled = true;
+        yield return new WaitForSeconds(0.25f);
+        breadSpriteRenderer_RedHit.enabled = false;
+    }
 
     void OnCollisionStay2D(Collision2D other)
     {
