@@ -8,6 +8,7 @@ public class Enemy_Spaghetti_Whip : MonoBehaviour
 
     //private variables
     private int damage = 5;
+    public AudioSource SFX_hit;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,7 @@ public class Enemy_Spaghetti_Whip : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             other.gameObject.GetComponent<PlayerStatus>().HP -= damage;
+            SFX_hit.Play();
         }
     }
 

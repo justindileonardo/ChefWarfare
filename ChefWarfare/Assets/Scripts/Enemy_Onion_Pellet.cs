@@ -12,6 +12,7 @@ public class Enemy_Onion_Pellet : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 moveDirection;
     private float blindEffectLength;
+    public AudioSource SFX_hit;
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +48,14 @@ public class Enemy_Onion_Pellet : MonoBehaviour
         
     }
 
+    IEnumerator DestroyProjectile()
+    {
+        SFX_hit.Play();
+        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<BoxCollider2D>().enabled = false;
+        yield return new WaitForSeconds(.5f);
+        Destroy(gameObject);
+    }
 
     void OnCollisionEnter2D(Collision2D other)
     {
@@ -57,7 +66,7 @@ public class Enemy_Onion_Pellet : MonoBehaviour
             //apply blind to other player for 2 seconds
             other.gameObject.GetComponent<BlindEffect>().blindEffectTimer = 2.0f;
             //destroys the bullet
-            Destroy(gameObject);
+            StartCoroutine(DestroyProjectile());
         }
         //if it hits else anything it gets destroyed
         else

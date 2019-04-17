@@ -11,7 +11,8 @@ public class TomatoSauce : MonoBehaviour
     private float speed = 25.0f;
     private float existTimer;
     private WeaponManager weaponManagerScript;
-    
+    public AudioSource SFX_hit;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,38 +59,47 @@ public class TomatoSauce : MonoBehaviour
 
     }
 
+    IEnumerator DestroyProjectile()
+    {
+        SFX_hit.Play();
+        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<BoxCollider2D>().enabled = false;
+        yield return new WaitForSeconds(.5f);
+        Destroy(gameObject);
+    }
+
     void OnCollisionEnter2D(Collision2D other)
     {
 
         if (other.gameObject.tag == "Player")
         {
             other.gameObject.GetComponent<PlayerStatus>().HP -= damage * weaponManagerScript.damageBoostMultiplier;
-            Destroy(gameObject);
+            StartCoroutine(DestroyProjectile());
         }
         else if (other.gameObject.tag == "Enemy_Bread")
         {
             other.gameObject.GetComponent<Enemy_Bread>().HP -= damage * weaponManagerScript.damageBoostMultiplier;
-            Destroy(gameObject);
+            StartCoroutine(DestroyProjectile());
         }
         else if (other.gameObject.tag == "Enemy_Tomato")
         {
             other.gameObject.GetComponent<Enemy_Tomato>().HP -= damage * weaponManagerScript.damageBoostMultiplier;
-            Destroy(gameObject);
+            StartCoroutine(DestroyProjectile());
         }
         else if (other.gameObject.tag == "Enemy_Spaghetti")
         {
             other.gameObject.GetComponent<Enemy_Spaghetti>().HP -= damage * weaponManagerScript.damageBoostMultiplier;
-            Destroy(gameObject);
+            StartCoroutine(DestroyProjectile());
         }
         else if (other.gameObject.tag == "Enemy_Cheese")
         {
             other.gameObject.GetComponent<Enemy_Cheese>().HP -= damage * weaponManagerScript.damageBoostMultiplier;
-            Destroy(gameObject);
+            StartCoroutine(DestroyProjectile());
         }
         else if (other.gameObject.tag == "Enemy_Onion")
         {
             other.gameObject.GetComponent<Enemy_Onion>().HP -= damage * weaponManagerScript.damageBoostMultiplier;
-            Destroy(gameObject);
+            StartCoroutine(DestroyProjectile());
         }
         //if hits anything other than player or enemy destroy itself
         else

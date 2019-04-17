@@ -13,6 +13,7 @@ public class Enemy_Cheese_Pellet : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 moveDirection;
     private float slowEffectSpeed;
+    public AudioSource SFX_hit;
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +48,14 @@ public class Enemy_Cheese_Pellet : MonoBehaviour
 
     }
 
+    IEnumerator DestroyProjectile()
+    {
+        SFX_hit.Play();
+        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<BoxCollider2D>().enabled = false;
+        yield return new WaitForSeconds(.5f);
+        Destroy(gameObject);
+    }
 
     void OnCollisionEnter2D(Collision2D other)
     {
@@ -55,9 +64,9 @@ public class Enemy_Cheese_Pellet : MonoBehaviour
             //apply damage to player
             other.gameObject.GetComponent<PlayerStatus>().HP -= damage;
             //apply 50% move speed slow to player
-            other.gameObject.GetComponent<PlayerStatus>().moveSpeed = 4.0f; 
+            other.gameObject.GetComponent<PlayerStatus>().moveSpeed = 4.0f;
             //destroys the bullet
-            Destroy(gameObject);
+            StartCoroutine(DestroyProjectile());
         }
         //if it hits else anything it gets destroyed
         else

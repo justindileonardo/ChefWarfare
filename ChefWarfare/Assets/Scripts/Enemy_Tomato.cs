@@ -17,6 +17,7 @@ public class Enemy_Tomato : MonoBehaviour
     public GameObject resourceTomatoPrefab;
 
     public CircleCollider2D[] tomatoColliders;
+    public AudioSource SFX_hit;
 
     //private variables
     private bool isMoving;
@@ -114,6 +115,7 @@ public class Enemy_Tomato : MonoBehaviour
     //Coroutine to explode then keep sprite there then destroy it
     IEnumerator AttackCoroutine()
     {
+        SFX_hit.Play();
         tomatoSpriteRenderer.enabled = false;
         tomatoExplosionSpriteRenderer.enabled = true;
         isMoving = false;
@@ -121,7 +123,8 @@ public class Enemy_Tomato : MonoBehaviour
         {
             tomatoCollider.enabled = false;
         }
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.5f);
         tomatoExplosionSpriteRenderer.enabled = false;
         Destroy(gameObject);
     }

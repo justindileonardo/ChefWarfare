@@ -22,6 +22,7 @@ public class Enemy_Bread : MonoBehaviour
     private int damage = 3;
     private float hpStored;
     private float hpStoredTimer;
+    public AudioSource SFX_hit;
 
     // Start is called before the first frame update
     void Start()
@@ -125,7 +126,7 @@ public class Enemy_Bread : MonoBehaviour
             other.gameObject.GetComponent<PlayerStatus>().HP -= damage;
             isMoving = false;
             attackCooldownTimer = 1.0f;
-
+            SFX_hit.Play();
         }
     }
 
