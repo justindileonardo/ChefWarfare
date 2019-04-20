@@ -23,10 +23,12 @@ public class Enemy_Bread : MonoBehaviour
     private float hpStored;
     private float hpStoredTimer;
     public AudioSource SFX_hit;
+    private LevelLogic levelLogicScript;
 
     // Start is called before the first frame update
     void Start()
     {
+        levelLogicScript = GameObject.Find("LevelLogic").GetComponent<LevelLogic>();
         attackCooldownTimer = 0;
         isMoving = true;
         HP = 10.0f;
@@ -36,6 +38,7 @@ public class Enemy_Bread : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        SFX_hit.volume = levelLogicScript.sfxVolumeSlider.value;
 
         //Red Hit Effect shows up on enemy screen when take damage
         hpStoredTimer -= Time.deltaTime;

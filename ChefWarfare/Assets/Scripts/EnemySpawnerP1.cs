@@ -47,6 +47,8 @@ public class EnemySpawnerP1 : MonoBehaviour
     public float enemySpawnTimer;
     private float enemySpawnLength;
 
+    private LevelLogic levelLogicScript;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -62,6 +64,7 @@ public class EnemySpawnerP1 : MonoBehaviour
         NotInRecipeBook();
         enemySpawner_UI.SetActive(true);
         resources_UI.SetActive(true);
+        levelLogicScript = GameObject.Find("LevelLogic").GetComponent<LevelLogic>();
     }
 
     // Update is called once per frame
@@ -164,7 +167,7 @@ public class EnemySpawnerP1 : MonoBehaviour
         //if currently in your respective square
         if (inMyZone == true)
         {
-            if(playerMovementScript.isMac == false)
+            if(playerMovementScript.isMac == false && levelLogicScript.gameIsPaused == false)
             {
                 //Activating/Deactivating spawner
                 //click dpad-up, activates spawner
@@ -215,7 +218,7 @@ public class EnemySpawnerP1 : MonoBehaviour
 
             }
 
-            else if(playerMovementScript.isMac == true)
+            else if(playerMovementScript.isMac == true && levelLogicScript.gameIsPaused == false)
             {
                 //Activating/Deactivating spawner
                 //click dpad-up, activates spawner

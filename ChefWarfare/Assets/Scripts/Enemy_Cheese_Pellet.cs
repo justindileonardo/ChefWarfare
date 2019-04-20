@@ -14,10 +14,12 @@ public class Enemy_Cheese_Pellet : MonoBehaviour
     private Vector2 moveDirection;
     private float slowEffectSpeed;
     public AudioSource SFX_hit;
+    private LevelLogic levelLogicScript;
 
     // Start is called before the first frame update
     void Start()
     {
+        levelLogicScript = GameObject.Find("LevelLogic").GetComponent<LevelLogic>();
 
         rb = GetComponent<Rigidbody2D>();
 
@@ -45,7 +47,7 @@ public class Enemy_Cheese_Pellet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        SFX_hit.volume = levelLogicScript.sfxVolumeSlider.value;
     }
 
     IEnumerator DestroyProjectile()

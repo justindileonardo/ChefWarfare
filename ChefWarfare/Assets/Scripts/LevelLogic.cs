@@ -30,11 +30,22 @@ public class LevelLogic : MonoBehaviour
     //Audio
     public AudioSource SFX_10SecsAndWallsDrop;
     public AudioSource SFX_10Secs;
+    public AudioSource MUSIC;
 
     private bool sfx_10sawd_played;
     private bool sfx_10s_played;
 
     public bool gameIsPaused;
+
+    private float horizontalInput1;
+    private float horizontalInput2;
+    private float horizontalInput3;
+    private float horizontalInput4;
+
+    public GameObject PauseMenu;
+
+    public Slider sfxVolumeSlider;
+    public Slider musicVolumeSlider;
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +58,7 @@ public class LevelLogic : MonoBehaviour
 
         thePlayer1 = GameObject.Find("Player1").GetComponent<PlayerMovement>();
         gameIsPaused = false;
+        PauseMenu.SetActive(false);
     }
 
     // Update is called once per frame
@@ -59,11 +71,15 @@ public class LevelLogic : MonoBehaviour
                 //pause game
                 Time.timeScale = 0;
                 gameIsPaused = true;
+                PauseMenu.SetActive(true);
+                MUSIC.Pause();
             }
             else if(Input.GetButtonDown("Xbox_Button_Start") && gameIsPaused == true)
             {
                 Time.timeScale = 1;
                 gameIsPaused = false;
+                PauseMenu.SetActive(false);
+                MUSIC.UnPause();
             }
         }
         else if (thePlayer1.isMac == true)
@@ -73,12 +89,49 @@ public class LevelLogic : MonoBehaviour
                 //pause game
                 Time.timeScale = 0;
                 gameIsPaused = true;
-                print("Paused");
+                PauseMenu.SetActive(true);
+                MUSIC.Pause();
             }
             else if (Input.GetButtonDown("Xbox_Button_Start_MAC") && gameIsPaused == true)
             {
                 Time.timeScale = 1;
                 gameIsPaused = false;
+                PauseMenu.SetActive(false);
+                MUSIC.UnPause();
+            }
+        }
+
+        if(gameIsPaused == true)
+        {
+            horizontalInput1 = Input.GetAxisRaw("Xbox_HorizontalLS_P1");
+            horizontalInput2 = Input.GetAxisRaw("Xbox_HorizontalLS_P2");
+            horizontalInput3 = Input.GetAxisRaw("Xbox_HorizontalLS_P3");
+            horizontalInput4 = Input.GetAxisRaw("Xbox_HorizontalLS_P4");
+
+            
+
+            if (horizontalInput1 == 1 || horizontalInput2 == 1 || horizontalInput3 == 1 || horizontalInput4 == 1)
+            {
+                if(sfxVolumeSlider.value < 1)
+                {
+                    sfxVolumeSlider.value += .01f;
+                }
+            }
+            if (horizontalInput1 == -1 || horizontalInput2 == -1 || horizontalInput3 == -1 || horizontalInput4 == -1)
+            {
+                if (sfxVolumeSlider.value > 0)
+                {
+                    sfxVolumeSlider.value -= .01f;
+                }
+            }
+
+            if(sfxVolumeSlider.value > 1)
+            {
+                sfxVolumeSlider.value = 1;
+            }
+            if(sfxVolumeSlider.value < 0)
+            {
+                sfxVolumeSlider.value = 0;
             }
         }
 

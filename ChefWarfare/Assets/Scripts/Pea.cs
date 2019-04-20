@@ -12,10 +12,13 @@ public class Pea : MonoBehaviour
     private float existTimer;
     private WeaponManager weaponManagerScript;
     public AudioSource SFX_hit;
+    private LevelLogic levelLogicScript;
 
     // Start is called before the first frame update
     void Start()
     {
+        levelLogicScript = GameObject.Find("LevelLogic").GetComponent<LevelLogic>();
+        SFX_hit.volume = levelLogicScript.sfxVolumeSlider.value;
         existTimer = 0;
         damage = 4;
         //GetComponent<CircleCollider2D>().enabled = false;

@@ -18,6 +18,7 @@ public class Enemy_Tomato : MonoBehaviour
 
     public CircleCollider2D[] tomatoColliders;
     public AudioSource SFX_hit;
+    private LevelLogic levelLogicScript;
 
     //private variables
     private bool isMoving;
@@ -31,6 +32,7 @@ public class Enemy_Tomato : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        levelLogicScript = GameObject.Find("LevelLogic").GetComponent<LevelLogic>();
         tomatoSpriteRenderer.enabled = true;
         tomatoExplosionSpriteRenderer.enabled = false;
         isMoving = true;
@@ -43,6 +45,8 @@ public class Enemy_Tomato : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        SFX_hit.volume = levelLogicScript.sfxVolumeSlider.value;
+
         //Red Hit Effect shows up on enemy screen when take damage
         hpStoredTimer -= Time.deltaTime;
         if (hpStoredTimer <= 0)
