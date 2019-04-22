@@ -82,6 +82,8 @@ public class PlayerStatus : MonoBehaviour
     public Image ControlsImage;
     public bool controlsOpen;
 
+    public AudioSource AS_GetHit;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -235,15 +237,18 @@ public class PlayerStatus : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if(Input.GetButtonDown(inputBack) && controlsOpen == false)
+        if(levelLogicScript.gameIsPaused == false)
         {
-            StartCoroutine(OpenControls());
+            if (Input.GetButtonDown(inputBack) && controlsOpen == false)
+            {
+                StartCoroutine(OpenControls());
+            }
+            else if (Input.GetButtonDown(inputBack) && controlsOpen == true)
+            {
+                StartCoroutine(CloseControls());
+            }
         }
-        else if (Input.GetButtonDown(inputBack) && controlsOpen == true)
-        {
-            StartCoroutine(CloseControls());
-        }
+        
 
         //makes it so when dead cant move
         if (myPlayer.player1)

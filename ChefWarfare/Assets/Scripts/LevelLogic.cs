@@ -42,11 +42,19 @@ public class LevelLogic : MonoBehaviour
     private float horizontalInput3;
     private float horizontalInput4;
 
+    private float verticalInput1;
+    private float verticalInput2;
+    private float verticalInput3;
+    private float verticalInput4;
+
     public GameObject PauseMenu;
 
     public Slider sfxVolumeSlider;
     public Slider musicVolumeSlider;
-
+    public EventSystem pauseEventSystem;
+    public EventSystem eventSystem1, eventSystem2, eventSystem3, eventSystem4;
+    public GameObject resumeButton;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -59,6 +67,7 @@ public class LevelLogic : MonoBehaviour
         thePlayer1 = GameObject.Find("Player1").GetComponent<PlayerMovement>();
         gameIsPaused = false;
         PauseMenu.SetActive(false);
+        pauseEventSystem.enabled = false;
     }
 
     // Update is called once per frame
@@ -72,6 +81,12 @@ public class LevelLogic : MonoBehaviour
                 Time.timeScale = 0;
                 gameIsPaused = true;
                 PauseMenu.SetActive(true);
+                eventSystem1.enabled = false;
+                eventSystem2.enabled = false;
+                eventSystem3.enabled = false;
+                eventSystem4.enabled = false;
+                pauseEventSystem.enabled = true;
+                pauseEventSystem.SetSelectedGameObject(resumeButton);
                 MUSIC.Pause();
             }
             else if(Input.GetButtonDown("Xbox_Button_Start") && gameIsPaused == true)
@@ -79,6 +94,23 @@ public class LevelLogic : MonoBehaviour
                 Time.timeScale = 1;
                 gameIsPaused = false;
                 PauseMenu.SetActive(false);
+                pauseEventSystem.enabled = false;
+                eventSystem1.enabled = true;
+                eventSystem2.enabled = true;
+                eventSystem3.enabled = true;
+                eventSystem4.enabled = true;
+                MUSIC.UnPause();
+            }
+            else if (Input.GetButtonDown("Xbox_Button_B_ALL") && gameIsPaused == true)
+            {
+                Time.timeScale = 1;
+                gameIsPaused = false;
+                PauseMenu.SetActive(false);
+                pauseEventSystem.enabled = false;
+                eventSystem1.enabled = true;
+                eventSystem2.enabled = true;
+                eventSystem3.enabled = true;
+                eventSystem4.enabled = true;
                 MUSIC.UnPause();
             }
         }
@@ -90,6 +122,12 @@ public class LevelLogic : MonoBehaviour
                 Time.timeScale = 0;
                 gameIsPaused = true;
                 PauseMenu.SetActive(true);
+                eventSystem1.enabled = false;
+                eventSystem2.enabled = false;
+                eventSystem3.enabled = false;
+                eventSystem4.enabled = false;
+                pauseEventSystem.enabled = true;
+                pauseEventSystem.SetSelectedGameObject(resumeButton);
                 MUSIC.Pause();
             }
             else if (Input.GetButtonDown("Xbox_Button_Start_MAC") && gameIsPaused == true)
@@ -97,43 +135,27 @@ public class LevelLogic : MonoBehaviour
                 Time.timeScale = 1;
                 gameIsPaused = false;
                 PauseMenu.SetActive(false);
+                pauseEventSystem.enabled = false;
+                eventSystem1.enabled = true;
+                eventSystem2.enabled = true;
+                eventSystem3.enabled = true;
+                eventSystem4.enabled = true;
+                MUSIC.UnPause();
+            }
+            else if (Input.GetButtonDown("Xbox_Button_B_ALL_MAC") && gameIsPaused == true)
+            {
+                Time.timeScale = 1;
+                gameIsPaused = false;
+                PauseMenu.SetActive(false);
+                pauseEventSystem.enabled = false;
+                eventSystem1.enabled = true;
+                eventSystem2.enabled = true;
+                eventSystem3.enabled = true;
+                eventSystem4.enabled = true;
                 MUSIC.UnPause();
             }
         }
 
-        if(gameIsPaused == true)
-        {
-            horizontalInput1 = Input.GetAxisRaw("Xbox_HorizontalLS_P1");
-            horizontalInput2 = Input.GetAxisRaw("Xbox_HorizontalLS_P2");
-            horizontalInput3 = Input.GetAxisRaw("Xbox_HorizontalLS_P3");
-            horizontalInput4 = Input.GetAxisRaw("Xbox_HorizontalLS_P4");
-
-            
-
-            if (horizontalInput1 == 1 || horizontalInput2 == 1 || horizontalInput3 == 1 || horizontalInput4 == 1)
-            {
-                if(sfxVolumeSlider.value < 1)
-                {
-                    sfxVolumeSlider.value += .01f;
-                }
-            }
-            if (horizontalInput1 == -1 || horizontalInput2 == -1 || horizontalInput3 == -1 || horizontalInput4 == -1)
-            {
-                if (sfxVolumeSlider.value > 0)
-                {
-                    sfxVolumeSlider.value -= .01f;
-                }
-            }
-
-            if(sfxVolumeSlider.value > 1)
-            {
-                sfxVolumeSlider.value = 1;
-            }
-            if(sfxVolumeSlider.value < 0)
-            {
-                sfxVolumeSlider.value = 0;
-            }
-        }
 
 
         if (wallsDropped == true)
@@ -213,6 +235,19 @@ public class LevelLogic : MonoBehaviour
         scoreOrangeText.text = scoreOrange.ToString();
     }
 
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
+        gameIsPaused = false;
+        PauseMenu.SetActive(false);
+        pauseEventSystem.enabled = false;
+        eventSystem1.enabled = true;
+        eventSystem2.enabled = true;
+        eventSystem3.enabled = true;
+        eventSystem4.enabled = true;
+        MUSIC.UnPause();
+    }
+
     public void RestartGame()
     {
         eachGameLength = 300f;          //300f = 5 minutes      //180 = 3 minutes
@@ -227,6 +262,7 @@ public class LevelLogic : MonoBehaviour
         sfx_10sawd_played = false;
         sfx_10s_played = false;
     }
+
 
     public void EndGame()
     {

@@ -67,6 +67,7 @@ public class SpecialManager : MonoBehaviour
     private int snackHealthBoost_AddHealthAmount;
 
     private PlayerMovement playerMovementScript;
+    private LevelLogic levelLogicScript;
 
     private Image sSpeed;
     private Image sDamage;
@@ -80,7 +81,7 @@ public class SpecialManager : MonoBehaviour
     void Start()
     {
         playerMovementScript = GetComponent<PlayerMovement>();
-
+        levelLogicScript = GameObject.Find("LevelLogic").GetComponent<LevelLogic>();
 
         if(playerMovementScript.isMac == false)
         {
@@ -264,229 +265,232 @@ public class SpecialManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        //if the player has the speed snack
-        if (hasSnack_SpeedBoost == true)
+        if(levelLogicScript.gameIsPaused == false)
         {
-            //if the cooldown finishes, set green for ready
-            if (snackSpeedBoost_Cooldown <= 0 && sReadyBox.enabled == false)
+            //if the player has the speed snack
+            if (hasSnack_SpeedBoost == true)
             {
-                sMainBox.fillAmount = 0;
-                sReadyBox.enabled = true;
-            }
-            //disable green ready circle
-            if (snackSpeedBoost_Cooldown > 0 && sReadyBox.enabled == true)
-            {
-                sReadyBox.enabled = false;
+                //if the cooldown finishes, set green for ready
+                if (snackSpeedBoost_Cooldown <= 0 && sReadyBox.enabled == false)
+                {
+                    sMainBox.fillAmount = 0;
+                    sReadyBox.enabled = true;
+                }
+                //disable green ready circle
+                if (snackSpeedBoost_Cooldown > 0 && sReadyBox.enabled == true)
+                {
+                    sReadyBox.enabled = false;
+                }
+
+                //setting the value of the circle fill
+                sMainBox.fillAmount = snackSpeedBoost_Cooldown / 30;
+
+                //enabling the images when acquiring
+                if (hasSnack_SpeedBoost == true && sSpeed.enabled == false)
+                {
+                    sSpeed.enabled = true;
+                    sBackBox.enabled = true;
+                    sMainBox.enabled = true;
+                    sFrontBox.enabled = true;
+                }
             }
 
-            //setting the value of the circle fill
-            sMainBox.fillAmount = snackSpeedBoost_Cooldown / 30;
-
-            //enabling the images when acquiring
-            if (hasSnack_SpeedBoost == true && sSpeed.enabled == false)
+            //if the player has the Damage snack
+            else if (hasSnack_DamageBoost == true)
             {
-                sSpeed.enabled = true;
-                sBackBox.enabled = true;
-                sMainBox.enabled = true;
-                sFrontBox.enabled = true;
+                //if the cooldown finishes, set green for ready
+                if (snackDamageBoost_Cooldown <= 0 && sReadyBox.enabled == false)
+                {
+                    sMainBox.fillAmount = 0;
+                    sReadyBox.enabled = true;
+                }
+                //disable green ready circle
+                if (snackDamageBoost_Cooldown > 0 && sReadyBox.enabled == true)
+                {
+                    sReadyBox.enabled = false;
+                }
+
+                //setting the value of the circle fill
+                sMainBox.fillAmount = snackDamageBoost_Cooldown / 30;
+
+                //enabling the images when acquiring
+                if (hasSnack_DamageBoost == true && sDamage.enabled == false)
+                {
+                    sDamage.enabled = true;
+                    sBackBox.enabled = true;
+                    sMainBox.enabled = true;
+                    sFrontBox.enabled = true;
+                }
+            }
+
+            //if the player has the Health snack
+            else if (hasSnack_HealthBoost == true)
+            {
+                //if the cooldown finishes, set green for ready
+                if (snackHealthBoost_Cooldown <= 0 && sReadyBox.enabled == false)
+                {
+                    sMainBox.fillAmount = 0;
+                    sReadyBox.enabled = true;
+                }
+                //disable green ready circle
+                if (snackHealthBoost_Cooldown > 0 && sReadyBox.enabled == true)
+                {
+                    sReadyBox.enabled = false;
+                }
+
+                //setting the value of the circle fill
+                sMainBox.fillAmount = snackHealthBoost_Cooldown / 30;
+
+                //enabling the images when acquiring
+                if (hasSnack_HealthBoost == true && sHealth.enabled == false)
+                {
+                    sHealth.enabled = true;
+                    sBackBox.enabled = true;
+                    sMainBox.enabled = true;
+                    sFrontBox.enabled = true;
+                }
+            }
+
+
+
+            //When the player has the Snack - Speed Boost
+            if (hasSnack_SpeedBoost == true)
+            {
+                //decrease the cooldown timer when it is bigger than 0
+                if (snackSpeedBoost_Cooldown > 0)
+                {
+                    snackSpeedBoost_Cooldown -= Time.deltaTime;
+                }
+
+                //if the cooldown timer finishes, set the snack to ready
+                if (snackSpeedBoost_Cooldown <= 0 && snackSpeedBoost_Ready == false)
+                {
+                    snackSpeedBoost_Ready = true;
+                }
+
+                //if the snack is ready and player presses X, activate speed boost (x2 speed)
+                if (snackSpeedBoost_Ready == true && snack_SpeedBoost.enabled == false && Input.GetButtonDown(inputX))
+                {
+                    snack_SpeedBoost.enabled = true;
+                    snack_SpeedBoost_ParticleSystem.SetActive(true);
+                    playerStatusScript.moveSpeed = 16.0f;
+                    SFX_drinkShake.Play();
+                }
+
+                //if the speed boost is active and the timer is bigger than 0, decreasse the timer
+                if (snack_SpeedBoost.enabled == true && snackSpeedBoost_ActiveTimer > 0)
+                {
+                    snackSpeedBoost_ActiveTimer -= Time.deltaTime;
+                }
+
+                //disable Speed Boost
+                if (snackSpeedBoost_ActiveTimer <= 0 && snack_SpeedBoost.enabled == true)
+                {
+                    snack_SpeedBoost.enabled = false;
+                    snack_SpeedBoost_ParticleSystem.SetActive(false);
+                    playerStatusScript.moveSpeed = playerStatusScript.moveSpeedDefault;
+                    snackSpeedBoost_Ready = false;
+                    snackSpeedBoost_ActiveTimer = snackSpeedBoost_ActiveLength;
+                    snackSpeedBoost_Cooldown = snackSpeedBoost_CooldownLength;
+                }
+            }
+
+
+
+            //When the player has the Snack - Damage Boost
+            else if (hasSnack_DamageBoost == true)
+            {
+                //decrease the cooldown timer when it is bigger than 0
+                if (snackDamageBoost_Cooldown > 0)
+                {
+                    snackDamageBoost_Cooldown -= Time.deltaTime;
+                }
+
+                //if the cooldown timer finishes, set the snack to ready
+                if (snackDamageBoost_Cooldown <= 0 && snackDamageBoost_Ready == false)
+                {
+                    snackDamageBoost_Ready = true;
+                }
+
+                //if the snack is ready and player presses X, activate Damage boost
+                if (snackDamageBoost_Ready == true && snack_DamageBoost.enabled == false && Input.GetButtonDown(inputX))
+                {
+                    snack_DamageBoost.enabled = true;
+                    snack_DamageBoost_ParticleSystem.SetActive(true);
+                    weaponManagerScript.damageBoostMultiplier = 2;
+                    SFX_drinkShake.Play();
+                }
+
+                //if the Damage boost is active and the timer is bigger than 0, decreasse the timer
+                if (snack_DamageBoost.enabled == true && snackDamageBoost_ActiveTimer > 0)
+                {
+                    snackDamageBoost_ActiveTimer -= Time.deltaTime;
+                }
+
+                //disable Damage Boost
+                if (snackDamageBoost_ActiveTimer <= 0 && snack_DamageBoost.enabled == true)
+                {
+                    snack_DamageBoost.enabled = false;
+                    snack_DamageBoost_ParticleSystem.SetActive(false);
+                    weaponManagerScript.damageBoostMultiplier = 1;
+                    snackDamageBoost_Ready = false;
+                    snackDamageBoost_ActiveTimer = snackDamageBoost_ActiveLength;
+                    snackDamageBoost_Cooldown = snackDamageBoost_CooldownLength;
+                }
+            }
+
+
+            //When the player has the Snack - Health Boost
+            else if (hasSnack_HealthBoost == true)
+            {
+                //decrease the cooldown timer when it is bigger than 0
+                if (snackHealthBoost_Cooldown > 0)
+                {
+                    snackHealthBoost_Cooldown -= Time.deltaTime;
+                }
+
+                //if the cooldown timer finishes, set the snack to ready
+                if (snackHealthBoost_Cooldown <= 0 && snackHealthBoost_Ready == false)
+                {
+                    snackHealthBoost_Ready = true;
+                }
+
+                //if the snack is ready and player presses X, activate Health boost
+                if (snackHealthBoost_Ready == true && snack_HealthBoost.enabled == false && Input.GetButtonDown(inputX))
+                {
+                    snack_HealthBoost.enabled = true;
+                    snack_HealthBoost_ParticleSystem.SetActive(true);
+                    weaponManagerScript.damageBoostMultiplier = 2;
+                    SFX_drinkShake.Play();
+                }
+
+                //if the Health boost is active and the timer is bigger than 0, decreasse the timer
+                if (snack_HealthBoost.enabled == true && snackHealthBoost_ActiveTimer > 0)
+                {
+                    snackHealthBoost_ActiveTimer -= Time.deltaTime;
+                    snackHealthBoost_AddHealthTimer -= Time.deltaTime;
+                }
+
+                if (snackHealthBoost_AddHealthTimer <= 0)
+                {
+                    playerStatusScript.HP += snackHealthBoost_AddHealthAmount;
+                    snackHealthBoost_AddHealthTimer = snackHealthBoost_AddHealthTimerLength;
+                }
+
+                //disable Health Boost
+                if (snackHealthBoost_ActiveTimer <= 0 && snack_HealthBoost.enabled == true)
+                {
+                    snack_HealthBoost.enabled = false;
+                    snack_HealthBoost_ParticleSystem.SetActive(false);
+                    weaponManagerScript.damageBoostMultiplier = 1;
+                    snackHealthBoost_Ready = false;
+                    snackHealthBoost_ActiveTimer = snackHealthBoost_ActiveLength;
+                    snackHealthBoost_Cooldown = snackHealthBoost_CooldownLength;
+                    snackHealthBoost_AddHealthTimer = snackHealthBoost_AddHealthTimerLength;
+                }
             }
         }
-
-        //if the player has the Damage snack
-        else if (hasSnack_DamageBoost == true)
-        {
-            //if the cooldown finishes, set green for ready
-            if (snackDamageBoost_Cooldown <= 0 && sReadyBox.enabled == false)
-            {
-                sMainBox.fillAmount = 0;
-                sReadyBox.enabled = true;
-            }
-            //disable green ready circle
-            if (snackDamageBoost_Cooldown > 0 && sReadyBox.enabled == true)
-            {
-                sReadyBox.enabled = false;
-            }
-
-            //setting the value of the circle fill
-            sMainBox.fillAmount = snackDamageBoost_Cooldown / 30;
-
-            //enabling the images when acquiring
-            if (hasSnack_DamageBoost == true && sDamage.enabled == false)
-            {
-                sDamage.enabled = true;
-                sBackBox.enabled = true;
-                sMainBox.enabled = true;
-                sFrontBox.enabled = true;
-            }
-        }
-
-        //if the player has the Health snack
-        else if (hasSnack_HealthBoost == true)
-        {
-            //if the cooldown finishes, set green for ready
-            if (snackHealthBoost_Cooldown <= 0 && sReadyBox.enabled == false)
-            {
-                sMainBox.fillAmount = 0;
-                sReadyBox.enabled = true;
-            }
-            //disable green ready circle
-            if (snackHealthBoost_Cooldown > 0 && sReadyBox.enabled == true)
-            {
-                sReadyBox.enabled = false;
-            }
-
-            //setting the value of the circle fill
-            sMainBox.fillAmount = snackHealthBoost_Cooldown / 30;
-
-            //enabling the images when acquiring
-            if (hasSnack_HealthBoost == true && sHealth.enabled == false)
-            {
-                sHealth.enabled = true;
-                sBackBox.enabled = true;
-                sMainBox.enabled = true;
-                sFrontBox.enabled = true;
-            }
-        }
-
-
-
-        //When the player has the Snack - Speed Boost
-        if (hasSnack_SpeedBoost == true)
-        {
-            //decrease the cooldown timer when it is bigger than 0
-            if(snackSpeedBoost_Cooldown > 0)
-            {
-                snackSpeedBoost_Cooldown -= Time.deltaTime;
-            }
-            
-            //if the cooldown timer finishes, set the snack to ready
-            if(snackSpeedBoost_Cooldown <= 0 && snackSpeedBoost_Ready == false)
-            {
-                snackSpeedBoost_Ready = true;
-            }
-
-            //if the snack is ready and player presses X, activate speed boost (x2 speed)
-            if (snackSpeedBoost_Ready == true && snack_SpeedBoost.enabled == false && Input.GetButtonDown(inputX))
-            {
-                snack_SpeedBoost.enabled = true;
-                snack_SpeedBoost_ParticleSystem.SetActive(true);
-                playerStatusScript.moveSpeed = 16.0f;
-                SFX_drinkShake.Play();
-            }
-
-            //if the speed boost is active and the timer is bigger than 0, decreasse the timer
-            if(snack_SpeedBoost.enabled == true && snackSpeedBoost_ActiveTimer > 0)
-            {
-                snackSpeedBoost_ActiveTimer -= Time.deltaTime;
-            }
-
-            //disable Speed Boost
-            if (snackSpeedBoost_ActiveTimer <= 0 && snack_SpeedBoost.enabled == true)
-            {
-                snack_SpeedBoost.enabled = false;
-                snack_SpeedBoost_ParticleSystem.SetActive(false);
-                playerStatusScript.moveSpeed = playerStatusScript.moveSpeedDefault;
-                snackSpeedBoost_Ready = false;
-                snackSpeedBoost_ActiveTimer = snackSpeedBoost_ActiveLength;
-                snackSpeedBoost_Cooldown = snackSpeedBoost_CooldownLength;
-            }
-        }
-
-
-
-        //When the player has the Snack - Damage Boost
-        else if (hasSnack_DamageBoost == true)
-        {
-            //decrease the cooldown timer when it is bigger than 0
-            if (snackDamageBoost_Cooldown > 0)
-            {
-                snackDamageBoost_Cooldown -= Time.deltaTime;
-            }
-
-            //if the cooldown timer finishes, set the snack to ready
-            if (snackDamageBoost_Cooldown <= 0 && snackDamageBoost_Ready == false)
-            {
-                snackDamageBoost_Ready = true;
-            }
-
-            //if the snack is ready and player presses X, activate Damage boost
-            if (snackDamageBoost_Ready == true && snack_DamageBoost.enabled == false && Input.GetButtonDown(inputX))
-            {
-                snack_DamageBoost.enabled = true;
-                snack_DamageBoost_ParticleSystem.SetActive(true);
-                weaponManagerScript.damageBoostMultiplier = 2;
-                SFX_drinkShake.Play();
-            }
-
-            //if the Damage boost is active and the timer is bigger than 0, decreasse the timer
-            if (snack_DamageBoost.enabled == true && snackDamageBoost_ActiveTimer > 0)
-            {
-                snackDamageBoost_ActiveTimer -= Time.deltaTime;
-            }
-
-            //disable Damage Boost
-            if (snackDamageBoost_ActiveTimer <= 0 && snack_DamageBoost.enabled == true)
-            {
-                snack_DamageBoost.enabled = false;
-                snack_DamageBoost_ParticleSystem.SetActive(false);
-                weaponManagerScript.damageBoostMultiplier = 1;
-                snackDamageBoost_Ready = false;
-                snackDamageBoost_ActiveTimer = snackDamageBoost_ActiveLength;
-                snackDamageBoost_Cooldown = snackDamageBoost_CooldownLength;
-            }
-        }
-
-
-        //When the player has the Snack - Health Boost
-        else if (hasSnack_HealthBoost == true)
-        {
-            //decrease the cooldown timer when it is bigger than 0
-            if (snackHealthBoost_Cooldown > 0)
-            {
-                snackHealthBoost_Cooldown -= Time.deltaTime;
-            }
-
-            //if the cooldown timer finishes, set the snack to ready
-            if (snackHealthBoost_Cooldown <= 0 && snackHealthBoost_Ready == false)
-            {
-                snackHealthBoost_Ready = true;
-            }
-
-            //if the snack is ready and player presses X, activate Health boost
-            if (snackHealthBoost_Ready == true && snack_HealthBoost.enabled == false && Input.GetButtonDown(inputX))
-            {
-                snack_HealthBoost.enabled = true;
-                snack_HealthBoost_ParticleSystem.SetActive(true);
-                weaponManagerScript.damageBoostMultiplier = 2;
-                SFX_drinkShake.Play();
-            }
-
-            //if the Health boost is active and the timer is bigger than 0, decreasse the timer
-            if (snack_HealthBoost.enabled == true && snackHealthBoost_ActiveTimer > 0)
-            {
-                snackHealthBoost_ActiveTimer -= Time.deltaTime;
-                snackHealthBoost_AddHealthTimer -= Time.deltaTime;
-            }
-            
-            if(snackHealthBoost_AddHealthTimer <= 0)
-            {
-                playerStatusScript.HP += snackHealthBoost_AddHealthAmount;
-                snackHealthBoost_AddHealthTimer = snackHealthBoost_AddHealthTimerLength;
-            }
-
-            //disable Health Boost
-            if (snackHealthBoost_ActiveTimer <= 0 && snack_HealthBoost.enabled == true)
-            {
-                snack_HealthBoost.enabled = false;
-                snack_HealthBoost_ParticleSystem.SetActive(false);
-                weaponManagerScript.damageBoostMultiplier = 1;
-                snackHealthBoost_Ready = false;
-                snackHealthBoost_ActiveTimer = snackHealthBoost_ActiveLength;
-                snackHealthBoost_Cooldown = snackHealthBoost_CooldownLength;
-                snackHealthBoost_AddHealthTimer = snackHealthBoost_AddHealthTimerLength;
-            }
-        }
+        
 
     }
 }

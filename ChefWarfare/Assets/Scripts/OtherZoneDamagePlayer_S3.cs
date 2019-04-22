@@ -12,6 +12,7 @@ public class OtherZoneDamagePlayer_S3 : MonoBehaviour
     private bool inDamageStation;
     private BoxCollider2D damageStationCollider;
     private bool damageStationColliderActive;
+    public AudioSource AS_GetHit;
 
     // Start is called before the first frame update
     void Start()
@@ -55,6 +56,7 @@ public class OtherZoneDamagePlayer_S3 : MonoBehaviour
                 damageTimer = damageSpeed;
                 damageStationColliderActive = false;
                 damageStationCollider.enabled = false;
+                AS_GetHit.Play();
             }
         }
         else if (other.gameObject.name == "Player1")
@@ -65,6 +67,7 @@ public class OtherZoneDamagePlayer_S3 : MonoBehaviour
                 damageTimer = damageSpeed;
                 damageStationColliderActive = false;
                 damageStationCollider.enabled = false;
+                AS_GetHit.Play();
             }
         }
         else if (other.gameObject.name == "Player4")
@@ -75,6 +78,7 @@ public class OtherZoneDamagePlayer_S3 : MonoBehaviour
                 damageTimer = damageSpeed;
                 damageStationColliderActive = false;
                 damageStationCollider.enabled = false;
+                AS_GetHit.Play();
             }
         }
     }

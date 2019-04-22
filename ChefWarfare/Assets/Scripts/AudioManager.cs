@@ -25,8 +25,11 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource[] AS_WhipO2;
     [SerializeField] private AudioSource[] AS_WhipO3;
     [SerializeField] private AudioSource[] AS_WhipO4;
+    [SerializeField] private AudioSource[] AS_OtherZone1;
+    [SerializeField] private AudioSource[] AS_OtherZone2;
+    [SerializeField] private AudioSource[] AS_OtherZone3;
+    [SerializeField] private AudioSource[] AS_OtherZone4;
 
-    
 
     // Start is called before the first frame update
     void Start()
@@ -53,7 +56,17 @@ public class AudioManager : MonoBehaviour
         AS_WhipO3 = GameObject.Find("Weapon_SpaghettiWhip_Onion_Attack3").GetComponents<AudioSource>();
         AS_WhipO4 = GameObject.Find("Weapon_SpaghettiWhip_Onion_Attack4").GetComponents<AudioSource>();
         */
-        foreach(AudioSource AS in AS_LevelLogic)
+        AS_OtherZone1 = GameObject.Find("OtherZoneDamagePlayer_S1").GetComponents<AudioSource>();
+        AS_OtherZone2 = GameObject.Find("OtherZoneDamagePlayer_S2").GetComponents<AudioSource>();
+        AS_OtherZone3 = GameObject.Find("OtherZoneDamagePlayer_S3").GetComponents<AudioSource>();
+        AS_OtherZone4 = GameObject.Find("OtherZoneDamagePlayer_S4").GetComponents<AudioSource>();
+
+
+        foreach (AudioSource AS in AS_Music)
+        {
+            AS.volume = levelLogicScript.musicVolumeSlider.value;
+        }
+        foreach (AudioSource AS in AS_LevelLogic)
         {
             AS.volume = levelLogicScript.sfxVolumeSlider.value;
         }
@@ -109,6 +122,22 @@ public class AudioManager : MonoBehaviour
         {
             AS.volume = levelLogicScript.sfxVolumeSlider.value;
         }
+        foreach (AudioSource AS in AS_OtherZone1)
+        {
+            AS.volume = levelLogicScript.sfxVolumeSlider.value;
+        }
+        foreach (AudioSource AS in AS_OtherZone2)
+        {
+            AS.volume = levelLogicScript.sfxVolumeSlider.value;
+        }
+        foreach (AudioSource AS in AS_OtherZone3)
+        {
+            AS.volume = levelLogicScript.sfxVolumeSlider.value;
+        }
+        foreach (AudioSource AS in AS_OtherZone4)
+        {
+            AS.volume = levelLogicScript.sfxVolumeSlider.value;
+        }
 
 
     }
@@ -118,6 +147,10 @@ public class AudioManager : MonoBehaviour
     {
         if(levelLogicScript.gameIsPaused == true)
         {
+            foreach (AudioSource AS in AS_Music)
+            {
+                AS.volume = levelLogicScript.musicVolumeSlider.value;
+            }
             foreach (AudioSource AS in AS_LevelLogic)
             {
                 AS.volume = levelLogicScript.sfxVolumeSlider.value;
@@ -171,6 +204,22 @@ public class AudioManager : MonoBehaviour
                 AS.volume = levelLogicScript.sfxVolumeSlider.value;
             }
             foreach (AudioSource AS in AS_WhipO4)
+            {
+                AS.volume = levelLogicScript.sfxVolumeSlider.value;
+            }
+            foreach (AudioSource AS in AS_OtherZone1)
+            {
+                AS.volume = levelLogicScript.sfxVolumeSlider.value;
+            }
+            foreach (AudioSource AS in AS_OtherZone2)
+            {
+                AS.volume = levelLogicScript.sfxVolumeSlider.value;
+            }
+            foreach (AudioSource AS in AS_OtherZone3)
+            {
+                AS.volume = levelLogicScript.sfxVolumeSlider.value;
+            }
+            foreach (AudioSource AS in AS_OtherZone4)
             {
                 AS.volume = levelLogicScript.sfxVolumeSlider.value;
             }

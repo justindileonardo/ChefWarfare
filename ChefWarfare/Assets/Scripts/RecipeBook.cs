@@ -9,6 +9,7 @@ public class RecipeBook : MonoBehaviour
     private PlayerStatus myPlayerStatusScript;
     private PlayerMovement myPlayerMovementScript;
     private PlayerInventory myPlayerInventoryScript;
+    private SceneSwitchingScript sceneSwitchingScript;
 
     private Vector3 playerStartPosWhenEnteringCookingStation;
 
@@ -35,22 +36,28 @@ public class RecipeBook : MonoBehaviour
         ESP3 = GameObject.Find("EnemySpawnerP3").GetComponent<EnemySpawnerP3>();
         ESP4 = GameObject.Find("EnemySpawnerP4").GetComponent<EnemySpawnerP4>();
         levelLogicScript = GameObject.Find("LevelLogic").GetComponent<LevelLogic>();
+        sceneSwitchingScript = GameObject.Find("SceneSwitchingScript").GetComponent<SceneSwitchingScript>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //disables cooking station
-        if (onCookingStation == true && Input.GetButtonDown(inputB))
-        {
-            StartCoroutine(ExitCookingStationDelay());
-        }
 
-        if(onCookingStation == true)
+        if (levelLogicScript.gameIsPaused == false)
         {
-            myPlayerStatusScript.moveSpeed = 0;
-            myPlayerMovementScript.transform.position = playerStartPosWhenEnteringCookingStation;
+            //disables cooking station
+            if (onCookingStation == true && Input.GetButtonDown(inputB))
+            {
+                StartCoroutine(ExitCookingStationDelay());
+            }
+
+            if (onCookingStation == true)
+            {
+                myPlayerStatusScript.moveSpeed = 0;
+                myPlayerMovementScript.transform.position = playerStartPosWhenEnteringCookingStation;
+            }
         }
+        
 
     }
 
@@ -202,11 +209,15 @@ public class RecipeBook : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            //enables cooking station
-            if(onCookingStation == false && Input.GetButtonDown(inputB))
+            if(levelLogicScript.gameIsPaused == false)
             {
-                StartCoroutine(EnterCookingStationDelay());
+                //enables cooking station
+                if (onCookingStation == false && Input.GetButtonDown(inputB))
+                {
+                    StartCoroutine(EnterCookingStationDelay());
+                }
             }
+            
         }
     }
 }

@@ -20,44 +20,51 @@ public class MyEventSystem : EventSystem
     }
     protected override void Start()
     {
-        if (playerMovementScript.isMac == false)
+        if(this.gameObject.name != "EventSystemPause")
         {
-            if (playerMovementScript.player1 == true)
+            if (playerMovementScript.isMac == false)
             {
-                GetComponent<StandaloneInputModule>().submitButton = "Xbox_Button_A_P1";
+                if (playerMovementScript.player1 == true)
+                {
+                    GetComponent<StandaloneInputModule>().submitButton = "Xbox_Button_A_P1";
+                }
+                else if (playerMovementScript.player2 == true)
+                {
+                    GetComponent<StandaloneInputModule>().submitButton = "Xbox_Button_A_P2";
+                }
+                else if (playerMovementScript.player3 == true)
+                {
+                    GetComponent<StandaloneInputModule>().submitButton = "Xbox_Button_A_P3";
+                }
+                else if (playerMovementScript.player4 == true)
+                {
+                    GetComponent<StandaloneInputModule>().submitButton = "Xbox_Button_A_P4";
+                }
             }
-            else if (playerMovementScript.player2 == true)
+            else if (playerMovementScript.isMac == true)
             {
-                GetComponent<StandaloneInputModule>().submitButton = "Xbox_Button_A_P2";
-            }
-            else if (playerMovementScript.player3 == true)
-            {
-                GetComponent<StandaloneInputModule>().submitButton = "Xbox_Button_A_P3";
-            }
-            else if (playerMovementScript.player4 == true)
-            {
-                GetComponent<StandaloneInputModule>().submitButton = "Xbox_Button_A_P4";
+                if (playerMovementScript.player1 == true)
+                {
+                    GetComponent<StandaloneInputModule>().submitButton = "Xbox_Button_A_P1_MAC";
+                }
+                else if (playerMovementScript.player2 == true)
+                {
+                    GetComponent<StandaloneInputModule>().submitButton = "Xbox_Button_A_P2_MAC";
+                }
+                else if (playerMovementScript.player3 == true)
+                {
+                    GetComponent<StandaloneInputModule>().submitButton = "Xbox_Button_A_P3_MAC";
+                }
+                else if (playerMovementScript.player4 == true)
+                {
+                    GetComponent<StandaloneInputModule>().submitButton = "Xbox_Button_A_P4_MAC";
+                }
             }
         }
-        else if (playerMovementScript.isMac == true)
-        {
-            if (playerMovementScript.player1 == true)
-            {
-                GetComponent<StandaloneInputModule>().submitButton = "Xbox_Button_A_P1_MAC";
-            }
-            else if (playerMovementScript.player2 == true)
-            {
-                GetComponent<StandaloneInputModule>().submitButton = "Xbox_Button_A_P2_MAC";
-            }
-            else if (playerMovementScript.player3 == true)
-            {
-                GetComponent<StandaloneInputModule>().submitButton = "Xbox_Button_A_P3_MAC";
-            }
-            else if (playerMovementScript.player4 == true)
-            {
-                GetComponent<StandaloneInputModule>().submitButton = "Xbox_Button_A_P4_MAC";
-            }
-        }
+        
+
+
+
     }
     
 

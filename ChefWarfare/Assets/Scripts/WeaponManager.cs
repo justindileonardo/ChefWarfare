@@ -18,6 +18,7 @@ public class WeaponManager : MonoBehaviour
 
     //PlayerMovement Script
     public PlayerMovement playerMovementScript;
+    public LevelLogic levelLogicScript;
 
     //The PivotPoint
     public GameObject Weapon_PivotPoint;
@@ -515,705 +516,711 @@ public class WeaponManager : MonoBehaviour
         }
 
 
-
-        //using Pea Shooter
-        if (hasWeapon_PeaShooter == true && weapon_PeaShooter_Active == true)
+        if(levelLogicScript.gameIsPaused == false)
         {
-            //Switch to secondary weapon and put this weapon in secondary slot
-            if (Input.GetButtonDown(inputY) && canSwitchWeapon == true)
+            //using Pea Shooter
+            if (hasWeapon_PeaShooter == true && weapon_PeaShooter_Active == true)
             {
-                //sets cooldown to switch weapons again
-                switchWeaponCooldown = switchWeaponTimerCooldownLength;
-
-                //switch to Semi-Auto Rifle
-                if (hasWeapon_SemiAutoRifle == true)
+                //Switch to secondary weapon and put this weapon in secondary slot
+                if (Input.GetButtonDown(inputY) && canSwitchWeapon == true)
                 {
-                    weapon_PeaShooter_Active = false;
-                    Weapon_PeaShooter.SetActive(false);
-                    //TO DO: enable weapon sprite renderer in box secondary weapon
-                    weapon_SemiAutoRifle_Active = true;
-                    Weapon_SemiAutoRifle.SetActive(true);
-                    semiAutoRifle_Cooldown = semiAutoRifle_CooldownLength;
-                    Debug.Log("Primary: Semi-Auto Rifle");
-                    Debug.Log("Secondary: PeaShooter");
+                    //sets cooldown to switch weapons again
+                    switchWeaponCooldown = switchWeaponTimerCooldownLength;
+
+                    //switch to Semi-Auto Rifle
+                    if (hasWeapon_SemiAutoRifle == true)
+                    {
+                        weapon_PeaShooter_Active = false;
+                        Weapon_PeaShooter.SetActive(false);
+                        //TO DO: enable weapon sprite renderer in box secondary weapon
+                        weapon_SemiAutoRifle_Active = true;
+                        Weapon_SemiAutoRifle.SetActive(true);
+                        semiAutoRifle_Cooldown = semiAutoRifle_CooldownLength;
+                        Debug.Log("Primary: Semi-Auto Rifle");
+                        Debug.Log("Secondary: PeaShooter");
+                    }
+                    else if (hasWeapon_BurstRifle == true)
+                    {
+                        weapon_PeaShooter_Active = false;
+                        Weapon_PeaShooter.SetActive(false);
+                        //TO DO: enable weapon sprite renderer in box secondary weapon
+                        weapon_BurstRifle_Active = true;
+                        Weapon_BurstRifle.SetActive(true);
+                        burstRifle_Cooldown = burstRifle_CooldownLength;
+                        Debug.Log("Primary: Burst Rifle");
+                        Debug.Log("Secondary: PeaShooter");
+                    }
+                    else if (hasWeapon_Shotgun == true)
+                    {
+                        weapon_PeaShooter_Active = false;
+                        Weapon_PeaShooter.SetActive(false);
+                        //TO DO: enable weapon sprite renderer in box secondary weapon
+                        weapon_Shotgun_Active = true;
+                        Weapon_Shotgun.SetActive(true);
+                        shotgun_Cooldown = shotgun_CooldownLength;
+                        Debug.Log("Primary: Shotgun");
+                        Debug.Log("Secondary: PeaShooter");
+                    }
+                    else if (hasWeapon_SpaghettiWhipCheese == true)
+                    {
+                        weapon_PeaShooter_Active = false;
+                        Weapon_PeaShooter.SetActive(false);
+                        //TO DO: enable weapon sprite renderer in box secondary weapon
+                        weapon_SpaghettiWhipCheese_Active = true;
+                        Weapon_SpaghettiWhipCheese_WindUp.SetActive(true);
+                        Weapon_SpaghettiWhipCheese_Attack.SetActive(true);
+                        Weapon_SpaghettiWhipCheese_SpriteRenderer.enabled = false;
+                        Weapon_SpaghettiWhipCheese_Collider.enabled = false;
+                        spaghettiWhipCheese_Cooldown = spaghettiWhipCheese_CooldownLength;
+                        Debug.Log("Primary: Spaghetti Whip Cheese");
+                        Debug.Log("Secondary: PeaShooter");
+                    }
+                    else if (hasWeapon_SpaghettiWhipOnion == true)
+                    {
+                        weapon_PeaShooter_Active = false;
+                        Weapon_PeaShooter.SetActive(false);
+                        //TO DO: enable weapon sprite renderer in box secondary weapon
+                        weapon_SpaghettiWhipOnion_Active = true;
+                        Weapon_SpaghettiWhipOnion_WindUp.SetActive(true);
+                        Weapon_SpaghettiWhipOnion_Attack.SetActive(true);
+                        Weapon_SpaghettiWhipOnion_SpriteRenderer.enabled = false;
+                        Weapon_SpaghettiWhipOnion_Collider.enabled = false;
+                        spaghettiWhipOnion_Cooldown = spaghettiWhipOnion_CooldownLength;
+                        Debug.Log("Primary: Spaghetti Whip Onion");
+                        Debug.Log("Secondary: PeaShooter");
+                    }
+                    //next weapon
+                    //next weapon
+
                 }
-                else if (hasWeapon_BurstRifle == true)
+                //when crafting a weapon, first check if has pea shooter, 
+                //Removing Pea Shooter (Discarding/Destroying)
+                /*if ()
                 {
-                    weapon_PeaShooter_Active = false;
-                    Weapon_PeaShooter.SetActive(false);
-                    //TO DO: enable weapon sprite renderer in box secondary weapon
-                    weapon_BurstRifle_Active = true;
-                    Weapon_BurstRifle.SetActive(true);
-                    burstRifle_Cooldown = burstRifle_CooldownLength;
-                    Debug.Log("Primary: Burst Rifle");
-                    Debug.Log("Secondary: PeaShooter");
-                }
-                else if (hasWeapon_Shotgun == true)
+
+                }*/
+
+                //value 0-1 of not pressed or pressed "Xbox_RT_P1" (RT)
+                float attackMain = Input.GetAxis(inputRT);
+
+                //cooldown/reload timer in between shots
+                peaShooter_Cooldown -= Time.deltaTime;
+
+                //if pressed, check if shot is ready and shoot.  Reset cooldown timer.
+                if (attackMain > .5f && peaShooter_Cooldown < 0)
                 {
-                    weapon_PeaShooter_Active = false;
-                    Weapon_PeaShooter.SetActive(false);
-                    //TO DO: enable weapon sprite renderer in box secondary weapon
-                    weapon_Shotgun_Active = true;
-                    Weapon_Shotgun.SetActive(true);
-                    shotgun_Cooldown = shotgun_CooldownLength;
-                    Debug.Log("Primary: Shotgun");
-                    Debug.Log("Secondary: PeaShooter");
-                }
-                else if (hasWeapon_SpaghettiWhipCheese == true)
-                {
-                    weapon_PeaShooter_Active = false;
-                    Weapon_PeaShooter.SetActive(false);
-                    //TO DO: enable weapon sprite renderer in box secondary weapon
-                    weapon_SpaghettiWhipCheese_Active = true;
-                    Weapon_SpaghettiWhipCheese_WindUp.SetActive(true);
-                    Weapon_SpaghettiWhipCheese_Attack.SetActive(true);
-                    Weapon_SpaghettiWhipCheese_SpriteRenderer.enabled = false;
-                    Weapon_SpaghettiWhipCheese_Collider.enabled = false;
-                    spaghettiWhipCheese_Cooldown = spaghettiWhipCheese_CooldownLength;
-                    Debug.Log("Primary: Spaghetti Whip Cheese");
-                    Debug.Log("Secondary: PeaShooter");
-                }
-                else if (hasWeapon_SpaghettiWhipOnion == true)
-                {
-                    weapon_PeaShooter_Active = false;
-                    Weapon_PeaShooter.SetActive(false);
-                    //TO DO: enable weapon sprite renderer in box secondary weapon
-                    weapon_SpaghettiWhipOnion_Active = true;
-                    Weapon_SpaghettiWhipOnion_WindUp.SetActive(true);
-                    Weapon_SpaghettiWhipOnion_Attack.SetActive(true);
-                    Weapon_SpaghettiWhipOnion_SpriteRenderer.enabled = false;
-                    Weapon_SpaghettiWhipOnion_Collider.enabled = false;
-                    spaghettiWhipOnion_Cooldown = spaghettiWhipOnion_CooldownLength;
-                    Debug.Log("Primary: Spaghetti Whip Onion");
-                    Debug.Log("Secondary: PeaShooter");
-                }
-                //next weapon
-                //next weapon
 
-            }
-            //when crafting a weapon, first check if has pea shooter, 
-            //Removing Pea Shooter (Discarding/Destroying)
-            /*if ()
-            {
-
-            }*/
-
-            //value 0-1 of not pressed or pressed "Xbox_RT_P1" (RT)
-            float attackMain = Input.GetAxis(inputRT);
-
-            //cooldown/reload timer in between shots
-            peaShooter_Cooldown -= Time.deltaTime;
-
-            //if pressed, check if shot is ready and shoot.  Reset cooldown timer.
-            if (attackMain > .5f && peaShooter_Cooldown < 0)
-            {
-
-                peaShooter_Cooldown = peaShooter_CooldownLength;
-                GameObject bullet;
-                bullet = Instantiate(Prefab_Pea, new Vector3(Weapon_BulletSpawnPoint.transform.position.x, Weapon_BulletSpawnPoint.transform.position.y, Weapon_BulletSpawnPoint.transform.position.z), Weapon_PivotPoint.transform.rotation);
-                SFX_shootPeaShooter.Play();
-
-                if (player1)
-                {
-                    bullet.layer = 20/*Player1Bullets*/;
-                }
-                else if(player2)
-                {
-                    bullet.layer = 21/*Player2Bullets*/;
-                }
-                else if (player3)
-                {
-                    bullet.layer = 22/*Player3Bullets*/;
-                }
-                else if (player4)
-                {
-                    bullet.layer = 23/*Player4Bullets*/;
-                }
-
-                
-            }
-        }
-
-
-        //using Semi-Auto Rifle
-        else if (hasWeapon_SemiAutoRifle == true && weapon_SemiAutoRifle_Active == true)
-        {
-            //Switch to secondary weapon and put this weapon in secondary slot
-            if (Input.GetButtonDown(inputY) && canSwitchWeapon == true)
-            {
-                //sets cooldown to switch weapons again
-                switchWeaponCooldown = switchWeaponTimerCooldownLength;
-
-                //switch to Pea Shooter
-                if (hasWeapon_PeaShooter == true)
-                {
-                    weapon_SemiAutoRifle_Active = false;
-                    Weapon_SemiAutoRifle.SetActive(false);
-                    //TO DO: enable weapon sprite renderer in box secondary weapon
-                    weapon_PeaShooter_Active = true;
-                    Weapon_PeaShooter.SetActive(true);
                     peaShooter_Cooldown = peaShooter_CooldownLength;
-                    Debug.Log("Primary: Pea Shooter");
-                    Debug.Log("Secondary: Semi-Auto Rifle");
+                    GameObject bullet;
+                    bullet = Instantiate(Prefab_Pea, new Vector3(Weapon_BulletSpawnPoint.transform.position.x, Weapon_BulletSpawnPoint.transform.position.y, Weapon_BulletSpawnPoint.transform.position.z), Weapon_PivotPoint.transform.rotation);
+                    SFX_shootPeaShooter.Play();
+
+                    if (player1)
+                    {
+                        bullet.layer = 20/*Player1Bullets*/;
+                    }
+                    else if (player2)
+                    {
+                        bullet.layer = 21/*Player2Bullets*/;
+                    }
+                    else if (player3)
+                    {
+                        bullet.layer = 22/*Player3Bullets*/;
+                    }
+                    else if (player4)
+                    {
+                        bullet.layer = 23/*Player4Bullets*/;
+                    }
+
+
                 }
-                else if (hasWeapon_BurstRifle == true)
+            }
+
+            //using Semi-Auto Rifle
+            else if (hasWeapon_SemiAutoRifle == true && weapon_SemiAutoRifle_Active == true)
+            {
+                //Switch to secondary weapon and put this weapon in secondary slot
+                if (Input.GetButtonDown(inputY) && canSwitchWeapon == true)
                 {
-                    weapon_SemiAutoRifle_Active = false;
-                    Weapon_SemiAutoRifle.SetActive(false);
-                    //TO DO: enable weapon sprite renderer in box secondary weapon
-                    weapon_BurstRifle_Active = true;
-                    Weapon_BurstRifle.SetActive(true);
-                    burstRifle_Cooldown = burstRifle_CooldownLength;
-                    Debug.Log("Primary: Burst Rifle");
-                    Debug.Log("Secondary: Semi-Auto Rifle");
-                }
-                else if (hasWeapon_Shotgun == true)
-                {
-                    weapon_SemiAutoRifle_Active = false;
-                    Weapon_SemiAutoRifle.SetActive(false);
-                    //TO DO: enable weapon sprite renderer in box secondary weapon
-                    weapon_Shotgun_Active = true;
-                    Weapon_Shotgun.SetActive(true);
-                    shotgun_Cooldown = shotgun_CooldownLength;
-                    Debug.Log("Primary: Shotgun");
-                    Debug.Log("Secondary: Semi-Auto Rifle");
-                }
-                else if (hasWeapon_SpaghettiWhipCheese == true)
-                {
-                    weapon_SemiAutoRifle_Active = false;
-                    Weapon_SemiAutoRifle.SetActive(false);
-                    //TO DO: enable weapon sprite renderer in box secondary weapon
-                    weapon_SpaghettiWhipCheese_Active = true;
-                    Weapon_SpaghettiWhipCheese_WindUp.SetActive(true);
-                    Weapon_SpaghettiWhipCheese_Attack.SetActive(true);
-                    Weapon_SpaghettiWhipCheese_SpriteRenderer.enabled = false;
-                    Weapon_SpaghettiWhipCheese_Collider.enabled = false;
-                    spaghettiWhipCheese_Cooldown = spaghettiWhipCheese_CooldownLength;
-                    Debug.Log("Primary: Spaghetti Whip Cheese");
-                    Debug.Log("Secondary: Semi-Auto Rifle");
-                }
-                else if (hasWeapon_SpaghettiWhipOnion == true)
-                {
-                    weapon_SemiAutoRifle_Active = false;
-                    Weapon_SemiAutoRifle.SetActive(false);
-                    //TO DO: enable weapon sprite renderer in box secondary weapon
-                    weapon_SpaghettiWhipOnion_Active = true;
-                    Weapon_SpaghettiWhipOnion_WindUp.SetActive(true);
-                    Weapon_SpaghettiWhipOnion_Attack.SetActive(true);
-                    Weapon_SpaghettiWhipOnion_SpriteRenderer.enabled = false;
-                    Weapon_SpaghettiWhipOnion_Collider.enabled = false;
-                    spaghettiWhipOnion_Cooldown = spaghettiWhipOnion_CooldownLength;
-                    Debug.Log("Primary: Spaghetti Whip Onion");
-                    Debug.Log("Secondary: Semi-Auto Rifle");
+                    //sets cooldown to switch weapons again
+                    switchWeaponCooldown = switchWeaponTimerCooldownLength;
+
+                    //switch to Pea Shooter
+                    if (hasWeapon_PeaShooter == true)
+                    {
+                        weapon_SemiAutoRifle_Active = false;
+                        Weapon_SemiAutoRifle.SetActive(false);
+                        //TO DO: enable weapon sprite renderer in box secondary weapon
+                        weapon_PeaShooter_Active = true;
+                        Weapon_PeaShooter.SetActive(true);
+                        peaShooter_Cooldown = peaShooter_CooldownLength;
+                        Debug.Log("Primary: Pea Shooter");
+                        Debug.Log("Secondary: Semi-Auto Rifle");
+                    }
+                    else if (hasWeapon_BurstRifle == true)
+                    {
+                        weapon_SemiAutoRifle_Active = false;
+                        Weapon_SemiAutoRifle.SetActive(false);
+                        //TO DO: enable weapon sprite renderer in box secondary weapon
+                        weapon_BurstRifle_Active = true;
+                        Weapon_BurstRifle.SetActive(true);
+                        burstRifle_Cooldown = burstRifle_CooldownLength;
+                        Debug.Log("Primary: Burst Rifle");
+                        Debug.Log("Secondary: Semi-Auto Rifle");
+                    }
+                    else if (hasWeapon_Shotgun == true)
+                    {
+                        weapon_SemiAutoRifle_Active = false;
+                        Weapon_SemiAutoRifle.SetActive(false);
+                        //TO DO: enable weapon sprite renderer in box secondary weapon
+                        weapon_Shotgun_Active = true;
+                        Weapon_Shotgun.SetActive(true);
+                        shotgun_Cooldown = shotgun_CooldownLength;
+                        Debug.Log("Primary: Shotgun");
+                        Debug.Log("Secondary: Semi-Auto Rifle");
+                    }
+                    else if (hasWeapon_SpaghettiWhipCheese == true)
+                    {
+                        weapon_SemiAutoRifle_Active = false;
+                        Weapon_SemiAutoRifle.SetActive(false);
+                        //TO DO: enable weapon sprite renderer in box secondary weapon
+                        weapon_SpaghettiWhipCheese_Active = true;
+                        Weapon_SpaghettiWhipCheese_WindUp.SetActive(true);
+                        Weapon_SpaghettiWhipCheese_Attack.SetActive(true);
+                        Weapon_SpaghettiWhipCheese_SpriteRenderer.enabled = false;
+                        Weapon_SpaghettiWhipCheese_Collider.enabled = false;
+                        spaghettiWhipCheese_Cooldown = spaghettiWhipCheese_CooldownLength;
+                        Debug.Log("Primary: Spaghetti Whip Cheese");
+                        Debug.Log("Secondary: Semi-Auto Rifle");
+                    }
+                    else if (hasWeapon_SpaghettiWhipOnion == true)
+                    {
+                        weapon_SemiAutoRifle_Active = false;
+                        Weapon_SemiAutoRifle.SetActive(false);
+                        //TO DO: enable weapon sprite renderer in box secondary weapon
+                        weapon_SpaghettiWhipOnion_Active = true;
+                        Weapon_SpaghettiWhipOnion_WindUp.SetActive(true);
+                        Weapon_SpaghettiWhipOnion_Attack.SetActive(true);
+                        Weapon_SpaghettiWhipOnion_SpriteRenderer.enabled = false;
+                        Weapon_SpaghettiWhipOnion_Collider.enabled = false;
+                        spaghettiWhipOnion_Cooldown = spaghettiWhipOnion_CooldownLength;
+                        Debug.Log("Primary: Spaghetti Whip Onion");
+                        Debug.Log("Secondary: Semi-Auto Rifle");
+                    }
+
+
                 }
 
+                //value 0-1 of not pressed or pressed "Xbox_RT_P1" (RT)
+                float attackMain = Input.GetAxis(inputRT);
+
+                //cooldown/reload timer in between shots
+                semiAutoRifle_Cooldown -= Time.deltaTime;
+
+                //if pressed, check if shot is ready and shoot.  Reset cooldown timer.
+                if (attackMain > .5f && semiAutoRifle_Cooldown < 0)
+                {
+                    semiAutoRifle_Cooldown = semiAutoRifle_CooldownLength;
+                    GameObject bullet;
+                    bullet = Instantiate(Prefab_TomatoChunk, new Vector3(Weapon_BulletSpawnPoint.transform.position.x, Weapon_BulletSpawnPoint.transform.position.y, Weapon_BulletSpawnPoint.transform.position.z), Weapon_PivotPoint.transform.rotation);
+                    SFX_shootSemiAutoRifle.Play();
+
+
+                    if (player1)
+                    {
+                        bullet.layer = 20/*Player1Bullets*/;
+                    }
+                    else if (player2)
+                    {
+                        bullet.layer = 21/*Player2Bullets*/;
+                    }
+                    else if (player3)
+                    {
+                        bullet.layer = 22/*Player3Bullets*/;
+                    }
+                    else if (player4)
+                    {
+                        bullet.layer = 23/*Player4Bullets*/;
+                    }
+
+                }
 
             }
 
-            //value 0-1 of not pressed or pressed "Xbox_RT_P1" (RT)
-            float attackMain = Input.GetAxis(inputRT);
 
-            //cooldown/reload timer in between shots
-            semiAutoRifle_Cooldown -= Time.deltaTime;
-
-            //if pressed, check if shot is ready and shoot.  Reset cooldown timer.
-            if (attackMain > .5f && semiAutoRifle_Cooldown < 0)
+            //using Burst Rifle
+            else if (hasWeapon_BurstRifle == true && weapon_BurstRifle_Active == true)
             {
-                semiAutoRifle_Cooldown = semiAutoRifle_CooldownLength;
-                GameObject bullet;
-                bullet = Instantiate(Prefab_TomatoChunk, new Vector3(Weapon_BulletSpawnPoint.transform.position.x, Weapon_BulletSpawnPoint.transform.position.y, Weapon_BulletSpawnPoint.transform.position.z), Weapon_PivotPoint.transform.rotation);
-                SFX_shootSemiAutoRifle.Play();
+                //Switch to secondary weapon and put this weapon in secondary slot
+                if (Input.GetButtonDown(inputY) && canSwitchWeapon == true)
+                {
+                    //sets cooldown to switch weapons again
+                    switchWeaponCooldown = switchWeaponTimerCooldownLength;
+
+                    //switch to Pea Shooter
+                    if (hasWeapon_PeaShooter == true)
+                    {
+                        weapon_BurstRifle_Active = false;
+                        Weapon_BurstRifle.SetActive(false);
+                        //TO DO: enable weapon sprite renderer in box secondary weapon
+                        weapon_PeaShooter_Active = true;
+                        Weapon_PeaShooter.SetActive(true);
+                        peaShooter_Cooldown = peaShooter_CooldownLength;
+                        Debug.Log("Primary: Pea Shooter");
+                        Debug.Log("Secondary: Burst Rifle");
+                    }
+                    else if (hasWeapon_SemiAutoRifle == true)
+                    {
+                        weapon_BurstRifle_Active = false;
+                        Weapon_BurstRifle.SetActive(false);
+                        //TO DO: enable weapon sprite renderer in box secondary weapon
+                        weapon_SemiAutoRifle_Active = true;
+                        Weapon_SemiAutoRifle.SetActive(true);
+                        semiAutoRifle_Cooldown = semiAutoRifle_CooldownLength;
+                        Debug.Log("Primary: Semi-Auto Rifle");
+                        Debug.Log("Secondary: Burst Rifle");
+                    }
+                    else if (hasWeapon_Shotgun == true)
+                    {
+                        weapon_BurstRifle_Active = false;
+                        Weapon_BurstRifle.SetActive(false);
+                        //TO DO: enable weapon sprite renderer in box secondary weapon
+                        weapon_Shotgun_Active = true;
+                        Weapon_Shotgun.SetActive(true);
+                        shotgun_Cooldown = shotgun_CooldownLength;
+                        Debug.Log("Primary: Shotgun");
+                        Debug.Log("Secondary: Burst Rifle");
+                    }
+                    else if (hasWeapon_SpaghettiWhipCheese == true)
+                    {
+                        weapon_BurstRifle_Active = false;
+                        Weapon_BurstRifle.SetActive(false);
+                        //TO DO: enable weapon sprite renderer in box secondary weapon
+                        weapon_SpaghettiWhipCheese_Active = true;
+                        Weapon_SpaghettiWhipCheese_WindUp.SetActive(true);
+                        Weapon_SpaghettiWhipCheese_Attack.SetActive(true);
+                        Weapon_SpaghettiWhipCheese_SpriteRenderer.enabled = false;
+                        Weapon_SpaghettiWhipCheese_Collider.enabled = false;
+                        spaghettiWhipCheese_Cooldown = spaghettiWhipCheese_CooldownLength;
+                        Debug.Log("Primary: Spaghetti Whip Cheese");
+                        Debug.Log("Secondary: Burst Rifle");
+                    }
+                    else if (hasWeapon_SpaghettiWhipOnion == true)
+                    {
+                        weapon_BurstRifle_Active = false;
+                        Weapon_BurstRifle.SetActive(false);
+                        //TO DO: enable weapon sprite renderer in box secondary weapon
+                        weapon_SpaghettiWhipOnion_Active = true;
+                        Weapon_SpaghettiWhipOnion_WindUp.SetActive(true);
+                        Weapon_SpaghettiWhipOnion_Attack.SetActive(true);
+                        Weapon_SpaghettiWhipOnion_SpriteRenderer.enabled = false;
+                        Weapon_SpaghettiWhipOnion_Collider.enabled = false;
+                        spaghettiWhipOnion_Cooldown = spaghettiWhipOnion_CooldownLength;
+                        Debug.Log("Primary: Spaghetti Whip Onion");
+                        Debug.Log("Secondary: Burst Rifle");
+                    }
 
 
-                if (player1)
-                {
-                    bullet.layer = 20/*Player1Bullets*/;
                 }
-                else if (player2)
+
+
+                //value 0-1 of not pressed or pressed "Xbox_RT_P1" (RT)
+                float attackMain = Input.GetAxis(inputRT);
+
+                //cooldown/reload timer in between shots
+                burstRifle_Cooldown -= Time.deltaTime;
+
+                //if pressed, check if shot is ready and shoot.  Reset cooldown timer.
+                if (attackMain > .5f && burstRifle_Cooldown < 0)
                 {
-                    bullet.layer = 21/*Player2Bullets*/;
+                    burstRifle_Cooldown = burstRifle_CooldownLength;
+                    GameObject bullet1;
+                    GameObject bullet2;
+                    GameObject bullet3;
+                    bullet1 = Instantiate(Prefab_TomatoSauce, new Vector3(Weapon_BulletSpawnPoint.transform.position.x, Weapon_BulletSpawnPoint.transform.position.y, Weapon_BulletSpawnPoint.transform.position.z), Weapon_PivotPoint.transform.rotation);
+                    bullet2 = Instantiate(Prefab_TomatoSauce, new Vector3(Weapon_BulletSpawnPoint0.transform.position.x, Weapon_BulletSpawnPoint0.transform.position.y, Weapon_BulletSpawnPoint0.transform.position.z), Weapon_PivotPoint.transform.rotation);
+                    bullet3 = Instantiate(Prefab_TomatoSauce, new Vector3(Weapon_BulletSpawnPoint2.transform.position.x, Weapon_BulletSpawnPoint2.transform.position.y, Weapon_BulletSpawnPoint2.transform.position.z), Weapon_PivotPoint.transform.rotation);
+                    SFX_shootBurstRifle.Play();
+
+                    if (player1)
+                    {
+                        bullet1.layer = 20/*Player1Bullets*/;
+                        bullet2.layer = 20/*Player1Bullets*/;
+                        bullet3.layer = 20/*Player1Bullets*/;
+                    }
+                    else if (player2)
+                    {
+                        bullet1.layer = 21/*Player2Bullets*/;
+                        bullet2.layer = 21/*Player2Bullets*/;
+                        bullet3.layer = 21/*Player2Bullets*/;
+                    }
+                    else if (player3)
+                    {
+                        bullet1.layer = 22/*Player3Bullets*/;
+                        bullet2.layer = 22/*Player3Bullets*/;
+                        bullet3.layer = 22/*Player3Bullets*/;
+                    }
+                    else if (player4)
+                    {
+                        bullet1.layer = 23/*Player4Bullets*/;
+                        bullet2.layer = 23/*Player4Bullets*/;
+                        bullet3.layer = 23/*Player4Bullets*/;
+                    }
+
                 }
-                else if (player3)
+
+            }
+
+
+
+            //using Shotgun
+            else if (hasWeapon_Shotgun == true && weapon_Shotgun_Active == true)
+            {
+                //Switch to secondary weapon and put this weapon in secondary slot
+                if (Input.GetButtonDown(inputY) && canSwitchWeapon == true)
                 {
-                    bullet.layer = 22/*Player3Bullets*/;
+                    //sets cooldown to switch weapons again
+                    switchWeaponCooldown = switchWeaponTimerCooldownLength;
+
+                    //switch to Pea Shooter
+                    if (hasWeapon_PeaShooter == true)
+                    {
+                        weapon_Shotgun_Active = false;
+                        Weapon_Shotgun.SetActive(false);
+                        //TO DO: enable weapon sprite renderer in box secondary weapon
+                        weapon_PeaShooter_Active = true;
+                        Weapon_PeaShooter.SetActive(true);
+                        peaShooter_Cooldown = peaShooter_CooldownLength;
+                        Debug.Log("Primary: Pea Shooter");
+                        Debug.Log("Secondary: Shotgun");
+                    }
+                    else if (hasWeapon_SemiAutoRifle == true)
+                    {
+                        weapon_Shotgun_Active = false;
+                        Weapon_Shotgun.SetActive(false);
+                        //TO DO: enable weapon sprite renderer in box secondary weapon
+                        weapon_SemiAutoRifle_Active = true;
+                        Weapon_SemiAutoRifle.SetActive(true);
+                        semiAutoRifle_Cooldown = semiAutoRifle_CooldownLength;
+                        Debug.Log("Primary: Semi-Auto Rifle");
+                        Debug.Log("Secondary: Shotgun");
+                    }
+                    else if (hasWeapon_BurstRifle == true)
+                    {
+                        weapon_Shotgun_Active = false;
+                        Weapon_Shotgun.SetActive(false);
+                        //TO DO: enable weapon sprite renderer in box secondary weapon
+                        weapon_BurstRifle_Active = true;
+                        Weapon_BurstRifle.SetActive(true);
+                        burstRifle_Cooldown = burstRifle_CooldownLength;
+                        Debug.Log("Primary: Burst Rifle");
+                        Debug.Log("Secondary: Shotgun");
+                    }
+                    else if (hasWeapon_SpaghettiWhipCheese == true)
+                    {
+                        weapon_Shotgun_Active = false;
+                        Weapon_Shotgun.SetActive(false);
+                        //TO DO: enable weapon sprite renderer in box secondary weapon
+                        weapon_SpaghettiWhipCheese_Active = true;
+                        Weapon_SpaghettiWhipCheese_WindUp.SetActive(true);
+                        Weapon_SpaghettiWhipCheese_Attack.SetActive(true);
+                        Weapon_SpaghettiWhipCheese_SpriteRenderer.enabled = false;
+                        Weapon_SpaghettiWhipCheese_Collider.enabled = false;
+                        spaghettiWhipCheese_Cooldown = spaghettiWhipCheese_CooldownLength;
+                        Debug.Log("Primary: Spaghetti Whip Cheese");
+                        Debug.Log("Secondary: Shotgun");
+                    }
+                    else if (hasWeapon_SpaghettiWhipOnion == true)
+                    {
+                        weapon_Shotgun_Active = false;
+                        Weapon_Shotgun.SetActive(false);
+                        //TO DO: enable weapon sprite renderer in box secondary weapon
+                        weapon_SpaghettiWhipOnion_Active = true;
+                        Weapon_SpaghettiWhipOnion_WindUp.SetActive(true);
+                        Weapon_SpaghettiWhipOnion_Attack.SetActive(true);
+                        Weapon_SpaghettiWhipOnion_SpriteRenderer.enabled = false;
+                        Weapon_SpaghettiWhipOnion_Collider.enabled = false;
+                        spaghettiWhipOnion_Cooldown = spaghettiWhipOnion_CooldownLength;
+                        Debug.Log("Primary: Spaghetti Whip Onion");
+                        Debug.Log("Secondary: Shotgun");
+                    }
+
+
+
                 }
-                else if (player4)
+
+                //value 0-1 of not pressed or pressed "Xbox_RT_P1" (RT)
+                float attackMain = Input.GetAxis(inputRT);
+
+                //cooldown/reload timer in between shots
+                shotgun_Cooldown -= Time.deltaTime;
+
+                //if pressed, check if shot is ready and shoot.  Reset cooldown timer.
+                if (attackMain > .5f && shotgun_Cooldown < 0)
                 {
-                    bullet.layer = 23/*Player4Bullets*/;
+                    shotgun_Cooldown = shotgun_CooldownLength;
+                    GameObject bullet1;
+                    GameObject bullet2;
+                    GameObject bullet3;
+                    GameObject bullet4;
+                    GameObject bullet5;
+                    bullet1 = Instantiate(Prefab_TomatoChunkShotgun, new Vector3(Weapon_BulletSpawnPoint_Shotgun1.transform.position.x, Weapon_BulletSpawnPoint_Shotgun1.transform.position.y, Weapon_BulletSpawnPoint_Shotgun1.transform.position.z), Weapon_BulletSpawnPoint_Shotgun1.transform.rotation);
+                    bullet2 = Instantiate(Prefab_TomatoChunkShotgun, new Vector3(Weapon_BulletSpawnPoint_Shotgun2.transform.position.x, Weapon_BulletSpawnPoint_Shotgun2.transform.position.y, Weapon_BulletSpawnPoint_Shotgun2.transform.position.z), Weapon_BulletSpawnPoint_Shotgun2.transform.rotation);
+                    bullet3 = Instantiate(Prefab_TomatoChunkShotgun, new Vector3(Weapon_BulletSpawnPoint_Shotgun3.transform.position.x, Weapon_BulletSpawnPoint_Shotgun3.transform.position.y, Weapon_BulletSpawnPoint_Shotgun3.transform.position.z), Weapon_BulletSpawnPoint_Shotgun3.transform.rotation);
+                    bullet4 = Instantiate(Prefab_TomatoChunkShotgun, new Vector3(Weapon_BulletSpawnPoint_Shotgun4.transform.position.x, Weapon_BulletSpawnPoint_Shotgun4.transform.position.y, Weapon_BulletSpawnPoint_Shotgun4.transform.position.z), Weapon_BulletSpawnPoint_Shotgun4.transform.rotation);
+                    bullet5 = Instantiate(Prefab_TomatoChunkShotgun, new Vector3(Weapon_BulletSpawnPoint_Shotgun5.transform.position.x, Weapon_BulletSpawnPoint_Shotgun5.transform.position.y, Weapon_BulletSpawnPoint_Shotgun5.transform.position.z), Weapon_BulletSpawnPoint_Shotgun5.transform.rotation);
+                    SFX_shootShotgun.Play();
+
+                    if (player1)
+                    {
+                        bullet1.layer = 20/*Player1Bullets*/;
+                        bullet2.layer = 20/*Player1Bullets*/;
+                        bullet3.layer = 20/*Player1Bullets*/;
+                        bullet4.layer = 20/*Player1Bullets*/;
+                        bullet5.layer = 20/*Player1Bullets*/;
+                    }
+                    else if (player2)
+                    {
+                        bullet1.layer = 21/*Player2Bullets*/;
+                        bullet2.layer = 21/*Player2Bullets*/;
+                        bullet3.layer = 21/*Player2Bullets*/;
+                        bullet4.layer = 21/*Player2Bullets*/;
+                        bullet5.layer = 21/*Player2Bullets*/;
+                    }
+                    else if (player3)
+                    {
+                        bullet1.layer = 22/*Player3Bullets*/;
+                        bullet2.layer = 22/*Player3Bullets*/;
+                        bullet3.layer = 22/*Player3Bullets*/;
+                        bullet4.layer = 22/*Player3Bullets*/;
+                        bullet5.layer = 22/*Player3Bullets*/;
+                    }
+                    else if (player4)
+                    {
+                        bullet1.layer = 23/*Player4Bullets*/;
+                        bullet2.layer = 23/*Player4Bullets*/;
+                        bullet3.layer = 23/*Player4Bullets*/;
+                        bullet4.layer = 23/*Player4Bullets*/;
+                        bullet5.layer = 23/*Player4Bullets*/;
+                    }
+
+                }
+
+            }
+
+
+
+            //using Spaghetti Whip-Cheese
+            else if (hasWeapon_SpaghettiWhipCheese == true && weapon_SpaghettiWhipCheese_Active == true)
+            {
+                //Switch to secondary weapon and put this weapon in secondary slot
+                if (Input.GetButtonDown(inputY) && canSwitchWeapon == true)
+                {
+                    //sets cooldown to switch weapons again
+                    switchWeaponCooldown = switchWeaponTimerCooldownLength;
+
+                    //switch to Pea Shooter
+                    if (hasWeapon_PeaShooter == true)
+                    {
+                        weapon_SpaghettiWhipCheese_Active = false;
+                        Weapon_SpaghettiWhipCheese_WindUp.SetActive(false);
+                        Weapon_SpaghettiWhipCheese_SpriteRenderer.enabled = false;
+                        Weapon_SpaghettiWhipCheese_Collider.enabled = false;
+                        Weapon_SpaghettiWhipCheese_Attack.SetActive(false);
+                        //TO DO: enable weapon sprite renderer in box secondary weapon
+                        weapon_PeaShooter_Active = true;
+                        Weapon_PeaShooter.SetActive(true);
+                        peaShooter_Cooldown = peaShooter_CooldownLength;
+                        Debug.Log("Primary: Pea Shooter");
+                        Debug.Log("Secondary: Spaghetti Whip Cheese");
+                    }
+                    else if (hasWeapon_SemiAutoRifle == true)
+                    {
+                        weapon_SpaghettiWhipCheese_Active = false;
+                        Weapon_SpaghettiWhipCheese_WindUp.SetActive(false);
+                        Weapon_SpaghettiWhipCheese_SpriteRenderer.enabled = false;
+                        Weapon_SpaghettiWhipCheese_Collider.enabled = false;
+                        Weapon_SpaghettiWhipCheese_Attack.SetActive(false);
+                        //TO DO: enable weapon sprite renderer in box secondary weapon
+                        weapon_SemiAutoRifle_Active = true;
+                        Weapon_SemiAutoRifle.SetActive(true);
+                        semiAutoRifle_Cooldown = burstRifle_CooldownLength;
+                        Debug.Log("Primary: Semi-Auto Rifle");
+                        Debug.Log("Secondary: Spaghetti Whip Cheese");
+                    }
+                    else if (hasWeapon_BurstRifle == true)
+                    {
+                        weapon_SpaghettiWhipCheese_Active = false;
+                        Weapon_SpaghettiWhipCheese_WindUp.SetActive(false);
+                        Weapon_SpaghettiWhipCheese_SpriteRenderer.enabled = false;
+                        Weapon_SpaghettiWhipCheese_Collider.enabled = false;
+                        Weapon_SpaghettiWhipCheese_Attack.SetActive(false);
+                        //TO DO: enable weapon sprite renderer in box secondary weapon
+                        weapon_BurstRifle_Active = true;
+                        Weapon_BurstRifle.SetActive(true);
+                        burstRifle_Cooldown = burstRifle_CooldownLength;
+                        Debug.Log("Primary: Burst Rifle");
+                        Debug.Log("Secondary: Spaghetti Whip Cheese");
+                    }
+                    else if (hasWeapon_Shotgun == true)
+                    {
+                        weapon_SpaghettiWhipCheese_Active = false;
+                        Weapon_SpaghettiWhipCheese_WindUp.SetActive(false);
+                        Weapon_SpaghettiWhipCheese_SpriteRenderer.enabled = false;
+                        Weapon_SpaghettiWhipCheese_Collider.enabled = false;
+                        Weapon_SpaghettiWhipCheese_Attack.SetActive(false);
+                        //TO DO: enable weapon sprite renderer in box secondary weapon
+                        weapon_Shotgun_Active = true;
+                        Weapon_Shotgun.SetActive(true);
+                        shotgun_Cooldown = shotgun_CooldownLength;
+                        Debug.Log("Primary: Shotgun");
+                        Debug.Log("Secondary: Spaghetti Whip Cheese");
+                    }
+                    else if (hasWeapon_SpaghettiWhipOnion == true)
+                    {
+                        weapon_SpaghettiWhipCheese_Active = false;
+                        Weapon_SpaghettiWhipCheese_WindUp.SetActive(false);
+                        Weapon_SpaghettiWhipCheese_SpriteRenderer.enabled = false;
+                        Weapon_SpaghettiWhipCheese_Collider.enabled = false;
+                        Weapon_SpaghettiWhipCheese_Attack.SetActive(false);
+                        //TO DO: enable weapon sprite renderer in box secondary weapon
+                        weapon_SpaghettiWhipOnion_Active = true;
+                        Weapon_SpaghettiWhipOnion_WindUp.SetActive(true);
+                        Weapon_SpaghettiWhipOnion_Attack.SetActive(true);
+                        Weapon_SpaghettiWhipOnion_SpriteRenderer.enabled = false;
+                        Weapon_SpaghettiWhipOnion_Collider.enabled = false;
+                        spaghettiWhipOnion_Cooldown = spaghettiWhipOnion_CooldownLength;
+                        Debug.Log("Primary: Spaghetti Whip Onion");
+                        Debug.Log("Secondary: Spaghetti Whip Cheese");
+                    }
+
+                }
+
+                //value 0-1 of not pressed or pressed "Xbox_RT_P1" (RT)
+                float attackMain = Input.GetAxis(inputRT);
+
+                //cooldown/reload timer in between shots
+                spaghettiWhipCheese_Cooldown -= Time.deltaTime;
+
+                //if pressed, check if attack is ready and attack.  Reset cooldown timer.
+                if (attackMain > .5f && spaghettiWhipCheese_Cooldown < 0)
+                {
+                    spaghettiWhipCheese_Cooldown = spaghettiWhipCheese_CooldownLength;
+                    StartCoroutine(AttackSpaghettiWhipCheeseCoroutine());
+                    SFX_shootWhip.Play();
+                }
+
+            }
+
+
+
+            //using Spaghetti Whip-Onion
+            else if (hasWeapon_SpaghettiWhipOnion == true && weapon_SpaghettiWhipOnion_Active == true)
+            {
+                //Switch to secondary weapon and put this weapon in secondary slot
+                if (Input.GetButtonDown(inputY) && canSwitchWeapon == true)
+                {
+                    //sets cooldown to switch weapons again
+                    switchWeaponCooldown = switchWeaponTimerCooldownLength;
+
+                    //switch to Pea Shooter
+                    if (hasWeapon_PeaShooter == true)
+                    {
+                        weapon_SpaghettiWhipOnion_Active = false;
+                        Weapon_SpaghettiWhipOnion_WindUp.SetActive(false);
+                        Weapon_SpaghettiWhipOnion_SpriteRenderer.enabled = false;
+                        Weapon_SpaghettiWhipOnion_Collider.enabled = false;
+                        Weapon_SpaghettiWhipOnion_Attack.SetActive(false);
+                        //TO DO: enable weapon sprite renderer in box secondary weapon
+                        weapon_PeaShooter_Active = true;
+                        Weapon_PeaShooter.SetActive(true);
+                        peaShooter_Cooldown = peaShooter_CooldownLength;
+                        Debug.Log("Primary: Pea Shooter");
+                        Debug.Log("Secondary: Spaghetti Whip Onion");
+                    }
+                    else if (hasWeapon_SemiAutoRifle == true)
+                    {
+                        weapon_SpaghettiWhipOnion_Active = false;
+                        Weapon_SpaghettiWhipOnion_WindUp.SetActive(false);
+                        Weapon_SpaghettiWhipOnion_SpriteRenderer.enabled = false;
+                        Weapon_SpaghettiWhipOnion_Collider.enabled = false;
+                        Weapon_SpaghettiWhipOnion_Attack.SetActive(false);
+                        //TO DO: enable weapon sprite renderer in box secondary weapon
+                        weapon_SemiAutoRifle_Active = true;
+                        Weapon_SemiAutoRifle.SetActive(true);
+                        semiAutoRifle_Cooldown = burstRifle_CooldownLength;
+                        Debug.Log("Primary: Semi-Auto Rifle");
+                        Debug.Log("Secondary: Spaghetti Whip Onion");
+                    }
+                    else if (hasWeapon_BurstRifle == true)
+                    {
+                        weapon_SpaghettiWhipOnion_Active = false;
+                        Weapon_SpaghettiWhipOnion_WindUp.SetActive(false);
+                        Weapon_SpaghettiWhipOnion_SpriteRenderer.enabled = false;
+                        Weapon_SpaghettiWhipOnion_Collider.enabled = false;
+                        Weapon_SpaghettiWhipOnion_Attack.SetActive(false);
+                        //TO DO: enable weapon sprite renderer in box secondary weapon
+                        weapon_BurstRifle_Active = true;
+                        Weapon_BurstRifle.SetActive(true);
+                        burstRifle_Cooldown = burstRifle_CooldownLength;
+                        Debug.Log("Primary: Burst Rifle");
+                        Debug.Log("Secondary: Spaghetti Whip Onion");
+                    }
+                    else if (hasWeapon_Shotgun == true)
+                    {
+                        weapon_SpaghettiWhipOnion_Active = false;
+                        Weapon_SpaghettiWhipOnion_WindUp.SetActive(false);
+                        Weapon_SpaghettiWhipOnion_SpriteRenderer.enabled = false;
+                        Weapon_SpaghettiWhipOnion_Collider.enabled = false;
+                        Weapon_SpaghettiWhipOnion_Attack.SetActive(false);
+                        //TO DO: enable weapon sprite renderer in box secondary weapon
+                        weapon_Shotgun_Active = true;
+                        Weapon_Shotgun.SetActive(true);
+                        shotgun_Cooldown = shotgun_CooldownLength;
+                        Debug.Log("Primary: Shotgun");
+                        Debug.Log("Secondary: Spaghetti Whip Onion");
+                    }
+                    else if (hasWeapon_SpaghettiWhipCheese == true)
+                    {
+                        weapon_SpaghettiWhipOnion_Active = false;
+                        Weapon_SpaghettiWhipOnion_WindUp.SetActive(false);
+                        Weapon_SpaghettiWhipOnion_SpriteRenderer.enabled = false;
+                        Weapon_SpaghettiWhipOnion_Collider.enabled = false;
+                        Weapon_SpaghettiWhipOnion_Attack.SetActive(false);
+                        //TO DO: enable weapon sprite renderer in box secondary weapon
+                        weapon_SpaghettiWhipCheese_Active = true;
+                        Weapon_SpaghettiWhipCheese_WindUp.SetActive(true);
+                        Weapon_SpaghettiWhipCheese_Attack.SetActive(true);
+                        Weapon_SpaghettiWhipCheese_SpriteRenderer.enabled = false;
+                        Weapon_SpaghettiWhipCheese_Collider.enabled = false;
+                        spaghettiWhipCheese_Cooldown = spaghettiWhipCheese_CooldownLength;
+                        Debug.Log("Primary: Spaghetti Whip Cheese");
+                        Debug.Log("Secondary: Spaghetti Whip Onion");
+                    }
+
+                }
+
+                //value 0-1 of not pressed or pressed "Xbox_RT_P1" (RT)
+                float attackMain = Input.GetAxis(inputRT);
+
+                //cooldown/reload timer in between shots
+                spaghettiWhipOnion_Cooldown -= Time.deltaTime;
+
+                //if pressed, check if attack is ready and attack.  Reset cooldown timer.
+                if (attackMain > .5f && spaghettiWhipOnion_Cooldown < 0)
+                {
+                    spaghettiWhipOnion_Cooldown = spaghettiWhipOnion_CooldownLength;
+                    StartCoroutine(AttackSpaghettiWhipOnionCoroutine());
+                    SFX_shootWhip.Play();
                 }
 
             }
 
         }
-
-
-        //using Burst Rifle
-        else if (hasWeapon_BurstRifle == true && weapon_BurstRifle_Active == true)
-        {
-            //Switch to secondary weapon and put this weapon in secondary slot
-            if (Input.GetButtonDown(inputY) && canSwitchWeapon == true)
-            {
-                //sets cooldown to switch weapons again
-                switchWeaponCooldown = switchWeaponTimerCooldownLength;
-
-                //switch to Pea Shooter
-                if (hasWeapon_PeaShooter == true)
-                {
-                    weapon_BurstRifle_Active = false;
-                    Weapon_BurstRifle.SetActive(false);
-                    //TO DO: enable weapon sprite renderer in box secondary weapon
-                    weapon_PeaShooter_Active = true;
-                    Weapon_PeaShooter.SetActive(true);
-                    peaShooter_Cooldown = peaShooter_CooldownLength;
-                    Debug.Log("Primary: Pea Shooter");
-                    Debug.Log("Secondary: Burst Rifle");
-                }
-                else if (hasWeapon_SemiAutoRifle == true)
-                {
-                    weapon_BurstRifle_Active = false;
-                    Weapon_BurstRifle.SetActive(false);
-                    //TO DO: enable weapon sprite renderer in box secondary weapon
-                    weapon_SemiAutoRifle_Active = true;
-                    Weapon_SemiAutoRifle.SetActive(true);
-                    semiAutoRifle_Cooldown = semiAutoRifle_CooldownLength;
-                    Debug.Log("Primary: Semi-Auto Rifle");
-                    Debug.Log("Secondary: Burst Rifle");
-                }
-                else if (hasWeapon_Shotgun == true)
-                {
-                    weapon_BurstRifle_Active = false;
-                    Weapon_BurstRifle.SetActive(false);
-                    //TO DO: enable weapon sprite renderer in box secondary weapon
-                    weapon_Shotgun_Active = true;
-                    Weapon_Shotgun.SetActive(true);
-                    shotgun_Cooldown = shotgun_CooldownLength;
-                    Debug.Log("Primary: Shotgun");
-                    Debug.Log("Secondary: Burst Rifle");
-                }
-                else if (hasWeapon_SpaghettiWhipCheese == true)
-                {
-                    weapon_BurstRifle_Active = false;
-                    Weapon_BurstRifle.SetActive(false);
-                    //TO DO: enable weapon sprite renderer in box secondary weapon
-                    weapon_SpaghettiWhipCheese_Active = true;
-                    Weapon_SpaghettiWhipCheese_WindUp.SetActive(true);
-                    Weapon_SpaghettiWhipCheese_Attack.SetActive(true);
-                    Weapon_SpaghettiWhipCheese_SpriteRenderer.enabled = false;
-                    Weapon_SpaghettiWhipCheese_Collider.enabled = false;
-                    spaghettiWhipCheese_Cooldown = spaghettiWhipCheese_CooldownLength;
-                    Debug.Log("Primary: Spaghetti Whip Cheese");
-                    Debug.Log("Secondary: Burst Rifle");
-                }
-                else if (hasWeapon_SpaghettiWhipOnion == true)
-                {
-                    weapon_BurstRifle_Active = false;
-                    Weapon_BurstRifle.SetActive(false);
-                    //TO DO: enable weapon sprite renderer in box secondary weapon
-                    weapon_SpaghettiWhipOnion_Active = true;
-                    Weapon_SpaghettiWhipOnion_WindUp.SetActive(true);
-                    Weapon_SpaghettiWhipOnion_Attack.SetActive(true);
-                    Weapon_SpaghettiWhipOnion_SpriteRenderer.enabled = false;
-                    Weapon_SpaghettiWhipOnion_Collider.enabled = false;
-                    spaghettiWhipOnion_Cooldown = spaghettiWhipOnion_CooldownLength;
-                    Debug.Log("Primary: Spaghetti Whip Onion");
-                    Debug.Log("Secondary: Burst Rifle");
-                }
-
-
-            }
-
-
-            //value 0-1 of not pressed or pressed "Xbox_RT_P1" (RT)
-            float attackMain = Input.GetAxis(inputRT);
-
-            //cooldown/reload timer in between shots
-            burstRifle_Cooldown -= Time.deltaTime;
-
-            //if pressed, check if shot is ready and shoot.  Reset cooldown timer.
-            if (attackMain > .5f && burstRifle_Cooldown < 0)
-            {
-                burstRifle_Cooldown = burstRifle_CooldownLength;
-                GameObject bullet1;
-                GameObject bullet2;
-                GameObject bullet3;
-                bullet1 = Instantiate(Prefab_TomatoSauce, new Vector3(Weapon_BulletSpawnPoint.transform.position.x, Weapon_BulletSpawnPoint.transform.position.y, Weapon_BulletSpawnPoint.transform.position.z), Weapon_PivotPoint.transform.rotation);
-                bullet2 = Instantiate(Prefab_TomatoSauce, new Vector3(Weapon_BulletSpawnPoint0.transform.position.x, Weapon_BulletSpawnPoint0.transform.position.y, Weapon_BulletSpawnPoint0.transform.position.z), Weapon_PivotPoint.transform.rotation);
-                bullet3 = Instantiate(Prefab_TomatoSauce, new Vector3(Weapon_BulletSpawnPoint2.transform.position.x, Weapon_BulletSpawnPoint2.transform.position.y, Weapon_BulletSpawnPoint2.transform.position.z), Weapon_PivotPoint.transform.rotation);
-                SFX_shootBurstRifle.Play();
-
-                if (player1)
-                {
-                    bullet1.layer = 20/*Player1Bullets*/;
-                    bullet2.layer = 20/*Player1Bullets*/;
-                    bullet3.layer = 20/*Player1Bullets*/;
-                }
-                else if (player2)
-                {
-                    bullet1.layer = 21/*Player2Bullets*/;
-                    bullet2.layer = 21/*Player2Bullets*/;
-                    bullet3.layer = 21/*Player2Bullets*/;
-                }
-                else if (player3)
-                {
-                    bullet1.layer = 22/*Player3Bullets*/;
-                    bullet2.layer = 22/*Player3Bullets*/;
-                    bullet3.layer = 22/*Player3Bullets*/;
-                }
-                else if (player4)
-                {
-                    bullet1.layer = 23/*Player4Bullets*/;
-                    bullet2.layer = 23/*Player4Bullets*/;
-                    bullet3.layer = 23/*Player4Bullets*/;
-                }
-
-            }
         
-        }
+            
 
-
-
-        //using Shotgun
-        else if (hasWeapon_Shotgun == true && weapon_Shotgun_Active == true)
-        {
-            //Switch to secondary weapon and put this weapon in secondary slot
-            if (Input.GetButtonDown(inputY) && canSwitchWeapon == true)
-            {
-                //sets cooldown to switch weapons again
-                switchWeaponCooldown = switchWeaponTimerCooldownLength;
-
-                //switch to Pea Shooter
-                if (hasWeapon_PeaShooter == true)
-                {
-                    weapon_Shotgun_Active = false;
-                    Weapon_Shotgun.SetActive(false);
-                    //TO DO: enable weapon sprite renderer in box secondary weapon
-                    weapon_PeaShooter_Active = true;
-                    Weapon_PeaShooter.SetActive(true);
-                    peaShooter_Cooldown = peaShooter_CooldownLength;
-                    Debug.Log("Primary: Pea Shooter");
-                    Debug.Log("Secondary: Shotgun");
-                }
-                else if (hasWeapon_SemiAutoRifle == true)
-                {
-                    weapon_Shotgun_Active = false;
-                    Weapon_Shotgun.SetActive(false);
-                    //TO DO: enable weapon sprite renderer in box secondary weapon
-                    weapon_SemiAutoRifle_Active = true;
-                    Weapon_SemiAutoRifle.SetActive(true);
-                    semiAutoRifle_Cooldown = semiAutoRifle_CooldownLength;
-                    Debug.Log("Primary: Semi-Auto Rifle");
-                    Debug.Log("Secondary: Shotgun");
-                }
-                else if (hasWeapon_BurstRifle == true)
-                {
-                    weapon_Shotgun_Active = false;
-                    Weapon_Shotgun.SetActive(false);
-                    //TO DO: enable weapon sprite renderer in box secondary weapon
-                    weapon_BurstRifle_Active = true;
-                    Weapon_BurstRifle.SetActive(true);
-                    burstRifle_Cooldown = burstRifle_CooldownLength;
-                    Debug.Log("Primary: Burst Rifle");
-                    Debug.Log("Secondary: Shotgun");
-                }
-                else if (hasWeapon_SpaghettiWhipCheese == true)
-                {
-                    weapon_Shotgun_Active = false;
-                    Weapon_Shotgun.SetActive(false);
-                    //TO DO: enable weapon sprite renderer in box secondary weapon
-                    weapon_SpaghettiWhipCheese_Active = true;
-                    Weapon_SpaghettiWhipCheese_WindUp.SetActive(true);
-                    Weapon_SpaghettiWhipCheese_Attack.SetActive(true);
-                    Weapon_SpaghettiWhipCheese_SpriteRenderer.enabled = false;
-                    Weapon_SpaghettiWhipCheese_Collider.enabled = false;
-                    spaghettiWhipCheese_Cooldown = spaghettiWhipCheese_CooldownLength;
-                    Debug.Log("Primary: Spaghetti Whip Cheese");
-                    Debug.Log("Secondary: Shotgun");
-                }
-                else if (hasWeapon_SpaghettiWhipOnion == true)
-                {
-                    weapon_Shotgun_Active = false;
-                    Weapon_Shotgun.SetActive(false);
-                    //TO DO: enable weapon sprite renderer in box secondary weapon
-                    weapon_SpaghettiWhipOnion_Active = true;
-                    Weapon_SpaghettiWhipOnion_WindUp.SetActive(true);
-                    Weapon_SpaghettiWhipOnion_Attack.SetActive(true);
-                    Weapon_SpaghettiWhipOnion_SpriteRenderer.enabled = false;
-                    Weapon_SpaghettiWhipOnion_Collider.enabled = false;
-                    spaghettiWhipOnion_Cooldown = spaghettiWhipOnion_CooldownLength;
-                    Debug.Log("Primary: Spaghetti Whip Onion");
-                    Debug.Log("Secondary: Shotgun");
-                }
-
-
-
-            }
-
-            //value 0-1 of not pressed or pressed "Xbox_RT_P1" (RT)
-            float attackMain = Input.GetAxis(inputRT);
-
-            //cooldown/reload timer in between shots
-            shotgun_Cooldown -= Time.deltaTime;
-
-            //if pressed, check if shot is ready and shoot.  Reset cooldown timer.
-            if (attackMain > .5f && shotgun_Cooldown < 0)
-            {
-                shotgun_Cooldown = shotgun_CooldownLength;
-                GameObject bullet1;
-                GameObject bullet2;
-                GameObject bullet3;
-                GameObject bullet4;
-                GameObject bullet5;
-                bullet1 = Instantiate(Prefab_TomatoChunkShotgun, new Vector3(Weapon_BulletSpawnPoint_Shotgun1.transform.position.x, Weapon_BulletSpawnPoint_Shotgun1.transform.position.y, Weapon_BulletSpawnPoint_Shotgun1.transform.position.z), Weapon_BulletSpawnPoint_Shotgun1.transform.rotation);
-                bullet2 = Instantiate(Prefab_TomatoChunkShotgun, new Vector3(Weapon_BulletSpawnPoint_Shotgun2.transform.position.x, Weapon_BulletSpawnPoint_Shotgun2.transform.position.y, Weapon_BulletSpawnPoint_Shotgun2.transform.position.z), Weapon_BulletSpawnPoint_Shotgun2.transform.rotation);
-                bullet3 = Instantiate(Prefab_TomatoChunkShotgun, new Vector3(Weapon_BulletSpawnPoint_Shotgun3.transform.position.x, Weapon_BulletSpawnPoint_Shotgun3.transform.position.y, Weapon_BulletSpawnPoint_Shotgun3.transform.position.z), Weapon_BulletSpawnPoint_Shotgun3.transform.rotation);
-                bullet4 = Instantiate(Prefab_TomatoChunkShotgun, new Vector3(Weapon_BulletSpawnPoint_Shotgun4.transform.position.x, Weapon_BulletSpawnPoint_Shotgun4.transform.position.y, Weapon_BulletSpawnPoint_Shotgun4.transform.position.z), Weapon_BulletSpawnPoint_Shotgun4.transform.rotation);
-                bullet5 = Instantiate(Prefab_TomatoChunkShotgun, new Vector3(Weapon_BulletSpawnPoint_Shotgun5.transform.position.x, Weapon_BulletSpawnPoint_Shotgun5.transform.position.y, Weapon_BulletSpawnPoint_Shotgun5.transform.position.z), Weapon_BulletSpawnPoint_Shotgun5.transform.rotation);
-                SFX_shootShotgun.Play();
-
-                if (player1)
-                {
-                    bullet1.layer = 20/*Player1Bullets*/;
-                    bullet2.layer = 20/*Player1Bullets*/;
-                    bullet3.layer = 20/*Player1Bullets*/;
-                    bullet4.layer = 20/*Player1Bullets*/;
-                    bullet5.layer = 20/*Player1Bullets*/;
-                }
-                else if (player2)
-                {
-                    bullet1.layer = 21/*Player2Bullets*/;
-                    bullet2.layer = 21/*Player2Bullets*/;
-                    bullet3.layer = 21/*Player2Bullets*/;
-                    bullet4.layer = 21/*Player2Bullets*/;
-                    bullet5.layer = 21/*Player2Bullets*/;
-                }
-                else if (player3)
-                {
-                    bullet1.layer = 22/*Player3Bullets*/;
-                    bullet2.layer = 22/*Player3Bullets*/;
-                    bullet3.layer = 22/*Player3Bullets*/;
-                    bullet4.layer = 22/*Player3Bullets*/;
-                    bullet5.layer = 22/*Player3Bullets*/;
-                }
-                else if (player4)
-                {
-                    bullet1.layer = 23/*Player4Bullets*/;
-                    bullet2.layer = 23/*Player4Bullets*/;
-                    bullet3.layer = 23/*Player4Bullets*/;
-                    bullet4.layer = 23/*Player4Bullets*/;
-                    bullet5.layer = 23/*Player4Bullets*/;
-                }
-
-            }
-
-        }
-
-
-
-        //using Spaghetti Whip-Cheese
-        else if (hasWeapon_SpaghettiWhipCheese == true && weapon_SpaghettiWhipCheese_Active == true)
-        {
-            //Switch to secondary weapon and put this weapon in secondary slot
-            if (Input.GetButtonDown(inputY) && canSwitchWeapon == true)
-            {
-                //sets cooldown to switch weapons again
-                switchWeaponCooldown = switchWeaponTimerCooldownLength;
-
-                //switch to Pea Shooter
-                if (hasWeapon_PeaShooter == true)
-                {
-                    weapon_SpaghettiWhipCheese_Active = false;
-                    Weapon_SpaghettiWhipCheese_WindUp.SetActive(false);
-                    Weapon_SpaghettiWhipCheese_SpriteRenderer.enabled = false;
-                    Weapon_SpaghettiWhipCheese_Collider.enabled = false;
-                    Weapon_SpaghettiWhipCheese_Attack.SetActive(false);
-                    //TO DO: enable weapon sprite renderer in box secondary weapon
-                    weapon_PeaShooter_Active = true;
-                    Weapon_PeaShooter.SetActive(true);
-                    peaShooter_Cooldown = peaShooter_CooldownLength;
-                    Debug.Log("Primary: Pea Shooter");
-                    Debug.Log("Secondary: Spaghetti Whip Cheese");
-                }
-                else if (hasWeapon_SemiAutoRifle == true)
-                {
-                    weapon_SpaghettiWhipCheese_Active = false;
-                    Weapon_SpaghettiWhipCheese_WindUp.SetActive(false);
-                    Weapon_SpaghettiWhipCheese_SpriteRenderer.enabled = false;
-                    Weapon_SpaghettiWhipCheese_Collider.enabled = false;
-                    Weapon_SpaghettiWhipCheese_Attack.SetActive(false);
-                    //TO DO: enable weapon sprite renderer in box secondary weapon
-                    weapon_SemiAutoRifle_Active = true;
-                    Weapon_SemiAutoRifle.SetActive(true);
-                    semiAutoRifle_Cooldown = burstRifle_CooldownLength;
-                    Debug.Log("Primary: Semi-Auto Rifle");
-                    Debug.Log("Secondary: Spaghetti Whip Cheese");
-                }
-                else if (hasWeapon_BurstRifle == true)
-                {
-                    weapon_SpaghettiWhipCheese_Active = false;
-                    Weapon_SpaghettiWhipCheese_WindUp.SetActive(false);
-                    Weapon_SpaghettiWhipCheese_SpriteRenderer.enabled = false;
-                    Weapon_SpaghettiWhipCheese_Collider.enabled = false;
-                    Weapon_SpaghettiWhipCheese_Attack.SetActive(false);
-                    //TO DO: enable weapon sprite renderer in box secondary weapon
-                    weapon_BurstRifle_Active = true;
-                    Weapon_BurstRifle.SetActive(true);
-                    burstRifle_Cooldown = burstRifle_CooldownLength;
-                    Debug.Log("Primary: Burst Rifle");
-                    Debug.Log("Secondary: Spaghetti Whip Cheese");
-                }
-                else if (hasWeapon_Shotgun == true)
-                {
-                    weapon_SpaghettiWhipCheese_Active = false;
-                    Weapon_SpaghettiWhipCheese_WindUp.SetActive(false);
-                    Weapon_SpaghettiWhipCheese_SpriteRenderer.enabled = false;
-                    Weapon_SpaghettiWhipCheese_Collider.enabled = false;
-                    Weapon_SpaghettiWhipCheese_Attack.SetActive(false);
-                    //TO DO: enable weapon sprite renderer in box secondary weapon
-                    weapon_Shotgun_Active = true;
-                    Weapon_Shotgun.SetActive(true);
-                    shotgun_Cooldown = shotgun_CooldownLength;
-                    Debug.Log("Primary: Shotgun");
-                    Debug.Log("Secondary: Spaghetti Whip Cheese");
-                }
-                else if (hasWeapon_SpaghettiWhipOnion == true)
-                {
-                    weapon_SpaghettiWhipCheese_Active = false;
-                    Weapon_SpaghettiWhipCheese_WindUp.SetActive(false);
-                    Weapon_SpaghettiWhipCheese_SpriteRenderer.enabled = false;
-                    Weapon_SpaghettiWhipCheese_Collider.enabled = false;
-                    Weapon_SpaghettiWhipCheese_Attack.SetActive(false);
-                    //TO DO: enable weapon sprite renderer in box secondary weapon
-                    weapon_SpaghettiWhipOnion_Active = true;
-                    Weapon_SpaghettiWhipOnion_WindUp.SetActive(true);
-                    Weapon_SpaghettiWhipOnion_Attack.SetActive(true);
-                    Weapon_SpaghettiWhipOnion_SpriteRenderer.enabled = false;
-                    Weapon_SpaghettiWhipOnion_Collider.enabled = false;
-                    spaghettiWhipOnion_Cooldown = spaghettiWhipOnion_CooldownLength;
-                    Debug.Log("Primary: Spaghetti Whip Onion");
-                    Debug.Log("Secondary: Spaghetti Whip Cheese");
-                }
-
-            }
-
-            //value 0-1 of not pressed or pressed "Xbox_RT_P1" (RT)
-            float attackMain = Input.GetAxis(inputRT);
-
-            //cooldown/reload timer in between shots
-            spaghettiWhipCheese_Cooldown -= Time.deltaTime;
-
-            //if pressed, check if attack is ready and attack.  Reset cooldown timer.
-            if (attackMain > .5f && spaghettiWhipCheese_Cooldown < 0)
-            {
-                spaghettiWhipCheese_Cooldown = spaghettiWhipCheese_CooldownLength;
-                StartCoroutine(AttackSpaghettiWhipCheeseCoroutine());
-                SFX_shootWhip.Play();
-            }
-
-        }
-
-
-
-        //using Spaghetti Whip-Onion
-        else if (hasWeapon_SpaghettiWhipOnion == true && weapon_SpaghettiWhipOnion_Active == true)
-        {
-            //Switch to secondary weapon and put this weapon in secondary slot
-            if (Input.GetButtonDown(inputY) && canSwitchWeapon == true)
-            {
-                //sets cooldown to switch weapons again
-                switchWeaponCooldown = switchWeaponTimerCooldownLength;
-
-                //switch to Pea Shooter
-                if (hasWeapon_PeaShooter == true)
-                {
-                    weapon_SpaghettiWhipOnion_Active = false;
-                    Weapon_SpaghettiWhipOnion_WindUp.SetActive(false);
-                    Weapon_SpaghettiWhipOnion_SpriteRenderer.enabled = false;
-                    Weapon_SpaghettiWhipOnion_Collider.enabled = false;
-                    Weapon_SpaghettiWhipOnion_Attack.SetActive(false);
-                    //TO DO: enable weapon sprite renderer in box secondary weapon
-                    weapon_PeaShooter_Active = true;
-                    Weapon_PeaShooter.SetActive(true);
-                    peaShooter_Cooldown = peaShooter_CooldownLength;
-                    Debug.Log("Primary: Pea Shooter");
-                    Debug.Log("Secondary: Spaghetti Whip Onion");
-                }
-                else if (hasWeapon_SemiAutoRifle == true)
-                {
-                    weapon_SpaghettiWhipOnion_Active = false;
-                    Weapon_SpaghettiWhipOnion_WindUp.SetActive(false);
-                    Weapon_SpaghettiWhipOnion_SpriteRenderer.enabled = false;
-                    Weapon_SpaghettiWhipOnion_Collider.enabled = false;
-                    Weapon_SpaghettiWhipOnion_Attack.SetActive(false);
-                    //TO DO: enable weapon sprite renderer in box secondary weapon
-                    weapon_SemiAutoRifle_Active = true;
-                    Weapon_SemiAutoRifle.SetActive(true);
-                    semiAutoRifle_Cooldown = burstRifle_CooldownLength;
-                    Debug.Log("Primary: Semi-Auto Rifle");
-                    Debug.Log("Secondary: Spaghetti Whip Onion");
-                }
-                else if (hasWeapon_BurstRifle == true)
-                {
-                    weapon_SpaghettiWhipOnion_Active = false;
-                    Weapon_SpaghettiWhipOnion_WindUp.SetActive(false);
-                    Weapon_SpaghettiWhipOnion_SpriteRenderer.enabled = false;
-                    Weapon_SpaghettiWhipOnion_Collider.enabled = false;
-                    Weapon_SpaghettiWhipOnion_Attack.SetActive(false);
-                    //TO DO: enable weapon sprite renderer in box secondary weapon
-                    weapon_BurstRifle_Active = true;
-                    Weapon_BurstRifle.SetActive(true);
-                    burstRifle_Cooldown = burstRifle_CooldownLength;
-                    Debug.Log("Primary: Burst Rifle");
-                    Debug.Log("Secondary: Spaghetti Whip Onion");
-                }
-                else if (hasWeapon_Shotgun == true)
-                {
-                    weapon_SpaghettiWhipOnion_Active = false;
-                    Weapon_SpaghettiWhipOnion_WindUp.SetActive(false);
-                    Weapon_SpaghettiWhipOnion_SpriteRenderer.enabled = false;
-                    Weapon_SpaghettiWhipOnion_Collider.enabled = false;
-                    Weapon_SpaghettiWhipOnion_Attack.SetActive(false);
-                    //TO DO: enable weapon sprite renderer in box secondary weapon
-                    weapon_Shotgun_Active = true;
-                    Weapon_Shotgun.SetActive(true);
-                    shotgun_Cooldown = shotgun_CooldownLength;
-                    Debug.Log("Primary: Shotgun");
-                    Debug.Log("Secondary: Spaghetti Whip Onion");
-                }
-                else if (hasWeapon_SpaghettiWhipCheese == true)
-                {
-                    weapon_SpaghettiWhipOnion_Active = false;
-                    Weapon_SpaghettiWhipOnion_WindUp.SetActive(false);
-                    Weapon_SpaghettiWhipOnion_SpriteRenderer.enabled = false;
-                    Weapon_SpaghettiWhipOnion_Collider.enabled = false;
-                    Weapon_SpaghettiWhipOnion_Attack.SetActive(false);
-                    //TO DO: enable weapon sprite renderer in box secondary weapon
-                    weapon_SpaghettiWhipCheese_Active = true;
-                    Weapon_SpaghettiWhipCheese_WindUp.SetActive(true);
-                    Weapon_SpaghettiWhipCheese_Attack.SetActive(true);
-                    Weapon_SpaghettiWhipCheese_SpriteRenderer.enabled = false;
-                    Weapon_SpaghettiWhipCheese_Collider.enabled = false;
-                    spaghettiWhipCheese_Cooldown = spaghettiWhipCheese_CooldownLength;
-                    Debug.Log("Primary: Spaghetti Whip Cheese");
-                    Debug.Log("Secondary: Spaghetti Whip Onion");
-                }
-
-            }
-
-            //value 0-1 of not pressed or pressed "Xbox_RT_P1" (RT)
-            float attackMain = Input.GetAxis(inputRT);
-
-            //cooldown/reload timer in between shots
-            spaghettiWhipOnion_Cooldown -= Time.deltaTime;
-
-            //if pressed, check if attack is ready and attack.  Reset cooldown timer.
-            if (attackMain > .5f && spaghettiWhipOnion_Cooldown < 0)
-            {
-                spaghettiWhipOnion_Cooldown = spaghettiWhipOnion_CooldownLength;
-                StartCoroutine(AttackSpaghettiWhipOnionCoroutine());
-                SFX_shootWhip.Play();
-            }
-
-        }
+        
 
 
     }
