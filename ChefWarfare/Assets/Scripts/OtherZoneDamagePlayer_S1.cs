@@ -59,7 +59,7 @@ public class OtherZoneDamagePlayer_S1 : MonoBehaviour
                 AS_GetHit.Play();
             }
         }
-        else if (other.gameObject.name == "Player3")
+        else if (other.gameObject.name == "Player3" && LevelLogic.mode != "2v2")
         {
             if (other.gameObject.GetComponent<PlayerStatus>().HP > 0)
             {

@@ -146,78 +146,326 @@ public class RecipeBook : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.tag == "Player")
+        //Top Left
+        if(transform.position.x < 0 && transform.position.y > 0)
         {
-            //sets the player when a player hits the cooking station
-            myPlayerStatusScript = other.gameObject.GetComponent<PlayerStatus>();
-            myPlayerMovementScript = other.gameObject.GetComponent<PlayerMovement>();
-            myPlayerInventoryScript = other.gameObject.GetComponent<PlayerInventory>();
-
-            //sets the input to correct player input
-            if(other.gameObject.GetComponent<PlayerMovement>().isMac == false)
+            if (other.gameObject.name == "Player1")
             {
-                if(other.gameObject.GetComponent<PlayerMovement>().player1 == true)
-                {
-                    inputB = "Xbox_Button_B_P1";
-                    inputA = "Xbox_Button_A_P1";
-                }
-            else if (other.gameObject.GetComponent<PlayerMovement>().player2 == true)
-                {
-                    inputB = "Xbox_Button_B_P2";
-                    inputA = "Xbox_Button_A_P2";
-                }
-                else if (other.gameObject.GetComponent<PlayerMovement>().player3 == true)
-                {
-                    inputB = "Xbox_Button_B_P3";
-                    inputA = "Xbox_Button_A_P3";
-                }
-                else if (other.gameObject.GetComponent<PlayerMovement>().player4 == true)
-                {
-                    inputB = "Xbox_Button_B_P4";
-                    inputA = "Xbox_Button_A_P4";
+                //sets the player when a player hits the cooking station
+                myPlayerStatusScript = other.gameObject.GetComponent<PlayerStatus>();
+                myPlayerMovementScript = other.gameObject.GetComponent<PlayerMovement>();
+                myPlayerInventoryScript = other.gameObject.GetComponent<PlayerInventory>();
 
-                }
-            }
-            else if (other.gameObject.GetComponent<PlayerMovement>().isMac == true)
-            {
-                if (other.gameObject.GetComponent<PlayerMovement>().player1 == true)
+                //sets the input to correct player input
+                if (other.gameObject.GetComponent<PlayerMovement>().isMac == false)
                 {
-                    inputB = "Xbox_Button_B_P1_MAC";
-                    inputA = "Xbox_Button_A_P1_MAC";
-                }
-                else if (other.gameObject.GetComponent<PlayerMovement>().player2 == true)
-                {
-                    inputB = "Xbox_Button_B_P2_MAC";
-                    inputA = "Xbox_Button_A_P2_MAC";
-                }
-                else if (other.gameObject.GetComponent<PlayerMovement>().player3 == true)
-                {
-                    inputB = "Xbox_Button_B_P3_MAC";
-                    inputA = "Xbox_Button_A_P3_MAC";
-                }
-                else if (other.gameObject.GetComponent<PlayerMovement>().player4 == true)
-                {
-                    inputB = "Xbox_Button_B_P4_MAC";
-                    inputA = "Xbox_Button_A_P4_MAC";
+                    if (other.gameObject.GetComponent<PlayerMovement>().player1 == true)
+                    {
+                        inputB = "Xbox_Button_B_P1";
+                        inputA = "Xbox_Button_A_P1";
+                    }
+                    else if (other.gameObject.GetComponent<PlayerMovement>().player2 == true)
+                    {
+                        inputB = "Xbox_Button_B_P2";
+                        inputA = "Xbox_Button_A_P2";
+                    }
+                    else if (other.gameObject.GetComponent<PlayerMovement>().player3 == true)
+                    {
+                        inputB = "Xbox_Button_B_P3";
+                        inputA = "Xbox_Button_A_P3";
+                    }
+                    else if (other.gameObject.GetComponent<PlayerMovement>().player4 == true)
+                    {
+                        inputB = "Xbox_Button_B_P4";
+                        inputA = "Xbox_Button_A_P4";
 
+                    }
+                }
+                else if (other.gameObject.GetComponent<PlayerMovement>().isMac == true)
+                {
+                    if (other.gameObject.GetComponent<PlayerMovement>().player1 == true)
+                    {
+                        inputB = "Xbox_Button_B_P1_MAC";
+                        inputA = "Xbox_Button_A_P1_MAC";
+                    }
+                    else if (other.gameObject.GetComponent<PlayerMovement>().player2 == true)
+                    {
+                        inputB = "Xbox_Button_B_P2_MAC";
+                        inputA = "Xbox_Button_A_P2_MAC";
+                    }
+                    else if (other.gameObject.GetComponent<PlayerMovement>().player3 == true)
+                    {
+                        inputB = "Xbox_Button_B_P3_MAC";
+                        inputA = "Xbox_Button_A_P3_MAC";
+                    }
+                    else if (other.gameObject.GetComponent<PlayerMovement>().player4 == true)
+                    {
+                        inputB = "Xbox_Button_B_P4_MAC";
+                        inputA = "Xbox_Button_A_P4_MAC";
+
+                    }
                 }
             }
         }
+
+        //Bottom Left
+        if (transform.position.x < 0 && transform.position.y < 0)
+        {
+            if (other.gameObject.name == "Player2")
+            {
+                //sets the player when a player hits the cooking station
+                myPlayerStatusScript = other.gameObject.GetComponent<PlayerStatus>();
+                myPlayerMovementScript = other.gameObject.GetComponent<PlayerMovement>();
+                myPlayerInventoryScript = other.gameObject.GetComponent<PlayerInventory>();
+
+                //sets the input to correct player input
+                if (other.gameObject.GetComponent<PlayerMovement>().isMac == false)
+                {
+                    if (other.gameObject.GetComponent<PlayerMovement>().player1 == true)
+                    {
+                        inputB = "Xbox_Button_B_P1";
+                        inputA = "Xbox_Button_A_P1";
+                    }
+                    else if (other.gameObject.GetComponent<PlayerMovement>().player2 == true)
+                    {
+                        inputB = "Xbox_Button_B_P2";
+                        inputA = "Xbox_Button_A_P2";
+                    }
+                    else if (other.gameObject.GetComponent<PlayerMovement>().player3 == true)
+                    {
+                        inputB = "Xbox_Button_B_P3";
+                        inputA = "Xbox_Button_A_P3";
+                    }
+                    else if (other.gameObject.GetComponent<PlayerMovement>().player4 == true)
+                    {
+                        inputB = "Xbox_Button_B_P4";
+                        inputA = "Xbox_Button_A_P4";
+
+                    }
+                }
+                else if (other.gameObject.GetComponent<PlayerMovement>().isMac == true)
+                {
+                    if (other.gameObject.GetComponent<PlayerMovement>().player1 == true)
+                    {
+                        inputB = "Xbox_Button_B_P1_MAC";
+                        inputA = "Xbox_Button_A_P1_MAC";
+                    }
+                    else if (other.gameObject.GetComponent<PlayerMovement>().player2 == true)
+                    {
+                        inputB = "Xbox_Button_B_P2_MAC";
+                        inputA = "Xbox_Button_A_P2_MAC";
+                    }
+                    else if (other.gameObject.GetComponent<PlayerMovement>().player3 == true)
+                    {
+                        inputB = "Xbox_Button_B_P3_MAC";
+                        inputA = "Xbox_Button_A_P3_MAC";
+                    }
+                    else if (other.gameObject.GetComponent<PlayerMovement>().player4 == true)
+                    {
+                        inputB = "Xbox_Button_B_P4_MAC";
+                        inputA = "Xbox_Button_A_P4_MAC";
+
+                    }
+                }
+            }
+        }
+
+        //Top Right
+        if (transform.position.x > 0 && transform.position.y > 0)
+        {
+            if (other.gameObject.name == "Player3")
+            {
+                //sets the player when a player hits the cooking station
+                myPlayerStatusScript = other.gameObject.GetComponent<PlayerStatus>();
+                myPlayerMovementScript = other.gameObject.GetComponent<PlayerMovement>();
+                myPlayerInventoryScript = other.gameObject.GetComponent<PlayerInventory>();
+
+                //sets the input to correct player input
+                if (other.gameObject.GetComponent<PlayerMovement>().isMac == false)
+                {
+                    if (other.gameObject.GetComponent<PlayerMovement>().player1 == true)
+                    {
+                        inputB = "Xbox_Button_B_P1";
+                        inputA = "Xbox_Button_A_P1";
+                    }
+                    else if (other.gameObject.GetComponent<PlayerMovement>().player2 == true)
+                    {
+                        inputB = "Xbox_Button_B_P2";
+                        inputA = "Xbox_Button_A_P2";
+                    }
+                    else if (other.gameObject.GetComponent<PlayerMovement>().player3 == true)
+                    {
+                        inputB = "Xbox_Button_B_P3";
+                        inputA = "Xbox_Button_A_P3";
+                    }
+                    else if (other.gameObject.GetComponent<PlayerMovement>().player4 == true)
+                    {
+                        inputB = "Xbox_Button_B_P4";
+                        inputA = "Xbox_Button_A_P4";
+
+                    }
+                }
+                else if (other.gameObject.GetComponent<PlayerMovement>().isMac == true)
+                {
+                    if (other.gameObject.GetComponent<PlayerMovement>().player1 == true)
+                    {
+                        inputB = "Xbox_Button_B_P1_MAC";
+                        inputA = "Xbox_Button_A_P1_MAC";
+                    }
+                    else if (other.gameObject.GetComponent<PlayerMovement>().player2 == true)
+                    {
+                        inputB = "Xbox_Button_B_P2_MAC";
+                        inputA = "Xbox_Button_A_P2_MAC";
+                    }
+                    else if (other.gameObject.GetComponent<PlayerMovement>().player3 == true)
+                    {
+                        inputB = "Xbox_Button_B_P3_MAC";
+                        inputA = "Xbox_Button_A_P3_MAC";
+                    }
+                    else if (other.gameObject.GetComponent<PlayerMovement>().player4 == true)
+                    {
+                        inputB = "Xbox_Button_B_P4_MAC";
+                        inputA = "Xbox_Button_A_P4_MAC";
+
+                    }
+                }
+            }
+        }
+
+        //Bottom Left
+        if (transform.position.x > 0 && transform.position.y < 0)
+        {
+            if (other.gameObject.name == "Player4")
+            {
+                //sets the player when a player hits the cooking station
+                myPlayerStatusScript = other.gameObject.GetComponent<PlayerStatus>();
+                myPlayerMovementScript = other.gameObject.GetComponent<PlayerMovement>();
+                myPlayerInventoryScript = other.gameObject.GetComponent<PlayerInventory>();
+
+                //sets the input to correct player input
+                if (other.gameObject.GetComponent<PlayerMovement>().isMac == false)
+                {
+                    if (other.gameObject.GetComponent<PlayerMovement>().player1 == true)
+                    {
+                        inputB = "Xbox_Button_B_P1";
+                        inputA = "Xbox_Button_A_P1";
+                    }
+                    else if (other.gameObject.GetComponent<PlayerMovement>().player2 == true)
+                    {
+                        inputB = "Xbox_Button_B_P2";
+                        inputA = "Xbox_Button_A_P2";
+                    }
+                    else if (other.gameObject.GetComponent<PlayerMovement>().player3 == true)
+                    {
+                        inputB = "Xbox_Button_B_P3";
+                        inputA = "Xbox_Button_A_P3";
+                    }
+                    else if (other.gameObject.GetComponent<PlayerMovement>().player4 == true)
+                    {
+                        inputB = "Xbox_Button_B_P4";
+                        inputA = "Xbox_Button_A_P4";
+
+                    }
+                }
+                else if (other.gameObject.GetComponent<PlayerMovement>().isMac == true)
+                {
+                    if (other.gameObject.GetComponent<PlayerMovement>().player1 == true)
+                    {
+                        inputB = "Xbox_Button_B_P1_MAC";
+                        inputA = "Xbox_Button_A_P1_MAC";
+                    }
+                    else if (other.gameObject.GetComponent<PlayerMovement>().player2 == true)
+                    {
+                        inputB = "Xbox_Button_B_P2_MAC";
+                        inputA = "Xbox_Button_A_P2_MAC";
+                    }
+                    else if (other.gameObject.GetComponent<PlayerMovement>().player3 == true)
+                    {
+                        inputB = "Xbox_Button_B_P3_MAC";
+                        inputA = "Xbox_Button_A_P3_MAC";
+                    }
+                    else if (other.gameObject.GetComponent<PlayerMovement>().player4 == true)
+                    {
+                        inputB = "Xbox_Button_B_P4_MAC";
+                        inputA = "Xbox_Button_A_P4_MAC";
+
+                    }
+                }
+            }
+        }
+
+
     }
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if(other.gameObject.tag == "Player")
+        //Top Left
+        if (transform.position.x < 0 && transform.position.y > 0)
         {
-            if(levelLogicScript.gameIsPaused == false)
+            if (other.gameObject.name == "Player1")
             {
-                //enables cooking station
-                if (onCookingStation == false && Input.GetButtonDown(inputB))
+                if (levelLogicScript.gameIsPaused == false)
                 {
-                    StartCoroutine(EnterCookingStationDelay());
+                    //enables cooking station
+                    if (onCookingStation == false && Input.GetButtonDown(inputB))
+                    {
+                        StartCoroutine(EnterCookingStationDelay());
+                    }
                 }
+
             }
-            
         }
+
+        //Bottom Left
+        if (transform.position.x < 0 && transform.position.y < 0)
+        {
+            if (other.gameObject.name == "Player")
+            {
+                if (levelLogicScript.gameIsPaused == false)
+                {
+                    //enables cooking station
+                    if (onCookingStation == false && Input.GetButtonDown(inputB))
+                    {
+                        StartCoroutine(EnterCookingStationDelay());
+                    }
+                }
+
+            }
+        }
+
+        //Top Right
+        if (transform.position.x > 0 && transform.position.y > 0)
+        {
+            if (other.gameObject.name == "Player3")
+            {
+                if (levelLogicScript.gameIsPaused == false)
+                {
+                    //enables cooking station
+                    if (onCookingStation == false && Input.GetButtonDown(inputB))
+                    {
+                        StartCoroutine(EnterCookingStationDelay());
+                    }
+                }
+
+            }
+        }
+
+        //Bottom Right
+        if (transform.position.x > 0 && transform.position.y < 0)
+        {
+            if (other.gameObject.name == "Player4")
+            {
+                if (levelLogicScript.gameIsPaused == false)
+                {
+                    //enables cooking station
+                    if (onCookingStation == false && Input.GetButtonDown(inputB))
+                    {
+                        StartCoroutine(EnterCookingStationDelay());
+                    }
+                }
+
+            }
+        }
+
     }
 }

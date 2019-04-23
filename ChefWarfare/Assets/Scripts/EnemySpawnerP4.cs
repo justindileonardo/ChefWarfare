@@ -344,6 +344,12 @@ public class EnemySpawnerP4 : MonoBehaviour
             resources_UI.SetActive(true);
         }
 
+        if (LevelLogic.mode == "2v2" && other.gameObject.name == "Player2")
+        {
+            GameObject.Find("EnemySpawnerP2").GetComponent<EnemySpawnerP2>().enemySpawner_UI.SetActive(true);
+            GameObject.Find("EnemySpawnerP2").GetComponent<EnemySpawnerP2>().resources_UI.SetActive(true);
+        }
+
         //Enemy types, when enemy spawns
         if (other.gameObject.tag == "Enemy_Bread" /*&& enemyReadyToSpawn == true*/)
         {
@@ -384,6 +390,12 @@ public class EnemySpawnerP4 : MonoBehaviour
             enemySpawnerActive = false;
             enemySpawner_UI.SetActive(false);
             resources_UI.SetActive(false);
+        }
+
+        if (LevelLogic.mode == "2v2" && other.gameObject.name == "Player2")
+        {
+            GameObject.Find("EnemySpawnerP2").GetComponent<EnemySpawnerP2>().enemySpawner_UI.SetActive(false);
+            GameObject.Find("EnemySpawnerP2").GetComponent<EnemySpawnerP2>().resources_UI.SetActive(false);
         }
 
         /*//Enemy types, when enemy dies

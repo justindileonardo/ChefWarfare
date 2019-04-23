@@ -54,10 +54,25 @@ public class LevelLogic : MonoBehaviour
     public EventSystem pauseEventSystem;
     public EventSystem eventSystem1, eventSystem2, eventSystem3, eventSystem4;
     public GameObject resumeButton;
-    
+
+    public static string mode;
+
     // Start is called before the first frame update
     void Start()
     {
+        if(SceneManager.GetActiveScene().name == "Main")
+        {
+            mode = "FFA";
+        }
+        else if (SceneManager.GetActiveScene().name == "Main_2v2")
+        {
+            mode = "2v2";
+        }
+        else if (SceneManager.GetActiveScene().name == "Main_1v1")
+        {
+            mode = "1v1";
+        }
+
         RestartGame();
         es1 = GameObject.Find("EventSystem1").GetComponent<EventSystem>();
         es2 = GameObject.Find("EventSystem2").GetComponent<EventSystem>();

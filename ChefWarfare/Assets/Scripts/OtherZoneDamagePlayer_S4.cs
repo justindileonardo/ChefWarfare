@@ -48,7 +48,7 @@ public class OtherZoneDamagePlayer_S4 : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.name == "Player2")
+        if (other.gameObject.name == "Player2" && LevelLogic.mode != "2v2")
         {
             if (other.gameObject.GetComponent<PlayerStatus>().HP > 0)
             {

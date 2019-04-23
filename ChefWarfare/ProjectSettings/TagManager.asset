@@ -22,6 +22,10 @@ TagManager:
   - EnemyDeath
   - HealStationInSection
   - HealStationOutOfSection
+  - EnemySpawner1
+  - EnemySpawner2
+  - EnemySpawner3
+  - EnemySpawner4
   layers:
   - Default
   - TransparentFX
