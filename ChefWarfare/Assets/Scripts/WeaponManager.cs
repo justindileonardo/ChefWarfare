@@ -615,22 +615,38 @@ public class WeaponManager : MonoBehaviour
                     bullet = Instantiate(Prefab_Pea, new Vector3(Weapon_BulletSpawnPoint.transform.position.x, Weapon_BulletSpawnPoint.transform.position.y, Weapon_BulletSpawnPoint.transform.position.z), Weapon_PivotPoint.transform.rotation);
                     SFX_shootPeaShooter.Play();
 
-                    if (player1)
+                    if(LevelLogic.mode == "FFA" || LevelLogic.mode == "1v1")
                     {
-                        bullet.layer = 20/*Player1Bullets*/;
+                        if (player1)
+                        {
+                            bullet.layer = 20/*Player1Bullets*/;
+                        }
+                        else if (player2)
+                        {
+                            bullet.layer = 21/*Player2Bullets*/;
+                        }
+                        else if (player3)
+                        {
+                            bullet.layer = 22/*Player3Bullets*/;
+                        }
+                        else if (player4)
+                        {
+                            bullet.layer = 23/*Player4Bullets*/;
+                        }
                     }
-                    else if (player2)
+                    else if(LevelLogic.mode == "2v2")
                     {
-                        bullet.layer = 21/*Player2Bullets*/;
+                        if (player1 || player3)
+                        {
+                            bullet.layer = 24;
+                        }
+                        else if (player2 || player4)
+                        {
+                            bullet.layer = 25;
+                        }
                     }
-                    else if (player3)
-                    {
-                        bullet.layer = 22/*Player3Bullets*/;
-                    }
-                    else if (player4)
-                    {
-                        bullet.layer = 23/*Player4Bullets*/;
-                    }
+                  
+
 
 
                 }
@@ -726,21 +742,35 @@ public class WeaponManager : MonoBehaviour
                     SFX_shootSemiAutoRifle.Play();
 
 
-                    if (player1)
+                    if (LevelLogic.mode == "FFA" || LevelLogic.mode == "1v1")
                     {
-                        bullet.layer = 20/*Player1Bullets*/;
+                        if (player1)
+                        {
+                            bullet.layer = 20/*Player1Bullets*/;
+                        }
+                        else if (player2)
+                        {
+                            bullet.layer = 21/*Player2Bullets*/;
+                        }
+                        else if (player3)
+                        {
+                            bullet.layer = 22/*Player3Bullets*/;
+                        }
+                        else if (player4)
+                        {
+                            bullet.layer = 23/*Player4Bullets*/;
+                        }
                     }
-                    else if (player2)
+                    else if (LevelLogic.mode == "2v2")
                     {
-                        bullet.layer = 21/*Player2Bullets*/;
-                    }
-                    else if (player3)
-                    {
-                        bullet.layer = 22/*Player3Bullets*/;
-                    }
-                    else if (player4)
-                    {
-                        bullet.layer = 23/*Player4Bullets*/;
+                        if (player1 || player3)
+                        {
+                            bullet.layer = 24;
+                        }
+                        else if (player2 || player4)
+                        {
+                            bullet.layer = 25;
+                        }
                     }
 
                 }
@@ -842,30 +872,49 @@ public class WeaponManager : MonoBehaviour
                     bullet3 = Instantiate(Prefab_TomatoSauce, new Vector3(Weapon_BulletSpawnPoint2.transform.position.x, Weapon_BulletSpawnPoint2.transform.position.y, Weapon_BulletSpawnPoint2.transform.position.z), Weapon_PivotPoint.transform.rotation);
                     SFX_shootBurstRifle.Play();
 
-                    if (player1)
+                    if(LevelLogic.mode == "FFA" || LevelLogic.mode == "1v1")
                     {
-                        bullet1.layer = 20/*Player1Bullets*/;
-                        bullet2.layer = 20/*Player1Bullets*/;
-                        bullet3.layer = 20/*Player1Bullets*/;
+                        if (player1)
+                        {
+                            bullet1.layer = 20/*Player1Bullets*/;
+                            bullet2.layer = 20/*Player1Bullets*/;
+                            bullet3.layer = 20/*Player1Bullets*/;
+                        }
+                        else if (player2)
+                        {
+                            bullet1.layer = 21/*Player2Bullets*/;
+                            bullet2.layer = 21/*Player2Bullets*/;
+                            bullet3.layer = 21/*Player2Bullets*/;
+                        }
+                        else if (player3)
+                        {
+                            bullet1.layer = 22/*Player3Bullets*/;
+                            bullet2.layer = 22/*Player3Bullets*/;
+                            bullet3.layer = 22/*Player3Bullets*/;
+                        }
+                        else if (player4)
+                        {
+                            bullet1.layer = 23/*Player4Bullets*/;
+                            bullet2.layer = 23/*Player4Bullets*/;
+                            bullet3.layer = 23/*Player4Bullets*/;
+                        }
                     }
-                    else if (player2)
+                    else if(LevelLogic.mode == "2v2")
                     {
-                        bullet1.layer = 21/*Player2Bullets*/;
-                        bullet2.layer = 21/*Player2Bullets*/;
-                        bullet3.layer = 21/*Player2Bullets*/;
+                        if (player1 || player3)
+                        {
+                            bullet1.layer = 24;
+                            bullet2.layer = 24;
+                            bullet3.layer = 24;
+                        }
+                        else if (player2 || player4)
+                        {
+                            bullet1.layer = 25;
+                            bullet2.layer = 25;
+                            bullet3.layer = 25;
+                        }
                     }
-                    else if (player3)
-                    {
-                        bullet1.layer = 22/*Player3Bullets*/;
-                        bullet2.layer = 22/*Player3Bullets*/;
-                        bullet3.layer = 22/*Player3Bullets*/;
-                    }
-                    else if (player4)
-                    {
-                        bullet1.layer = 23/*Player4Bullets*/;
-                        bullet2.layer = 23/*Player4Bullets*/;
-                        bullet3.layer = 23/*Player4Bullets*/;
-                    }
+                   
 
                 }
 
@@ -971,38 +1020,62 @@ public class WeaponManager : MonoBehaviour
                     bullet5 = Instantiate(Prefab_TomatoChunkShotgun, new Vector3(Weapon_BulletSpawnPoint_Shotgun5.transform.position.x, Weapon_BulletSpawnPoint_Shotgun5.transform.position.y, Weapon_BulletSpawnPoint_Shotgun5.transform.position.z), Weapon_BulletSpawnPoint_Shotgun5.transform.rotation);
                     SFX_shootShotgun.Play();
 
-                    if (player1)
+                    if(LevelLogic.mode == "FFA")
                     {
-                        bullet1.layer = 20/*Player1Bullets*/;
-                        bullet2.layer = 20/*Player1Bullets*/;
-                        bullet3.layer = 20/*Player1Bullets*/;
-                        bullet4.layer = 20/*Player1Bullets*/;
-                        bullet5.layer = 20/*Player1Bullets*/;
+                        if (player1)
+                        {
+                            bullet1.layer = 20/*Player1Bullets*/;
+                            bullet2.layer = 20/*Player1Bullets*/;
+                            bullet3.layer = 20/*Player1Bullets*/;
+                            bullet4.layer = 20/*Player1Bullets*/;
+                            bullet5.layer = 20/*Player1Bullets*/;
+                        }
+                        else if (player2)
+                        {
+                            bullet1.layer = 21/*Player2Bullets*/;
+                            bullet2.layer = 21/*Player2Bullets*/;
+                            bullet3.layer = 21/*Player2Bullets*/;
+                            bullet4.layer = 21/*Player2Bullets*/;
+                            bullet5.layer = 21/*Player2Bullets*/;
+                        }
+                        else if (player3)
+                        {
+                            bullet1.layer = 22/*Player3Bullets*/;
+                            bullet2.layer = 22/*Player3Bullets*/;
+                            bullet3.layer = 22/*Player3Bullets*/;
+                            bullet4.layer = 22/*Player3Bullets*/;
+                            bullet5.layer = 22/*Player3Bullets*/;
+                        }
+                        else if (player4)
+                        {
+                            bullet1.layer = 23/*Player4Bullets*/;
+                            bullet2.layer = 23/*Player4Bullets*/;
+                            bullet3.layer = 23/*Player4Bullets*/;
+                            bullet4.layer = 23/*Player4Bullets*/;
+                            bullet5.layer = 23/*Player4Bullets*/;
+                        }
                     }
-                    else if (player2)
+
+                    else if(LevelLogic.mode == "2v2")
                     {
-                        bullet1.layer = 21/*Player2Bullets*/;
-                        bullet2.layer = 21/*Player2Bullets*/;
-                        bullet3.layer = 21/*Player2Bullets*/;
-                        bullet4.layer = 21/*Player2Bullets*/;
-                        bullet5.layer = 21/*Player2Bullets*/;
+                        if (player1 || player3)
+                        {
+                            bullet1.layer = 24;
+                            bullet2.layer = 24;
+                            bullet3.layer = 24;
+                            bullet4.layer = 24;
+                            bullet5.layer = 24;
+                        }
+                        if (player2 || player4)
+                        {
+                            bullet1.layer = 25;
+                            bullet2.layer = 25;
+                            bullet3.layer = 25;
+                            bullet4.layer = 25;
+                            bullet5.layer = 25;
+                        }
                     }
-                    else if (player3)
-                    {
-                        bullet1.layer = 22/*Player3Bullets*/;
-                        bullet2.layer = 22/*Player3Bullets*/;
-                        bullet3.layer = 22/*Player3Bullets*/;
-                        bullet4.layer = 22/*Player3Bullets*/;
-                        bullet5.layer = 22/*Player3Bullets*/;
-                    }
-                    else if (player4)
-                    {
-                        bullet1.layer = 23/*Player4Bullets*/;
-                        bullet2.layer = 23/*Player4Bullets*/;
-                        bullet3.layer = 23/*Player4Bullets*/;
-                        bullet4.layer = 23/*Player4Bullets*/;
-                        bullet5.layer = 23/*Player4Bullets*/;
-                    }
+                   
 
                 }
 

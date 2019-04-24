@@ -40,13 +40,80 @@ public class SpaghettiWhip_Cheese : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player")
+        if(LevelLogic.mode == "FFA" || LevelLogic.mode == "1v1")
         {
-            other.gameObject.GetComponent<PlayerStatus>().HP -= damage * weaponManagerScript.damageBoostMultiplier;
-            //apply 50% move speed slow to player
-            other.gameObject.GetComponent<PlayerStatus>().moveSpeed = 4.0f;
-            SFX_hit.Play();
+            if (other.gameObject.tag == "Player")
+            {
+                other.gameObject.GetComponent<PlayerStatus>().HP -= damage * weaponManagerScript.damageBoostMultiplier;
+                //apply 50% move speed slow to player
+                other.gameObject.GetComponent<PlayerStatus>().moveSpeed = 4.0f;
+                SFX_hit.Play();
+            }
         }
+        else if(LevelLogic.mode == "2v2")
+        {
+            if (other.gameObject.name == "Player1")
+            {
+                if(GetComponentInParent<PlayerMovement>().player3)
+                {
+                    
+                }
+                else
+                {
+                    other.gameObject.GetComponent<PlayerStatus>().HP -= damage * weaponManagerScript.damageBoostMultiplier;
+                    //apply 50% move speed slow to player
+                    other.gameObject.GetComponent<PlayerStatus>().moveSpeed = 4.0f;
+                    SFX_hit.Play();
+                }
+                
+            }
+            if (other.gameObject.name == "Player2")
+            {
+                if (GetComponentInParent<PlayerMovement>().player4)
+                {
+
+                }
+                else
+                {
+                    other.gameObject.GetComponent<PlayerStatus>().HP -= damage * weaponManagerScript.damageBoostMultiplier;
+                    //apply 50% move speed slow to player
+                    other.gameObject.GetComponent<PlayerStatus>().moveSpeed = 4.0f;
+                    SFX_hit.Play();
+                }
+
+            }
+            if (other.gameObject.name == "Player3")
+            {
+                if (GetComponentInParent<PlayerMovement>().player1)
+                {
+
+                }
+                else
+                {
+                    other.gameObject.GetComponent<PlayerStatus>().HP -= damage * weaponManagerScript.damageBoostMultiplier;
+                    //apply 50% move speed slow to player
+                    other.gameObject.GetComponent<PlayerStatus>().moveSpeed = 4.0f;
+                    SFX_hit.Play();
+                }
+
+            }
+            if (other.gameObject.name == "Player4")
+            {
+                if (GetComponentInParent<PlayerMovement>().player2)
+                {
+
+                }
+                else
+                {
+                    other.gameObject.GetComponent<PlayerStatus>().HP -= damage * weaponManagerScript.damageBoostMultiplier;
+                    //apply 50% move speed slow to player
+                    other.gameObject.GetComponent<PlayerStatus>().moveSpeed = 4.0f;
+                    SFX_hit.Play();
+                }
+
+            }
+        }
+        
         else if (other.gameObject.tag == "Enemy_Bread")
         {
             other.gameObject.GetComponent<Enemy_Bread>().HP -= damage * weaponManagerScript.damageBoostMultiplier;

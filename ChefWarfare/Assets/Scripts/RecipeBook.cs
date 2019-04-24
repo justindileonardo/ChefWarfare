@@ -211,7 +211,7 @@ public class RecipeBook : MonoBehaviour
         //Bottom Left
         if (transform.position.x < 0 && transform.position.y < 0)
         {
-            if (other.gameObject.name == "Player2")
+            if (other.gameObject.name == "Player3")
             {
                 //sets the player when a player hits the cooking station
                 myPlayerStatusScript = other.gameObject.GetComponent<PlayerStatus>();
@@ -273,7 +273,7 @@ public class RecipeBook : MonoBehaviour
         //Top Right
         if (transform.position.x > 0 && transform.position.y > 0)
         {
-            if (other.gameObject.name == "Player3")
+            if (other.gameObject.name == "Player2")
             {
                 //sets the player when a player hits the cooking station
                 myPlayerStatusScript = other.gameObject.GetComponent<PlayerStatus>();
@@ -419,7 +419,7 @@ public class RecipeBook : MonoBehaviour
         //Bottom Left
         if (transform.position.x < 0 && transform.position.y < 0)
         {
-            if (other.gameObject.name == "Player")
+            if (other.gameObject.name == "Player3")
             {
                 if (levelLogicScript.gameIsPaused == false)
                 {
@@ -436,7 +436,7 @@ public class RecipeBook : MonoBehaviour
         //Top Right
         if (transform.position.x > 0 && transform.position.y > 0)
         {
-            if (other.gameObject.name == "Player3")
+            if (other.gameObject.name == "Player2")
             {
                 if (levelLogicScript.gameIsPaused == false)
                 {

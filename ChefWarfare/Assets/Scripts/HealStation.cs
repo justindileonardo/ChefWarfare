@@ -13,6 +13,8 @@ public class HealStation : MonoBehaviour
     private CircleCollider2D healStationCollider;
     private bool healStationColliderActive;
 
+    public AudioSource SFX_Heal;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,6 +58,7 @@ public class HealStation : MonoBehaviour
                 healTimer = healSpeed;
                 healStationColliderActive = false;
                 healStationCollider.enabled = false;
+                SFX_Heal.Play();
             }
         }
         else if (other.gameObject.tag == "Player" && this.gameObject.tag == "HealStationOutOfSection")
@@ -66,6 +69,7 @@ public class HealStation : MonoBehaviour
                 healTimer = healSpeed;
                 healStationColliderActive = false;
                 healStationCollider.enabled = false;
+                SFX_Heal.Play();
             }
         }
     }

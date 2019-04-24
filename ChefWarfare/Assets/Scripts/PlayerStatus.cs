@@ -596,26 +596,53 @@ public class PlayerStatus : MonoBehaviour
 
     IEnumerator Die()
     {
-        if(myPlayer.player1 == true)
+        if(LevelLogic.mode == "FFA" || LevelLogic.mode == "1v1")
         {
-            blackDeathScreenP1.enabled = true;
-            levelLogicScript.scoreRed -= 10;
+            if (myPlayer.player1 == true)
+            {
+                blackDeathScreenP1.enabled = true;
+                levelLogicScript.scoreRed -= 10;
+            }
+            else if (myPlayer.player2 == true)
+            {
+                blackDeathScreenP2.enabled = true;
+                levelLogicScript.scoreBlue -= 10;
+            }
+            else if (myPlayer.player3 == true)
+            {
+                blackDeathScreenP3.enabled = true;
+                levelLogicScript.scoreGreen -= 10;
+            }
+            else if (myPlayer.player4 == true)
+            {
+                blackDeathScreenP4.enabled = true;
+                levelLogicScript.scoreOrange -= 10;
+            }
         }
-        else if(myPlayer.player2 == true)
+        else  if (LevelLogic.mode == "2v2")
         {
-            blackDeathScreenP2.enabled = true;
-            levelLogicScript.scoreBlue -= 10;
+            if (myPlayer.player1 == true)
+            {
+                blackDeathScreenP1.enabled = true;
+                levelLogicScript.scoreRed -= 10;
+            }
+            else if (myPlayer.player2 == true)
+            {
+                blackDeathScreenP2.enabled = true;
+                levelLogicScript.scoreBlue -= 10;
+            }
+            else if (myPlayer.player3 == true)
+            {
+                blackDeathScreenP3.enabled = true;
+                levelLogicScript.scoreRed -= 10;
+            }
+            else if (myPlayer.player4 == true)
+            {
+                blackDeathScreenP4.enabled = true;
+                levelLogicScript.scoreBlue -= 10;
+            }
         }
-        else if (myPlayer.player3 == true)
-        {
-            blackDeathScreenP3.enabled = true;
-            levelLogicScript.scoreGreen -= 10;
-        }
-        else if (myPlayer.player4 == true)
-        {
-            blackDeathScreenP4.enabled = true;
-            levelLogicScript.scoreOrange -= 10;
-        }
+
         yield return new WaitForEndOfFrame();
         //yield return new WaitForSeconds(.01f);
         canMove = false;

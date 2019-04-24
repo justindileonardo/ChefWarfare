@@ -29,7 +29,14 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource[] AS_OtherZone2;
     [SerializeField] private AudioSource[] AS_OtherZone3;
     [SerializeField] private AudioSource[] AS_OtherZone4;
-
+    [SerializeField] private AudioSource[] AS_HealStation1;
+    [SerializeField] private AudioSource[] AS_HealStation2;
+    [SerializeField] private AudioSource[] AS_HealStation3;
+    [SerializeField] private AudioSource[] AS_HealStation4;
+    [SerializeField] private AudioSource[] AS_HealStationN;
+    [SerializeField] private AudioSource[] AS_HealStationS;
+    [SerializeField] private AudioSource[] AS_HealStationW;
+    [SerializeField] private AudioSource[] AS_HealStationE;
 
     // Start is called before the first frame update
     void Start()
@@ -60,7 +67,14 @@ public class AudioManager : MonoBehaviour
         AS_OtherZone2 = GameObject.Find("OtherZoneDamagePlayer_S2").GetComponents<AudioSource>();
         AS_OtherZone3 = GameObject.Find("OtherZoneDamagePlayer_S3").GetComponents<AudioSource>();
         AS_OtherZone4 = GameObject.Find("OtherZoneDamagePlayer_S4").GetComponents<AudioSource>();
-
+        AS_HealStation1 = GameObject.Find("HealStation_S1").GetComponents<AudioSource>();
+        AS_HealStation2 = GameObject.Find("HealStation_S2").GetComponents<AudioSource>();
+        AS_HealStation3 = GameObject.Find("HealStation_S3").GetComponents<AudioSource>();
+        AS_HealStation4 = GameObject.Find("HealStation_S4").GetComponents<AudioSource>();
+        AS_HealStationN = GameObject.Find("HealStation_North").GetComponents<AudioSource>();
+        AS_HealStationS = GameObject.Find("HealStation_South").GetComponents<AudioSource>();
+        AS_HealStationW = GameObject.Find("HealStation_West").GetComponents<AudioSource>();
+        AS_HealStationE = GameObject.Find("HealStation_East").GetComponents<AudioSource>();
 
         foreach (AudioSource AS in AS_Music)
         {
@@ -135,6 +149,38 @@ public class AudioManager : MonoBehaviour
             AS.volume = levelLogicScript.sfxVolumeSlider.value;
         }
         foreach (AudioSource AS in AS_OtherZone4)
+        {
+            AS.volume = levelLogicScript.sfxVolumeSlider.value;
+        }
+        foreach (AudioSource AS in AS_HealStation1)
+        {
+            AS.volume = levelLogicScript.sfxVolumeSlider.value;
+        }
+        foreach (AudioSource AS in AS_HealStation2)
+        {
+            AS.volume = levelLogicScript.sfxVolumeSlider.value;
+        }
+        foreach (AudioSource AS in AS_HealStation3)
+        {
+            AS.volume = levelLogicScript.sfxVolumeSlider.value;
+        }
+        foreach (AudioSource AS in AS_HealStation4)
+        {
+            AS.volume = levelLogicScript.sfxVolumeSlider.value;
+        }
+        foreach (AudioSource AS in AS_HealStationN)
+        {
+            AS.volume = levelLogicScript.sfxVolumeSlider.value;
+        }
+        foreach (AudioSource AS in AS_HealStationS)
+        {
+            AS.volume = levelLogicScript.sfxVolumeSlider.value;
+        }
+        foreach (AudioSource AS in AS_HealStationW)
+        {
+            AS.volume = levelLogicScript.sfxVolumeSlider.value;
+        }
+        foreach (AudioSource AS in AS_HealStationE)
         {
             AS.volume = levelLogicScript.sfxVolumeSlider.value;
         }
@@ -220,6 +266,38 @@ public class AudioManager : MonoBehaviour
                 AS.volume = levelLogicScript.sfxVolumeSlider.value;
             }
             foreach (AudioSource AS in AS_OtherZone4)
+            {
+                AS.volume = levelLogicScript.sfxVolumeSlider.value;
+            }
+            foreach (AudioSource AS in AS_HealStation1)
+            {
+                AS.volume = levelLogicScript.sfxVolumeSlider.value;
+            }
+            foreach (AudioSource AS in AS_HealStation2)
+            {
+                AS.volume = levelLogicScript.sfxVolumeSlider.value;
+            }
+            foreach (AudioSource AS in AS_HealStation3)
+            {
+                AS.volume = levelLogicScript.sfxVolumeSlider.value;
+            }
+            foreach (AudioSource AS in AS_HealStation4)
+            {
+                AS.volume = levelLogicScript.sfxVolumeSlider.value;
+            }
+            foreach (AudioSource AS in AS_HealStationN)
+            {
+                AS.volume = levelLogicScript.sfxVolumeSlider.value;
+            }
+            foreach (AudioSource AS in AS_HealStationS)
+            {
+                AS.volume = levelLogicScript.sfxVolumeSlider.value;
+            }
+            foreach (AudioSource AS in AS_HealStationW)
+            {
+                AS.volume = levelLogicScript.sfxVolumeSlider.value;
+            }
+            foreach (AudioSource AS in AS_HealStationE)
             {
                 AS.volume = levelLogicScript.sfxVolumeSlider.value;
             }

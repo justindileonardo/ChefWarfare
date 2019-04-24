@@ -13,7 +13,7 @@ public class LevelLogic : MonoBehaviour
     int min, sec;
     public GameObject temporaryWalls;
     public int scoreRed, scoreBlue, scoreGreen, scoreOrange;
-    public Text scoreRedText, scoreBlueText, scoreGreenText, scoreOrangeText, TimeText, GameStateText;
+    public Text scoreRedText, scoreBlueText, scoreGreenText, scoreOrangeText, TimeText, GameStateText, GameStateText2;
 
     private PlayerMovement thePlayer1;
 
@@ -72,7 +72,7 @@ public class LevelLogic : MonoBehaviour
         {
             mode = "1v1";
         }
-
+        Debug.Log(mode);
         RestartGame();
         es1 = GameObject.Find("EventSystem1").GetComponent<EventSystem>();
         es2 = GameObject.Find("EventSystem2").GetComponent<EventSystem>();
@@ -179,6 +179,11 @@ public class LevelLogic : MonoBehaviour
             min = Mathf.FloorToInt(gameTimerPost / 60);
             sec = Mathf.FloorToInt(gameTimerPost % 60);
             GameStateText.text = "FIGHT!";
+            if (mode == "1v1")
+            {
+                GameStateText2.text = "FIGHT!";
+            }
+            
         }
         else
         {
@@ -186,6 +191,10 @@ public class LevelLogic : MonoBehaviour
             min = Mathf.FloorToInt(gameTimerPre / 60);
             sec = Mathf.FloorToInt(gameTimerPre % 60);
             GameStateText.text = "WALLS";
+            if (mode == "1v1")
+            {
+                GameStateText2.text = "FIGHT!";
+            }
         }
         
         //if score goes below 0 put it to 0

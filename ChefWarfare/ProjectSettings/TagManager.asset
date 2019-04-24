@@ -51,8 +51,8 @@ TagManager:
   - Player2Bullets
   - Player3Bullets
   - Player4Bullets
-  - 
-  - 
+  - RedTeamBullets
+  - BlueTeamBullets
   - 
   - 
   - 

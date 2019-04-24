@@ -77,6 +77,8 @@ public class SpecialManager : MonoBehaviour
     private Image sFrontBox;
     private Image sReadyBox;
 
+    public AudioSource AS_Heal;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -351,6 +353,30 @@ public class SpecialManager : MonoBehaviour
                 }
             }
 
+            IEnumerator PlayHeal()
+            {
+                AS_Heal.Play();
+                yield return new WaitForSeconds(.63f);
+                AS_Heal.Play();
+                yield return new WaitForSeconds(.63f);
+                AS_Heal.Play();
+                yield return new WaitForSeconds(.63f);
+                AS_Heal.Play();
+                yield return new WaitForSeconds(.63f);
+                AS_Heal.Play();
+                yield return new WaitForSeconds(.63f);
+                AS_Heal.Play();
+                yield return new WaitForSeconds(.63f);
+                AS_Heal.Play();
+                yield return new WaitForSeconds(.63f);
+                AS_Heal.Play();
+                yield return new WaitForSeconds(.63f);
+                AS_Heal.Play();
+                yield return new WaitForSeconds(.63f);
+                AS_Heal.Play();
+                yield return new WaitForSeconds(.63f);
+                AS_Heal.Play();
+            }
 
 
             //When the player has the Snack - Speed Boost
@@ -462,6 +488,7 @@ public class SpecialManager : MonoBehaviour
                     snack_HealthBoost_ParticleSystem.SetActive(true);
                     weaponManagerScript.damageBoostMultiplier = 2;
                     SFX_drinkShake.Play();
+                    StartCoroutine(PlayHeal());
                 }
 
                 //if the Health boost is active and the timer is bigger than 0, decreasse the timer
