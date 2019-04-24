@@ -12,7 +12,7 @@ public class LevelLogic : MonoBehaviour
     public bool wallsDropped;
     int min, sec;
     public GameObject temporaryWalls;
-    public int scoreRed, scoreBlue, scoreGreen, scoreOrange;
+    public static int scoreRed, scoreBlue, scoreGreen, scoreOrange;
     public Text scoreRedText, scoreBlueText, scoreGreenText, scoreOrangeText, TimeText, GameStateText, GameStateText2;
 
     private PlayerMovement thePlayer1;
@@ -274,7 +274,7 @@ public class LevelLogic : MonoBehaviour
 
     public void RestartGame()
     {
-        eachGameLength = 300f;          //300f = 5 minutes      //180 = 3 minutes
+        eachGameLength = /*300*/5f;          //300f = 5 minutes      //180 = 3 minutes
         gameTimerPre = eachGameLength;
         gameTimerPost = eachGameLength;
         wallsDropped = false;
@@ -291,7 +291,7 @@ public class LevelLogic : MonoBehaviour
     public void EndGame()
     {
         print("GAME OVER");
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("Win");
         //go to end game scene
         //show scores in each corner
         //show winner in middle with prized possession- player sprite?

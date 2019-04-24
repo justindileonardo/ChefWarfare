@@ -601,22 +601,22 @@ public class PlayerStatus : MonoBehaviour
             if (myPlayer.player1 == true)
             {
                 blackDeathScreenP1.enabled = true;
-                levelLogicScript.scoreRed -= 10;
+                LevelLogic.scoreRed -= 10;
             }
             else if (myPlayer.player2 == true)
             {
                 blackDeathScreenP2.enabled = true;
-                levelLogicScript.scoreBlue -= 10;
+                LevelLogic.scoreBlue -= 10;
             }
             else if (myPlayer.player3 == true)
             {
                 blackDeathScreenP3.enabled = true;
-                levelLogicScript.scoreGreen -= 10;
+                LevelLogic.scoreGreen -= 10;
             }
             else if (myPlayer.player4 == true)
             {
                 blackDeathScreenP4.enabled = true;
-                levelLogicScript.scoreOrange -= 10;
+                LevelLogic.scoreOrange -= 10;
             }
         }
         else  if (LevelLogic.mode == "2v2")
@@ -624,22 +624,22 @@ public class PlayerStatus : MonoBehaviour
             if (myPlayer.player1 == true)
             {
                 blackDeathScreenP1.enabled = true;
-                levelLogicScript.scoreRed -= 10;
+                LevelLogic.scoreRed -= 10;
             }
             else if (myPlayer.player2 == true)
             {
                 blackDeathScreenP2.enabled = true;
-                levelLogicScript.scoreBlue -= 10;
+                LevelLogic.scoreBlue -= 10;
             }
             else if (myPlayer.player3 == true)
             {
                 blackDeathScreenP3.enabled = true;
-                levelLogicScript.scoreRed -= 10;
+                LevelLogic.scoreRed -= 10;
             }
             else if (myPlayer.player4 == true)
             {
                 blackDeathScreenP4.enabled = true;
-                levelLogicScript.scoreBlue -= 10;
+                LevelLogic.scoreBlue -= 10;
             }
         }
 

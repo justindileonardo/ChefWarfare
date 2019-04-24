@@ -13,11 +13,11 @@ public class EventSystemPauseScript : MonoBehaviour
     {
         sss = GameObject.Find("SceneSwitchingScript").GetComponent<SceneSwitchingScript>();
 
-        if(sss.isMac == false)
+        if(SceneSwitchingScript.isMac == false)
         {
             GetComponent<StandaloneInputModule>().submitButton = "Xbox_Button_A_ALL";
         }
-        else if (sss.isMac == true)
+        else if (SceneSwitchingScript.isMac == true)
         {
             GetComponent<StandaloneInputModule>().submitButton = "Xbox_Button_A_ALL_MAC";
         }

@@ -40,7 +40,7 @@ public class CapturePoint : MonoBehaviour
                 }
                 if (timerRed < 0)
                 {
-                    levelLogicScript.scoreRed += 1;
+                    LevelLogic.scoreRed += 1;
                     timerRed = 1;
                 }
             }
@@ -52,7 +52,7 @@ public class CapturePoint : MonoBehaviour
                 }
                 if (timerBlue < 0)
                 {
-                    levelLogicScript.scoreBlue += 1;
+                    LevelLogic.scoreBlue += 1;
                     timerBlue = 1;
                 }
             }
@@ -98,7 +98,7 @@ public class CapturePoint : MonoBehaviour
                 }
                 if (timerRed < 0)
                 {
-                    levelLogicScript.scoreRed += 1;
+                    LevelLogic.scoreRed += 1;
                     timerRed = 1;
                 }
             }
@@ -110,7 +110,7 @@ public class CapturePoint : MonoBehaviour
                 }
                 if (timerBlue < 0)
                 {
-                    levelLogicScript.scoreBlue += 1;
+                    LevelLogic.scoreBlue += 1;
                     timerBlue = 1;
                 }
             }
@@ -122,7 +122,7 @@ public class CapturePoint : MonoBehaviour
                 }
                 if (timerGreen < 0)
                 {
-                    levelLogicScript.scoreGreen += 1;
+                    LevelLogic.scoreGreen += 1;
                     timerGreen = 1;
                 }
             }
@@ -134,7 +134,7 @@ public class CapturePoint : MonoBehaviour
                 }
                 if (timerOrange < 0)
                 {
-                    levelLogicScript.scoreOrange += 1;
+                   LevelLogic.scoreOrange += 1;
                     timerOrange = 1;
                 }
             }
