@@ -39,9 +39,8 @@ public class SceneSwitchingScript : MonoBehaviour
 
     private void Awake()
     {
-        isMac = false;              //NEEDS TO BE TRUE IF A MAC
-        //isMac = true;
-        //isMac = true;
+        //isMac = false;              //NEEDS TO BE TRUE IF A MAC
+        isMac = true;
 
 
 
@@ -201,7 +200,16 @@ public class SceneSwitchingScript : MonoBehaviour
     void Update()
     {
         print(isXbox);
+
+        if(SceneManager.GetActiveScene().name == "ControllerSelect")
+        {
+            if(Input.GetButtonDown("Xbox_Button_A_ALL_MAC"))
+            {
+                PickXbox();
+            }
+        }
     }
+
 
 
     public void PickXbox()
