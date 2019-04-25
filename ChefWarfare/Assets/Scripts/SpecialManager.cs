@@ -305,7 +305,7 @@ public class SpecialManager : MonoBehaviour
         snackHealthBoost_Ready = false;                                          /*DEFAULT*/
         snackHealthBoost_ActiveLength = 7.5f;
         snackHealthBoost_ActiveTimer = snackHealthBoost_ActiveLength;
-        snackHealthBoost_AddHealthTimerLength = .315f;
+        snackHealthBoost_AddHealthTimerLength = .425f;
         snackHealthBoost_AddHealthTimer = snackHealthBoost_AddHealthTimerLength;
         snackHealthBoost_AddHealthAmount = 5;
 
