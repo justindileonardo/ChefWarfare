@@ -38,10 +38,10 @@ public class SceneSwitchingScript : MonoBehaviour
 
     private void Awake()
     {
-        isMac = false;              //NEEDS TO BE TRUE IF A MAC
-        //isMac = true;
+        //isMac = false;              //NEEDS TO BE TRUE IF A MAC
+        isMac = true;
         //isXbox = false;             //NEEDS TO BE TRUE IF XBOX CONTROLLER
-        //isXbox = true;
+        isXbox = true;
 
 
     }

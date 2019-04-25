@@ -138,7 +138,7 @@ public class WeaponManager : MonoBehaviour
 
         playerMovementScript = GetComponent<PlayerMovement>();
 
-        if(playerMovementScript.isMac == false)
+        if(SceneSwitchingScript.isMac == false)
         {
             //setting player number Inputs and UI images
             if (player1)
@@ -253,7 +253,7 @@ public class WeaponManager : MonoBehaviour
 
         }
 
-        else if (playerMovementScript.isMac == true)
+        else if (SceneSwitchingScript.isMac == true)
         {
             //setting player number Inputs and UI images
             if (player1)
