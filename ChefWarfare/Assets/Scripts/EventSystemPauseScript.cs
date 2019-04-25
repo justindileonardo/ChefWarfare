@@ -15,11 +15,27 @@ public class EventSystemPauseScript : MonoBehaviour
 
         if(SceneSwitchingScript.isMac == false)
         {
-            GetComponent<StandaloneInputModule>().submitButton = "Xbox_Button_A_ALL";
+            if(SceneSwitchingScript.isXbox == true)
+            {
+                GetComponent<StandaloneInputModule>().submitButton = "Xbox_Button_A_ALL";
+            }
+            else if (SceneSwitchingScript.isXbox == false)
+            {
+                GetComponent<StandaloneInputModule>().submitButton = "PS4_Button_A_ALL";
+            }
+
         }
         else if (SceneSwitchingScript.isMac == true)
         {
-            GetComponent<StandaloneInputModule>().submitButton = "Xbox_Button_A_ALL_MAC";
+            if(SceneSwitchingScript.isXbox == true)
+            {
+                GetComponent<StandaloneInputModule>().submitButton = "Xbox_Button_A_ALL_MAC";
+            }
+            else if (SceneSwitchingScript.isXbox == false)
+            {
+                GetComponent<StandaloneInputModule>().submitButton = "PS4_Button_A_ALL_MAC";
+            }
+
         }
     }
 

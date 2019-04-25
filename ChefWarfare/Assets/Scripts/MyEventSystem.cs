@@ -24,22 +24,45 @@ public class MyEventSystem : EventSystem
         {
             if (playerMovementScript.isMac == false)
             {
-                if (playerMovementScript.player1 == true)
+                if(SceneSwitchingScript.isXbox == true)
                 {
-                    GetComponent<StandaloneInputModule>().submitButton = "Xbox_Button_A_P1";
+                    if (playerMovementScript.player1 == true)
+                    {
+                        GetComponent<StandaloneInputModule>().submitButton = "Xbox_Button_A_P1";
+                    }
+                    else if (playerMovementScript.player2 == true)
+                    {
+                        GetComponent<StandaloneInputModule>().submitButton = "Xbox_Button_A_P2";
+                    }
+                    else if (playerMovementScript.player3 == true)
+                    {
+                        GetComponent<StandaloneInputModule>().submitButton = "Xbox_Button_A_P3";
+                    }
+                    else if (playerMovementScript.player4 == true)
+                    {
+                        GetComponent<StandaloneInputModule>().submitButton = "Xbox_Button_A_P4";
+                    }
                 }
-                else if (playerMovementScript.player2 == true)
+                else if(SceneSwitchingScript.isXbox == false)
                 {
-                    GetComponent<StandaloneInputModule>().submitButton = "Xbox_Button_A_P2";
+                    if (playerMovementScript.player1 == true)
+                    {
+                        GetComponent<StandaloneInputModule>().submitButton = "PS4_Button_A_P1";
+                    }
+                    else if (playerMovementScript.player2 == true)
+                    {
+                        GetComponent<StandaloneInputModule>().submitButton = "PS4_Button_A_P2";
+                    }
+                    else if (playerMovementScript.player3 == true)
+                    {
+                        GetComponent<StandaloneInputModule>().submitButton = "PS4_Button_A_P3";
+                    }
+                    else if (playerMovementScript.player4 == true)
+                    {
+                        GetComponent<StandaloneInputModule>().submitButton = "PS4_Button_A_P4";
+                    }
                 }
-                else if (playerMovementScript.player3 == true)
-                {
-                    GetComponent<StandaloneInputModule>().submitButton = "Xbox_Button_A_P3";
-                }
-                else if (playerMovementScript.player4 == true)
-                {
-                    GetComponent<StandaloneInputModule>().submitButton = "Xbox_Button_A_P4";
-                }
+                
             }
             else if (playerMovementScript.isMac == true)
             {

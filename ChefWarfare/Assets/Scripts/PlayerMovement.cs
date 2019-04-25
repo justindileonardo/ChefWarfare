@@ -85,39 +85,88 @@ public class PlayerMovement : MonoBehaviour
         {
             if (player1 == true)
             {
-                //Inputs for Left Joystick (Moving the player)
-                xPos = Input.GetAxis("Xbox_HorizontalLS_P1");
-                yPos = Input.GetAxis("Xbox_VerticalLS_P1");
-                //Inputs for Right Joystick (Rotating the player)
-                xRot = Input.GetAxis("Xbox_HorizontalRS_P1");
-                yRot = Input.GetAxis("Xbox_VerticalRS_P1");
+                if (SceneSwitchingScript.isXbox == true)
+                {
+                    //Inputs for Left Joystick (Moving the player)
+                    xPos = Input.GetAxis("Xbox_HorizontalLS_P1");
+                    yPos = Input.GetAxis("Xbox_VerticalLS_P1");
+                    //Inputs for Right Joystick (Rotating the player)
+                    xRot = Input.GetAxis("Xbox_HorizontalRS_P1");
+                    yRot = Input.GetAxis("Xbox_VerticalRS_P1");
+                }
+                else if (SceneSwitchingScript.isXbox == false)
+                {
+                    //Inputs for Left Joystick (Moving the player)
+                    xPos = Input.GetAxis("Xbox_HorizontalLS_P1");
+                    yPos = Input.GetAxis("Xbox_VerticalLS_P1");
+                    //Inputs for Right Joystick (Rotating the player)
+                    xRot = Input.GetAxis("PS4_HorizontalRS_P1");
+                    yRot = Input.GetAxis("PS4_VerticalRS_P1");
+                }
+                
             }
             else if (player2 == true)
             {
-                //Inputs for Left Joystick (Moving the player)
-                xPos = Input.GetAxis("Xbox_HorizontalLS_P2");
-                yPos = Input.GetAxis("Xbox_VerticalLS_P2");
-                //Inputs for Right Joystick (Rotating the player)
-                xRot = Input.GetAxis("Xbox_HorizontalRS_P2");
-                yRot = Input.GetAxis("Xbox_VerticalRS_P2");
+                if (SceneSwitchingScript.isXbox == true)
+                {
+                    //Inputs for Left Joystick (Moving the player)
+                    xPos = Input.GetAxis("Xbox_HorizontalLS_P2");
+                    yPos = Input.GetAxis("Xbox_VerticalLS_P2");
+                    //Inputs for Right Joystick (Rotating the player)
+                    xRot = Input.GetAxis("Xbox_HorizontalRS_P2");
+                    yRot = Input.GetAxis("Xbox_VerticalRS_P2");
+                }
+                else if (SceneSwitchingScript.isXbox == false)
+                {
+                    //Inputs for Left Joystick (Moving the player)
+                    xPos = Input.GetAxis("Xbox_HorizontalLS_P2");
+                    yPos = Input.GetAxis("Xbox_VerticalLS_P2");
+                    //Inputs for Right Joystick (Rotating the player)
+                    xRot = Input.GetAxis("PS4_HorizontalRS_P2");
+                    yRot = Input.GetAxis("PS4_VerticalRS_P2");
+                }
             }
             else if (player3 == true)
             {
-                //Inputs for Left Joystick (Moving the player)
-                xPos = Input.GetAxis("Xbox_HorizontalLS_P3");
-                yPos = Input.GetAxis("Xbox_VerticalLS_P3");
-                //Inputs for Right Joystick (Rotating the player)
-                xRot = Input.GetAxis("Xbox_HorizontalRS_P3");
-                yRot = Input.GetAxis("Xbox_VerticalRS_P3");
+                if (SceneSwitchingScript.isXbox == true)
+                {
+                    //Inputs for Left Joystick (Moving the player)
+                    xPos = Input.GetAxis("Xbox_HorizontalLS_P3");
+                    yPos = Input.GetAxis("Xbox_VerticalLS_P3");
+                    //Inputs for Right Joystick (Rotating the player)
+                    xRot = Input.GetAxis("Xbox_HorizontalRS_P3");
+                    yRot = Input.GetAxis("Xbox_VerticalRS_P3");
+                }
+                else if (SceneSwitchingScript.isXbox == false)
+                {
+                    //Inputs for Left Joystick (Moving the player)
+                    xPos = Input.GetAxis("Xbox_HorizontalLS_P3");
+                    yPos = Input.GetAxis("Xbox_VerticalLS_P3");
+                    //Inputs for Right Joystick (Rotating the player)
+                    xRot = Input.GetAxis("PS4_HorizontalRS_P3");
+                    yRot = Input.GetAxis("PS4_VerticalRS_P3");
+                }
             }
             else if (player4 == true)
             {
-                //Inputs for Left Joystick (Moving the player)
-                xPos = Input.GetAxis("Xbox_HorizontalLS_P4");
-                yPos = Input.GetAxis("Xbox_VerticalLS_P4");
-                //Inputs for Right Joystick (Rotating the player)
-                xRot = Input.GetAxis("Xbox_HorizontalRS_P4");
-                yRot = Input.GetAxis("Xbox_VerticalRS_P4");
+                if (SceneSwitchingScript.isXbox == true)
+                {
+                    //Inputs for Left Joystick (Moving the player)
+                    xPos = Input.GetAxis("Xbox_HorizontalLS_P4");
+                    yPos = Input.GetAxis("Xbox_VerticalLS_P4");
+                    //Inputs for Right Joystick (Rotating the player)
+                    xRot = Input.GetAxis("Xbox_HorizontalRS_P4");
+                    yRot = Input.GetAxis("Xbox_VerticalRS_P4");
+                }
+                else if (SceneSwitchingScript.isXbox == false)
+                {
+                    //Inputs for Left Joystick (Moving the player)
+                    xPos = Input.GetAxis("Xbox_HorizontalLS_P4");
+                    yPos = Input.GetAxis("Xbox_VerticalLS_P4");
+                    //Inputs for Right Joystick (Rotating the player)
+                    xRot = Input.GetAxis("PS4_HorizontalRS_P4");
+                    yRot = Input.GetAxis("PS4_VerticalRS_P4");
+                }
             }
 
         }

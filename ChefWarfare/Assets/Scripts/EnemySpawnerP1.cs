@@ -72,9 +72,19 @@ public class EnemySpawnerP1 : MonoBehaviour
     {
         if(playerMovementScript.isMac == false)
         {
-            //axis for dpad Up/Down
-            dpadVertical = Input.GetAxisRaw("Xbox_Button_DPAD_Vertical_P1");
-            dpadHorizontal = Input.GetAxisRaw("Xbox_Button_DPAD_Horizontal_P1");
+            if (SceneSwitchingScript.isXbox == true)
+            {
+                //axis for dpad Up/Down
+                dpadVertical = Input.GetAxisRaw("Xbox_Button_DPAD_Vertical_P1");
+                dpadHorizontal = Input.GetAxisRaw("Xbox_Button_DPAD_Horizontal_P1");
+            }
+            else if (SceneSwitchingScript.isXbox == false)
+            {
+                //axis for dpad Up/Down
+                dpadVertical = Input.GetAxisRaw("PS4_Button_DPAD_Vertical_P1");
+                dpadHorizontal = Input.GetAxisRaw("PS4_Button_DPAD_Horizontal_P1");
+            }
+            
         }
         /*else if(playerMovementScript.isMac == true)
         {

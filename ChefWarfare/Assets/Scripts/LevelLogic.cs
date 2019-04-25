@@ -90,45 +90,91 @@ public class LevelLogic : MonoBehaviour
     {
         if(thePlayer1.isMac == false)
         {
-            if (Input.GetButtonDown("Xbox_Button_Start") && gameIsPaused == false)
+            if(SceneSwitchingScript.isXbox == true)
             {
-                //pause game
-                Time.timeScale = 0;
-                gameIsPaused = true;
-                PauseMenu.SetActive(true);
-                eventSystem1.enabled = false;
-                eventSystem2.enabled = false;
-                eventSystem3.enabled = false;
-                eventSystem4.enabled = false;
-                pauseEventSystem.enabled = true;
-                pauseEventSystem.SetSelectedGameObject(resumeButton);
-                MUSIC.Pause();
+                if (Input.GetButtonDown("Xbox_Button_Start") && gameIsPaused == false)
+                {
+                    //pause game
+                    Time.timeScale = 0;
+                    gameIsPaused = true;
+                    PauseMenu.SetActive(true);
+                    eventSystem1.enabled = false;
+                    eventSystem2.enabled = false;
+                    eventSystem3.enabled = false;
+                    eventSystem4.enabled = false;
+                    pauseEventSystem.enabled = true;
+                    pauseEventSystem.SetSelectedGameObject(resumeButton);
+                    MUSIC.Pause();
+                }
+                else if (Input.GetButtonDown("Xbox_Button_Start") && gameIsPaused == true)
+                {
+                    Time.timeScale = 1;
+                    gameIsPaused = false;
+                    PauseMenu.SetActive(false);
+                    pauseEventSystem.enabled = false;
+                    eventSystem1.enabled = true;
+                    eventSystem2.enabled = true;
+                    eventSystem3.enabled = true;
+                    eventSystem4.enabled = true;
+                    MUSIC.UnPause();
+                }
+                else if (Input.GetButtonDown("Xbox_Button_B_ALL") && gameIsPaused == true)
+                {
+                    Time.timeScale = 1;
+                    gameIsPaused = false;
+                    PauseMenu.SetActive(false);
+                    pauseEventSystem.enabled = false;
+                    eventSystem1.enabled = true;
+                    eventSystem2.enabled = true;
+                    eventSystem3.enabled = true;
+                    eventSystem4.enabled = true;
+                    MUSIC.UnPause();
+                }
             }
-            else if(Input.GetButtonDown("Xbox_Button_Start") && gameIsPaused == true)
+            else if(SceneSwitchingScript.isXbox == false)
             {
-                Time.timeScale = 1;
-                gameIsPaused = false;
-                PauseMenu.SetActive(false);
-                pauseEventSystem.enabled = false;
-                eventSystem1.enabled = true;
-                eventSystem2.enabled = true;
-                eventSystem3.enabled = true;
-                eventSystem4.enabled = true;
-                MUSIC.UnPause();
+                if (Input.GetButtonDown("PS4_Button_Start") && gameIsPaused == false)
+                {
+                    //pause game
+                    Time.timeScale = 0;
+                    gameIsPaused = true;
+                    PauseMenu.SetActive(true);
+                    eventSystem1.enabled = false;
+                    eventSystem2.enabled = false;
+                    eventSystem3.enabled = false;
+                    eventSystem4.enabled = false;
+                    pauseEventSystem.enabled = true;
+                    pauseEventSystem.SetSelectedGameObject(resumeButton);
+                    MUSIC.Pause();
+                }
+                else if (Input.GetButtonDown("PS4_Button_Start") && gameIsPaused == true)
+                {
+                    Time.timeScale = 1;
+                    gameIsPaused = false;
+                    PauseMenu.SetActive(false);
+                    pauseEventSystem.enabled = false;
+                    eventSystem1.enabled = true;
+                    eventSystem2.enabled = true;
+                    eventSystem3.enabled = true;
+                    eventSystem4.enabled = true;
+                    MUSIC.UnPause();
+                }
+                else if (Input.GetButtonDown("PS4_Button_B_ALL") && gameIsPaused == true)
+                {
+                    Time.timeScale = 1;
+                    gameIsPaused = false;
+                    PauseMenu.SetActive(false);
+                    pauseEventSystem.enabled = false;
+                    eventSystem1.enabled = true;
+                    eventSystem2.enabled = true;
+                    eventSystem3.enabled = true;
+                    eventSystem4.enabled = true;
+                    MUSIC.UnPause();
+                }
             }
-            else if (Input.GetButtonDown("Xbox_Button_B_ALL") && gameIsPaused == true)
-            {
-                Time.timeScale = 1;
-                gameIsPaused = false;
-                PauseMenu.SetActive(false);
-                pauseEventSystem.enabled = false;
-                eventSystem1.enabled = true;
-                eventSystem2.enabled = true;
-                eventSystem3.enabled = true;
-                eventSystem4.enabled = true;
-                MUSIC.UnPause();
-            }
+        
         }
+            
         else if (thePlayer1.isMac == true)
         {
             if (Input.GetButtonDown("Xbox_Button_Start_MAC") && gameIsPaused == false)
@@ -274,7 +320,7 @@ public class LevelLogic : MonoBehaviour
 
     public void RestartGame()
     {
-        eachGameLength = /*300*/5f;          //300f = 5 minutes      //180 = 3 minutes
+        eachGameLength = 300f;          //300f = 5 minutes      //180 = 3 minutes
         gameTimerPre = eachGameLength;
         gameTimerPost = eachGameLength;
         wallsDropped = false;

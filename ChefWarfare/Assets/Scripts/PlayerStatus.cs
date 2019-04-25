@@ -179,22 +179,46 @@ public class PlayerStatus : MonoBehaviour
         //not mac
         if(!myPlayer.isMac)
         {
-            if (myPlayer.player1)
+            if(SceneSwitchingScript.isXbox == true)
             {
-                inputBack = "Xbox_Button_Back_P1";
+                if (myPlayer.player1)
+                {
+                    inputBack = "Xbox_Button_Back_P1";
+                }
+                else if (myPlayer.player2)
+                {
+                    inputBack = "Xbox_Button_Back_P2";
+                }
+                else if (myPlayer.player3)
+                {
+                    inputBack = "Xbox_Button_Back_P3";
+                }
+                else if (myPlayer.player4)
+                {
+                    inputBack = "Xbox_Button_Back_P4";
+                }
             }
-            else if (myPlayer.player2)
+            else if (SceneSwitchingScript.isXbox == false)
             {
-                inputBack = "Xbox_Button_Back_P2";
+                if (myPlayer.player1)
+                {
+                    inputBack = "PS4_Button_Back_P1";
+                }
+                else if (myPlayer.player2)
+                {
+                    inputBack = "PS4_Button_Back_P2";
+                }
+                else if (myPlayer.player3)
+                {
+                    inputBack = "PS4_Button_Back_P3";
+                }
+                else if (myPlayer.player4)
+                {
+                    inputBack = "PS4_Button_Back_P4";
+                }
             }
-            else if (myPlayer.player3)
-            {
-                inputBack = "Xbox_Button_Back_P3";
-            }
-            else if (myPlayer.player4)
-            {
-                inputBack = "Xbox_Button_Back_P4";
-            }
+
+
         }
         //mac
         else if(myPlayer.isMac)

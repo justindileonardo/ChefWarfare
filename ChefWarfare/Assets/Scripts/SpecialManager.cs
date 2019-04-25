@@ -90,8 +90,16 @@ public class SpecialManager : MonoBehaviour
             //setting player number Inputs
             if (player1)
             {
-                inputX = "Xbox_Button_X_P1";
-                
+                if (SceneSwitchingScript.isXbox == true)
+                {
+                    inputX = "Xbox_Button_X_P1";
+                }
+                else if (SceneSwitchingScript.isXbox == false)
+                {
+                    inputX = "PS4_Button_X_P1";
+                }
+
+
                 sSpeed = GameObject.Find("UI_SnackSlot_Speed_P1").GetComponent<Image>();
                 sDamage = GameObject.Find("UI_SnackSlot_Damage_P1").GetComponent<Image>();
                 sHealth = GameObject.Find("UI_SnackSlot_Health_P1").GetComponent<Image>();
@@ -102,8 +110,16 @@ public class SpecialManager : MonoBehaviour
             }
             else if (player2)
             {
-                inputX = "Xbox_Button_X_P2";
-                
+                if (SceneSwitchingScript.isXbox == true)
+                {
+                    inputX = "Xbox_Button_X_P2";
+                }
+                else if (SceneSwitchingScript.isXbox == false)
+                {
+                    inputX = "PS4_Button_X_P2";
+                }
+
+
                 sSpeed = GameObject.Find("UI_SnackSlot_Speed_P2").GetComponent<Image>();
                 sDamage = GameObject.Find("UI_SnackSlot_Damage_P2").GetComponent<Image>();
                 sHealth = GameObject.Find("UI_SnackSlot_Health_P2").GetComponent<Image>();
@@ -115,8 +131,16 @@ public class SpecialManager : MonoBehaviour
             }
             else if (player3)
             {
-                inputX = "Xbox_Button_X_P3";
-                
+                if (SceneSwitchingScript.isXbox == true)
+                {
+                    inputX = "Xbox_Button_X_P3";
+                }
+                else if (SceneSwitchingScript.isXbox == false)
+                {
+                    inputX = "PS4_Button_X_P3";
+                }
+
+
                 sSpeed = GameObject.Find("UI_SnackSlot_Speed_P3").GetComponent<Image>();
                 sDamage = GameObject.Find("UI_SnackSlot_Damage_P3").GetComponent<Image>();
                 sHealth = GameObject.Find("UI_SnackSlot_Health_P3").GetComponent<Image>();
@@ -128,8 +152,16 @@ public class SpecialManager : MonoBehaviour
             }
             else if (player4)
             {
-                inputX = "Xbox_Button_X_P4";
-                
+                if (SceneSwitchingScript.isXbox == true)
+                {
+                    inputX = "Xbox_Button_X_P4";
+                }
+                else if (SceneSwitchingScript.isXbox == false)
+                {
+                    inputX = "PS4_Button_X_P4";
+                }
+
+
                 sSpeed = GameObject.Find("UI_SnackSlot_Speed_P4").GetComponent<Image>();
                 sDamage = GameObject.Find("UI_SnackSlot_Damage_P4").GetComponent<Image>();
                 sHealth = GameObject.Find("UI_SnackSlot_Health_P4").GetComponent<Image>();
@@ -145,7 +177,15 @@ public class SpecialManager : MonoBehaviour
             //setting player number Inputs
             if (player1)
             {
-                inputX = "Xbox_Button_X_P1_MAC";
+                if (SceneSwitchingScript.isXbox == true)
+                {
+                    inputX = "Xbox_Button_X_P1_MAC";
+                }
+                else if (SceneSwitchingScript.isXbox == false)
+                {
+                    inputX = "PS4_Button_X_P1_MAC";
+                }
+
 
                 sSpeed = GameObject.Find("UI_SnackSlot_Speed_P1").GetComponent<Image>();
                 sDamage = GameObject.Find("UI_SnackSlot_Damage_P1").GetComponent<Image>();
@@ -157,9 +197,16 @@ public class SpecialManager : MonoBehaviour
             }
             else if (player2)
             {
-                inputX = "Xbox_Button_X_P2_MAC";
+                if (SceneSwitchingScript.isXbox == true)
+                {
+                    inputX = "Xbox_Button_X_P2_MAC";
+                }
+                else if (SceneSwitchingScript.isXbox == false)
+                {
+                    inputX = "PS4_Button_X_P2_MAC";
+                }
 
-                
+
                 sSpeed = GameObject.Find("UI_SnackSlot_Speed_P2").GetComponent<Image>();
                 sDamage = GameObject.Find("UI_SnackSlot_Damage_P2").GetComponent<Image>();
                 sHealth = GameObject.Find("UI_SnackSlot_Health_P2").GetComponent<Image>();
@@ -171,9 +218,16 @@ public class SpecialManager : MonoBehaviour
             }
             else if (player3)
             {
-                inputX = "Xbox_Button_X_P3_MAC";
+                if (SceneSwitchingScript.isXbox == true)
+                {
+                    inputX = "Xbox_Button_X_P3_MAC";
+                }
+                else if (SceneSwitchingScript.isXbox == false)
+                {
+                    inputX = "PS4_Button_X_P3_MAC";
+                }
 
-                
+
                 sSpeed = GameObject.Find("UI_SnackSlot_Speed_P3").GetComponent<Image>();
                 sDamage = GameObject.Find("UI_SnackSlot_Damage_P3").GetComponent<Image>();
                 sHealth = GameObject.Find("UI_SnackSlot_Health_P3").GetComponent<Image>();
@@ -185,10 +239,17 @@ public class SpecialManager : MonoBehaviour
             }
             else if (player4)
             {
-                inputX = "Xbox_Button_X_P4_MAC";
+                if (SceneSwitchingScript.isXbox == true)
+                {
+                    inputX = "Xbox_Button_X_P4_MAC";
+                }
+                else if (SceneSwitchingScript.isXbox == false)
+                {
+                    inputX = "PS4_Button_X_P4_MAC";
+                }
 
-               
-               sSpeed = GameObject.Find("UI_SnackSlot_Speed_P4").GetComponent<Image>();
+
+                sSpeed = GameObject.Find("UI_SnackSlot_Speed_P4").GetComponent<Image>();
                sDamage = GameObject.Find("UI_SnackSlot_Damage_P4").GetComponent<Image>();
                sHealth = GameObject.Find("UI_SnackSlot_Health_P4").GetComponent<Image>();
                sBackBox = GameObject.Find("UI_SnackSlot_TimerBackBox_P4").GetComponent<Image>();

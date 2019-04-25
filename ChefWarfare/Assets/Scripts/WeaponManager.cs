@@ -143,8 +143,17 @@ public class WeaponManager : MonoBehaviour
             //setting player number Inputs and UI images
             if (player1)
             {
-                inputY = "Xbox_Button_Y_P1";
-                inputRT = "Xbox_RT_P1";
+                if(SceneSwitchingScript.isXbox == true)
+                {
+                    inputY = "Xbox_Button_Y_P1";
+                    inputRT = "Xbox_RT_P1";
+                }
+                else if (SceneSwitchingScript.isXbox == false)
+                {
+                    inputY = "Xbox_Button_Y_P1";
+                    inputRT = "PS4_RT_P1";
+                }
+
 
                 w1PeaShooter = GameObject.Find("UI_WeaponSlot1_PeaShooter_P1").GetComponent<Image>();
                 w2PeaShooter = GameObject.Find("UI_WeaponSlot2_PeaShooter_P1").GetComponent<Image>();
@@ -162,8 +171,16 @@ public class WeaponManager : MonoBehaviour
             }
             else if (player2)
             {
-                inputY = "Xbox_Button_Y_P2";
-                inputRT = "Xbox_RT_P2";
+                if (SceneSwitchingScript.isXbox == true)
+                {
+                    inputY = "Xbox_Button_Y_P2";
+                    inputRT = "Xbox_RT_P2";
+                }
+                else if (SceneSwitchingScript.isXbox == false)
+                {
+                    inputY = "Xbox_Button_Y_P2";
+                    inputRT = "PS4_RT_P2";
+                }
 
                 w1PeaShooter = GameObject.Find("UI_WeaponSlot1_PeaShooter_P2").GetComponent<Image>();
                 w2PeaShooter = GameObject.Find("UI_WeaponSlot2_PeaShooter_P2").GetComponent<Image>();
@@ -181,9 +198,17 @@ public class WeaponManager : MonoBehaviour
             }
             else if (player3)
             {
-                inputY = "Xbox_Button_Y_P3";
-                inputRT = "Xbox_RT_P3";
-                
+                if (SceneSwitchingScript.isXbox == true)
+                {
+                    inputY = "Xbox_Button_Y_P3";
+                    inputRT = "Xbox_RT_P3";
+                }
+                else if (SceneSwitchingScript.isXbox == false)
+                {
+                    inputY = "Xbox_Button_Y_P3";
+                    inputRT = "PS4_RT_P3";
+                }
+
                 w1PeaShooter = GameObject.Find("UI_WeaponSlot1_PeaShooter_P3").GetComponent<Image>();
                 w2PeaShooter = GameObject.Find("UI_WeaponSlot2_PeaShooter_P3").GetComponent<Image>();
                 w1SemiAutoRifle = GameObject.Find("UI_WeaponSlot1_SemiAutoRifle_P3").GetComponent<Image>();
@@ -200,9 +225,17 @@ public class WeaponManager : MonoBehaviour
             }
             else if (player4)
             {
-                inputY = "Xbox_Button_Y_P4";
-                inputRT = "Xbox_RT_P4";
-                
+                if (SceneSwitchingScript.isXbox == true)
+                {
+                    inputY = "Xbox_Button_Y_P4";
+                    inputRT = "Xbox_RT_P4";
+                }
+                else if (SceneSwitchingScript.isXbox == false)
+                {
+                    inputY = "Xbox_Button_Y_P4";
+                    inputRT = "PS4_RT_P4";
+                }
+
                 w1PeaShooter = GameObject.Find("UI_WeaponSlot1_PeaShooter_P4").GetComponent<Image>();
                 w2PeaShooter = GameObject.Find("UI_WeaponSlot2_PeaShooter_P4").GetComponent<Image>();
                 w1SemiAutoRifle = GameObject.Find("UI_WeaponSlot1_SemiAutoRifle_P4").GetComponent<Image>();

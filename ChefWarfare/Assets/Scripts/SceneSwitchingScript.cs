@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class SceneSwitchingScript : MonoBehaviour
 {
     public static bool isMac;
+    public static bool isXbox;
     private string inputStart;
 
     public Text text_winner;
@@ -34,6 +35,9 @@ public class SceneSwitchingScript : MonoBehaviour
     private void Awake()
     {
         isMac = false;              //NEEDS TO BE TRUE IF A MAC
+        //isMac = true;
+        //isXbox = false;             //NEEDS TO BE TRUE IF XBOX CONTROLLER
+        isXbox = true;
     }
 
     // Start is called before the first frame update
@@ -42,11 +46,26 @@ public class SceneSwitchingScript : MonoBehaviour
         
         if(isMac == false)
         {
-            inputStart = "Xbox_Button_Start";
+            if(isXbox == true)
+            {
+                inputStart = "Xbox_Button_Start";
+            }
+            else if(isXbox == false)
+            {
+                inputStart = "PS4_Button_Start";
+            }
+            
         }
         else if(isMac == true)
         {
-            inputStart = "Xbox_Button_Start_MAC";
+            if (isXbox == true)
+            {
+                inputStart = "Xbox_Button_Start_MAC";
+            }
+            else if (isXbox == false)
+            {
+                inputStart = "PS4_Button_Start_MAC";
+            }
         }
 
         if(SceneManager.GetActiveScene().name == "MainMenu")
@@ -178,9 +197,17 @@ public class SceneSwitchingScript : MonoBehaviour
         */
     }
 
-    public void GoToGame()
+    public void GoToGameFFA()
     {
         SceneManager.LoadScene("Main");
+    }
+    public void GoToGameTeamUp()
+    {
+        SceneManager.LoadScene("Main_2v2");
+    }
+    public void GoToGameDuel()
+    {
+        SceneManager.LoadScene("Main_1v1");
     }
 
     public void GoToMenu()

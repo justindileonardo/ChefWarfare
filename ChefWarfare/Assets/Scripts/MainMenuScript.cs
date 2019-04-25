@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
 public class MainMenuScript : MonoBehaviour
 {
+
+    private string inputB;
+    private bool selectingMode, lookingAtControls;
 
     public GameObject PlayButton;
     public GameObject TutorialButton;
@@ -23,6 +25,26 @@ public class MainMenuScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(SceneSwitchingScript.isMac == false)
+        {
+            if(SceneSwitchingScript.isXbox == true)
+            {
+                inputB = "Xbox_Button_B_ALL";
+            }
+            else if (SceneSwitchingScript.isXbox == false)
+            {
+                inputB = "PS4_Button_B_ALL";
+            }
+
+        }
+        else if(SceneSwitchingScript.isMac == true)
+        {
+            inputB = "Xbox_Button_B_ALL_MAC";
+        }
+
+        selectingMode = false;
+        lookingAtControls = false;
+
         PlayButton.SetActive(true);
         TutorialButton.SetActive(true);
         ControlsButton.SetActive(true);
@@ -42,16 +64,38 @@ public class MainMenuScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetButtonDown(inputB))
+        {
+            if(selectingMode == true || lookingAtControls == true)
+            {
+                ClickBackToMenuButton();
+            }
+        }
+
+        //ModeFFAButton.GetComponent<Button>().OnSelect();
     }
 
     public void ClickPlayButton()
     {
+        selectingMode = true;
 
+        PlayButton.SetActive(false);
+        TutorialButton.SetActive(false);
+        ControlsButton.SetActive(false);
+        QuitButton.SetActive(false);
+
+        ModeFFAButton.SetActive(true);
+        ModeTeamUpButton.SetActive(true);
+        ModeDuelButton.SetActive(true);
+        BackToMenuButton.SetActive(true);
+
+        ModeFFAButton.GetComponent<Button>().Select();
     }
 
     public void ClickControlsButton()
     {
+        lookingAtControls = true;
+
         PlayButton.SetActive(false);
         TutorialButton.SetActive(false);
         ControlsButton.SetActive(false);
@@ -66,6 +110,9 @@ public class MainMenuScript : MonoBehaviour
 
     public void ClickBackToMenuButton()
     {
+        selectingMode = false;
+        lookingAtControls = false;
+
         PlayButton.SetActive(true);
         TutorialButton.SetActive(true);
         ControlsButton.SetActive(true);

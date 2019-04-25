@@ -159,27 +159,53 @@ public class RecipeBook : MonoBehaviour
                 //sets the input to correct player input
                 if (other.gameObject.GetComponent<PlayerMovement>().isMac == false)
                 {
-                    if (other.gameObject.GetComponent<PlayerMovement>().player1 == true)
+                    if(SceneSwitchingScript.isXbox == true)
                     {
-                        inputB = "Xbox_Button_B_P1";
-                        inputA = "Xbox_Button_A_P1";
+                        if (other.gameObject.GetComponent<PlayerMovement>().player1 == true)
+                        {
+                            inputB = "Xbox_Button_B_P1";
+                            inputA = "Xbox_Button_A_P1";
+                        }
+                        else if (other.gameObject.GetComponent<PlayerMovement>().player2 == true)
+                        {
+                            inputB = "Xbox_Button_B_P2";
+                            inputA = "Xbox_Button_A_P2";
+                        }
+                        else if (other.gameObject.GetComponent<PlayerMovement>().player3 == true)
+                        {
+                            inputB = "Xbox_Button_B_P3";
+                            inputA = "Xbox_Button_A_P3";
+                        }
+                        else if (other.gameObject.GetComponent<PlayerMovement>().player4 == true)
+                        {
+                            inputB = "Xbox_Button_B_P4";
+                            inputA = "Xbox_Button_A_P4";
+                        }
                     }
-                    else if (other.gameObject.GetComponent<PlayerMovement>().player2 == true)
+                    else if(SceneSwitchingScript.isXbox == false)
                     {
-                        inputB = "Xbox_Button_B_P2";
-                        inputA = "Xbox_Button_A_P2";
+                        if (other.gameObject.GetComponent<PlayerMovement>().player1 == true)
+                        {
+                            inputB = "PS4_Button_B_P1";
+                            inputA = "PS4_Button_A_P1";
+                        }
+                        else if (other.gameObject.GetComponent<PlayerMovement>().player2 == true)
+                        {
+                            inputB = "PS4_Button_B_P2";
+                            inputA = "PS4_Button_A_P2";
+                        }
+                        else if (other.gameObject.GetComponent<PlayerMovement>().player3 == true)
+                        {
+                            inputB = "PS4_Button_B_P3";
+                            inputA = "PS4_Button_A_P3";
+                        }
+                        else if (other.gameObject.GetComponent<PlayerMovement>().player4 == true)
+                        {
+                            inputB = "PS4_Button_B_P4";
+                            inputA = "PS4_Button_A_P4";
+                        }
                     }
-                    else if (other.gameObject.GetComponent<PlayerMovement>().player3 == true)
-                    {
-                        inputB = "Xbox_Button_B_P3";
-                        inputA = "Xbox_Button_A_P3";
-                    }
-                    else if (other.gameObject.GetComponent<PlayerMovement>().player4 == true)
-                    {
-                        inputB = "Xbox_Button_B_P4";
-                        inputA = "Xbox_Button_A_P4";
-
-                    }
+                    
                 }
                 else if (other.gameObject.GetComponent<PlayerMovement>().isMac == true)
                 {
@@ -221,27 +247,53 @@ public class RecipeBook : MonoBehaviour
                 //sets the input to correct player input
                 if (other.gameObject.GetComponent<PlayerMovement>().isMac == false)
                 {
-                    if (other.gameObject.GetComponent<PlayerMovement>().player1 == true)
+                    if (SceneSwitchingScript.isXbox == true)
                     {
-                        inputB = "Xbox_Button_B_P1";
-                        inputA = "Xbox_Button_A_P1";
+                        if (other.gameObject.GetComponent<PlayerMovement>().player1 == true)
+                        {
+                            inputB = "Xbox_Button_B_P1";
+                            inputA = "Xbox_Button_A_P1";
+                        }
+                        else if (other.gameObject.GetComponent<PlayerMovement>().player2 == true)
+                        {
+                            inputB = "Xbox_Button_B_P2";
+                            inputA = "Xbox_Button_A_P2";
+                        }
+                        else if (other.gameObject.GetComponent<PlayerMovement>().player3 == true)
+                        {
+                            inputB = "Xbox_Button_B_P3";
+                            inputA = "Xbox_Button_A_P3";
+                        }
+                        else if (other.gameObject.GetComponent<PlayerMovement>().player4 == true)
+                        {
+                            inputB = "Xbox_Button_B_P4";
+                            inputA = "Xbox_Button_A_P4";
+                        }
                     }
-                    else if (other.gameObject.GetComponent<PlayerMovement>().player2 == true)
+                    else if (SceneSwitchingScript.isXbox == false)
                     {
-                        inputB = "Xbox_Button_B_P2";
-                        inputA = "Xbox_Button_A_P2";
+                        if (other.gameObject.GetComponent<PlayerMovement>().player1 == true)
+                        {
+                            inputB = "PS4_Button_B_P1";
+                            inputA = "PS4_Button_A_P1";
+                        }
+                        else if (other.gameObject.GetComponent<PlayerMovement>().player2 == true)
+                        {
+                            inputB = "PS4_Button_B_P2";
+                            inputA = "PS4_Button_A_P2";
+                        }
+                        else if (other.gameObject.GetComponent<PlayerMovement>().player3 == true)
+                        {
+                            inputB = "PS4_Button_B_P3";
+                            inputA = "PS4_Button_A_P3";
+                        }
+                        else if (other.gameObject.GetComponent<PlayerMovement>().player4 == true)
+                        {
+                            inputB = "PS4_Button_B_P4";
+                            inputA = "PS4_Button_A_P4";
+                        }
                     }
-                    else if (other.gameObject.GetComponent<PlayerMovement>().player3 == true)
-                    {
-                        inputB = "Xbox_Button_B_P3";
-                        inputA = "Xbox_Button_A_P3";
-                    }
-                    else if (other.gameObject.GetComponent<PlayerMovement>().player4 == true)
-                    {
-                        inputB = "Xbox_Button_B_P4";
-                        inputA = "Xbox_Button_A_P4";
 
-                    }
                 }
                 else if (other.gameObject.GetComponent<PlayerMovement>().isMac == true)
                 {
@@ -283,27 +335,53 @@ public class RecipeBook : MonoBehaviour
                 //sets the input to correct player input
                 if (other.gameObject.GetComponent<PlayerMovement>().isMac == false)
                 {
-                    if (other.gameObject.GetComponent<PlayerMovement>().player1 == true)
+                    if (SceneSwitchingScript.isXbox == true)
                     {
-                        inputB = "Xbox_Button_B_P1";
-                        inputA = "Xbox_Button_A_P1";
+                        if (other.gameObject.GetComponent<PlayerMovement>().player1 == true)
+                        {
+                            inputB = "Xbox_Button_B_P1";
+                            inputA = "Xbox_Button_A_P1";
+                        }
+                        else if (other.gameObject.GetComponent<PlayerMovement>().player2 == true)
+                        {
+                            inputB = "Xbox_Button_B_P2";
+                            inputA = "Xbox_Button_A_P2";
+                        }
+                        else if (other.gameObject.GetComponent<PlayerMovement>().player3 == true)
+                        {
+                            inputB = "Xbox_Button_B_P3";
+                            inputA = "Xbox_Button_A_P3";
+                        }
+                        else if (other.gameObject.GetComponent<PlayerMovement>().player4 == true)
+                        {
+                            inputB = "Xbox_Button_B_P4";
+                            inputA = "Xbox_Button_A_P4";
+                        }
                     }
-                    else if (other.gameObject.GetComponent<PlayerMovement>().player2 == true)
+                    else if (SceneSwitchingScript.isXbox == false)
                     {
-                        inputB = "Xbox_Button_B_P2";
-                        inputA = "Xbox_Button_A_P2";
+                        if (other.gameObject.GetComponent<PlayerMovement>().player1 == true)
+                        {
+                            inputB = "PS4_Button_B_P1";
+                            inputA = "PS4_Button_A_P1";
+                        }
+                        else if (other.gameObject.GetComponent<PlayerMovement>().player2 == true)
+                        {
+                            inputB = "PS4_Button_B_P2";
+                            inputA = "PS4_Button_A_P2";
+                        }
+                        else if (other.gameObject.GetComponent<PlayerMovement>().player3 == true)
+                        {
+                            inputB = "PS4_Button_B_P3";
+                            inputA = "PS4_Button_A_P3";
+                        }
+                        else if (other.gameObject.GetComponent<PlayerMovement>().player4 == true)
+                        {
+                            inputB = "PS4_Button_B_P4";
+                            inputA = "PS4_Button_A_P4";
+                        }
                     }
-                    else if (other.gameObject.GetComponent<PlayerMovement>().player3 == true)
-                    {
-                        inputB = "Xbox_Button_B_P3";
-                        inputA = "Xbox_Button_A_P3";
-                    }
-                    else if (other.gameObject.GetComponent<PlayerMovement>().player4 == true)
-                    {
-                        inputB = "Xbox_Button_B_P4";
-                        inputA = "Xbox_Button_A_P4";
 
-                    }
                 }
                 else if (other.gameObject.GetComponent<PlayerMovement>().isMac == true)
                 {
@@ -345,27 +423,53 @@ public class RecipeBook : MonoBehaviour
                 //sets the input to correct player input
                 if (other.gameObject.GetComponent<PlayerMovement>().isMac == false)
                 {
-                    if (other.gameObject.GetComponent<PlayerMovement>().player1 == true)
+                    if (SceneSwitchingScript.isXbox == true)
                     {
-                        inputB = "Xbox_Button_B_P1";
-                        inputA = "Xbox_Button_A_P1";
+                        if (other.gameObject.GetComponent<PlayerMovement>().player1 == true)
+                        {
+                            inputB = "Xbox_Button_B_P1";
+                            inputA = "Xbox_Button_A_P1";
+                        }
+                        else if (other.gameObject.GetComponent<PlayerMovement>().player2 == true)
+                        {
+                            inputB = "Xbox_Button_B_P2";
+                            inputA = "Xbox_Button_A_P2";
+                        }
+                        else if (other.gameObject.GetComponent<PlayerMovement>().player3 == true)
+                        {
+                            inputB = "Xbox_Button_B_P3";
+                            inputA = "Xbox_Button_A_P3";
+                        }
+                        else if (other.gameObject.GetComponent<PlayerMovement>().player4 == true)
+                        {
+                            inputB = "Xbox_Button_B_P4";
+                            inputA = "Xbox_Button_A_P4";
+                        }
                     }
-                    else if (other.gameObject.GetComponent<PlayerMovement>().player2 == true)
+                    else if (SceneSwitchingScript.isXbox == false)
                     {
-                        inputB = "Xbox_Button_B_P2";
-                        inputA = "Xbox_Button_A_P2";
+                        if (other.gameObject.GetComponent<PlayerMovement>().player1 == true)
+                        {
+                            inputB = "PS4_Button_B_P1";
+                            inputA = "PS4_Button_A_P1";
+                        }
+                        else if (other.gameObject.GetComponent<PlayerMovement>().player2 == true)
+                        {
+                            inputB = "PS4_Button_B_P2";
+                            inputA = "PS4_Button_A_P2";
+                        }
+                        else if (other.gameObject.GetComponent<PlayerMovement>().player3 == true)
+                        {
+                            inputB = "PS4_Button_B_P3";
+                            inputA = "PS4_Button_A_P3";
+                        }
+                        else if (other.gameObject.GetComponent<PlayerMovement>().player4 == true)
+                        {
+                            inputB = "PS4_Button_B_P4";
+                            inputA = "PS4_Button_A_P4";
+                        }
                     }
-                    else if (other.gameObject.GetComponent<PlayerMovement>().player3 == true)
-                    {
-                        inputB = "Xbox_Button_B_P3";
-                        inputA = "Xbox_Button_A_P3";
-                    }
-                    else if (other.gameObject.GetComponent<PlayerMovement>().player4 == true)
-                    {
-                        inputB = "Xbox_Button_B_P4";
-                        inputA = "Xbox_Button_A_P4";
 
-                    }
                 }
                 else if (other.gameObject.GetComponent<PlayerMovement>().isMac == true)
                 {
