@@ -12,6 +12,8 @@ public class SceneSwitchingScript : MonoBehaviour
     public static bool isXbox;
     private string inputStart;
 
+    
+
     public Text text_winner;
 
     public Text text_FFAScoreP1;
@@ -36,15 +38,20 @@ public class SceneSwitchingScript : MonoBehaviour
 
     private void Awake()
     {
-        //isMac = false;              //NEEDS TO BE TRUE IF A MAC
-        isMac = true;
-        isXbox = false;             //NEEDS TO BE TRUE IF XBOX CONTROLLER
+        isMac = false;              //NEEDS TO BE TRUE IF A MAC
+        //isMac = true;
+        //isXbox = false;             //NEEDS TO BE TRUE IF XBOX CONTROLLER
         //isXbox = true;
+
+
     }
 
     // Start is called before the first frame update
     void Start()
     {
+
+
+
 
         if(SceneManager.GetActiveScene().name == "Main" || SceneManager.GetActiveScene().name == "Main_2v2" || SceneManager.GetActiveScene().name == "Main_1v1")
         {
@@ -192,16 +199,7 @@ public class SceneSwitchingScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            GoToMenu();
-        }
-        if (Input.GetButtonDown(inputStart))
-        {
-            GoToMenu();
-        }
-        */
+        print(isXbox);
     }
 
     public void GoToGameFFA()

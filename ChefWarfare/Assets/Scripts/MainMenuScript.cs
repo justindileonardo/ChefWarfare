@@ -21,6 +21,7 @@ public class MainMenuScript : MonoBehaviour
     public GameObject ModeDuelButton;
 
     public GameObject ControlsImage;
+    public GameObject ControlsImagePS;
 
     // Start is called before the first frame update
     void Start()
@@ -63,7 +64,14 @@ public class MainMenuScript : MonoBehaviour
         ModeTeamUpButton.SetActive(false);
         ModeDuelButton.SetActive(false);
 
-        ControlsImage.SetActive(false);
+        if(SceneSwitchingScript.isXbox == true)
+        {
+            ControlsImage.SetActive(false);
+        }
+        else if (SceneSwitchingScript.isXbox == false)
+        {
+            ControlsImagePS.SetActive(false);
+        }
 
         PlayButton.GetComponent<Button>().Select();
     }
@@ -78,6 +86,8 @@ public class MainMenuScript : MonoBehaviour
                 ClickBackToMenuButton();
             }
         }
+
+
 
         //ModeFFAButton.GetComponent<Button>().OnSelect();
     }
@@ -110,7 +120,14 @@ public class MainMenuScript : MonoBehaviour
 
         BackToMenuButton.SetActive(true);
 
-        ControlsImage.SetActive(true);
+        if (SceneSwitchingScript.isXbox == true)
+        {
+            ControlsImage.SetActive(true);
+        }
+        else if (SceneSwitchingScript.isXbox == false)
+        {
+            ControlsImagePS.SetActive(true);
+        }
 
         BackToMenuButton.GetComponent<Button>().Select();
     }
@@ -131,7 +148,14 @@ public class MainMenuScript : MonoBehaviour
         ModeTeamUpButton.SetActive(false);
         ModeDuelButton.SetActive(false);
 
-        ControlsImage.SetActive(false);
+        if (SceneSwitchingScript.isXbox == true)
+        {
+            ControlsImage.SetActive(false);
+        }
+        else if (SceneSwitchingScript.isXbox == false)
+        {
+            ControlsImagePS.SetActive(false);
+        }
 
         PlayButton.GetComponent<Button>().Select();
     }

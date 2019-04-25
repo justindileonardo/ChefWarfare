@@ -80,7 +80,11 @@ public class PlayerStatus : MonoBehaviour
 
     private string inputBack;
     public Image ControlsImage;
+    public Image ControlsImageP;
     public bool controlsOpen;
+
+    public Image ControlsButton;
+    public Image ControlsButtonP;
 
     public AudioSource AS_GetHit;
 
@@ -266,17 +270,44 @@ public class PlayerStatus : MonoBehaviour
         
         controlsOpen = false;
         ControlsImage.enabled = false;
+
+        if(SceneSwitchingScript.isXbox == true)
+        {
+            ControlsButton.enabled = true;
+            ControlsButtonP.enabled = false;
+        }
+        else if(SceneSwitchingScript.isXbox == false)
+        {
+            ControlsButton.enabled = false;
+            ControlsButtonP.enabled = true;
+        }
+
     }
 
     IEnumerator OpenControls()
     {
-        ControlsImage.enabled = true;
+        if(SceneSwitchingScript.isXbox == true)
+        {
+            ControlsImage.enabled = true;
+        }
+        else if(SceneSwitchingScript.isXbox == false)
+        {
+            ControlsImageP.enabled = true;
+        }
+        
         yield return new WaitForSeconds(0.1f);
         controlsOpen = true;
     }
     IEnumerator CloseControls()
     {
-        ControlsImage.enabled = false;
+        if (SceneSwitchingScript.isXbox == true)
+        {
+            ControlsImage.enabled = false;
+        }
+        else if (SceneSwitchingScript.isXbox == false)
+        {
+            ControlsImageP.enabled = false;
+        }
         yield return new WaitForSeconds(0.1f);
         controlsOpen = false;
     }
