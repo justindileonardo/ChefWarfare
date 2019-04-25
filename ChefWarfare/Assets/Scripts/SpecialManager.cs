@@ -183,7 +183,7 @@ public class SpecialManager : MonoBehaviour
                 }
                 else if (SceneSwitchingScript.isXbox == false)
                 {
-                    inputX = "PS4_Button_X_P1_MAC";
+                    inputX = "PS4_Button_X_P1";
                 }
 
 
@@ -203,7 +203,7 @@ public class SpecialManager : MonoBehaviour
                 }
                 else if (SceneSwitchingScript.isXbox == false)
                 {
-                    inputX = "PS4_Button_X_P2_MAC";
+                    inputX = "PS4_Button_X_P2";
                 }
 
 
@@ -224,7 +224,7 @@ public class SpecialManager : MonoBehaviour
                 }
                 else if (SceneSwitchingScript.isXbox == false)
                 {
-                    inputX = "PS4_Button_X_P3_MAC";
+                    inputX = "PS4_Button_X_P3";
                 }
 
 
@@ -245,7 +245,7 @@ public class SpecialManager : MonoBehaviour
                 }
                 else if (SceneSwitchingScript.isXbox == false)
                 {
-                    inputX = "PS4_Button_X_P4_MAC";
+                    inputX = "PS4_Button_X_P4";
                 }
 
 

@@ -209,27 +209,54 @@ public class RecipeBook : MonoBehaviour
                 }
                 else if (other.gameObject.GetComponent<PlayerMovement>().isMac == true)
                 {
-                    if (other.gameObject.GetComponent<PlayerMovement>().player1 == true)
+                    if (SceneSwitchingScript.isXbox == true)
                     {
-                        inputB = "Xbox_Button_B_P1_MAC";
-                        inputA = "Xbox_Button_A_P1_MAC";
-                    }
-                    else if (other.gameObject.GetComponent<PlayerMovement>().player2 == true)
-                    {
-                        inputB = "Xbox_Button_B_P2_MAC";
-                        inputA = "Xbox_Button_A_P2_MAC";
-                    }
-                    else if (other.gameObject.GetComponent<PlayerMovement>().player3 == true)
-                    {
-                        inputB = "Xbox_Button_B_P3_MAC";
-                        inputA = "Xbox_Button_A_P3_MAC";
-                    }
-                    else if (other.gameObject.GetComponent<PlayerMovement>().player4 == true)
-                    {
-                        inputB = "Xbox_Button_B_P4_MAC";
-                        inputA = "Xbox_Button_A_P4_MAC";
+                        if (other.gameObject.GetComponent<PlayerMovement>().player1 == true)
+                        {
+                            inputB = "Xbox_Button_B_P1_MAC";
+                            inputA = "Xbox_Button_A_P1_MAC";
+                        }
+                        else if (other.gameObject.GetComponent<PlayerMovement>().player2 == true)
+                        {
+                            inputB = "Xbox_Button_B_P2_MAC";
+                            inputA = "Xbox_Button_A_P2_MAC";
+                        }
+                        else if (other.gameObject.GetComponent<PlayerMovement>().player3 == true)
+                        {
+                            inputB = "Xbox_Button_B_P3_MAC";
+                            inputA = "Xbox_Button_A_P3_MAC";
+                        }
+                        else if (other.gameObject.GetComponent<PlayerMovement>().player4 == true)
+                        {
+                            inputB = "Xbox_Button_B_P4_MAC";
+                            inputA = "Xbox_Button_A_P4_MAC";
 
+                        }
                     }
+                    else if (SceneSwitchingScript.isXbox == false)
+                    {
+                        if (other.gameObject.GetComponent<PlayerMovement>().player1 == true)
+                        {
+                            inputB = "PS4_Button_B_P1";
+                            inputA = "PS4_Button_A_P1";
+                        }
+                        else if (other.gameObject.GetComponent<PlayerMovement>().player2 == true)
+                        {
+                            inputB = "PS4_Button_B_P2";
+                            inputA = "PS4_Button_A_P2";
+                        }
+                        else if (other.gameObject.GetComponent<PlayerMovement>().player3 == true)
+                        {
+                            inputB = "PS4_Button_B_P3";
+                            inputA = "PS4_Button_A_P3";
+                        }
+                        else if (other.gameObject.GetComponent<PlayerMovement>().player4 == true)
+                        {
+                            inputB = "PS4_Button_B_P4";
+                            inputA = "PS4_Button_A_P4";
+                        }
+                    }
+
                 }
             }
         }
@@ -297,27 +324,54 @@ public class RecipeBook : MonoBehaviour
                 }
                 else if (other.gameObject.GetComponent<PlayerMovement>().isMac == true)
                 {
-                    if (other.gameObject.GetComponent<PlayerMovement>().player1 == true)
+                    if (SceneSwitchingScript.isXbox == true)
                     {
-                        inputB = "Xbox_Button_B_P1_MAC";
-                        inputA = "Xbox_Button_A_P1_MAC";
-                    }
-                    else if (other.gameObject.GetComponent<PlayerMovement>().player2 == true)
-                    {
-                        inputB = "Xbox_Button_B_P2_MAC";
-                        inputA = "Xbox_Button_A_P2_MAC";
-                    }
-                    else if (other.gameObject.GetComponent<PlayerMovement>().player3 == true)
-                    {
-                        inputB = "Xbox_Button_B_P3_MAC";
-                        inputA = "Xbox_Button_A_P3_MAC";
-                    }
-                    else if (other.gameObject.GetComponent<PlayerMovement>().player4 == true)
-                    {
-                        inputB = "Xbox_Button_B_P4_MAC";
-                        inputA = "Xbox_Button_A_P4_MAC";
+                        if (other.gameObject.GetComponent<PlayerMovement>().player1 == true)
+                        {
+                            inputB = "Xbox_Button_B_P1_MAC";
+                            inputA = "Xbox_Button_A_P1_MAC";
+                        }
+                        else if (other.gameObject.GetComponent<PlayerMovement>().player2 == true)
+                        {
+                            inputB = "Xbox_Button_B_P2_MAC";
+                            inputA = "Xbox_Button_A_P2_MAC";
+                        }
+                        else if (other.gameObject.GetComponent<PlayerMovement>().player3 == true)
+                        {
+                            inputB = "Xbox_Button_B_P3_MAC";
+                            inputA = "Xbox_Button_A_P3_MAC";
+                        }
+                        else if (other.gameObject.GetComponent<PlayerMovement>().player4 == true)
+                        {
+                            inputB = "Xbox_Button_B_P4_MAC";
+                            inputA = "Xbox_Button_A_P4_MAC";
 
+                        }
                     }
+                    else if (SceneSwitchingScript.isXbox == false)
+                    {
+                        if (other.gameObject.GetComponent<PlayerMovement>().player1 == true)
+                        {
+                            inputB = "PS4_Button_B_P1";
+                            inputA = "PS4_Button_A_P1";
+                        }
+                        else if (other.gameObject.GetComponent<PlayerMovement>().player2 == true)
+                        {
+                            inputB = "PS4_Button_B_P2";
+                            inputA = "PS4_Button_A_P2";
+                        }
+                        else if (other.gameObject.GetComponent<PlayerMovement>().player3 == true)
+                        {
+                            inputB = "PS4_Button_B_P3";
+                            inputA = "PS4_Button_A_P3";
+                        }
+                        else if (other.gameObject.GetComponent<PlayerMovement>().player4 == true)
+                        {
+                            inputB = "PS4_Button_B_P4";
+                            inputA = "PS4_Button_A_P4";
+                        }
+                    }
+
                 }
             }
         }
@@ -385,27 +439,54 @@ public class RecipeBook : MonoBehaviour
                 }
                 else if (other.gameObject.GetComponent<PlayerMovement>().isMac == true)
                 {
-                    if (other.gameObject.GetComponent<PlayerMovement>().player1 == true)
+                    if (SceneSwitchingScript.isXbox == true)
                     {
-                        inputB = "Xbox_Button_B_P1_MAC";
-                        inputA = "Xbox_Button_A_P1_MAC";
-                    }
-                    else if (other.gameObject.GetComponent<PlayerMovement>().player2 == true)
-                    {
-                        inputB = "Xbox_Button_B_P2_MAC";
-                        inputA = "Xbox_Button_A_P2_MAC";
-                    }
-                    else if (other.gameObject.GetComponent<PlayerMovement>().player3 == true)
-                    {
-                        inputB = "Xbox_Button_B_P3_MAC";
-                        inputA = "Xbox_Button_A_P3_MAC";
-                    }
-                    else if (other.gameObject.GetComponent<PlayerMovement>().player4 == true)
-                    {
-                        inputB = "Xbox_Button_B_P4_MAC";
-                        inputA = "Xbox_Button_A_P4_MAC";
+                        if (other.gameObject.GetComponent<PlayerMovement>().player1 == true)
+                        {
+                            inputB = "Xbox_Button_B_P1_MAC";
+                            inputA = "Xbox_Button_A_P1_MAC";
+                        }
+                        else if (other.gameObject.GetComponent<PlayerMovement>().player2 == true)
+                        {
+                            inputB = "Xbox_Button_B_P2_MAC";
+                            inputA = "Xbox_Button_A_P2_MAC";
+                        }
+                        else if (other.gameObject.GetComponent<PlayerMovement>().player3 == true)
+                        {
+                            inputB = "Xbox_Button_B_P3_MAC";
+                            inputA = "Xbox_Button_A_P3_MAC";
+                        }
+                        else if (other.gameObject.GetComponent<PlayerMovement>().player4 == true)
+                        {
+                            inputB = "Xbox_Button_B_P4_MAC";
+                            inputA = "Xbox_Button_A_P4_MAC";
 
+                        }
                     }
+                    else if (SceneSwitchingScript.isXbox == false)
+                    {
+                        if (other.gameObject.GetComponent<PlayerMovement>().player1 == true)
+                        {
+                            inputB = "PS4_Button_B_P1";
+                            inputA = "PS4_Button_A_P1";
+                        }
+                        else if (other.gameObject.GetComponent<PlayerMovement>().player2 == true)
+                        {
+                            inputB = "PS4_Button_B_P2";
+                            inputA = "PS4_Button_A_P2";
+                        }
+                        else if (other.gameObject.GetComponent<PlayerMovement>().player3 == true)
+                        {
+                            inputB = "PS4_Button_B_P3";
+                            inputA = "PS4_Button_A_P3";
+                        }
+                        else if (other.gameObject.GetComponent<PlayerMovement>().player4 == true)
+                        {
+                            inputB = "PS4_Button_B_P4";
+                            inputA = "PS4_Button_A_P4";
+                        }
+                    }
+
                 }
             }
         }
@@ -473,27 +554,55 @@ public class RecipeBook : MonoBehaviour
                 }
                 else if (other.gameObject.GetComponent<PlayerMovement>().isMac == true)
                 {
-                    if (other.gameObject.GetComponent<PlayerMovement>().player1 == true)
+                    if(SceneSwitchingScript.isXbox == true)
                     {
-                        inputB = "Xbox_Button_B_P1_MAC";
-                        inputA = "Xbox_Button_A_P1_MAC";
-                    }
-                    else if (other.gameObject.GetComponent<PlayerMovement>().player2 == true)
-                    {
-                        inputB = "Xbox_Button_B_P2_MAC";
-                        inputA = "Xbox_Button_A_P2_MAC";
-                    }
-                    else if (other.gameObject.GetComponent<PlayerMovement>().player3 == true)
-                    {
-                        inputB = "Xbox_Button_B_P3_MAC";
-                        inputA = "Xbox_Button_A_P3_MAC";
-                    }
-                    else if (other.gameObject.GetComponent<PlayerMovement>().player4 == true)
-                    {
-                        inputB = "Xbox_Button_B_P4_MAC";
-                        inputA = "Xbox_Button_A_P4_MAC";
+                        if (other.gameObject.GetComponent<PlayerMovement>().player1 == true)
+                        {
+                            inputB = "Xbox_Button_B_P1_MAC";
+                            inputA = "Xbox_Button_A_P1_MAC";
+                        }
+                        else if (other.gameObject.GetComponent<PlayerMovement>().player2 == true)
+                        {
+                            inputB = "Xbox_Button_B_P2_MAC";
+                            inputA = "Xbox_Button_A_P2_MAC";
+                        }
+                        else if (other.gameObject.GetComponent<PlayerMovement>().player3 == true)
+                        {
+                            inputB = "Xbox_Button_B_P3_MAC";
+                            inputA = "Xbox_Button_A_P3_MAC";
+                        }
+                        else if (other.gameObject.GetComponent<PlayerMovement>().player4 == true)
+                        {
+                            inputB = "Xbox_Button_B_P4_MAC";
+                            inputA = "Xbox_Button_A_P4_MAC";
 
+                        }
                     }
+                    else if(SceneSwitchingScript.isXbox == false)
+                    {
+                        if (other.gameObject.GetComponent<PlayerMovement>().player1 == true)
+                        {
+                            inputB = "PS4_Button_B_P1";
+                            inputA = "PS4_Button_A_P1";
+                        }
+                        else if (other.gameObject.GetComponent<PlayerMovement>().player2 == true)
+                        {
+                            inputB = "PS4_Button_B_P2";
+                            inputA = "PS4_Button_A_P2";
+                        }
+                        else if (other.gameObject.GetComponent<PlayerMovement>().player3 == true)
+                        {
+                            inputB = "PS4_Button_B_P3";
+                            inputA = "PS4_Button_A_P3";
+                        }
+                        else if (other.gameObject.GetComponent<PlayerMovement>().player4 == true)
+                        {
+                            inputB = "PS4_Button_B_P4";
+                            inputA = "PS4_Button_A_P4";
+                        }
+                    }
+
+
                 }
             }
         }

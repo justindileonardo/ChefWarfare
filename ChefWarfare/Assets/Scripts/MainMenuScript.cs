@@ -39,7 +39,14 @@ public class MainMenuScript : MonoBehaviour
         }
         else if(SceneSwitchingScript.isMac == true)
         {
-            inputB = "Xbox_Button_B_ALL_MAC";
+            if (SceneSwitchingScript.isXbox == true)
+            {
+                inputB = "Xbox_Button_B_ALL_MAC";
+            }
+            else if (SceneSwitchingScript.isXbox == false)
+            {
+                inputB = "PS4_Button_B_ALL";
+            }
         }
 
         selectingMode = false;

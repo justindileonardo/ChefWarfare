@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class SceneSwitchingScript : MonoBehaviour
 {
+    private LevelLogic levelLogicScript;
+
     public static bool isMac;
     public static bool isXbox;
     private string inputStart;
@@ -34,17 +36,22 @@ public class SceneSwitchingScript : MonoBehaviour
 
     private void Awake()
     {
-        isMac = false;              //NEEDS TO BE TRUE IF A MAC
-        //isMac = true;
-        //isXbox = false;             //NEEDS TO BE TRUE IF XBOX CONTROLLER
-        isXbox = true;
+        //isMac = false;              //NEEDS TO BE TRUE IF A MAC
+        isMac = true;
+        isXbox = false;             //NEEDS TO BE TRUE IF XBOX CONTROLLER
+        //isXbox = true;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
-        if(isMac == false)
+
+        if(SceneManager.GetActiveScene().name == "Main" || SceneManager.GetActiveScene().name == "Main_2v2" || SceneManager.GetActiveScene().name == "Main_1v1")
+        {
+            levelLogicScript = GameObject.Find("LevelLogic").GetComponent<LevelLogic>();
+        }
+
+        if (isMac == false)
         {
             if(isXbox == true)
             {
@@ -64,7 +71,7 @@ public class SceneSwitchingScript : MonoBehaviour
             }
             else if (isXbox == false)
             {
-                inputStart = "PS4_Button_Start_MAC";
+                inputStart = "PS4_Button_Start";
             }
         }
 
@@ -212,6 +219,11 @@ public class SceneSwitchingScript : MonoBehaviour
 
     public void GoToMenu()
     {
+        if (SceneManager.GetActiveScene().name == "Main" || SceneManager.GetActiveScene().name == "Main_2v2" || SceneManager.GetActiveScene().name == "Main_1v1")
+        {
+            levelLogicScript.gameIsPaused = false;
+            Time.timeScale = 1;
+        }
         SceneManager.LoadScene("MainMenu");
     }
 

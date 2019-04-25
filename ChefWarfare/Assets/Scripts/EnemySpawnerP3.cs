@@ -84,6 +84,18 @@ public class EnemySpawnerP3 : MonoBehaviour
                 dpadVertical = Input.GetAxisRaw("PS4_Button_DPAD_Vertical_P3");
                 dpadHorizontal = Input.GetAxisRaw("PS4_Button_DPAD_Horizontal_P3");
             }
+
+        }
+
+        else if (playerMovementScript.isMac == true)
+        {
+            if (SceneSwitchingScript.isXbox == false)
+            {
+                //axis for dpad Up/Down
+                dpadVertical = Input.GetAxisRaw("PS4_Button_DPAD_Vertical_P3_MAC");
+                dpadHorizontal = Input.GetAxisRaw("PS4_Button_DPAD_Horizontal_P3");
+            }
+
         }
         /*else if(playerMovementScript.isMac == true)
         {
@@ -176,6 +188,7 @@ public class EnemySpawnerP3 : MonoBehaviour
         //if currently in your respective square
         if (inMyZone == true)
         {
+            //HERE HERE
             if (playerMovementScript.isMac == false && levelLogicScript.gameIsPaused == false)
             {
                 //Activating/Deactivating spawner
@@ -227,16 +240,22 @@ public class EnemySpawnerP3 : MonoBehaviour
 
             }
 
-            else if (playerMovementScript.isMac == true && levelLogicScript.gameIsPaused == false)
+
+
+
+
+
+            //HERE HERE
+            else if (playerMovementScript.isMac == true && SceneSwitchingScript.isXbox == false && levelLogicScript.gameIsPaused == false)
             {
                 //Activating/Deactivating spawner
                 //click dpad-up, activates spawner
-                if (enemySpawnerActive == false && Input.GetButtonDown("Xbox_Button_DPAD_VerticalUp_P3_MAC"))
+                if (enemySpawnerActive == false && dpadVertical == 1)
                 {
                     enemySpawnerActive = true;
                 }
                 //click dpad-down, deactivates spawner
-                else if (enemySpawnerActive == true && Input.GetButtonDown("Xbox_Button_DPAD_VerticalDown_P3_MAC"))
+                else if (enemySpawnerActive == true && dpadVertical == -1)
                 {
                     enemySpawnerActive = false;
                 }
@@ -249,7 +268,7 @@ public class EnemySpawnerP3 : MonoBehaviour
                     switchEnemyTypeTimer -= Time.deltaTime;
                 }
                 //if hit right dpad
-                if (Input.GetButtonDown("Xbox_Button_DPAD_HorizontalRight_P3_MAC") && switchEnemyTypeTimer < 0)
+                if (dpadHorizontal == 1 && switchEnemyTypeTimer < 0)
                 {
                     switchEnemyTypeTimer = .5f;
                     theEnemyType += 1;
@@ -263,7 +282,7 @@ public class EnemySpawnerP3 : MonoBehaviour
 
                 }
                 //if hit left dpad
-                else if (Input.GetButtonDown("Xbox_Button_DPAD_HorizontalLeft_P3_MAC") && switchEnemyTypeTimer < 0)
+                else if (dpadHorizontal == -1 && switchEnemyTypeTimer < 0)
                 {
                     switchEnemyTypeTimer = .5f;
                     theEnemyType -= 1;
@@ -278,6 +297,114 @@ public class EnemySpawnerP3 : MonoBehaviour
 
             }
 
+
+
+
+
+
+
+
+            else if (playerMovementScript.isMac == true && levelLogicScript.gameIsPaused == false)
+            {
+                //Activating/Deactivating spawner
+                //click dpad-up, activates spawner
+                if (SceneSwitchingScript.isXbox == true)
+                {
+                    if (enemySpawnerActive == false && Input.GetButtonDown("Xbox_Button_DPAD_VerticalUp_P3_MAC"))
+                    {
+                        enemySpawnerActive = true;
+                    }
+                    //click dpad-down, deactivates spawner
+                    else if (enemySpawnerActive == true && Input.GetButtonDown("Xbox_Button_DPAD_VerticalDown_P3_MAC"))
+                    {
+                        enemySpawnerActive = false;
+                    }
+                }
+                /*else if (SceneSwitchingScript.isXbox == false)
+                {
+                    if (enemySpawnerActive == false && Input.GetButtonDown("PS4_Button_DPAD_VerticalUp_P3_MAC"))
+                    {
+                        enemySpawnerActive = true;
+                    }
+                    //click dpad-down, deactivates spawner
+                    else if (enemySpawnerActive == true && Input.GetButtonDown("PS4_Button_DPAD_VerticalDown_P3_MAC"))
+                    {
+                        enemySpawnerActive = false;
+                    }
+                }*/
+
+
+
+                //Switching Enemy Type To Spawn
+                //timer - how long in between dpad clicks to switch enemy
+                if (switchEnemyTypeTimer >= 0)
+                {
+                    switchEnemyTypeTimer -= Time.deltaTime;
+                }
+                if (SceneSwitchingScript.isXbox == true)
+                {
+                    //if hit right dpad
+                    if (Input.GetButtonDown("Xbox_Button_DPAD_HorizontalRight_P3_MAC") && switchEnemyTypeTimer < 0)
+                    {
+                        switchEnemyTypeTimer = .5f;
+                        theEnemyType += 1;
+                        //loops enum back to Bread(1) if player pushes too much to the right
+                        if (theEnemyType == EnemyType.Enemy_enum_Bread) { }
+                        else if (theEnemyType == EnemyType.Enemy_enum_Tomato) { }
+                        else if (theEnemyType == EnemyType.Enemy_enum_Spaghetti) { }
+                        else if (theEnemyType == EnemyType.Enemy_enum_Onion) { }
+                        else if (theEnemyType == EnemyType.Enemy_enum_Cheese) { }
+                        else { theEnemyType = EnemyType.Enemy_enum_Bread; }
+
+                    }
+                    //if hit left dpad
+                    else if (Input.GetButtonDown("Xbox_Button_DPAD_HorizontalLeft_P3_MAC") && switchEnemyTypeTimer < 0)
+                    {
+                        switchEnemyTypeTimer = .5f;
+                        theEnemyType -= 1;
+                        //loops enum to Cheese(5) if player pushes too much to the left
+                        if (theEnemyType == EnemyType.Enemy_enum_Bread) { }
+                        else if (theEnemyType == EnemyType.Enemy_enum_Tomato) { }
+                        else if (theEnemyType == EnemyType.Enemy_enum_Spaghetti) { }
+                        else if (theEnemyType == EnemyType.Enemy_enum_Onion) { }
+                        else if (theEnemyType == EnemyType.Enemy_enum_Cheese) { }
+                        else { theEnemyType = EnemyType.Enemy_enum_Cheese; }
+                    }
+                }
+
+                /*else if (SceneSwitchingScript.isXbox == false)
+                {
+                    //if hit right dpad
+                    if (Input.GetButtonDown("PS4_Button_DPAD_HorizontalRight_P3_MAC") && switchEnemyTypeTimer < 0)
+                    {
+                        switchEnemyTypeTimer = .5f;
+                        theEnemyType += 1;
+                        //loops enum back to Bread(1) if player pushes too much to the right
+                        if (theEnemyType == EnemyType.Enemy_enum_Bread) { }
+                        else if (theEnemyType == EnemyType.Enemy_enum_Tomato) { }
+                        else if (theEnemyType == EnemyType.Enemy_enum_Spaghetti) { }
+                        else if (theEnemyType == EnemyType.Enemy_enum_Onion) { }
+                        else if (theEnemyType == EnemyType.Enemy_enum_Cheese) { }
+                        else { theEnemyType = EnemyType.Enemy_enum_Bread; }
+
+                    }
+                    //if hit left dpad
+                    else if (Input.GetButtonDown("PS4_Button_DPAD_HorizontalLeft_P3_MAC") && switchEnemyTypeTimer < 0)
+                    {
+                        switchEnemyTypeTimer = .5f;
+                        theEnemyType -= 1;
+                        //loops enum to Cheese(5) if player pushes too much to the left
+                        if (theEnemyType == EnemyType.Enemy_enum_Bread) { }
+                        else if (theEnemyType == EnemyType.Enemy_enum_Tomato) { }
+                        else if (theEnemyType == EnemyType.Enemy_enum_Spaghetti) { }
+                        else if (theEnemyType == EnemyType.Enemy_enum_Onion) { }
+                        else if (theEnemyType == EnemyType.Enemy_enum_Cheese) { }
+                        else { theEnemyType = EnemyType.Enemy_enum_Cheese; }
+                    }
+                }*/
+
+
+            }
             if (enemySpawnTimer > 0 && enemySpawnerActive == true && enemyReadyToSpawn == false)
             {
                 enemySpawnTimer -= Time.deltaTime;

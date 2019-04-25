@@ -33,7 +33,7 @@ public class EventSystemPauseScript : MonoBehaviour
             }
             else if (SceneSwitchingScript.isXbox == false)
             {
-                GetComponent<StandaloneInputModule>().submitButton = "PS4_Button_A_ALL_MAC";
+                GetComponent<StandaloneInputModule>().submitButton = "PS4_Button_A_ALL";
             }
 
         }

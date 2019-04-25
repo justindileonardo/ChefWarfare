@@ -67,6 +67,14 @@ public class PlayerMovement : MonoBehaviour
         respawnPosition = transform.position;
         moveSpeedEffectTimer = 0;
 
+        if (SceneSwitchingScript.isMac == false)
+        {
+            isMac = false;
+        }
+        else if(SceneSwitchingScript.isMac == true)
+        {
+            isMac = true;
+        }
        
     }
 
