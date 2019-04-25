@@ -12,7 +12,8 @@ public class SceneSwitchingScript : MonoBehaviour
     public static bool isXbox;
     private string inputStart;
 
-    
+    public Toggle pickXbox;
+    public Toggle pickPS4;
 
     public Text text_winner;
 
@@ -38,10 +39,10 @@ public class SceneSwitchingScript : MonoBehaviour
 
     private void Awake()
     {
-        //isMac = false;              //NEEDS TO BE TRUE IF A MAC
-        isMac = true;
-        //isXbox = false;             //NEEDS TO BE TRUE IF XBOX CONTROLLER
-        isXbox = true;
+        isMac = false;              //NEEDS TO BE TRUE IF A MAC
+        //isMac = true;
+        //isMac = true;
+
 
 
     }
@@ -200,6 +201,19 @@ public class SceneSwitchingScript : MonoBehaviour
     void Update()
     {
         print(isXbox);
+    }
+
+
+    public void PickXbox()
+    {
+        isXbox = true;
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void PickPS4()
+    {
+        isXbox = false;
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void GoToGameFFA()
