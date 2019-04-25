@@ -385,8 +385,8 @@ public class WeaponManager : MonoBehaviour
         switchWeaponTimerCooldownLength = 1.0f;
         peaShooter_CooldownLength = 0.75f;
         semiAutoRifle_CooldownLength = 0.4f;       
-        burstRifle_CooldownLength = 0.7f;      
-        shotgun_CooldownLength = 1.5f;
+        burstRifle_CooldownLength = 0.6f;      
+        shotgun_CooldownLength = 1.35f;
         spaghettiWhipCheese_CooldownLength = 1.0f;
         spaghettiWhipOnion_CooldownLength = 1.0f;
 
@@ -1086,7 +1086,7 @@ public class WeaponManager : MonoBehaviour
                     bullet5 = Instantiate(Prefab_TomatoChunkShotgun, new Vector3(Weapon_BulletSpawnPoint_Shotgun5.transform.position.x, Weapon_BulletSpawnPoint_Shotgun5.transform.position.y, Weapon_BulletSpawnPoint_Shotgun5.transform.position.z), Weapon_BulletSpawnPoint_Shotgun5.transform.rotation);
                     SFX_shootShotgun.Play();
 
-                    if(LevelLogic.mode == "FFA")
+                    if(LevelLogic.mode == "FFA" || LevelLogic.mode == "1v1")
                     {
                         if (player1)
                         {

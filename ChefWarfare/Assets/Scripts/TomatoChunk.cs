@@ -21,7 +21,7 @@ public class TomatoChunk : MonoBehaviour
         SFX_hit.volume = levelLogicScript.sfxVolumeSlider.value;
 
         existTimer = 0;
-        damage = 9;
+        damage = 8;
         //GetComponent<BoxCollider2D>().enabled = false;
         //finds closest player
         float distanceToClosestPlayer = Mathf.Infinity;

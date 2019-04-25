@@ -965,7 +965,7 @@ MonoBehaviour:
   m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 1860851698}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1203016916
@@ -1023,6 +1023,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36695f86c2d7f2a4cb4930e682bd96b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickXbox: {fileID: 0}
+  pickPS4: {fileID: 0}
   text_winner: {fileID: 1146064954}
   text_FFAScoreP1: {fileID: 948361518}
   text_FFAScoreP2: {fileID: 1353416063}

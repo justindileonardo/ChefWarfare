@@ -104,7 +104,7 @@ public class RecipeBook : MonoBehaviour
             levelLogicScript.es4.SetSelectedGameObject(levelLogicScript.es4_firstSelected);
         }
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
     }
 
     IEnumerator ExitCookingStationDelay()
@@ -136,7 +136,7 @@ public class RecipeBook : MonoBehaviour
             myPlayerInventoryScript.NotInRecipeBook();
         }
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
     }
 
     public void ExitCookingStationDelayFunction()
