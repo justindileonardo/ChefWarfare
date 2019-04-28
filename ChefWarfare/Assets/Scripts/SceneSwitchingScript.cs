@@ -33,9 +33,7 @@ public class SceneSwitchingScript : MonoBehaviour
     public Image chef_FFA_orange;
 
     public Image chef_2v2_red;
-    public Image chef_2v2_red2;
     public Image chef_2v2_blue;
-    public Image chef_2v2_blue2;
 
     private void Awake()
     {
@@ -99,9 +97,7 @@ public class SceneSwitchingScript : MonoBehaviour
             chef_FFA_orange.enabled = false;
 
             chef_2v2_red.enabled = false;
-            chef_2v2_red2.enabled = false;
             chef_2v2_blue.enabled = false;
-            chef_2v2_blue2.enabled = false;
 
             if (LevelLogic.mode == "FFA")
             {
@@ -151,14 +147,12 @@ public class SceneSwitchingScript : MonoBehaviour
                     text_winner.text = "Red Team Wins!";
                     text_winner.color = colors[0];
                     chef_2v2_red.enabled = true;
-                    chef_2v2_red2.enabled = true;
                 }
                 else if(LevelLogic.scoreBlue > LevelLogic.scoreRed)
                 {
                     text_winner.text = "Blue Team Wins!";
                     text_winner.color = colors[1];
                     chef_2v2_blue.enabled = true;
-                    chef_2v2_blue2.enabled = true;
                 }
                 else
                 {
