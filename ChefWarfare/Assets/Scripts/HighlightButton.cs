@@ -80,6 +80,21 @@ public class HighlightButton : MonoBehaviour, ISelectHandler, IPointerEnterHandl
             chef_1v1_red.enabled = true;
             chef_1v1_blue.enabled = true;
         }
+        else if(gameObject.name == "Button_TutorialNext")
+        {
+            chef_FFA_red.enabled = false;
+            chef_FFA_blue.enabled = false;
+            chef_FFA_green.enabled = false;
+            chef_FFA_orange.enabled = false;
+
+            chef_2v2_red.enabled = false;
+            chef_2v2_red2.enabled = false;
+            chef_2v2_blue.enabled = false;
+            chef_2v2_blue2.enabled = false;
+
+            chef_1v1_red.enabled = false;
+            chef_1v1_blue.enabled = false;
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -128,6 +143,21 @@ public class HighlightButton : MonoBehaviour, ISelectHandler, IPointerEnterHandl
 
             chef_1v1_red.enabled = true;
             chef_1v1_blue.enabled = true;
+        }
+        else if (gameObject.name == "Button_TutorialNext")
+        {
+            chef_FFA_red.enabled = false;
+            chef_FFA_blue.enabled = false;
+            chef_FFA_green.enabled = false;
+            chef_FFA_orange.enabled = false;
+
+            chef_2v2_red.enabled = false;
+            chef_2v2_red2.enabled = false;
+            chef_2v2_blue.enabled = false;
+            chef_2v2_blue2.enabled = false;
+
+            chef_1v1_red.enabled = false;
+            chef_1v1_blue.enabled = false;
         }
     }
     

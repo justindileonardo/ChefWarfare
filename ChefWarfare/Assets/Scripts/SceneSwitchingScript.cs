@@ -193,7 +193,7 @@ public class SceneSwitchingScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(isXbox);
+        //print(isXbox);
 
         if(SceneManager.GetActiveScene().name == "ControllerSelect")
         {
