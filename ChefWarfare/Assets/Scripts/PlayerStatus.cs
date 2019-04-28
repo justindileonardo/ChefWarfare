@@ -326,7 +326,95 @@ public class PlayerStatus : MonoBehaviour
                 StartCoroutine(CloseControls());
             }
         }
-        
+
+        //setting inputBackButton
+        //not mac
+        if (!myPlayer.isMac)
+        {
+            if (SceneSwitchingScript.isXbox == true)
+            {
+                if (myPlayer.player1)
+                {
+                    inputBack = "Xbox_Button_Back_P1";
+                }
+                else if (myPlayer.player2)
+                {
+                    inputBack = "Xbox_Button_Back_P2";
+                }
+                else if (myPlayer.player3)
+                {
+                    inputBack = "Xbox_Button_Back_P3";
+                }
+                else if (myPlayer.player4)
+                {
+                    inputBack = "Xbox_Button_Back_P4";
+                }
+            }
+            else if (SceneSwitchingScript.isXbox == false)
+            {
+                if (myPlayer.player1)
+                {
+                    inputBack = "PS4_Button_Back_P1";
+                }
+                else if (myPlayer.player2)
+                {
+                    inputBack = "PS4_Button_Back_P2";
+                }
+                else if (myPlayer.player3)
+                {
+                    inputBack = "PS4_Button_Back_P3";
+                }
+                else if (myPlayer.player4)
+                {
+                    inputBack = "PS4_Button_Back_P4";
+                }
+            }
+
+
+        }
+        //mac
+        else if (myPlayer.isMac)
+        {
+            if (SceneSwitchingScript.isXbox == true)
+            {
+                if (myPlayer.player1)
+                {
+                    inputBack = "Xbox_Button_Back_P1_MAC";
+                }
+                else if (myPlayer.player2)
+                {
+                    inputBack = "Xbox_Button_Back_P2_MAC";
+                }
+                else if (myPlayer.player3)
+                {
+                    inputBack = "Xbox_Button_Back_P3_MAC";
+                }
+                else if (myPlayer.player4)
+                {
+                    inputBack = "Xbox_Button_Back_P4_MAC";
+                }
+            }
+            else if (SceneSwitchingScript.isXbox == false)
+            {
+                if (myPlayer.player1)
+                {
+                    inputBack = "PS4_Button_Back_P1";
+                }
+                else if (myPlayer.player2)
+                {
+                    inputBack = "PS4_Button_Back_P2";
+                }
+                else if (myPlayer.player3)
+                {
+                    inputBack = "PS4_Button_Back_P3";
+                }
+                else if (myPlayer.player4)
+                {
+                    inputBack = "PS4_Button_Back_P4";
+                }
+            }
+
+        }
 
         //makes it so when dead cant move
         if (myPlayer.player1)

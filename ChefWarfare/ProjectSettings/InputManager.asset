@@ -1844,7 +1844,7 @@ InputManager:
     invert: 0
     type: 0
     axis: 0
-    joyNum: 4
+    joyNum: 3
   - serializedVersion: 3
     m_Name: Xbox_Button_A_P4
     descriptiveName: 

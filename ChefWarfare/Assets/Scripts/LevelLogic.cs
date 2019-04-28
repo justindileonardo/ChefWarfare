@@ -89,10 +89,7 @@ public class LevelLogic : MonoBehaviour
     void Update()
     {
 
-        if(Input.GetKeyDown(KeyCode.P))
-        {
-            Time.timeScale = 0;
-        }
+
 
         if(thePlayer1.isMac == false)
         {
