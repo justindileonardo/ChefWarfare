@@ -108,6 +108,14 @@ public class LevelLogic : MonoBehaviour
                     pauseEventSystem.enabled = true;
                     pauseEventSystem.SetSelectedGameObject(resumeButton);
                     MUSIC.Pause();
+                    if (SFX_10SecsAndWallsDrop.isPlaying == true)
+                    {
+                        SFX_10SecsAndWallsDrop.Pause();
+                    }
+                    if (SFX_10Secs.isPlaying == true)
+                    {
+                        SFX_10Secs.Pause();
+                    }
                 }
                 else if (Input.GetButtonDown("Xbox_Button_Start") && gameIsPaused == true)
                 {
@@ -120,6 +128,14 @@ public class LevelLogic : MonoBehaviour
                     eventSystem3.enabled = true;
                     eventSystem4.enabled = true;
                     MUSIC.UnPause();
+                    if (gameTimerPre <= 10f && gameTimerPre > 0)
+                    {
+                        SFX_10SecsAndWallsDrop.UnPause();
+                    }
+                    if (gameTimerPost <= 10f && gameTimerPost > 0)
+                    {
+                        SFX_10Secs.UnPause();
+                    }
                 }
                 else if (Input.GetButtonDown("Xbox_Button_B_ALL") && gameIsPaused == true)
                 {
@@ -132,6 +148,14 @@ public class LevelLogic : MonoBehaviour
                     eventSystem3.enabled = true;
                     eventSystem4.enabled = true;
                     MUSIC.UnPause();
+                    if (gameTimerPre <= 10f && gameTimerPre > 0)
+                    {
+                        SFX_10SecsAndWallsDrop.UnPause();
+                    }
+                    if (gameTimerPost <= 10f && gameTimerPost > 0)
+                    {
+                        SFX_10Secs.UnPause();
+                    }
                 }
             }
             else if(SceneSwitchingScript.isXbox == false)
@@ -149,6 +173,14 @@ public class LevelLogic : MonoBehaviour
                     pauseEventSystem.enabled = true;
                     pauseEventSystem.SetSelectedGameObject(resumeButton);
                     MUSIC.Pause();
+                    if (SFX_10SecsAndWallsDrop.isPlaying == true)
+                    {
+                        SFX_10SecsAndWallsDrop.Pause();
+                    }
+                    if (SFX_10Secs.isPlaying == true)
+                    {
+                        SFX_10Secs.Pause();
+                    }
                 }
                 else if (Input.GetButtonDown("PS4_Button_Start") && gameIsPaused == true)
                 {
@@ -161,6 +193,14 @@ public class LevelLogic : MonoBehaviour
                     eventSystem3.enabled = true;
                     eventSystem4.enabled = true;
                     MUSIC.UnPause();
+                    if (gameTimerPre <= 10f && gameTimerPre > 0)
+                    {
+                        SFX_10SecsAndWallsDrop.UnPause();
+                    }
+                    if (gameTimerPost <= 10f && gameTimerPost > 0)
+                    {
+                        SFX_10Secs.UnPause();
+                    }
                 }
                 else if (Input.GetButtonDown("PS4_Button_B_ALL") && gameIsPaused == true)
                 {
@@ -173,6 +213,14 @@ public class LevelLogic : MonoBehaviour
                     eventSystem3.enabled = true;
                     eventSystem4.enabled = true;
                     MUSIC.UnPause();
+                    if (gameTimerPre <= 10f && gameTimerPre > 0)
+                    {
+                        SFX_10SecsAndWallsDrop.UnPause();
+                    }
+                    if (gameTimerPost <= 10f && gameTimerPost > 0)
+                    {
+                        SFX_10Secs.UnPause();
+                    }
                 }
             }
         
@@ -195,6 +243,14 @@ public class LevelLogic : MonoBehaviour
                     pauseEventSystem.enabled = true;
                     pauseEventSystem.SetSelectedGameObject(resumeButton);
                     MUSIC.Pause();
+                    if(SFX_10SecsAndWallsDrop.isPlaying == true)
+                    {
+                        SFX_10SecsAndWallsDrop.Pause();
+                    }
+                    if(SFX_10Secs.isPlaying == true)
+                    {
+                        SFX_10Secs.Pause();
+                    }
                 }
                 else if (Input.GetButtonDown("Xbox_Button_Start_MAC") && gameIsPaused == true)
                 {
@@ -207,6 +263,14 @@ public class LevelLogic : MonoBehaviour
                     eventSystem3.enabled = true;
                     eventSystem4.enabled = true;
                     MUSIC.UnPause();
+                    if(gameTimerPre <= 10f && gameTimerPre > 0)
+                    {
+                        SFX_10SecsAndWallsDrop.UnPause();
+                    }
+                    if(gameTimerPost <= 10f && gameTimerPost > 0)
+                    {
+                        SFX_10Secs.UnPause();
+                    }
                 }
                 else if (Input.GetButtonDown("Xbox_Button_B_ALL_MAC") && gameIsPaused == true)
                 {
@@ -219,6 +283,14 @@ public class LevelLogic : MonoBehaviour
                     eventSystem3.enabled = true;
                     eventSystem4.enabled = true;
                     MUSIC.UnPause();
+                    if (gameTimerPre <= 10f && gameTimerPre > 0)
+                    {
+                        SFX_10SecsAndWallsDrop.UnPause();
+                    }
+                    if (gameTimerPost <= 10f && gameTimerPost > 0)
+                    {
+                        SFX_10Secs.UnPause();
+                    }
                 }
             }
             else if(SceneSwitchingScript.isXbox == false)
@@ -236,6 +308,14 @@ public class LevelLogic : MonoBehaviour
                     pauseEventSystem.enabled = true;
                     pauseEventSystem.SetSelectedGameObject(resumeButton);
                     MUSIC.Pause();
+                    if (SFX_10SecsAndWallsDrop.isPlaying == true)
+                    {
+                        SFX_10SecsAndWallsDrop.Pause();
+                    }
+                    if (SFX_10Secs.isPlaying == true)
+                    {
+                        SFX_10Secs.Pause();
+                    }
                 }
                 else if (Input.GetButtonDown("PS4_Button_Start") && gameIsPaused == true)
                 {
@@ -248,6 +328,14 @@ public class LevelLogic : MonoBehaviour
                     eventSystem3.enabled = true;
                     eventSystem4.enabled = true;
                     MUSIC.UnPause();
+                    if (gameTimerPre <= 10f && gameTimerPre > 0)
+                    {
+                        SFX_10SecsAndWallsDrop.UnPause();
+                    }
+                    if (gameTimerPost <= 10f && gameTimerPost > 0)
+                    {
+                        SFX_10Secs.UnPause();
+                    }
                 }
                 else if (Input.GetButtonDown("PS4_Button_B_ALL") && gameIsPaused == true)
                 {
@@ -260,6 +348,14 @@ public class LevelLogic : MonoBehaviour
                     eventSystem3.enabled = true;
                     eventSystem4.enabled = true;
                     MUSIC.UnPause();
+                    if (gameTimerPre <= 10f && gameTimerPre > 0)
+                    {
+                        SFX_10SecsAndWallsDrop.UnPause();
+                    }
+                    if (gameTimerPost <= 10f && gameTimerPost > 0)
+                    {
+                        SFX_10Secs.UnPause();
+                    }
                 }
             }
 
@@ -364,6 +460,14 @@ public class LevelLogic : MonoBehaviour
         eventSystem3.enabled = true;
         eventSystem4.enabled = true;
         MUSIC.UnPause();
+        if (gameTimerPre <= 10f && gameTimerPre > 0)
+        {
+            SFX_10SecsAndWallsDrop.UnPause();
+        }
+        if (gameTimerPost <= 10f && gameTimerPost > 0)
+        {
+            SFX_10Secs.UnPause();
+        }
     }
 
     public void RestartGame()
