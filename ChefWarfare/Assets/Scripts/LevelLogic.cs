@@ -472,7 +472,7 @@ public class LevelLogic : MonoBehaviour
 
     public void RestartGame()
     {
-        eachGameLength = 300f;          //300f = 5 minutes      //180 = 3 minutes
+        eachGameLength = /*300*/10f;          //300f = 5 minutes      //180 = 3 minutes
         gameTimerPre = eachGameLength;
         gameTimerPost = eachGameLength;
         wallsDropped = false;
