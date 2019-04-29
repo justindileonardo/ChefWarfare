@@ -115,27 +115,27 @@ public class SpaghettiWhip_Onion : MonoBehaviour
             }
         }
 
-        else if (other.gameObject.tag == "Enemy_Bread")
+        if (other.gameObject.tag == "Enemy_Bread")
         {
             other.gameObject.GetComponent<Enemy_Bread>().HP -= damage * weaponManagerScript.damageBoostMultiplier;
             SFX_hit.Play();
         }
-        else if (other.gameObject.tag == "Enemy_Tomato")
+        if (other.gameObject.tag == "Enemy_Tomato")
         {
             other.gameObject.GetComponent<Enemy_Tomato>().HP -= damage * weaponManagerScript.damageBoostMultiplier;
             SFX_hit.Play();
         }
-        else if (other.gameObject.tag == "Enemy_Spaghetti")
+        if (other.gameObject.tag == "Enemy_Spaghetti")
         {
             other.gameObject.GetComponent<Enemy_Spaghetti>().HP -= damage / 2 * weaponManagerScript.damageBoostMultiplier;            //the trigger for when the spaghetti enemy knows to attack gets hit, so it hits twice.  Maybe fix this one day?   
             SFX_hit.Play();
         }
-        else if (other.gameObject.tag == "Enemy_Cheese")
+        if (other.gameObject.tag == "Enemy_Cheese")
         {
             other.gameObject.GetComponent<Enemy_Cheese>().HP -= damage * weaponManagerScript.damageBoostMultiplier;
             SFX_hit.Play();
         }
-        else if (other.gameObject.tag == "Enemy_Onion")
+        if (other.gameObject.tag == "Enemy_Onion")
         {
             other.gameObject.GetComponent<Enemy_Onion>().HP -= damage * weaponManagerScript.damageBoostMultiplier;
             SFX_hit.Play();
